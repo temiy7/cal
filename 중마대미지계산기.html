@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <title>마비노기 중,고급마법 계산기</title>
+
+        <style>
+            .button {
+        
+                width:100px;
+            
+                background-color: #00004a;
+            
+                border: none;
+            
+                color:#fff;
+            
+                padding: 15px 0;
+            
+                text-align: center;
+            
+                text-decoration: none;
+            
+                display: inline-block;
+            
+                font-size: 15px;
+            
+                margin: 4px;
+            
+                cursor: pointer;
+        
+                border-radius:10px;
+            
+            }
+            </style>
+
+            
+
+        <script>
+
+            
+            function cal(){
+                var v1 = Number(document.getElementById("v1").value); // 마법공격력
+                var v2 = Number(document.getElementById("v2").value); // 최댐인챈트
+                var v3 = Number(document.getElementById("v3").value); // 썬더최댐
+                var v4 = Number(document.getElementById("v4").value); // 파이어볼최댐
+                var v5 = Number(document.getElementById("v5").value); // 아습최댐
+                var v6 = Number(document.getElementById("v6").value); // 라이트닝마스터리
+                var v7 = Number(document.getElementById("v7").value); // 파이어마스터리
+                var v8 = Number(document.getElementById("v8").value); //  아이스마스터리
+                var v18 = Number(document.getElementById("v18").value);// 헤일최댐세공
+                var v19 = Number(document.getElementById("v19").value);// 라로 대미지 에코
+                var v20 = Number(document.getElementById("v20").value);// 라로 풀차지 대미지 
+                var vv = document.getElementsByName("v9"); //로즈마리  
+                var v9 = document.getElementById("v9")           
+                    for (var i=0; i<vv.length;i++)
+                    {  
+                    if (vv[i].checked)
+                    v9 = 0
+                    else
+                    v9 = 1;
+                    break;
+                    }
+                var v10 = Number(document.getElementById("v10").value); // 추가크리
+                var v11 = Number(document.getElementById("v11").value); // 썬더콤카
+                var v12 = Number(document.getElementById("v12").value); // 아습콤카
+                var v15 = Number(document.getElementById("v15").value); // 파볼콤카
+                var v16 = Number(document.getElementById("v16").value); //헤일콤카
+                var v17 = Number(document.getElementById("v17").value); //라로콤카
+                var v13 = Number(document.getElementById("v13").value); // 전장비율
+                var v14 = Number(document.getElementById("v14").value); //맥뎀
+                var vv2 = document.getElementsByName("v21"); //바다의 지배자  
+                var v21 = document.getElementById("v21")          
+                    for (var i=0; i<vv2.length;i++)
+                    {  
+                    if (vv2[i].checked)
+                    v21 = 0;
+                    else
+                    v21 = 1;
+                    break;
+                    }
+                var v22 = Number(document.getElementById("v22").value); //메테오 최댐
+
+                var vm = document.getElementsByName("v23"); // 물공포
+                var v23 = document.getElementById("v23")              
+                    for (var i=0; i<vm.length;i++)
+                    {  
+                    if (vm[i].checked)
+                    v23 = 0;
+                    else
+                    v23 = 1;
+                    break;
+                    }                    
+
+                var v24 = Number(document.getElementById("v24").value); //추가대미지  
+                
+
+
+
+
+                var res1; // 썬더 대미지 3차지
+        
+                    res1 = (481+3.5*v1+0.5*v2+0.5*v14*(1+0.2*v23)*(v13/100)+5*v3)*3.5*(1+0.15+0.005*v6+(v11/100))*(1+v24/100)
+                
+                document.getElementById("res1").value =Math.floor(res1);
+
+
+                var res3; //썬더 대미지 5차지
+
+                    res3 = (481+3.5*v1+0.5*v2+0.5*v14*(1+0.2*v23)*(v13/100)+5*v3)*6*(1+0.15+0.005*v6+(v11/100))*(1+v24/100)
+                
+                 document.getElementById("res3").value =Math.floor(res3);
+
+
+                var res4; //파이어볼 5차지대미지 
+
+                    res4 = (2760+21*v1+0.5*v2+0.5*v14*(1+0.2*v23)*(v13/100)+15*v4)*(1+0.15+0.005*v7+(v15/100))*(1+v24/100)
+
+                document.getElementById("res4").value =Math.floor(res4);
+
+                var res5; //아이스 스피어 3차지 대미지
+                   
+                    res5 = (336+2.3*v1+0.1*v2+0.1*v14*(1+0.2*v23)*(v13/100)+5*v5)*3*(1+0.15+0.005*v8+0.15*v9+(v12/100))*(1+v24/100)
+                
+                document.getElementById("res5").value =Math.floor(res5);
+
+                
+                var res6; //아이스스피어 5차지 대미지 
+                   
+                    res6 = (336+2.3*v1+0.1*v2+0.1*v14*(1+0.2*v23)*(v13/100)+5*v5)*6.5*(1+0.15+0.005*v8+0.15*v9+(v12/100))*(1+v24/100)
+                
+                document.getElementById("res6").value =Math.floor(res6);
+
+                
+                var res7; //헤일스톰 대미지
+                   
+                    res7=(300+3.2*v1+10*v18)*6.25*(1+0.15+0.005*v8+0.15*v9+(v16/100))*(1+v24/100)
+                
+                document.getElementById("res7").value =Math.floor(res7);
+                
+                var res8; //라이트닝 로드 대미지
+                   
+                   res8=(500+12*v1+20*v19)*3.3*(1+0.15+0.005*v6+(v17/100)+(v20/100))*(1+0.1*v21)*(1+v24/100)
+               
+               document.getElementById("res8").value =Math.floor(res8);
+              
+               var res9; //썬3크리
+                   
+                   res9=res1*(2.5+(v10/100));
+               
+               document.getElementById("res9").value =Math.floor(res9);
+              
+               var res10; //썬5크리
+                   
+                   res10=res3*(2.5+(v10/100));
+               
+               document.getElementById("res10").value =Math.floor(res10);
+               
+               var res11; //파볼크리
+                   
+                   res11=res4*(2.5+(v10/100));
+               
+               document.getElementById("res11").value =Math.floor(res11);
+               
+               var res12; //아3크리
+                   
+                   res12=res5*(2.5+(v10/100));
+               
+               document.getElementById("res12").value =Math.floor(res12);
+
+               var res13; //아5크리
+                   
+                   res13=res6*(2.5+(v10/100));
+               
+               document.getElementById("res13").value =Math.floor(res13);
+
+               var res14; //헤일크리
+                   
+                   res14=res7*(2.5+(v10/100));
+               
+               document.getElementById("res14").value =Math.floor(res14);
+               
+               var res15; //라로크리
+                   
+                   res15=res8*(2.5+(v10/100));
+
+                   document.getElementById("res15").value =Math.floor(res15);
+
+               var res16; //파볼 3차지
+                   
+                   res16 = (425+3.23*v1+0.077*v2+0.077*v14*(v13/100)+2.3*v4)*3*(1+0.15+0.005*v7+(v15/100))*(1+v24/100)
+
+                   document.getElementById("res16").value =Math.floor(res16); 
+              
+               var res17; //파볼 1차지 크리 
+                   
+                   res17=res16*(2.5+(v10/100));
+
+                   document.getElementById("res17").value =Math.floor(res17); 
+                   
+               var res18; //메테오
+                   
+                   res18 = (7517+(8400+160*v1+150*v22)*(1+0.15+0.005*v7))*(1+v24/100)
+
+                   document.getElementById("res18").value =Math.floor(res18);     
+                   
+               var res19; //메테오 크리
+                   
+                   res19 = res18*(2.5+(v10/100));
+
+                   document.getElementById("res19").value =Math.floor(res19);                    
+                
+
+            }
+
+            function reset(){
+                document.getElementById("v1").value = "";
+                document.getElementById("v2").value = "";
+                document.getElementById("v3").value = "";
+                document.getElementById("v4").value = "";
+                document.getElementById("v5").value = "";
+                document.getElementById("v6").value = "";
+                document.getElementById("v7").value = "";
+                document.getElementById("v8").value = "";
+                document.getElementById("v10").value = "";
+                document.getElementById("v11").value = "";
+                document.getElementById("v12").value = "";
+                document.getElementById("v13").value = "";
+                document.getElementById("v14").value = "";
+                document.getElementById("v15").value = "";
+                document.getElementById("v16").value = "";
+                document.getElementById("v17").value = "";
+                document.getElementById("v18").value = "";
+                document.getElementById("v19").value = "";
+                document.getElementById("v20").value = "";
+                document.getElementById("v24").value = "";
+                document.getElementById("res1").value = "";
+                document.getElementById("res3").value = "";
+                document.getElementById("res4").value = "";
+                document.getElementById("res5").value = "";
+                document.getElementById("res6").value = "";
+                document.getElementById("res7").value = "";
+                document.getElementById("res8").value = "";
+                document.getElementById("res9").value = "";
+                document.getElementById("res10").value = "";
+                document.getElementById("res11").value = "";
+                document.getElementById("res12").value = "";
+                document.getElementById("res13").value = "";
+                document.getElementById("res14").value = "";
+                document.getElementById("res15").value = "";
+                document.getElementById("res16").value = "";
+                document.getElementById("res17").value = "";
+                document.getElementById("res18").value = "";
+                document.getElementById("res19").value = "";
+                
+            }
+
+            
+        </script>
+    </head>
+    <body>
+        
+        해당 계산기에 적용되는 모든 마법 및 패시브의 랭크는 최고랭크 기준입니다. 
+        
+        <br><br>
+        스텟<br>
+        <div style="height: auto; width: 30%; border: 1px solid; padding:10px">
+        마법공격력: 
+        <input type="text" id="v1" size="5" placeholder="0"><br>
+        최댐인챈트+낭농최댐: 
+        <input type="text" id="v2" size="5" placeholder="0"></div><br><br>
+        세공<br>
+        *세공은 마기그래프와 합연산이므로 더해서 사용하시면 됩니다.<br><br>
+        <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+         라이트닝마스터리 세공LV:
+        <input type="text" id="v6" size="3" placeholder="0"><br>        
+        
+            썬더 최댐 세공LV:
+        <input type="text" id="v3" size="3" placeholder="0"><br>
+
+        라이트닝 로드 최댐 에코LV:
+        <input type="text" id="v19" size="3" placeholder="0"><br>
+
+        라이트닝 로드 풀차지 대미지 비율%:
+        <input type="text" id="v20" size="3" placeholder="0">
+        </div> <br>
+
+        <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+        파이어마스터리 세공LV:
+        <input type="text" id="v7" size="3" placeholder="0"><br>        
+        파이어볼 최댐 세공LV:
+        <input type="text" id="v4" size="3" placeholder="0"><br>
+        메테오 세공LV:
+        <input type="text" id="v22" size="3" placeholder="0">
+        </div><br>
+
+        <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+        아이스마스터리 세공LV:
+        <input type="text" id="v8" size="3" placeholder="0"><br>       
+        아이스스피어 최댐 세공LV:
+        <input type="text" id="v5" size="3" placeholder="0"><br>
+        헤일스톰 최댐 세공LV:
+        <input type="text" id="v18" size="3" placeholder="0">
+          
+        </div><br><br>
+
+        아이템<br>
+        <div style="height: auto; width: 15%; border: 1px solid; padding:10px">
+        로즈마리:
+        <input type="radio" name="v9" id="v9" value="1" checked>비적용 
+        <input type="radio" name="v9" id="v9_1"value="0" >적용     
+        <br>
+        바다의 지배자:
+        <input type="radio" name="v21" id="v21" value="1" checked>비적용 
+        <input type="radio" name="v21" id="v21_1"value="0" >적용</div>     
+        <br><br>
+
+
+        도핑<br>
+        <div style="height: auto; width: 15%; border: 1px solid; padding:10px">
+        전장비율%:
+        <input type="text" id="v13" size="5" placeholder="0"><br>
+        최대공격력:
+        <input type="text" id="v14" size="5" placeholder="0"><br>
+        물리공격력 증가포션:
+        <input type="radio" name="v23" id="v23" value="1"checked >비적용 
+        <input type="radio" name="v23" id="v23_1" value="0"  >적용</div>     
+        <br><br>
+
+        콤보카드%
+        <br>
+        <div style="height: auto; width: 15%; border: 1px solid; padding:10px">
+        썬더 콤보카드%:
+        <input type="text" id="v11" size="5" placeholder="0"><br>
+        아이스스피어 콤보카드%:
+        <input type="text" id="v12" size="5" placeholder="0"><br>
+        파이어볼 콤보카드%:
+        <input type="text" id="v15" size="5" placeholder="0"><br>
+        헤일스톰 콤보카드%:
+        <input type="text" id="v16" size="5" placeholder="0"><br>
+        라이트닝 로드 콤보카드%:
+        <input type="text" id="v17" size="5" placeholder="0"></div><br>
+        <br>
+
+
+        추가크리 대미지%(이보나, 붉개등)
+        <input type="text" id="v10" size="5" placeholder="0"><br><br>
+        추가 대미지%(낭농인형,토템등)
+        <input type="text" id="v24" size="5" placeholder="0"><br><br>
+
+
+     
+    
+
+        결과
+        <br>
+        <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+        썬더 3차지<br> 대미지: 
+        <input type="text" id="res1" size="10"> 
+        크리:
+        <input type="text" id="res9" size="10"> <br>
+        썬더 5차지 <br>대미지
+        <input type="text" id="res3" size="10">  
+        크리:
+        <input type="text" id="res10" size="10"></div>  <br>
+
+        <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+        파이어볼 3차지<br> 대미지: 
+        <input type="text" id="res16" size="10"> 
+        크리: 
+        <input type="text" id="res17" size="10"> <br>
+        파이어볼 5차지<br> 대미지: 
+        <input type="text" id="res4" size="10"> 
+        크리: 
+        <input type="text" id="res11" size="10"></div> <br>
+
+        <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+        아이스스피어 3차지<br> 대미지:
+        <input type="text" id="res5" size="10"> 
+        크리:
+        <input type="text" id="res12" size="10"> <br>
+        아이스스피어 5차지<br> 대미지:
+        <input type="text" id="res6" size="10"> 
+        크리:
+        <input type="text" id="res13" size="10"></div> <br>
+
+        <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+        헤일스톰 5차지<br> 대미지:
+        <input type="text" id="res7" size="10"> 
+        크리:
+        <input type="text" id="res14" size="10"></div><br>
+
+        <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+        라이트닝 로드(풀차지)<br> 대미지:
+        <input type="text" id="res8" size="10">
+        크리:
+        <input type="text" id="res15" size="10"></div>  <br>
+
+        <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+        메테오 스트라이크<br> 대미지:
+        <input type="text" id="res18" size="10">
+        크리:
+        <input type="text" id="res19" size="10"> 
+         </div>
+        <br><br><br>
+
+        <input type="button" value="계산하기" class="button" onclick="cal()">
+        <input type="button" value="초기화"class="button" onclick="reset()">
+    </body>
+</html>
