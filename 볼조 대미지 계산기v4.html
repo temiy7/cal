@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>마비노기 볼트조합 계산기</title>
+        
+
+<style>
+    .button {
+
+        width:100px;
+    
+        background-color: #00004a;
+    
+        border: none;
+    
+        color:#fff;
+    
+        padding: 15px 0;
+    
+        text-align: center;
+    
+        text-decoration: none;
+    
+        display: inline-block;
+    
+        font-size: 15px;
+    
+        margin: 4px;
+    
+        cursor: pointer;
+
+        border-radius:10px;
+    
+    }
+    
+</style>         
+
+        <script>
+            
+            function cal(){
+                var v1 = Number(document.getElementById("v1").value); // 마법공격력
+                var v2 = Number(document.getElementById("v2").value); // 최댐인챈트
+                var v3 = Number(document.getElementById("v3").value); // 파볼트최댐
+                var v4 = Number(document.getElementById("v4").value); // 라볼트최댐
+                var v5 = Number(document.getElementById("v5").value); // 파이어마스터리
+                var v6 = Number(document.getElementById("v6").value); // 라이트닝마스터리
+                var v7 = Number(document.getElementById("v7").value); // 볼트마스터리
+                var v8 = Number(document.getElementById("v8").value); // 볼트조합
+                var vv = document.getElementsByName("v9"); // 헤보나로브
+                var v9 = document.getElementById("v9")              
+                    for (var i=0; i<vv.length;i++)
+                    {  
+                    if (vv[i].checked)
+                    v9 = 0
+                    else
+                    v9 = 1;
+                    break;
+                    }
+                var v10 = Number(document.getElementById("v10").value); // 추가크리
+                var v11 = Number(document.getElementById("v11").value); // 파볼트콤카
+                var v12 = Number(document.getElementById("v12").value); //라볼트콤카
+                var v13 = Number(document.getElementById("v13").value); // 전장비율
+                var v14 = Number(document.getElementById("v14").value); //맥뎀
+                var vt = document.getElementsByName("v15"); // 볼조 타이틀
+                var v15 = document.getElementById("v15")              
+                    for (var i=0; i<vt.length;i++)
+                    {  
+                    if (vt[i].checked)
+                    v15 = 0
+                    else
+                    v15 = 1;
+                    break;
+                    }
+                var vm = document.getElementsByName("v16"); // 물공포
+                var v16 = document.getElementById("v16")              
+                    for (var i=0; i<vm.length;i++)
+                    {  
+                    if (vm[i].checked)
+                    v16 = 0
+                    else
+                    v16 = 1;
+                    break;
+                    }                    
+                var v17 = Number(document.getElementById("v17").value); //추가대미지  
+
+
+
+
+
+                var res1; //파이어볼트5 대미지
+
+                    res1 = (126+0.5*v1+0.4*v2+v14*(1+0.2*v16)*0.4*(v13/100)+2.5*v3+25)*6.5*(1+1.5+0.3+0.01*v7+0.005*v5+0.15*v9+(v11/100))*(1+v17/100);
+                
+                document.getElementById("res1").value =Math.floor(res1);
+
+
+                var res3; //볼트조합3 대미지
+
+                    res3 = (((126+0.5*v1+0.4*v2+v14*(1+0.2*v16)*0.4*(v13/100)+2.5*v3+15)*3*(1+1.5+0.3+0.01*v7+0.005*v5+0.15*v9+(v11/100)))+((180+0.6*v1+0.44*v2+v14*(1+0.2*v16)*0.44*(v13/100)+2.5*v4+21)*(1+1.5+0.3+0.01*v7+0.005*v6+(v12/100))))*(1+0.3+0.01*v8)*(1+0.05*v15)*(1+v17/100);
+                
+                 document.getElementById("res3").value =Math.floor(res3);
+
+
+                var res4; //볼트조합5 대미지
+
+                    res4 = (((126+0.5*v1+0.4*v2+v14*(1+0.2*v16)*0.4*(v13/100)+2.5*v3+25)*6.5*(1+1.5+0.3+0.01*v7+0.005*v5+0.15*v9+(v11/100)))+((180+0.6*v1+0.44*v2+v14*(1+0.2*v16)*0.44*(v13/100)+2.5*v4+35)*(1+1.5+0.3+0.01*v7+0.005*v6+(v12/100))))*(1+0.3+0.01*v8)*(1+0.05*v15)*(1+v17/100);
+
+                document.getElementById("res4").value =Math.floor(res4);
+
+                var res5; //파볼트5 크리
+                   
+                    res5=res1*(2.5+(v10/100));
+                
+                document.getElementById("res5").value =Math.floor(res5);
+
+                
+                var res6; //볼트조합3 크리
+                   
+                    res6=res3*(2.5+(v10/100));
+                
+                document.getElementById("res6").value =Math.floor(res6);
+
+                
+                var res7; //볼트조합5 크리
+                   
+                    res7=res4*(2.5+(v10/100));
+                
+                document.getElementById("res7").value =Math.floor(res7);
+
+                
+
+            }
+
+            function reset(){
+                document.getElementById("v1").value = "";
+                document.getElementById("v2").value = "";
+                document.getElementById("v3").value = "";
+                document.getElementById("v4").value = "";
+                document.getElementById("v5").value = "";
+                document.getElementById("v6").value = "";
+                document.getElementById("v7").value = "";
+                document.getElementById("v8").value = "";
+                document.getElementById("v10").value = "";
+                document.getElementById("v11").value = "";
+                document.getElementById("v12").value = "";
+                document.getElementById("v13").value = "";
+                document.getElementById("v14").value = "";
+                document.getElementById("v17").value = "";
+                document.getElementById("res1").value = "";
+                document.getElementById("res3").value = "";
+                document.getElementById("res4").value = "";
+                document.getElementById("res5").value = "";
+                document.getElementById("res6").value = "";
+                document.getElementById("res7").value = "";
+            }
+        </script>
+    </head>
+    <body>
+        마비노기 볼트조합 대미지 계산기<br>
+        *해당 계산기에 적용되는 모든 볼트의 랭크는 3단, 패시브는 1랭크 기준입니다. 
+        
+        <br><br>
+        스텟<br>
+        <div style="height: auto; width: 15%; border: 1px solid; padding:10px">
+        마법공격력: 
+        <input type="text" id="v1" size="5" placeholder="0"><br>
+        최댐인챈트+낭농최댐: 
+        <input type="text" id="v2" size="5" placeholder="0"></div>
+        <br><br>
+        세공<br>
+        <div style="height: auto; width: 15%; border: 1px solid; padding:10px">
+        파이어볼트최댐 세공LV:
+        <input type="text" id="v3" size="5" placeholder="0"><br>
+        라이트닝볼트최댐 세공LV:
+        <input type="text" id="v4" size="5" placeholder="0"> <br>
+        파이어마스터리 세공LV:
+        <input type="text" id="v5" size="5" placeholder="0"><br>
+        라이트닝마스터리 세공LV:
+        <input type="text" id="v6" size="5" placeholder="0"><br>
+        볼트마스터리 세공LV:
+        <input type="text" id="v7" size="5" placeholder="0"><br>
+        볼트조합마스터리 세공LV:
+        <input type="text" id="v8" size="5" placeholder="0"><br><br>
+        헤보나세트:
+        <input type="radio" name="v9" id="v9" value="1" checked>비적용 
+        <input type="radio" name="v9" id="v9_1"value="0" >적용</div>     
+        <br><br>
+        볼트조합 마스터 타이틀:
+        <input type="radio" name="v15" id="v15" value="1" checked>비적용 
+        <input type="radio" name="v15" id="v15_1"value="0" >적용     
+        <br><br>
+        추가크리 대미지%(이보나, 붉개등)
+        <input type="text" id="v10" size="5" placeholder="0"><br><br>
+        추가 대미지%(낭농,토템,정령등)
+        <input type="text" id="v17" size="5" placeholder="0">
+        <br><br>
+
+        도핑<br>
+        <div style="height: auto; width: 15%; border: 1px solid; padding:10px">
+        전장비율%:
+        <input type="text" id="v13" size="5" placeholder="0"><br>
+        최대공격력:
+        <input type="text" id="v14" size="5" placeholder="0"><br>
+        물리공격력 증가포션:
+        <input type="radio" name="v16" id="v16" value="1" checked>비적용 
+        <input type="radio" name="v16" id="v16_1"value="0" >적용</div>     
+        <br><br>
+
+
+        콤보카드%(라파라파 일경우 동시입력)
+        <br>
+        <div style="height: auto; width: 15%; border: 1px solid; padding:10px">
+        파볼트콤보카드%:
+        <input type="text" id="v11" size="5" placeholder="0"><br>
+        라볼트콤보카드%:
+        <input type="text" id="v12" size="5" placeholder="0"></div><br>
+    
+        <br>
+    
+
+        결과
+        <br>
+        <div style="font-weight: bold; height: auto; width: 20%; border: 1px solid; padding:10px;">
+        파이어볼트5차지 <br>
+        대미지: 
+        <input type="text" id="res1" size="10"> 
+        크리:
+        <input type="text" id="res5" size="10"> 
+        <br>
+
+        볼트조합3차지 <br>
+        대미지: 
+        <input type="text" id="res3" size="10">
+        크리:
+        <input type="text" id="res6" size="10"> 
+        <br>
+
+        볼트조합5차지 <br>
+        대미지: 
+        <input type="text" id="res4" size="10"> 
+        크리:
+        <input type="text" id="res7" size="10"> 
+        </div>
+        <br><br> 
+        
+        
+        <input type="button" value="계산하기" class="button" onclick="cal()">
+        <input type="button" value="초기화" class="button" onclick="reset()">
+    </body>
+</html>

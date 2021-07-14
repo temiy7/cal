@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>마비노기 마법 캐스팅 속도 계산기</title>
+       
+       <style>
+            .button {
+        
+                width:100px;
+            
+                background-color: #00004a;
+            
+                border: none;
+            
+                color:#fff;
+            
+                padding: 15px 0;
+            
+                text-align: center;
+            
+                text-decoration: none;
+            
+                display: inline-block;
+            
+                font-size: 15px;
+            
+                margin: 4px;
+            
+                cursor: pointer;
+        
+                border-radius:10px;
+            
+            }
+            
+        </style>        
+
+        <script>
+            function cal(){
+                var v1 = Number(document.getElementById("v1").value); // 개조
+                var v2 = Number(document.getElementById("v2").value); // 세공
+                var v3 = Number(document.getElementById("v3").value); // 비바체
+                var vv = document.getElementsByName("v4"); // 타이틀
+                var v4 = document.getElementById("v4")              
+                    for (var i=0; i<vv.length;i++)
+                    {  
+                    if (vv[i].checked)
+                    v4 = 0
+                    else
+                    v4 = 1;
+                    break;
+                    }
+
+                var vc = document.getElementsByName("v5"); // 캐속포
+                var v5 = document.getElementById("v5")              
+                    for (var i=0; i<vc.length;i++)
+                    {  
+                    if (vc[i].checked)
+                    v5 = 0
+                    else
+                    v5 = 1;
+                    break;
+                    }    
+
+                    var v6 = Number(document.getElementById("v6").value); // 쾌속
+                    
+
+
+                    
+
+                
+
+
+
+
+
+                var res1; // 캐스팅 시간(초)
+
+                    res1 = 1.5*(1-0.01*v1)*(1-0.025*v2)*(1-0.01*v3)*(1-v4*0.05)*(1-0.1*v5)*(1-0.01*v6);
+                
+                document.getElementById("res1").value =res1.toFixed(2);
+
+                var res2; // 캐스팅 시간(초)헤일
+
+                res2 = 3*(1-0.01*v1)*(1-0.015*v2)*(1-0.01*v3)*(1-v4*0.05)*(1-0.1*v5)*(1-0.01*v6);
+
+                document.getElementById("res2").value =res2.toFixed(2); 
+
+
+                var res3; // 원드 캐스팅 속도 증가(%)
+
+                    res3 = 100*(1-(1-0.01*v1)*(1-0.025*v2)*(1-0.01*v3)*(1-v4*0.05)*(1-0.1*v5)*(1-0.01*v6));
+                
+                document.getElementById("res3").value =res3.toFixed(2);
+
+                var res4; // 스태프 캐스팅 속도 증가(%)
+
+                    res4 = 100*(1-(1-0.01*v1)*(1-0.015*v2)*(1-0.01*v3)*(1-v4*0.05)*(1-0.1*v5)*(1-0.01*v6));
+
+                document.getElementById("res4").value =res4.toFixed(2);
+                }
+
+                
+
+                
+
+            
+
+            function reset(){
+                document.getElementById("v1").value = "";
+               // document.getElementById("v2").value = "";
+                document.getElementById("v3").value = "";
+                //document.getElementById("v4").value = "";
+                document.getElementById("v6").value = "";
+                document.getElementById("res1").value = "";
+                document.getElementById("res2").value = "";
+                document.getElementById("res3").value = "";
+                document.getElementById("res4").value = "";
+
+            }
+            
+        </script>
+    </head>
+    <body>
+        볼트조합 캐스팅 속도 계산을 하기 위한 계산기 입니다.<br>
+        볼트조합의 발사모션 딜레이가 있어, 캐스팅속도와 실제 발사속도간에는 차이가 있습니다. <br>
+        완드의경우 세공렙당 2.5% 가 증가하지만, 스태프는 1.5%로 정상 적용됩니다.
+            
+        <br><br>
+        무기캐스팅개조(%): 
+        <input type="text" id="v1" size="5" placeholder="0"><br>
+        <div>
+            <label>캐스팅 속도 세공:</label><br>
+            <input type="range" id="v2" size="5" placeholder="0" min="0" max="25" value="0" oninput="document.getElementById('캐스팅 속도 세공(레벨):').innerHTML=this.value;">
+            <span id="캐스팅 속도 세공(레벨):"></span>레벨
+        </div>
+        <div>
+            <label>(특성)쾌속비율: </label>(쾌속레벨 1:1%, 2~3:2%, 4~5:3%, 6~7:4%, 8:5%, 9:6%, 10:7%)<br>
+            <input type="range" id="v6" size="5" placeholder="0" min="0" max="7" value="0" oninput="document.getElementById('쾌속비율(%):').innerHTML=this.value;">
+            <span id="쾌속비율(%):"></span> %
+            </div>
+        비바체 마법 캐스팅속도(%):
+        <input type="text" id="v3" size="5" placeholder="0"><br>
+        스페셜공허의나비 타이틀:
+        <input type="radio" name="v4" id="v4" value="1" checked>미적용 
+        <input type="radio" name="v4" id="v4_1"value="0" >적용<br>   
+        캐스팅속도 증가포션:
+        <input type="radio" name="v5" id="v5" value="1" checked>미적용 
+        <input type="radio" name="v5" id="v5_1"value="0" >적용     
+        <br>
+
+        
+
+        
+        
+        <br> <br>
+    
+
+        결과
+        <br>
+        <div style="height: auto; width: 20%; border: 1px solid; padding:10px">
+        캐스팅 시간(원드-파이어볼트) <br>
+        <input type="text" id="res1" size="5"> 초<br>
+        원드 캐스팅 속도증가<br>
+        <input type="text" id="res3" size="5"> % </div><br>
+
+        <div style="height: auto; width: 20%; border: 1px solid; padding:10px">
+        캐스팅 시간(스태프-헤일스톰기준) <br>
+        <input type="text" id="res2" size="5"> 초 <br>
+        스태프 캐스팅 속도증가<br>
+        <input type="text" id="res4" size="5"> %
+        </div><br><br>
+
+        <input type="button" value="계산하기" class="button" onclick="cal()">
+        <input type="button" value="초기화" class="button" onclick="reset()">
+    </body>
+</html>
