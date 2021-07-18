@@ -1,5 +1,5 @@
 *{margin: 0px; padding: 0px;}
-@media (max-height: 600px) {
+@media (max-height: 1000px) {
 *{font-size: 12px;}}
 
 a{text-decoration: none;}
@@ -21,7 +21,7 @@ h2{font-size: 20px;
     max-width: 1080px;
     margin: 20px auto;
 }
-@media (max-width: 600px) {
+@media (max-height: 1000px) {
     #wrapper {
         max-width: 600px;
         margin: 0 auto;
