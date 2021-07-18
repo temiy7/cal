@@ -1,5 +1,5 @@
 *{margin: 0px; padding: 0px;}
-@media (max-width: 600px) {
+@media (max-height: 600px) {
 *{font-size: 12px;}}
 
 a{text-decoration: none;}

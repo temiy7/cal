@@ -71,13 +71,15 @@ header{
 
 .frame1{
     clear: left;
-    margin:0 auto;     
-    display:inline-block ;
+    float: left;
+    padding-bottom: 75%; 
+    max-width: 100%;
     position: relative;
     width: auto;
                 
 }
 .frame1 iframe{
+    position: absolute; 
     width: 100vh;
     height: 100vw;
          
