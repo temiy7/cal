@@ -1,47 +1,29 @@
 <!DOCTYPE html>
- <html> 
-    <head>  
-        <meta charset="UTF-8">
-        <title>HTML 레이아웃(layout)</title>
-        <style>
-            header, nav, section, article, aside, footer {
-        display:block;
-        width:400px;
-        margin:4px;
-        padding:4px;
-        background-color:#ddd;
-        text-align:center;
-      }
-      section {
-        float:left;
-        width:280px;
-        height:60px;
-      }
-      article {
-        width:264px;
-        background-color:#efefef;
-      }
-      aside {
-        float:left;
-        width:104px;
-        height:60px;
-      }
-      footer {
-        overflow:hidden;
-      }
-    </style>
-  </head>
-   
-    <body>
-        <h1>마비노기 마법 대미지 계산기 모음</h1>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>마비노기 마법 대미지 계산기</title>
+<!--외부 스타일 적용-->
+<link rel="stylesheet" herf="./index.css">
+</head>
 
-        <div id="header">Header</div>
-        <div id="nav">Nav</div>
-        <div id="section">
-        Section
-        <div id="article">Article</div>
-        </div>
-        <div id="aside">Aside</div>
-        <div id="footer">Footer</div>
-    </body>
-    </html>
+<body>
+  <h1>마비노기 마법대미지 계산기</h1>
+  <header>Header</header>
+  <nav>
+     <ul>
+         <li><a href="#">볼조 계산기</a></a></li>
+         <li><a href="#">중마 계산기</a></a></li>
+         <li><a href="#">캐속 계산기</a></a></li>
+         <li><a href="#">볼조대미지 비교</a></a></li>
+         <li><a href="#">중마 대미지 비교</a></a></li>
+     </ul> 
+  </nav>
+  <section>
+    Section
+    <article>Article</article>
+  </section>
+  <aside>Aside</aside>
+  <footer>Footer</footer>
+</body>
+</html>
