@@ -7,13 +7,14 @@ a{text-decoration: none;}
 h1{font-size: 50px;
     color: #212931;
     text-align:center;
-    @media (min-width: 500px) {
-        .title {
+}
+    @media (max-width: 600px) {
+        h1 {
           font-size: 20px;
         }
       }
 
-}
+
 /*전체가운데 정렬*/
 #wrapper{max-width: 1080px;
          margin: 0 auto;
@@ -30,16 +31,18 @@ header{
 }
 
 
+
 /*메뉴*/
 
 #manu ul li {
     float: left; 
     margin: 0 auto;
+    padding: auto ;
     list-style-type: none;
     text-align:center;
     width: 20%; 
-    height: 50px;
-    line-height: 50px; 
+    height: 30px;
+    line-height: 30px; 
     background-color: #333;
     display:block;
 
@@ -50,8 +53,14 @@ header{
     color: white;
     text-align: center;
     text-decoration: none;
+    
 }
 
+@media (max-width: 600px) {
+    #manu ul li a {
+      font-size: 5px;
+    }
+  }
 
 #manu ul li a:hover:not(.active) {
     background-color: #111;
@@ -61,14 +70,14 @@ header{
 
 
 .frame1{
-    float: left;
+    clear: left;
+    margin:0 auto;     
+    display:inline-block ;
     position: relative;
-       width: 1080px;
-       padding-bottom: 100%;
-
+    width: auto;
+                
 }
 .frame1 iframe{
-    position: absolute;
     width: 100vh;
     height: 100vw;
          
