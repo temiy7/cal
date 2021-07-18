@@ -1,5 +1,35 @@
 <!DOCTYPE html>
-    <html>
+ <html> 
+    <head>  
+        <meta charset="UTF-8">
+        <title>HTML 레이아웃(layout)</title>
+        <style>
+            header, nav, section, article, aside, footer {
+        display:block;
+        width:400px;
+        margin:4px;
+        padding:4px;
+        background-color:#ddd;
+        text-align:center;
+      }
+      section {
+        float:left;
+        width:280px;
+        height:60px;
+      }
+      article {
+        width:264px;
+        background-color:#efefef;
+      }
+      aside {
+        float:left;
+        width:104px;
+        height:60px;
+      }
+      footer {
+        overflow:hidden;
+      }
+    </style>
     <body>
         <h1>마비노기 마법 대미지 계산기 모음</h1>
 
