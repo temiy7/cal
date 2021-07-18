@@ -11,5 +11,17 @@ h1{font-size: 20px;
 
 #wrapper{
     max-width: 1080px;
-    margin: 0 auto;
+    margin: 15px auto;
+}
+
+#status{
+    float: left;
+    margin: 10px;
+
+}
+#result{
+    float: left;
+    margin: 10px;
+    vertical-align: middle;
+   
 }

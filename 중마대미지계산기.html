@@ -35,6 +35,7 @@
 
         }
     </style>
+     <link rel="stylesheet" href="./cont.css">
 
 
 
@@ -259,20 +260,21 @@
 </head>
 
 <body>
-
+    <div id="wrapper">
     해당 계산기에 적용되는 모든 마법 및 패시브의 랭크는 최고랭크 기준입니다.
 
     <br><br>
+    <div id="status">
     스텟<br>
-    <div style="height: auto; width: 30%; border: 1px solid; padding:10px">
+    <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
         마법공격력:
         <input type="text" id="v1" size="5" placeholder="0"><br>
         최댐인챈트+낭농최댐:
         <input type="text" id="v2" size="5" placeholder="0">
     </div><br><br>
     세공<br>
-    *세공은 마기그래프와 합연산이므로 더해서 사용하시면 됩니다.<br><br>
-    <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+    <span style = "font-size:5px; color: red;">*마기그래프는 세공과 합연산이므로 더해서 사용하시면 됩니다.</span><br>
+    <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
         라이트닝마스터리 세공LV:
         <input type="text" id="v6" size="3" placeholder="0"><br>
 
@@ -286,7 +288,7 @@
         <input type="text" id="v20" size="3" placeholder="0">
     </div> <br>
 
-    <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+    <div style="height: auto; width:  300px; border: 1px solid; padding:10px">
         파이어마스터리 세공LV:
         <input type="text" id="v7" size="3" placeholder="0"><br>
         파이어볼 최댐 세공LV:
@@ -295,7 +297,7 @@
         <input type="text" id="v22" size="3" placeholder="0">
     </div><br>
 
-    <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+    <div style="height: auto; width:  300px; border: 1px solid; padding:10px">
         아이스마스터리 세공LV:
         <input type="text" id="v8" size="3" placeholder="0"><br>
         아이스스피어 최댐 세공LV:
@@ -306,7 +308,7 @@
     </div><br><br>
 
     아이템<br>
-    <div style="height: auto; width: 15%; border: 1px solid; padding:10px">
+    <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
         로즈마리:
         <input type="radio" name="v9" id="v9" value="1" checked>비적용
         <input type="radio" name="v9" id="v9_1" value="0">적용
@@ -319,7 +321,7 @@
 
 
     도핑<br>
-    <div style="height: auto; width: 15%; border: 1px solid; padding:10px">
+    <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
         전장비율%:
         <input type="text" id="v13" size="5" placeholder="0"><br>
         최대공격력:
@@ -332,7 +334,7 @@
 
     콤보카드%
     <br>
-    <div style="height: auto; width: 15%; border: 1px solid; padding:10px">
+    <div style="height: auto; width:300px; border: 1px solid; padding:10px">
         썬더 콤보카드%:
         <input type="text" id="v11" size="5" placeholder="0"><br>
         아이스스피어 콤보카드%:
@@ -351,14 +353,15 @@
     <input type="text" id="v10" size="5" placeholder="0"><br><br>
     추가 대미지%(낭농인형,토템등)
     <input type="text" id="v24" size="5" placeholder="0"><br><br>
+</div>
 
 
 
 
-
+    <div id="result">
     결과
     <br>
-    <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+    <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
         썬더 3차지<br> 대미지:
         <input type="text" id="res1" size="10">
         크리:
@@ -369,7 +372,7 @@
         <input type="text" id="res10" size="10">
     </div> <br>
 
-    <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+    <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
         파이어볼 3차지<br> 대미지:
         <input type="text" id="res16" size="10">
         크리:
@@ -380,7 +383,7 @@
         <input type="text" id="res11" size="10">
     </div> <br>
 
-    <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+    <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
         아이스스피어 3차지<br> 대미지:
         <input type="text" id="res5" size="10">
         크리:
@@ -391,21 +394,21 @@
         <input type="text" id="res13" size="10">
     </div> <br>
 
-    <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+    <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
         헤일스톰 5차지<br> 대미지:
         <input type="text" id="res7" size="10">
         크리:
         <input type="text" id="res14" size="10">
     </div><br>
 
-    <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+    <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
         라이트닝 로드(풀차지)<br> 대미지:
         <input type="text" id="res8" size="10">
         크리:
         <input type="text" id="res15" size="10">
     </div> <br>
 
-    <div style="height: auto; width:  30%; border: 1px solid; padding:10px">
+    <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
         메테오 스트라이크<br> 대미지:
         <input type="text" id="res18" size="10">
         크리:
@@ -415,6 +418,8 @@
 
     <input type="button" value="계산하기" class="button" onclick="cal()">
     <input type="button" value="초기화" class="button" onclick="reset()">
+</div>
+</div>
 </body>
 
 </html>

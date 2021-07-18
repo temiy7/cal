@@ -4,9 +4,14 @@ a{text-decoration: none;}
 
 /*li {list-style: none;}*/
 
-h1{font-size: 80px;
+h1{font-size: 50px;
     color: #212931;
     text-align:center;
+    @media (min-width: 500px) {
+        .title {
+          font-size: 20px;
+        }
+      }
 
 }
 /*전체가운데 정렬*/
@@ -14,8 +19,10 @@ h1{font-size: 80px;
          margin: 0 auto;
 }
 
+
+
 header{
-    
+    float: left;
     width: 1080px;     
     height: auto;
     background-color: #00004a;
@@ -48,4 +55,19 @@ header{
 
 #manu ul li a:hover:not(.active) {
     background-color: #111;
+}
+
+
+.frame1{
+    float: left;
+    position: relative;
+       width: 100%;
+       padding-bottom: 100%;
+
+}
+.frame1 iframe{
+    position: absolute;
+    width: 100vh;
+    height: 100vw;
+         
 }
