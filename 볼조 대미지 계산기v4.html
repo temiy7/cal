@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>마비노기 볼트조합 계산기</title>
+    <link rel="stylesheet" href="./cont.css">
 
 
     <style>
@@ -155,12 +156,13 @@
 </head>
 
 <body>
+    <div id="wrapper">
     마비노기 볼트조합 대미지 계산기<br>
     *해당 계산기에 적용되는 모든 볼트의 랭크는 3단, 패시브는 1랭크 기준입니다.
 
     <br><br>
     스텟<br>
-    <div style="height: auto; width: 15%; border: 1px solid; padding:10px">
+    <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
         마법공격력:
         <input type="text" id="v1" size="5" placeholder="0"><br>
         최댐인챈트+낭농최댐:
@@ -168,7 +170,7 @@
     </div>
     <br><br>
     세공<br>
-    <div style="height: auto; width: 15%; border: 1px solid; padding:10px">
+    <div style="height: auto; width:350px; border: 1px solid; padding:10px">
         파이어볼트최댐 세공LV:
         <input type="text" id="v3" size="5" placeholder="0"><br>
         라이트닝볼트최댐 세공LV:
@@ -197,7 +199,7 @@
     <br><br>
 
     도핑<br>
-    <div style="height: auto; width: 15%; border: 1px solid; padding:10px">
+    <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
         전장비율%:
         <input type="text" id="v13" size="5" placeholder="0"><br>
         최대공격력:
@@ -211,7 +213,7 @@
 
     콤보카드%(라파라파 일경우 동시입력)
     <br>
-    <div style="height: auto; width: 15%; border: 1px solid; padding:10px">
+    <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
         파볼트콤보카드%:
         <input type="text" id="v11" size="5" placeholder="0"><br>
         라볼트콤보카드%:
@@ -223,7 +225,7 @@
 
     결과
     <br>
-    <div style="font-weight: bold; height: auto; width: 20%; border: 1px solid; padding:10px;">
+    <div style="font-weight: bold; height: auto; width: 400px; border: 1px solid; padding:10px;">
         파이어볼트5차지 <br>
         대미지:
         <input type="text" id="res1" size="10">
@@ -249,6 +251,7 @@
 
     <input type="button" value="계산하기" class="button" onclick="cal()">
     <input type="button" value="초기화" class="button" onclick="reset()">
+</div>
 </body>
 
 </html>

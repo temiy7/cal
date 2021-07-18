@@ -24,6 +24,7 @@ header{
 
 
 /*메뉴*/
+
 #manu ul li {
     float: left; 
     margin: 0 auto;
@@ -37,11 +38,12 @@ header{
 
 }
 
-#manu ul li a {    vertical-align: middle;
+#manu ul li a {
     display: block;
     color: white;
     text-align: center;
-    text-decoration: none;}
+    text-decoration: none;
+}
 
 
 #manu ul li a:hover:not(.active) {

@@ -10,4 +10,6 @@ h1{font-size: 20px;
 }
 
 #wrapper{
-    float: ;
+    max-width: 1080px;
+    margin: 0 auto;
+}
