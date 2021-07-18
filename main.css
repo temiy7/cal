@@ -1,0 +1,49 @@
+*{margin: 0px; padding: 0px;}
+
+a{text-decoration: none;}
+
+/*li {list-style: none;}*/
+
+h1{font-size: 20px;
+    color: #212931;
+    text-align:center;
+
+}
+/*전체가운데 정렬*/
+#wrapper{max-width: 1080px;
+         margin: 0 auto;
+}
+
+header{
+    
+    width: 1080px;     
+    height: auto;
+    background-color: #00004a;
+    color: white;
+}
+
+
+/*메뉴*/
+#manu ul li {
+    float: left; 
+    margin: 0 auto;
+    list-style-type: none;
+    text-align:center;
+    width: 20%; 
+    height: 50px;
+    line-height: 50px; 
+    background-color: #333;
+    display:block;
+
+}
+
+#manu ul li a {    vertical-align: middle;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;}
+
+
+#manu ul li a:hover:not(.active) {
+    background-color: #111;
+}
