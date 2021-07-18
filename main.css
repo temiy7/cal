@@ -23,7 +23,7 @@ h1{font-size: 50px;
 
 header{
     float: left;
-    width: 1080px;     
+    width: 100%;     
     height: auto;
     background-color: #00004a;
     color: white;
@@ -56,6 +56,8 @@ header{
 #manu ul li a:hover:not(.active) {
     background-color: #111;
 }
+
+
 
 
 .frame1{

@@ -157,10 +157,11 @@
 
 <body>
     <div id="wrapper">
-    마비노기 볼트조합 대미지 계산기<br>
-    *해당 계산기에 적용되는 모든 볼트의 랭크는 3단, 패시브는 1랭크 기준입니다.
+    <h2>마비노기 볼트조합 대미지 계산기</h2>
+    해당 계산기에 적용되는 모든 볼트의 랭크는 3단, 패시브는 1랭크 기준입니다.
 
     <br><br>
+    <div id="status">
     스텟<br>
     <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
         마법공격력:
@@ -168,7 +169,7 @@
         최댐인챈트+낭농최댐:
         <input type="text" id="v2" size="5" placeholder="0">
     </div>
-    <br><br>
+    <br>
     세공<br>
     <span style = "font-size:5px; color: red;">*마기그래프는 세공과 합연산이므로 더해서 사용하시면 됩니다.</span><br>
     <div style="height: auto; width:350px; border: 1px solid; padding:10px">
@@ -188,13 +189,13 @@
         <input type="radio" name="v9" id="v9" value="1" checked>비적용
         <input type="radio" name="v9" id="v9_1" value="0">적용
     </div>
-    <br><br>
-    볼트조합 마스터 타이틀:
+    <br>
+        볼트조합 마스터 타이틀:
     <input type="radio" name="v15" id="v15" value="1" checked>비적용
     <input type="radio" name="v15" id="v15_1" value="0">적용
     <br><br>
     추가크리 대미지%(이보나, 붉개등)
-    <input type="text" id="v10" size="5" placeholder="0"><br><br>
+    <input type="text" id="v10" size="5" placeholder="0"><br>
     추가 대미지%(낭농,토템,정령등)
     <input type="text" id="v17" size="5" placeholder="0">
     <br><br>
@@ -209,7 +210,7 @@
         <input type="radio" name="v16" id="v16" value="1" checked>비적용
         <input type="radio" name="v16" id="v16_1" value="0">적용
     </div>
-    <br><br>
+    <br>
 
 
     콤보카드%(라파라파 일경우 동시입력)
@@ -221,10 +222,10 @@
         <input type="text" id="v12" size="5" placeholder="0">
     </div><br>
 
-    <br>
+</div>
 
-
-    결과
+<div id="result">
+    <strong>결과</strong>
     <br>
     <div style="font-weight: bold; height: auto; width: 400px; border: 1px solid; padding:10px;">
         파이어볼트5차지 <br>
@@ -252,6 +253,7 @@
 
     <input type="button" value="계산하기" class="button" onclick="cal()">
     <input type="button" value="초기화" class="button" onclick="reset()">
+</div>
 </div>
 </body>
 

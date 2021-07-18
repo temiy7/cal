@@ -2,9 +2,15 @@
 
 a{text-decoration: none;}
 
+
 li {list-style: none;}
 
 h1{font-size: 20px;
+    color: #212931;
+    text-align:middle;
+}
+
+h2{font-size: 20px;
     color: #212931;
     text-align:middle;
 }
