@@ -81,20 +81,23 @@ header{
 
 @media (max-width: 600px) {
     .frame1 {
-        max-width: 600px
+        width: 100vmin
     }
   }
 .frame1 iframe{
     position: absolute;
     top: 20px;
+    left: 120px;
     width: 1080px;
     height: 100vh;
-    min-width: 600px; 
+    
+    
 }
 
 @media (max-width: 600px) {
     .frame1 iframe{
-        width: 600px;
+        width: 100vmin;
+        left: 10px;
         
     }
   }
