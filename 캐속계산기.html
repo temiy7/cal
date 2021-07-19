@@ -123,40 +123,38 @@
 <body>
 
     <div id="wrapper">
-        <h2>마비노기 캐스팅속도 계산기</h2>
-        볼트조합의 발사모션 딜레이가 있어, 캐스팅속도와 실제 발사속도간에는 차이가 있습니다. <br>
-        완드의경우 세공렙당 2.5% 가 증가하지만, 스태프는 1.5%로 정상 적용됩니다.
+        <div id="status1">
+            <h2>마비노기 캐스팅속도 계산기</h2>
+            볼트조합의 발사모션 딜레이가 있어, 캐스팅속도와 실제 발사속도간에는 차이가 있습니다. <br>
+            완드의경우 세공렙당 2.5% 가 증가하지만, 스태프는 1.5%로 정상 적용됩니다.
 
-        <br><br>
-        무기캐스팅개조(%):
-        <input type="text" id="v1" size="5" placeholder="0"><br>
-        <div>
-            <label>캐스팅 속도 세공:</label><br>
-            <input type="range" id="v2" size="5" placeholder="0" min="0" max="25" value="0"
-                oninput="document.getElementById('캐스팅 속도 세공(레벨):').innerHTML=this.value;">
-            <span id="캐스팅 속도 세공(레벨):"></span>레벨
+            <br><br>
+            무기캐스팅개조(%):
+            <input type="text" id="v1" size="5" placeholder="0"><br>
+            <div>
+                <label>캐스팅 속도 세공:</label><br>
+                <input type="range" id="v2" size="5" placeholder="0" min="0" max="25" value="0"
+                    oninput="document.getElementById('캐스팅 속도 세공(레벨):').innerHTML=this.value;">
+                <span id="캐스팅 속도 세공(레벨):"></span>레벨
+            </div>
+            <div>
+                <label>(특성)쾌속비율: </label>(쾌속레벨 1:1%, 2~3:2%, 4~5:3%, 6~7:4%, 8:5%, 9:6%, 10:7%)<br>
+                <input type="range" id="v6" size="5" placeholder="0" min="0" max="7" value="0"
+                    oninput="document.getElementById('쾌속비율(%):').innerHTML=this.value;">
+                <span id="쾌속비율(%):"></span> %
+            </div>
+            비바체 마법 캐스팅속도(%):
+            <input type="text" id="v3" size="5" placeholder="0"><br>
+            스페셜공허의나비 타이틀:
+            <input type="radio" name="v4" id="v4" value="1" checked>미적용
+            <input type="radio" name="v4" id="v4_1" value="0">적용<br>
+            캐스팅속도 증가포션:
+            <input type="radio" name="v5" id="v5" value="1" checked>미적용
+            <input type="radio" name="v5" id="v5_1" value="0">적용
         </div>
-        <div>
-            <label>(특성)쾌속비율: </label>(쾌속레벨 1:1%, 2~3:2%, 4~5:3%, 6~7:4%, 8:5%, 9:6%, 10:7%)<br>
-            <input type="range" id="v6" size="5" placeholder="0" min="0" max="7" value="0"
-                oninput="document.getElementById('쾌속비율(%):').innerHTML=this.value;">
-            <span id="쾌속비율(%):"></span> %
-        </div>
-        비바체 마법 캐스팅속도(%):
-        <input type="text" id="v3" size="5" placeholder="0"><br>
-        스페셜공허의나비 타이틀:
-        <input type="radio" name="v4" id="v4" value="1" checked>미적용
-        <input type="radio" name="v4" id="v4_1" value="0">적용<br>
-        캐스팅속도 증가포션:
-        <input type="radio" name="v5" id="v5" value="1" checked>미적용
-        <input type="radio" name="v5" id="v5_1" value="0">적용
+
+
         <br>
-
-
-
-
-
-        <br> <br>
 
 
         결과

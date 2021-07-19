@@ -33,6 +33,11 @@ h2{font-size: 20px;
     margin: 10px;
 
 }
+@media (max-height: 1000px) {
+    #status1{
+     width: 50%;
+    }
+}
 #result{
     float: left;
     margin: 10px;
