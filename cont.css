@@ -1,5 +1,5 @@
 *{margin: 0px; padding: 0px;}
-@media (max-height: 1000px) {
+@media (max-width: 1000px) {
 *{font-size: 12px;}}
 
 a{text-decoration: none;}
@@ -21,7 +21,7 @@ h2{font-size: 20px;
     max-width: 1080px;
     margin: 20px auto;
 }
-@media (max-height: 1000px) {
+@media (max-width: 600px) {
     #wrapper {
         max-width: 600px;
         margin: 0 ;
@@ -33,9 +33,9 @@ h2{font-size: 20px;
     margin: 10px;
 
 }
-@media (max-height: 1000px) {
+@media (max-width: 1000px) {
     #status1{
-     width: 50%;
+     width: 350px;
     }
 }
 #result{
