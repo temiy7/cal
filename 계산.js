@@ -110,11 +110,11 @@ function cal() {
     document.getElementById("res1_1").value = Math.floor(res1_1);
 
     var res2; //파볼트 대미지 
-    res2 = (126 + 0.5 * v1 + 0.4 * v2 + 2.5 * v4 + 5 * v30_1) * (1 + 1.5 + 0.3 + 0.01 * v12 + 0.005 * v15 + 0.15 * v26 + (v19 / 100)) * v30;
+    res2 = (126 + 0.5 * v1 + 0.4 * v2 + 2.5 * v4 + 5 * v30_1) * (1 + 1.5 + 0.3 + 0.01 * v12 + 0.005 * v15 + 0.15 * v26 + (v19/100)) * v30;
     document.getElementById("res2").value = Math.floor(res2);
 
     var res2_1; //파볼트 최종비
-    res2_1 = 100 * (res2 * (1 + v29 / 100) - (126 * 2.8 * v30)) / (126 * 2.8 * v30);
+    res2_1 = 100 * (res2 * (1 + v29/100) - (126 * 2.8 * v30)) / (126 * 2.8 * v30);
     document.getElementById("res2_1").value = Math.floor(res2_1);
 
     var res1_2; //라파볼 대미지
@@ -122,7 +122,7 @@ function cal() {
     document.getElementById("res1_2").value = Math.floor(res1_2);
 
     var res1_21; //라파볼 최종비
-    res1_21 = 100 * (res1_2 - 2.8 * (180 * v30_2 + 126 * v30) * 1.3) / ((180 * v30_2 + 126 * v30) * 2.8 * 1.3);
+    res1_21 = 100 * (res1_2 -  (180 * v30_2 + 126 * v30) *2.8 * 1.3) / ((180 * v30_2 + 126 * v30) * 2.8 * 1.3);
     document.getElementById("res1_21").value = Math.floor(res1_21);
 
 
