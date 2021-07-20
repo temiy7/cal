@@ -28,6 +28,11 @@ header{
     background-color: #00004a;
     color: white;
 }
+@media (max-width: 600px) {
+    header {
+      font-size: 5px;
+    }
+  }
 
 
 
