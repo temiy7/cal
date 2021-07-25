@@ -102,7 +102,11 @@
 
         }
 
-        function reset1 () {
+        function reset () {
+
+            document.getElementById("v1").value = "";
+            document.getElementById("v2").value = "";
+            document.getElementById("v3").value = "";
             document.getElementById("res1").value = "";
             document.getElementById("res2").value = "";
             document.getElementById("res3").value = "";
@@ -113,12 +117,7 @@
 
         }
 
-        function reset2() {
-            document.getElementById("v1").value = "";
-            document.getElementById("v2").value = "";
-            document.getElementById("v3").value = "";
-
-        }
+      
     </script>
 </head>
 
@@ -180,8 +179,8 @@
 
 
             <input type="button" value="계산하기" class="button" onclick="cal()">
-            <input type="button" value="결과초기화" class="button" onclick="reset1()">
-            <input type="button" value="입력초기화" class="button" onclick="reset2()">
+            <input type="button" value="초기화" class="button" onclick="reset()">
+           
    
         </div>
     </div>
