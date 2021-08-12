@@ -69,6 +69,12 @@
 
             var v6 = Number(document.getElementById("v6").value); // 쾌속
 
+            var v7 =  Number(document.getElementById("v7").value); // 지력
+
+            var v8 =  Number(document.getElementById("v8").value); // 매직웨폰 마스터리 랭크
+
+            var v9 =  Number(document.getElementById("v9").value); // 에르그
+
 
 
 
@@ -103,7 +109,27 @@
             res4 = 100 * (1 - (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6));
 
             document.getElementById("res4").value = res4.toFixed(2);
+
+
+            var res5; // 중급마법 캐스팅 속도
+
+            if((100 * (1 - (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5)*(1-(v7/5000))*(1-v8))>50) 
+            ){ res5 =50*(1+v9)*(1+0.01 * v6)
+            }else{res5 =(100 * (1 - (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5)*(1-(v7/5000))*(1-v8)*(1-v9)*(1 - 0.01 * v6)))}
+
+            document.getElementById("res5").value = res5.toFixed(2);
+
+
+            var res6; // 중급마법 캐스팅 시간
+
+            if((2*(1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1-v8)*(1-(v7/5000))) < 1){ res6 =1*(1-v9)*(1 - 0.01 * v6)
+            }else{ res6 =(2*(1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1-v8)*(1-(v7/5000))*(1-v9)*(1 - 0.01 * v6))}
+
+            document.getElementById("res6").value = res6.toFixed(2);
+
+
         }
+        
 
 
 
@@ -121,6 +147,9 @@
             document.getElementById("res2").value = "";
             document.getElementById("res3").value = "";
             document.getElementById("res4").value = "";
+            document.getElementById("res5").value = "";
+            document.getElementById("res6").value = "";
+            
 
         }
 
@@ -136,8 +165,37 @@
             완드의경우 세공렙당 1.5%가 2번 곱연산 되어 증가하지만, 스태프는 1.5% 한번으로 적용됩니다.
 
             <br><br>
+            지력:
+            <input type="text" id="v7" size="5" placeholder="0"><br>
             무기캐스팅개조(%):
             <input type="text" id="v1" size="5" placeholder="0"><br>
+            매직웨폰마스터리 랭크:
+                <select name="v8" id="v8" style="background:#D9E5FF">
+                 <option value="0"selected >연습</option>
+                <option value="0.01" >F</option>
+                <option value="0.02">E</option>
+                <option value="0.03" >D</option>
+                <option value="0.04" >C</option>
+                <option value="0.05" >B </option>
+                <option value="0.06" >A</option>
+                <option value="0.07">9</option>
+                <option value="0.08" >8</option>
+                <option value="0.09" >7</option>
+                <option value="0.10" >6</option>
+                <option value="0.11">5</option>
+                <option value="0.12" >4</option>
+                <option value="0.13" >3</option>
+                <option value="0.14" >2</option>
+                <option value="0.15" >1</option>
+            </select><br>
+            에르그레벨:
+            <select name="v9" id="v9" style="background:#D9E5FF">
+                <option value="0" selected>35미만</option>
+                <option value="0.06" >35</option>
+                <option value="0.11" >40</option>
+                <option value="0.2" >45</option>
+                <option value="0.3" >50</option>
+            </select><br>
             <div>
                 <label>캐스팅 속도 세공:</label><br>
                 <input type="range" id="v2" size="5" placeholder="0" min="0" max="25" value="0"
@@ -174,10 +232,15 @@
         </div><br>
 
         <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
-            캐스팅 시간(스태프-헤일스톰기준) <br>
+            캐스팅 시간(스태프-해일스톰) <br>
             <input type="text" id="res2" size="5"> 초 <br>
             스태프 캐스팅 속도증가<br>
-            <input type="text" id="res4" size="5"> %
+            <input type="text" id="res4" size="5"> % <br>
+            중급마법(스태프-파이어볼) 캐스팅 시간<br>
+            <input type="text" id="res6" size="5"> 초 <br>
+            중급마법(스태프-파이어볼) 캐스팅 속도증가<br>
+            <input type="text" id="res5" size="5"> %<br>
+            
         </div><br><br>
 
         <input type="button" value="계산하기" class="button" onclick="cal()">
