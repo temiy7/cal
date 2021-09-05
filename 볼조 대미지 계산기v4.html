@@ -127,16 +127,16 @@
             var res8; //dps
 
              if(v18<=3){
-                 res8=res4/(1.5*(1-v20/100)+0.2)}
-                 else{res8=res4/(3*(1-v20/100)+0.2)}
+                 res8=res4/(1.5*(1-v20/100)+0.08)}
+                 else{res8=res4/(3*(1-v20/100)+0.08)}
 
                 document.getElementById("res8").value = Math.floor(res8);
 
                 var res9; //싱턴타수
 
                 if(v18<=3){
-                 res9=20/(1.5*(1-v20/100)+0.2)}
-                 else{res9=20/(3*(1-v20/100)+0.2)}
+                 res9=20/(1.5*(1-v20/100)+0.08)}
+                 else{res9=20/(3*(1-v20/100)+0.08)}
 
                 document.getElementById("res9").value = Math.floor(res9);
 
@@ -166,7 +166,7 @@
             document.getElementById("res5").value = "";
             document.getElementById("res7").value = "";
             document.getElementById("res8").value = "";
-            document.getElementById("res8").value = "";
+            document.getElementById("res9").value = "";
         }
     </script>
 </head>
@@ -176,7 +176,7 @@
         <h2>마비노기 볼트조합 대미지 계산기</h2>
         <div id="status1">
             해당 계산기에 적용되는 모든 볼트의 랭크는 3단, 패시브는 1랭크 기준입니다.<br>
-            DPS 계산에서 볼트조합의 발사 딜레이는 0.2초를 기준으로 하고, 차지간에 있을 수있는 딜레이는 무시합니다.  <br>
+            DPS 계산에서 볼트조합의 발사 딜레이는 0.08초를 기준으로 하고, 차지간에 있을 수있는 딜레이는 무시합니다.  <br>
             DPS 계산에서 1~3차지까진는 1차지, 4~5차지는 2차지로 계산 됩니다. (체인캐스팅 +2렙만을 기준으로 합니다.)<br>
             캐스팅속도 총합은 계산기에 있는 캐속계산기의 원드 캐스팅 속도증가% 값 입니다. 
             
