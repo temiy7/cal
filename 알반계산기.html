@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>마비노기 마법 캐스팅 속도 계산기</title>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7RRZF9GD2Z');
+    </script>
+
+    <style>
+        .button {
+
+            width: 100px;
+
+            background-color: #00004a;
+
+            border: none;
+
+            color: #fff;
+
+            padding: 15px 0;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            display: inline-block;
+
+            font-size: 15px;
+
+            margin: 4px;
+
+            cursor: pointer;
+
+            border-radius: 10px;
+
+        }
+    </style>
+    <link rel="stylesheet" href="./cont.css">
+
+    <script>
+
+        function cal() {
+            var v1 = Number(document.getElementById("v1").value); // 난이도
+            var v2 = Number(document.getElementById("v2").value); // 몬스터
+            var v3 = Number(document.getElementById("v3").value); // 파티원
+            var v4 = Number(document.getElementById("v4").value); // 인원
+
+            var res1; //알반 더하기
+            
+            res1 = v1+v2+v3+v4;
+
+            document.getElementById("res1").value = res1;
+
+
+            
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        난이도
+        <select name="v1" id="v1" style="background:#D9E5FF" onchange="cal()" > 
+            <option value="50" selected>중급</option>
+            <option value="70">상급</option>
+            <option value="100">하드-일반</option>
+            <option value="130">하드-중급</option>
+
+        </select><br>
+
+        몬스터 훈련석
+        <select name="v2" id="v2"style="background:#D9E5FF" onchange="cal()">
+            <option value="10" style="background:#87cefa" selected>생명력 150%</option>
+            <option value="10" style="background:#87cefa" >대미지 150%</option>
+            <option value="10" style="background:#87cefa" >보호 110%</option>
+            <option value="10" style="background:#87cefa" >방어 110%</option>
+            <option value="10" style="background:#87cefa" >지력 120%</option>
+            <option value="10" style="background:#87cefa" >행운 120%</option>
+            <option value="15" style="background:#7b68ee" >방어 120%</option>
+            <option value="15" style="background:#7b68ee" >지력 150%</option>
+            <option value="15" style="background:#7b68ee" >행운 150%</option>
+            <option value="20" style="background:#7b68ee" >보호 120%</option>
+            <option value="20" style="background:#4682b4" >등장수 150%</option>
+            <option value="20" style="background:#4682b4" >지력 200%</option>
+            <option value="20" style="background:#4682b4" >행운 200%</option>
+            <option value="25" style="background:#b0e0e6" >방어 150%</option>
+            <option value="30" style="background:#48d1cc" >보호 150%</option>
+            <option value="30" style="background:#48d1cc" >대미지 300%</option>
+            <option value="30" style="background:#48d1cc" >생명력 300%</option>
+            <option value="40" style="background:#5f9ea0" >등장수 200%</option>
+            <option value="45" style="background:#4169e1" >생명력 500%</option>
+            <option value="45" style="background:#4169e1" >대미지 500%</option>
+
+
+
+
+
+        </select><br>
+
+        파티원 훈련석
+        <select name="v3" id="v3" style="background:#D9E5FF" onchange="cal()">
+            <option value="10" style="background:#87cefa" selected>생명력 회복속도 70%</option>
+            <option value="10" style="background:#87cefa" >스테미나 회복속도 70%</option>
+            <option value="10" style="background:#87cefa" >마나 회복속도 70%</option>
+            <option value="10" style="background:#87cefa" >근접 스킬대미지 70%</option>
+            <option value="10" style="background:#87cefa" >마법 시전속도 70%</option>
+            <option value="10" style="background:#87cefa" >궁술 조준속도 70%</option>
+            <option value="10" style="background:#87cefa" >크리티컬확률 70%</option>
+            <option value="10" style="background:#87cefa" >생명력 70%</option>
+            <option value="20" style="background:#7b68ee" >생명력 회복속도 50%</option>
+            <option value="20" style="background:#7b68ee" >스테미나 회복속도 50%</option>
+            <option value="20" style="background:#7b68ee" >근접 스킬 대미지50%</option>
+            <option value="20" style="background:#7b68ee" >마법 시전속도  50%</option>
+            <option value="20" style="background:#7b68ee" >궁술 조준속도 50%</option>
+            <option value="20" style="background:#7b68ee" >크리티컬확률 50%</option>
+            <option value="20" style="background:#7b68ee" >최대 대미지 70%</option>
+            <option value="30" style="background:#5f9ea0" >생명력 50%</option>
+            <option value="45" style="background:#4169e1" >최대 대미지 50%</option>
+
+        </select><br>
+
+
+        인원 훈련석
+        <select name="v4" id="v4" style="background:#D9E5FF" onchange="cal()">
+            <option value="0" selected>4인</option>
+            <option value="0">6인</option>
+            <option value="-30">무제한</option>
+
+        </select><br>
+        <br>
+        <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+            보상 점수<br>
+            <input type="text" id="res1" size="5"> <br>
+
+        </div><br>
+
+    </div>
+
+</body>
+
+</html>
