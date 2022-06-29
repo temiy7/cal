@@ -77,6 +77,7 @@
             var v17 = Number(document.getElementById("v17").value); //라로콤카
             var v13 = Number(document.getElementById("v13").value); // 전장비율
             var v14 = Number(document.getElementById("v14").value); //맥뎀
+
             var vv2 = document.getElementsByName("v21"); //바다의 지배자  
             var v21 = document.getElementById("v21")
             for (var i = 0; i < vv2.length; i++) {
@@ -100,47 +101,62 @@
 
             var v24 = Number(document.getElementById("v24").value); //추가대미지  
 
+            var ve = document.getElementsByName("v25"); // 인퀴지터
+            var v25 = document.getElementById("v25")
+            for (var i = 0; i < ve.length; i++) {
+                if (ve[i].checked)
+                    v25 = 0;
+                else
+                    v25 = 1;
+                break;
+            }
+
 
 
 
 
             var res1; // 썬더 대미지 3차지
 
-            res1 = (481 + 3.5 * v1 + 0.5 * v2 + 0.5 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 5 * v3) * 3.5 * (1 + 0.15 + 0.005 * v6 + (v11 / 100)) * (1 + v24 / 100)
+            res1 = (481 + 3.5 * v1 + 0.5 * v2 + 0.5 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 5 * v3) * 3.5 * (1 + 0.15 + 0.005 * v6 + (v11 / 100)) * (1 + v24 / 100)*(1+0.15*v25)
 
             document.getElementById("res1").value = Math.floor(res1);
 
 
             var res3; //썬더 대미지 5차지
 
-            res3 = (481 + 3.5 * v1 + 0.5 * v2 + 0.5 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 5 * v3) * 6 * (1 + 0.15 + 0.005 * v6 + (v11 / 100)) * (1 + v24 / 100)
+            res3 = (481 + 3.5 * v1 + 0.5 * v2 + 0.5 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 5 * v3) * 6 * (1 + 0.15 + 0.005 * v6 + (v11 / 100)) * (1 + v24 / 100)*(1+0.15*v25)
+
 
             document.getElementById("res3").value = Math.floor(res3);
 
 
             var res4; //파이어볼 5차지대미지 
 
-            res4 = (2760 + 21 * v1 + 0.5 * v2 + 0.5 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 15 * v4) * (1 + 0.15 + 0.005 * v7 + (v15 / 100)) * (1 + v24 / 100)
+            res4 = (2760 + 21 * v1 + 0.5 * v2 + 0.5 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 15 * v4) * (1 + 0.15 + 0.005 * v7 + (v15 / 100)) * (1 + v24 / 100)*(1+0.15*v25)
+
 
             document.getElementById("res4").value = Math.floor(res4);
 
             var res5; //아이스 스피어 3차지 대미지
 
-            res5 = (336 + 2.3 * v1 + 0.1 * v2 + 0.1 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 5 * v5) * 3 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v12 / 100)) * (1 + v24 / 100)
+            res5 = (336 + 2.3 * v1 + 0.1 * v2 + 0.1 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 5 * v5) * 3 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v12 / 100)) * (1 + v24 / 100)*(1+0.15*v25)
+
 
             document.getElementById("res5").value = Math.floor(res5);
 
 
             var res6; //아이스스피어 5차지 대미지 
 
-            res6 = (336 + 2.3 * v1 + 0.1 * v2 + 0.1 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 5 * v5) * 6.5 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v12 / 100)) * (1 + v24 / 100)
+            res6 = (336 + 2.3 * v1 + 0.1 * v2 + 0.1 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 5 * v5) * 6.5 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v12 / 100)) * (1 + v24 / 100)*(1+0.15*v25)
+
 
             document.getElementById("res6").value = Math.floor(res6);
 
 
             var res7; //헤일스톰 대미지
 
-            res7 = (300 + 3.2 * v1 + 10 * v18) * 6.25 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v16 / 100)) * (1 + v24 / 100)
+            res7 = (300 + 3.2 * v1 + 10 * v18) * 6.25 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v16 / 100)) * (1 + v24 / 100)*(1+0.15*v25)
+
 
             document.getElementById("res7").value = Math.floor(res7);
 
@@ -194,7 +210,7 @@
 
             var res16; //파볼 3차지
 
-            res16 = (425 + 3.23 * v1 + 0.077 * v2 + 0.077 * v14 * (v13 / 100) + 2.3 * v4) * 3 * (1 + 0.15 + 0.005 * v7 + (v15 / 100)) * (1 + v24 / 100)
+            res16 = (425 + 3.23 * v1 + 0.077 * v2 + 0.077 * v14 * (v13 / 100) + 2.3 * v4) * 3 * (1 + 0.15 + 0.005 * v7 + (v15 / 100)) * (1 + v24 / 100)*(1+0.15*v25)
 
             document.getElementById("res16").value = Math.floor(res16);
 
@@ -323,7 +339,10 @@
                 <br>
                 바다의 지배자:
                 <input type="radio" name="v21" id="v21" value="1" checked>비적용
-                <input type="radio" name="v21" id="v21_1" value="0">적용
+                <input type="radio" name="v21" id="v21_1" value="0">적용<br>
+                나이트브링어 인퀴지터:
+                <input type="radio" name="v25" id="v25" value="1" checked>비적용
+                <input type="radio" name="v25" id="v25_1" value="0">적용
             </div>
             <br><br>
 
