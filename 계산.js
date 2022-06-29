@@ -82,6 +82,26 @@ function cal() {
         break;
     }
 
+    var v33v = document.getElementsByName("v33"); //엘리멘토
+    var v33 = document.getElementById("v33")
+    for (var i = 0; i < v33v.length; i++) {
+        if (v33v[i].checked)
+            v33 = 0;
+        else
+            v33 = 1;
+        break;
+    }
+
+    var v34v = document.getElementsByName("v34"); //인퀴지터
+    var v34 = document.getElementById("v34")
+    for (var i = 0; i < v34v.length; i++) {
+        if (v34v[i].checked)
+            v34 = 0;
+        else
+            v34 = 1;
+        break;
+    }
+
 
     //계산식
 
@@ -102,7 +122,7 @@ function cal() {
     document.getElementById("res2_1").value = Math.floor(res2_1);
 
     var res1_2; //라파볼 대미지
-    res1_2 = (res1 + res2) * (1 + 0.3 + 0.01 * v13) * (1 + 0.05 * v32 * (1 + v29 / 100));
+    res1_2 = (res1 + res2) * (1 + 0.3 + 0.01 * v13) * (1 + 0.05 * v32 * (1 + v29 / 100))*(1+0.15*v33);
     document.getElementById("res1_2").value = Math.floor(res1_2);
 
     var res1_21; //라파볼 최종비
@@ -119,7 +139,7 @@ function cal() {
     document.getElementById("res3_1").value = Math.floor(res3_1);
 
     var res4; //썬더 대미지
-    res4 = (481 + 3.5 * v1 + 0.5 * v2 + 5 * v6) * (1 + 0.15 + 0.005 * v14 + (v21 / 100)) * (1 + v29 / 100);
+    res4 = (481 + 3.5 * v1 + 0.5 * v2 + 5 * v6) * (1 + 0.15 + 0.005 * v14 + (v21 / 100)) * (1 + v29 / 100)*(1+0.15*v34);
     document.getElementById("res4").value = Math.floor(res4);
 
     var res4_1; //썬더 증가비
@@ -127,7 +147,7 @@ function cal() {
     document.getElementById("res4_1").value = Math.floor(res4_1);
 
     var res5; //파이어볼
-    res5 = (425 + 3.23 * v1 + 0.077 * v2 + 2.3 * v7) * (1 + 0.15 + 0.005 * v15 + (v22 / 100)) * (1 + v29 / 100);
+    res5 = (425 + 3.23 * v1 + 0.077 * v2 + 2.3 * v7) * (1 + 0.15 + 0.005 * v15 + (v22 / 100)) * (1 + v29 / 100)*(1+0.15*v34);
     document.getElementById("res5").value = Math.floor(res5);
 
     var res5_1; //파이어볼 증가비
@@ -135,7 +155,7 @@ function cal() {
     document.getElementById("res5_1").value = Math.floor(res5_1);
 
     var res6; //아이스스피어
-    res6 = (336 + 2.3 * v1 + 0.1 * v2 + 5 * v8) * (1 + 0.15 + 0.005 * v16 + 0.15 * v27 + (v23 / 100)) * (1 + v29 / 100);
+    res6 = (336 + 2.3 * v1 + 0.1 * v2 + 5 * v8) * (1 + 0.15 + 0.005 * v16 + 0.15 * v27 + (v23 / 100)) * (1 + v29 / 100)*(1+0.15*v34);
     document.getElementById("res6").value = Math.floor(res6);
 
     var res6_1; //아이스스피어 증가비
@@ -151,7 +171,7 @@ function cal() {
     document.getElementById("res7_1").value = Math.floor(res7_1);
 
     var res8; //헤일스톰
-    res8 = (300 + 3.2 * v1 + 10 * v10) * (1 + 0.15 + 0.005 * v16 + 0.15 * v27 + (v25 / 100)) * (1 + v29 / 100);
+    res8 = (300 + 3.2 * v1 + 10 * v10) * (1 + 0.15 + 0.005 * v16 + 0.15 * v27 + (v25 / 100)) * (1 + v29 / 100)*(1+0.15*v34);
     document.getElementById("res8").value = Math.floor(res8);
 
     var res8_1; //헤일스톰 증가비
