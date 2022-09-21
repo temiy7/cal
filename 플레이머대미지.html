@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>마비노기 플레이머 대미지 계산기</title>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-7RRZF9GD2Z');
+      </script>
+
+
+    <style>
+        .button {
+
+            width: 100px;
+
+            background-color: #00004a;
+
+            border: none;
+
+            color: #fff;
+
+            padding: 15px 0;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            display: inline-block;
+
+            font-size: 15px;
+
+            margin: 4px;
+
+            cursor: pointer;
+
+            border-radius: 10px;
+
+        }
+    </style>
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src="연금술.js"></script>
+    <link rel="stylesheet" href="./cont.css">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <h2>마비노기 플레이머 대미지 계산기</h2>
+        <div id="status1">
+            본 계산기는 플레이머의 대미지를 계산합니다.  <br>
+            제작자는 장비가 없어 실험을 할 수 없으니 계산이 맞지 않다면 알려주세요. <br>
+        </div>
+
+        <br><br>
+        <div id="status">
+            스텟<br>
+            <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
+                불연금술 대미지:
+                <input type="text" id="v3" size="5" placeholder="0"><br>
+                최대생명력:
+                <input type="text" id="v2" size="5" placeholder="0"><br>
+                최댐인챈트+낭농최댐+타이틀:
+                <input type="text" id="v5" size="5" placeholder="0"><br>
+
+                플레이머 차지수:
+                <select name="v4" id="v4" style="background:#D9E5FF">
+                    <option value="1"  >1</option>
+                    <option value="2" >2</option>
+                    <option value="3" >3</option>
+                    <option value="4" >4</option>
+                    <option value="5" selected>5</option>
+                </select> 
+
+            </div>
+            <br>
+            스킬랭크<br>
+            <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
+                플레이머:
+                <select name="v1" id="v1" style="background:#D9E5FF">
+                    <option value="5" value2="0" >연습</option>
+                    <option value="14" value2="3">F</option>
+                    <option value="15" value2="3">E</option>
+                    <option value="16" value2="3">D</option>
+                    <option value="17" value2="4">C</option>
+                    <option value="20" value2="5">B</option>
+                    <option value="24" value2="5">A</option>
+                    <option value="26" value2="6">9</option>
+                    <option value="29" value2="7">8</option>
+                    <option value="31" value2="7">7</option>
+                    <option value="34" value2="8">6</option>
+                    <option value="34" value2="8">5</option>
+                    <option value="36" value2="9">4</option>
+                    <option value="40" value2="10">3</option>
+                    <option value="42" value2="10">2</option>
+                    <option value="42" value2="10">1</option>
+                    <option value="44" value2="10">1단</option>
+                    <option value="45" value2="10">2단</option>
+                    <option value="46" value2="10" selected>3단</option>
+               </select> 
+               <br>
+
+               불연금술 마스터리:
+               <select name="v11" id="v11" style="background:#D9E5FF">
+                   <option value="0" >연습</option>
+                   <option value="0.5">F</option>
+                   <option value="1">E</option>
+                   <option value="1.5">D</option>
+                   <option value="2">C</option>
+                   <option value="2.5">B</option>
+                   <option value="3">A</option>
+                   <option value="4">9</option>
+                   <option value="4.5">8</option>
+                   <option value="5">7</option>
+                   <option value="5.5">6</option>
+                   <option value="6.5">5</option>
+                   <option value="7">4</option>
+                   <option value="7.5">3</option>
+                   <option value="8">2</option>
+                   <option value="10" selected>1</option>
+              </select>
+              <br>
+              연금술 마스터리:
+              <select name="v10" id="v10" style="background:#D9E5FF">
+                  <option value="0" >연습</option>
+                  <option value="1">F</option>
+                  <option value="2">E</option>
+                  <option value="3">D</option>
+                  <option value="4">C</option>
+                  <option value="5">B</option>
+                  <option value="6">A</option>
+                  <option value="7">9</option>
+                  <option value="8">8</option>
+                  <option value="9">7</option>
+                  <option value="10">6</option>
+                  <option value="11">5</option>
+                  <option value="12">4</option>
+                  <option value="13">3</option>
+                  <option value="14">2</option>
+                  <option value="15" selected>1</option>
+             </select>
+             <br>
+
+             가드실린더 마스터리:
+             <select name="v20" id="v20" style="background:#D9E5FF">
+                 <option value="1">연습</option>
+                 <option value="2">F</option>
+                 <option value="3">E</option>
+                 <option value="4">D</option>
+                 <option value="4">C</option>
+                 <option value="5">B</option>
+                 <option value="6">A</option>
+                 <option value="7">9</option>
+                 <option value="8">8</option>
+                 <option value="9">7</option>
+                 <option value="10">6</option>
+                 <option value="11">5</option>
+                 <option value="13">4</option>
+                 <option value="14">3</option>
+                 <option value="15">2</option>
+                 <option value="17" selected>1</option>                 
+                </select><br>
+        </div>
+            <br>
+             세공<br>
+
+             <div style="height: auto; width:350px; border: 1px solid; padding:10px">
+                플레이머 최대대미지Lv:
+                <input type="text" id="v17" size="5" placeholder="0"> <br>
+                불연금 마스터리 효율Lv:
+                <input type="text" id="v18" size="5" placeholder="0"> <br>
+             </div>
+            <br>
+
+            타이틀:
+            <select name="v19" id="v19" style="background:#D9E5FF">
+                <option value="0" value2="0" selected >없음</option>
+                <option value="0.1" value2="0">불연금술 마스터</option>
+                <option value="0" value2="10" >연금술 마스터</option>
+            </select><br>
+
+
+            콤보카드 비율(%):
+                <input type="text" id="v13" size="5" placeholder="0"> <br>
+                <br>
+     
+
+            아이템
+            <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
+
+                실린더:(테트라,레버 패러 = 테크니션)
+                <select name="v12" id="v12" style="background:#D9E5FF">
+                    <option value="1"   >실린더</option>
+                    <option value="1.15" >파이어실린더</option>
+                    <option value="1.3"  >볼케이노 실린더</option>
+                    <option value="1.36" >데모닉 헬파이어 실린더</option>
+                    <option value="1.3" selected >테크니션</option>
+                </select><br>
+
+                크래시다 세트:<br>
+                <input type="radio" name="v15" id="v15" value="1" checked>미적용
+                <input type="radio" name="v15" id="v15_1" value="0">적용
+
+            </div><br>
+
+
+              도핑
+            <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
+                
+                전장 비율%:
+                <input type="text" id="v7" size="5" placeholder="0"> <br>
+                최대 공격력:
+                <input type="text" id="v6" size="5" placeholder="0"> <br>
+                물공포:
+                <input type="radio" name="v14" id="v14" value="1" checked>미적용
+                <input type="radio" name="v14" id="v14_1" value="0">적용<br>
+            </div>
+
+            
+                추가 대미지%(낭농,토템,정령등)
+                <input type="text" id="v21" size="5" placeholder="0"><br>
+                추가 크리%(특개,이보나,낭농)
+                <input type="text" id="v8" size="5" placeholder="0">
+
+
+            
+        </div>
+
+        <div id="result">
+            결과
+            <br>
+            플레이머의 대미지 보여줍니다. 
+            <!--현재값 저장을 누르면 현재값을 기억해 이후 계산값과 비교합니다. -->
+            <br>
+            <div style="font-weight: bold; height: auto; width: 350px; border: 1px solid; padding:10px;">
+
+                플레이머 
+                <input type="text" id="res1" size="4" style="border:none;text-align: right; "> <br> 
+                크리티컬 대미지
+                <input type="text" id="res2" size="4" style="border:none; text-align: right">  <br>
+                
+            </div>
+            <br> <br>
+            <input type="hidden" id="resv2">
+
+            
+
+
+
+            <input type="button" value="계산하기" class="button" onclick="cal()">
+            <input type="button" value="초기화" class="button" onclick="reset()">
+        </div>
+
+</body>
+
+</html>    
