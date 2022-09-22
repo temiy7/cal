@@ -78,12 +78,12 @@ function cal() {
 
 
     var res1; //플레이머 대미지 
-    res1 = ((1*v1+1*v17+0.08*resv2+v3+1*v19_1+1*v20)*v4+v5+v6*(1 + 0.2 * v14 *(v7 / 100)) + v9*v4*((1*v11/100+1*v19+0.005*v18+(1*v10/100))/0.15))*(1+0.15*v15+v13/100)*v12*(1+v21/100)
+    res1 = (((1*v1+1*v17+0.08*resv2+v3+1*v19_1+1*v20)*v4+v5+v6*(1 + 0.2 * v14 *(v7 / 100)))*(1+v13/100) + v9*v4*((1*v11/100+1*v19+0.005*v18+(1*v10/100))/0.15))*(1+0.15*v15)*v12*(1+v21/100)
     document.getElementById("res1").value = Math.floor(res1);
 
     
     var res2; //플레이머 크리 대미지 
-    res2 = (((1*v1+1*v17+0.08*resv2+v3+1*v19_1+1*v20)*v4+v5+v6*(1 + 0.2 * v14 *(v7 / 100)))*(2.5 + (v8/100)) + v9*v4*(1*v11/100+1*v19+0.005*v18+(v10/100))/0.15)*(1+0.15*v15+v13/100)*v12*(1+v21/100)
+    res2 = (((1*v1+1*v17+0.08*resv2+v3+1*v19_1+1*v20)*v4+v5+v6*(1 + 0.2 * v14 *(v7 / 100)))*(1+v13/100)*(2.5 + (v8/100)) + v9*v4*(1*v11/100+1*v19+0.005*v18+(v10/100))/0.15)*(1+0.15*v15)*v12*(1+v21/100)
     
 
     document.getElementById("res2").value = Math.floor(res2);
@@ -101,6 +101,7 @@ function reset() {
     document.getElementById("v6").value = "";
     document.getElementById("v7").value = "";
     document.getElementById("v8").value = "";
+    document.getElementById("v13").value = ""; 
     document.getElementById("v17").value = "";
     document.getElementById("v18").value = "";    
     document.getElementById("res1").value = "";
