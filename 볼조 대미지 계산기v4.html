@@ -43,6 +43,7 @@
 
         }
     </style>
+        <script type="text/javascript" src="jq.js"></script>
 
     <script>
 
@@ -95,15 +96,9 @@
             var v19 = Number(document.getElementById("v19").value); //라볼 원드 영향력
             var v20 = Number(document.getElementById("v20").value); //캐속옵션
             
-            var ve = document.getElementsByName("v21"); // 엘리멘토
-            var v21 = document.getElementById("v21")
-            for (var i = 0; i < ve.length; i++) {
-                if (ve[i].checked)
-                    v21 = 0
-                else
-                    v21 = 1;
-                break;
-            }
+            var v21 =$("#v21 option:selected").attr('value'); // 엘리멘토
+            var v21_1 =$("#v21 option:selected").attr('value2'); // 엘리멘토
+
 
             var v22 = $("#v22 option:selected").attr('value'); //파볼트 랭크
             var v23 = $("#v23 option:selected").attr('value'); //라볼트 랭크
@@ -128,20 +123,20 @@
 
             var res4; //볼트조합5 대미지
 
-            res4 = ((((1*v22 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 5*v18_1) * v18 * (1 + 0.01*v26  + 0.01*v24+0.01*v28 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100))) + ((1*v23 + 0.6 * v1 + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + (7+0.75*v19)*v18_1)*v18_2 * (1 + 0.01*v26  + 0.01*v24 + 0.01*v27 + 0.01 * v7 + 0.005 * v6 + (v12 / 100)))) * (1 + 0.01*v25 + 0.01 * v8) * (1 + 0.05 * v15) * (1 + v17 / 100))*(1+0.15*v21);
+            res4 = ((((1*v22 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 5*v18_1) * v18 * (1 + 0.01*v26  + 0.01*v24+0.01*v28 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100))) + ((1*v23 + 0.6 * v1 + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + (7+0.75*v19)*v18_1)*v18_2 * (1 + 0.01*v26  + 0.01*v24 + 0.01*v27 + 0.01 * v7 + 0.005 * v6 + (v12 / 100)))) * (1 + 0.01*v25 + 0.01 * v8) * (1 + 0.05 * v15) * (1 + v17 / 100))*(1+0.01*v21);
 
             document.getElementById("res4").value = Math.floor(res4);
 
             var res5; //파볼트 크리
 
-            res5 = res1 * (2.5 + (v10 / 100)+0.07*v21);
+            res5 = res1 * (2.5 + (v10 / 100)+0.07*v21_1);
 
             document.getElementById("res5").value = Math.floor(res5);
 
 
             var res7; //볼트조합 크리
 
-            res7 = res4 * (2.5 + (v10 / 100)+0.07*v21);
+            res7 = res4 * (2.5 + (v10 / 100)+0.07*v21_1);
 
             document.getElementById("res7").value = Math.floor(res7);
 
@@ -390,9 +385,21 @@
                 헤보나세트:
                 <input type="radio" name="v9" id="v9" value="1" checked>미적용
                 <input type="radio" name="v9" id="v9_1" value="0">적용<br>
-                나이트브링어 엘리멘토:
-                <input type="radio" name="v21" id="v21" value="1" checked>미적용
-                <input type="radio" name="v21" id="v21_1" value="0">적용
+                무기강화 효과:
+                <select name="v21" id="v21" style="background:#D9E5FF">
+                    <option value="0" value2="0" selected>미적용</option>
+                    <option value="15" value2="1">엘리멘토</option>
+                    <option value="0.8" value2="0">심볼1</option>
+                    <option value="1.6" value2="0">심볼2</option>
+                    <option value="2.4" value2="0">심볼3</option>
+                    <option value="3.2" value2="0">심볼4</option>
+                    <option value="4.0" value2="0">심볼5</option>
+                    <option value="4.8" value2="0">심볼6</option>
+                    <option value="5.6" value2="0">심볼7</option>
+                    <option value="6.4" value2="0">심볼8</option>
+                    <option value="7.2" value2="0">심볼9</option>
+                    <option value="8" value2="0">심볼10</option>
+                </select>   
 
         
             </div>
