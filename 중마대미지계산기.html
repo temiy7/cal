@@ -136,6 +136,21 @@
                 break;
             }
 
+            var v29 = Number(document.getElementById("v29").value); // 블레이즈 폭발 대미지
+            var v30 = Number(document.getElementById("v30").value); //블레이즈 대미지
+            var v31 = Number(document.getElementById("v31").value); //블레이즈 콤보카드
+
+            var vbb = document.getElementsByName("v32"); // 다운게이지
+            var v32 = document.getElementById("v32")
+            for (var i = 0; i < vbb.length; i++) {
+                if (vbb[i].checked)
+                    v32 = 1;
+                else
+                    v32 = 2.75;
+                break;
+            }
+
+
 
 
 
@@ -258,6 +273,21 @@
 
             document.getElementById("res19").value = Math.floor(res19);
 
+            var res20; //블레이즈
+
+            res20 =  v1*1.875*0.3525*(14+0.1*v29)*(2.4+0.05*v30)*v32*(1+v31/100)* (1 + v24 / 100)*(1+0.01*v25)
+
+            document.getElementById("res20").value = Math.floor(res20);
+
+            var res21; //블레이즈 크리
+
+            res21 = res20 * (2.5 + (v10 / 100));
+
+            document.getElementById("res21").value = Math.floor(res21);
+
+
+            
+
 
         }
 
@@ -282,6 +312,9 @@
             document.getElementById("v19").value = "";
             document.getElementById("v20").value = "";
             document.getElementById("v24").value = "";
+            document.getElementById("v29").value = "";
+            document.getElementById("v30").value = "";
+            document.getElementById("v31").value = "";
             document.getElementById("res1").value = "";
             document.getElementById("res3").value = "";
             document.getElementById("res4").value = "";
@@ -300,6 +333,8 @@
             document.getElementById("res17").value = "";
             document.getElementById("res18").value = "";
             document.getElementById("res19").value = "";
+            document.getElementById("res20").value = "";
+            document.getElementById("res21").value = "";
 
         }
 
@@ -369,7 +404,14 @@
                 아이스스피어 최댐 세공LV:
                 <input type="text" id="v5" size="3" placeholder="0"><br>
                 헤일스톰 최댐 세공LV:
-                <input type="text" id="v18" size="3" placeholder="0">
+                <input type="text" id="v18" size="3" placeholder="0"><br>
+
+                블레이즈 폭발 대미지 세공LV:
+                <input type="text" id="v29" size="3" placeholder="0"><br>
+                
+                블레이즈 대미지 세공LV:
+                <input type="text" id="v30" size="3" placeholder="0">
+
 
             </div><br><br>
 
@@ -410,7 +452,12 @@
                 물리공격력 증가포션:
                 <input type="radio" name="v23" id="v23" value="1" checked>미적용
                 <input type="radio" name="v23" id="v23_1" value="0">적용
+                <br>
+                다운게이지:
+                <input type="radio" name="v32" id="v32" value="1" checked>미적용
+                <input type="radio" name="v32" id="v32_1" value="0">적용
             </div>
+            
             <br><br>
 
             콤보카드%
@@ -422,6 +469,10 @@
                 <input type="text" id="v12" size="5" placeholder="0"><br>
                 파이어볼 콤보카드%:
                 <input type="text" id="v15" size="5" placeholder="0"><br>
+
+                블레이즈 콤보카드%:
+                <input type="text" id="v31" size="5" placeholder="0"><br>
+
                 헤일스톰 콤보카드%:
                 <input type="text" id="v16" size="5" placeholder="0"><br>
                 라이트닝 로드 콤보카드%:
@@ -474,6 +525,12 @@
                 크리:
                 <input type="text" id="res13" size="10">
             </div> <br>
+            <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
+                블레이즈 <br>대미지:
+                <input type="text" id="res20" size="10">
+                크리:
+                <input type="text" id="res21" size="10">
+            </div><br>
 
             <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
                 헤일스톰 5차지<br> 대미지:
@@ -495,6 +552,9 @@
                 크리:
                 <input type="text" id="res19" size="10">
             </div>
+            
+            
+
             <br><br><br>
 
             <input type="button" value="계산하기" class="button" onclick="cal()">
