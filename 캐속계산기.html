@@ -99,8 +99,10 @@
 
             var res2; // 캐스팅 시간(초)헤일
 
-            res2 = 3 * (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v11);
-
+            res2_1 = 3 * (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v11);
+            if((res2_1<=1.5) 
+            ){ res2 = 1.5
+            }else{res2 =res2_1}
             document.getElementById("res2").value = res2.toFixed(2);
 
 
@@ -112,7 +114,10 @@
 
             var res4; // 스태프 캐스팅 속도 증가(%)
 
-            res4 = 100 * (1 - (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v11));
+            res4_1 = 100 * (1 - (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v11));
+            if((res4_1>=50) 
+            ){ res4 = 50
+            }else{res4 =res4_1}
 
             document.getElementById("res4").value = res4.toFixed(2);
 
@@ -231,20 +236,22 @@
         결과
         <br>
         <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
-            캐스팅 시간(원드-파이어볼트) <br>
+            원드<br><br>
+            파이어볼트 캐스팅 시간 <br>
             <input type="text" id="res1" size="5"> 초<br>
             원드 캐스팅 속도증가<br>
             <input type="text" id="res3" size="5"> %
         </div><br>
 
         <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
-            캐스팅 시간(스태프-해일스톰) <br>
+            스태프<br><br>
+            해일스톰 캐스팅시간 <br>
             <input type="text" id="res2" size="5"> 초 <br>
-            스태프 캐스팅 속도증가<br>
+            상급마법 캐스팅 속도증가<br>
             <input type="text" id="res4" size="5"> % <br>
-            중급마법(스태프-파이어볼) 캐스팅 시간<br>
+            파이어볼 캐스팅 시간<br>
             <input type="text" id="res6" size="5"> 초 <br>
-            중급마법(스태프-파이어볼) 캐스팅 속도증가<br>
+            중급마법 캐스팅 속도증가<br>
             <input type="text" id="res5" size="5"> %<br>
             
         </div><br><br>
