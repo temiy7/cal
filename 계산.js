@@ -81,6 +81,15 @@ function cal() {
             v32 = 1;
         break;
     }
+    var v33v = document.getElementsByName("v33"); //속성마스터 타이틀
+        var v33 = document.getElementById("v33") //
+    for (var i = 0; i < v33v.length; i++) {
+        if (v33v[i].checked)
+            v33 = 0;
+        else
+            v33 = 1;
+        break;
+    }
 
 
     //계산식
@@ -119,7 +128,7 @@ function cal() {
     document.getElementById("res3_1").value = Math.floor(res3_1);
 
     var res4; //썬더 대미지
-    res4 = (481 + 3.5 * v1 + 0.5 * v2 + 5 * v6) * (1 + 0.15 + 0.005 * v14 + (v21 / 100)) * (1 + v29 / 100);
+    res4 = (481 + 3.5 * v1 + 0.5 * v2 + 5 * v6) * (1 + 0.15 + 0.005 * v14 + (v21 / 100)+0.1*v33) * (1 + v29 / 100);
     document.getElementById("res4").value = Math.floor(res4);
 
     var res4_1; //썬더 증가비
@@ -127,7 +136,7 @@ function cal() {
     document.getElementById("res4_1").value = Math.floor(res4_1);
 
     var res5; //파이어볼
-    res5 = (425 + 3.23 * v1 + 0.077 * v2 + 2.3 * v7) * (1 + 0.15 + 0.005 * v15 + (v22 / 100)) * (1 + v29 / 100);
+    res5 = (425 + 3.23 * v1 + 0.077 * v2 + 2.3 * v7) * (1 + 0.15 + 0.005 * v15 + (v22 / 100)+0.1*v33) * (1 + v29 / 100);
     document.getElementById("res5").value = Math.floor(res5);
 
     var res5_1; //파이어볼 증가비
@@ -135,7 +144,7 @@ function cal() {
     document.getElementById("res5_1").value = Math.floor(res5_1);
 
     var res6; //아이스스피어
-    res6 = (336 + 2.3 * v1 + 0.1 * v2 + 5 * v8) * (1 + 0.15 + 0.005 * v16 + 0.15 * v27 + (v23 / 100)) * (1 + v29 / 100);
+    res6 = (336 + 2.3 * v1 + 0.1 * v2 + 5 * v8) * (1 + 0.15 + 0.005 * v16 + 0.15 * v27 + (v23 / 100)+0.1*v33) * (1 + v29 / 100);
     document.getElementById("res6").value = Math.floor(res6);
 
     var res6_1; //아이스스피어 증가비
@@ -143,15 +152,15 @@ function cal() {
     document.getElementById("res6_1").value = Math.floor(res6_1);
 
     var res7; //라이트닝로드
-    res7 = (500 + 12 * v1 + 20 * v9) * (1 + 0.15 + 0.005 * v14 + (v24 / 100) + (v17 / 100)) * (1 + 0.1 * v28) * (1 + v29 / 100);
+    res7 = (500 + 12 * v1 + 20 * v9) * (3.3+ (v17 / 100)) *(1 + 0.15 + 0.005 * v14 + (v24 / 100)+0.1*v33) * (1 + 0.1 * v28) * (1 + v29 / 100);
     document.getElementById("res7").value = Math.floor(res7);
 
     var res7_1; //라이트닝로드 증가비
-    res7_1 = 100 * (res7 - 500 * 1.15) / (500 * 1.15);
+    res7_1 = 100 * (res7 - 500*3.3* 1.15) / (500 * 3.3*1.15);
     document.getElementById("res7_1").value = Math.floor(res7_1);
 
     var res8; //헤일스톰
-    res8 = (300 + 3.2 * v1 + 10 * v10) * (1 + 0.15 + 0.005 * v16 + 0.15 * v27 + (v25 / 100)) * (1 + v29 / 100);
+    res8 = (300 + 3.2 * v1 + 10 * v10) * (1 + 0.15 + 0.005 * v16 + 0.15 * v27 + (v25 / 100)+0.1*v33) * (1 + v29 / 100);
     document.getElementById("res8").value = Math.floor(res8);
 
     var res8_1; //헤일스톰 증가비
@@ -159,7 +168,7 @@ function cal() {
     document.getElementById("res8_1").value = Math.floor(res8_1);
 
     var res9; //메테오
-    res9 = (7517 + (8400 + 160 * v1 + 150 * v11) * (1 + 0.15 + 0.005 * v15)) * (1 + v29 / 100);
+    res9 = (7517 + (8400 + 160 * v1 + 150 * v11) * (1 + 0.15 + 0.005 * v15)+0.1*v33) * (1 + v29 / 100);
     document.getElementById("res9").value = Math.floor(res9);
 
     var res9_1; //메테오 증가비

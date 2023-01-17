@@ -47,7 +47,7 @@ header{
     width: 14.28%; 
     height: 30px;
     line-height: 30px; 
-    background-color: #333;
+    background-color: #00004a;
     display:block;
 
 }
@@ -67,7 +67,7 @@ header{
   }
 
 #manu ul li a:hover:not(.active) {
-    background-color: #111;
+    background-color: #00004a;
 }
 
 
