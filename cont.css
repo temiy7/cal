@@ -1,3 +1,8 @@
+@font-face {
+  font-family :'Mabinogi';
+  src : url(Mabinogi.otf)
+}
+
 *{margin: 0px; padding: 0px;}
 @media (max-width: 1000px) {
 *{font-size: 12px;}}
@@ -5,19 +10,23 @@
 a{text-decoration: none;}
 
 
-li {list-style: none;}
+li { font-family:'Mabinogi';
+    list-style: none;}
 
-h1{font-size: 20px;
+h1{ font-family:'Mabinogi';
+    font-size: 20px;
     color: #212931;
-    text-align:middle;
+    text-align:center;
 }
 
-h2{font-size: 20px;
+h2{ font-family:'Mabinogi';
+    font-size: 20px;
     color: #212931;
-    text-align:middle;
+    text-align:left;
 }
 
 #wrapper{
+    font-family:'Mabinogi';
     max-width: 1080px;
     margin: 20px auto;
 }
@@ -44,3 +53,6 @@ h2{font-size: 20px;
     vertical-align: middle;
    
 }
+select{font-family:'Mabinogi'}
+
+input{font-family:'Mabinogi'}

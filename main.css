@@ -1,10 +1,16 @@
+@font-face {
+  font-family :'Mabinogi';
+  src : url(Mabinogi.otf)
+}
+
 *{margin: 0px; padding: 0px;}
 
 a{text-decoration: none;}
 
 /*li {list-style: none;}*/
 
-h1{font-size: 50px;
+h1{ font-family:'Mabinogi';
+    font-size: 50px;
     color: #212931;
     text-align:center;
 }
@@ -22,6 +28,7 @@ h1{font-size: 50px;
 
 
 header{
+    font-family:'Mabinogi';
     float: left;
     width: 100%;     
     height: auto;
@@ -41,7 +48,7 @@ header{
 #manu ul li {
     float: left; 
     margin: 0 auto;
-    padding: auto ;
+    padding: initial  ;
     list-style-type: none;
     text-align:center;
     width: 14.28%; 
