@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>마비노기 엘리멘탈나이트 스킬 대미지 계산기</title>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7RRZF9GD2Z');
+      </script>
+
+
+    <style>
+        .button {
+
+            width: 100px;
+
+            background-color: #00004a;
+
+            border: none;
+
+            color: #fff;
+
+            padding: 15px 0;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            display: inline-block;
+
+            font-size: 15px;
+
+            margin: 4px;
+
+            cursor: pointer;
+
+            border-radius: 10px;
+
+        }
+    </style>
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src="엘나 대미지 계산.js"></script>
+    <link rel="stylesheet" href="./cont.css">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <h2>마비노기 엘리멘탈나이트 대미지 계산기</h2>
+        <div id="status1">
+            본 계산기는 엘리멘탈나이트 스킬의 대미지를 계산합니다.  <br>
+            제작자는 장비가 없어 실험을 할 수 없으니 계산이 맞지 않다면 알려주세요. <br>
+        </div>
+
+        <br><br>
+        <div id="status">
+            스텟<br>
+            <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
+                맥댐:
+                <input type="text" id="v4" size="5" placeholder="0"><br>
+
+            </div>
+            <br>
+            스킬랭크<br>
+            <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
+                스매시:
+                <select name="v1" id="v1" style="background:#D9E5FF">
+                    <option value="1.5" value2="2">연습</option>
+                    <option value="2" value2="3">F</option>
+                    <option value="2.1" value2="3.1">E</option>
+                    <option value="2.2" value2="3.2">D</option>
+                    <option value="2.3" value2="3.3">C</option>
+                    <option value="2.4" value2="3.4">B</option>
+                    <option value="2.5" value2="3.5">A</option>
+                    <option value="3" value2="4">9</option>
+                    <option value="3.1" value2="4.1">8</option>
+                    <option value="3.2" value2="4.2">7</option>
+                    <option value="3.3" value2="4.3">6</option>
+                    <option value="4" value2="5">5</option>
+                    <option value="4.2" value2="5.2">4</option>
+                    <option value="4.4" value2="5.4">3</option>
+                    <option value="4.6" value2="5.6">2</option>
+                    <option value="5" value2="6">1</option>
+                    <option value="5.4" value2="6.4">1단</option>
+                    <option value="5.8" value2="6.8">2단</option>
+                    <option value="6.2" value2="7.2" selected>3단</option>
+               </select>
+               <br>
+                라이트닝스매시:
+               <select name="v1_0" id="v1_0" style="background:#D9E5FF">
+                   <option value="5.5" value2="0" >연습</option>
+                   <option value="6" value2="2" >F</option>
+                   <option value="6.5" value2="2.2" >E</option>
+                   <option value="7" value2="2.4" >D</option>
+                   <option value="7.5" value2="2.6" >C</option>
+                   <option value="8" value2="2.8" >B</option>
+                   <option value="8.5" value2="3" >A</option>
+                   <option value="10" value2="3.5" >9</option>
+                   <option value="10.5" value2="3.7" >8</option>
+                   <option value="11" value2="3.8" >7</option>
+                   <option value="11.5" value2="3.9" >6</option>
+                   <option value="14" value2="4.5" >5</option>
+                   <option value="14.5" value2="4.7" >4</option>
+                   <option value="15" value2="5" >3</option>
+                   <option value="16" value2="5.5" >2</option>
+                   <option value="18" value2="6" selected>1</option>
+               </select><br><br>
+
+
+                윈드밀:
+                <select name="v2" id="v2" style="background:#D9E5FF">
+                    <option value="1.5" value2="1.5">연습</option>
+                    <option value="1.7" value2="1.7">F</option>
+                    <option value="1.8" value2="1.75">E</option>
+                    <option value="1.9" value2="1.8">D</option>
+                    <option value="2" value2="1.8">C</option>
+                    <option value="2.1" value2="1.9">B</option>
+                    <option value="2.2" value2="1.95">A</option>
+                    <option value="2.4" value2="2.05">9</option>
+                    <option value="2.6" value2="2.15">8</option>
+                    <option value="2.8" value2="2.25">7</option>
+                    <option value="3" value2="2.3">6</option>
+                    <option value="3.2" value2="2.5">5</option>
+                    <option value="3.4" value2="2.65">4</option>
+                    <option value="3.6" value2="2.8">3</option>
+                    <option value="3.8" value2="3">2</option>
+                    <option value="4" value2="3.2">1</option>
+                    <option value="4.3=" value2="3.5">1단</option>
+                    <option value="4.6" value2="3.8">2단</option>
+                    <option value="5" value2="4.2" selected>3단</option>
+               </select>
+               <br>
+                아이스윈드밀:
+               <select name="v2_0" id="v2_0" style="background:#D9E5FF">
+                    <option value="1" value2="0" value3="0">연습</option>
+                    <option value="1" value2="4" value3="0.8">F</option>
+                    <option value="1.1" value2="4.4" value3="0.8">E</option>
+                    <option value="1.2" value2="4.8" value3="0.8">D</option>
+                    <option value="1.3" value2="5.2" value3="0.8">C</option>
+                    <option value="1.4" value2="5.6" value3="0.8">B</option>
+                    <option value="1.5" value2="6" value3="0.8">A</option>
+                    <option value="1.8" value2="7.2" value3="1.2">9</option>
+                    <option value="1.9" value2="7.6" value3="1.2">8</option>
+                    <option value="2" value2="8" value3="1.2">7</option>
+                    <option value="2.1" value2="8.8" value3="1.2">6</option>
+                    <option value="2.2" value2="10" value3="1.2">5</option>
+                    <option value="2.3" value2="10.4" value3="1.6">4</option>
+                    <option value="2.5" value2="10.8" value3="1.6">3</option>
+                    <option value="2.7" value2="11.2" value3="1.6">2</option>
+                    <option value="3" value2="12" value3="2" selected>1</option>
+               </select><br><br>
+
+                다운어택:
+              <select name="v3" id="v3" style="background:#D9E5FF">
+                  <option value="0.7" >연습</option>
+                  <option value="0.8">F</option>
+                  <option value="0.84">E</option>
+                  <option value="0.88">D</option>
+                  <option value="0.92">C</option>
+                  <option value="0.96">B</option>
+                  <option value="1">A</option>
+                  <option value="1.1">9</option>
+                  <option value="1.15">8</option>
+                  <option value="1.2">7</option>
+                  <option value="1.25">6</option>
+                  <option value="1.5">5</option>
+                  <option value="1.6">4</option>
+                  <option value="1.7"6>3</option>
+                  <option value="1.8">2</option>
+                  <option value="2" >1</option>
+                  <option value="2.2" >1단</option>
+                  <option value="2.4" >2단</option>
+                  <option value="2.6" selected>3단</option>
+             </select><br>
+
+                 파이어리프어택:
+               <select name="v3_0" id="v3_0" style="background:#D9E5FF">
+                   <option value="0" value2="0" >연습</option>
+                   <option value="4" value2="0.5" >F</option>
+                   <option value="4.3" value2="0.55" >E</option>
+                   <option value="4.6" value2="0.6" >D</option>
+                   <option value="4.9" value2="0.65" >C</option>
+                   <option value="5.2" value2="0.7" >B</option>
+                   <option value="5.5" value2="0.75" >A</option>
+                   <option value="6" value2="1" >9</option>
+                   <option value="6.3" value2="1.05" >8</option>
+                   <option value="6.6" value2="1.1" >7</option>
+                   <option value="6.9" value2="1.15" >6</option>
+                   <option value="7.5" value2="1.3" >5</option>
+                   <option value="7.8" value2="1.4" >4</option>
+                   <option value="8.5" value2="1.5" >3</option>
+                   <option value="9" value2="1.7" >2</option>
+                   <option value="10" value2="2" selected>1</option></select><br>
+            </div><br>
+
+             세공<br>
+
+             <div style="height: auto; width:300px; border: 1px solid; padding:10px">
+                스매시 최대대미지Lv:
+                <input type="text" id="v18" size="5" placeholder="0"> <br>
+                 윈드밀 최대대미지Lv:
+                <input type="text" id="v19" size="5" placeholder="0"> <br>
+                 다운어택 최대대미지Lv:
+                <input type="text" id="v20" size="5" placeholder="0"> <br>
+             </div>
+            <br>
+
+            콤보카드 비율(%):<br>
+        <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
+
+                스매시:
+                <input type="text" id="v8" size="5" placeholder="0"> <br>
+                윈드밀:
+                <input type="text" id="v9" size="5" placeholder="0"> <br>
+                다운어택:
+                <input type="text" id="v10" size="5" placeholder="0"> <br>
+
+        </div><br>
+
+            아이템
+            <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
+
+
+                스매시강화 세트:<br>
+                <input type="radio" name="v15" id="v15" value="1" checked>미적용
+                <input type="radio" name="v15" id="v15_1" value="0">적용<br>
+
+                윈드밀강화 세트:<br>
+                <input type="radio" name="v16" id="v16" value="1" checked>미적용
+                <input type="radio" name="v16" id="v16_1" value="0">적용<br>
+
+                다운어택 세트:<br>
+                <input type="radio" name="v21" id="v21" value="1" checked>미적용
+                <input type="radio" name="v21" id="v21_1" value="0">적용<br>
+
+                양손검(워로드일경우 워로드와 함께 선택):<br>
+                <input type="radio" name="v17" id="v17" value="1" checked>미적용
+                <input type="radio" name="v17" id="v17_1" value="0">적용<br>
+
+                워로드:<br>
+                <input type="radio" name="v22" id="v22" value="1" checked>미적용
+                <input type="radio" name="v22" id="v22_1" value="0">적용<br>
+
+            </div><br>
+
+
+              도핑
+            <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
+
+                전장 비율%:
+                <input type="text" id="v5" size="5" placeholder="0"> <br>
+                물공포:
+                <input type="radio" name="v11" id="v11" value="1" checked>미적용
+                <input type="radio" name="v11" id="v11_1" value="0">적용<br><br>
+                인잭션<br>
+                라이트닝:
+                <input type="radio" name="v12" id="v12" value="1" checked>미적용
+                <input type="radio" name="v12" id="v12_1" value="0">적용<br>
+                아이스:
+                <input type="radio" name="v13" id="v13" value="1" checked>미적용
+                <input type="radio" name="v13" id="v13_1" value="0">적용<br>
+                파이어:
+                <input type="radio" name="v14" id="v14" value="1" checked>미적용
+                <input type="radio" name="v14" id="v14_1" value="0">적용<br>
+
+            </div><br>
+
+                보너스 대미지%(낭농,토템,정령등)
+                <input type="text" id="v7" size="5" placeholder="0"><br>
+                추가 크리%(특개,이보나,낭농)
+                <input type="text" id="v6" size="5" placeholder="0">
+
+        </div>
+
+        <div id="result">
+            결과
+            <br>
+            <!--현재값 저장을 누르면 현재값을 기억해 이후 계산값과 비교합니다. -->
+            <br>
+            <div style="font-weight: bold; height: auto; width: 350px; border: 1px solid; padding:10px;">
+                스매시<br>
+                인간-엘프: <input type="text" id="res1" size="6" style="border:none;text-align: right; ">, 크리티컬: <input type="text" id="res1c" size="6" style="border:none;text-align: right; "> <br>
+                자이언트: <input type="text" id="res1_1" size="6" style="border:none;text-align: right; ">, 크리티컬: <input type="text" id="res1_1c" size="6" style="border:none;text-align: right; "> <br>
+            </div>
+            <div style="font-weight: bold; height: auto; width: 350px; border: 1px solid; padding:10px;">
+                라이트닝스매시<br>
+                인간-엘프: <input type="text" id="res4" size="6" style="border:none;text-align: right; ">, 크리티컬: <input type="text" id="res4c" size="6" style="border:none;text-align: right; "> <br>
+                자이언트: <input type="text" id="res4_1" size="6" style="border:none;text-align: right; ">, 크리티컬: <input type="text" id="res4_1c" size="6" style="border:none;text-align: right; "> <br>
+
+            </div>
+            <br>
+            <div style="font-weight: bold; height: auto; width: 350px; border: 1px solid; padding:10px;">
+                윈드밀<br>
+                인간-자이: <input type="text" id="res2" size="6" style="border:none;text-align: right; ">, 크리티컬: <input type="text" id="res2c" size="6" style="border:none;text-align: right; "> <br>
+                엘프: <input type="text" id="res2_1" size="6" style="border:none;text-align: right; ">, 크리티컬: <input type="text" id="res2_1c" size="6" style="border:none;text-align: right; "><br>
+            </div>
+            <div style="font-weight: bold; height: auto; width: 350px; border: 1px solid; padding:10px;">
+                아이스윈드밀(기본댐+폭발댐)<br>
+                인간-자이: <input type="text" id="res5" size="6" style="border:none;text-align: right; ">+<input type="text" id="res5_0" size="6" style="border:none;text-align: left; ">, 크리티컬: <input type="text" id="res5c" size="6" style="border:none;text-align: right; ">+<input type="text" id="res5_0c" size="6" style="border:none;text-align: left; "> <br>
+                엘프: <input type="text" id="res5_1" size="6" style="border:none;text-align: right; ">+<input type="text" id="res5_10" size="6" style="border:none;text-align: left; ">, 크리티컬: <input type="text" id="res5_1c" size="6" style="border:none;text-align: right; ">+<input type="text" id="res5_10c" size="6" style="border:none;text-align: left; "><br>
+            </div>
+            <br>
+            <div style="font-weight: bold; height: auto; width: 350px; border: 1px solid; padding:10px;">
+                다운어택<br>
+                대미지 <input type="text" id="res3" size="6" style="border:none;text-align: right; ">, 크리티컬: <input type="text" id="res3c" size="6" style="border:none;text-align: right; "><br>
+             </div>
+            <div style="font-weight: bold; height: auto; width: 350px; border: 1px solid; padding:10px;">
+                파이어리프어택<br>
+                대미지: <input type="text" id="res6" size="6" style="border:none;text-align: right; ">, 크리티컬: <input type="text" id="res6c" size="6" style="border:none;text-align: right; "> <br>
+            </div>
+
+            <input type="hidden" id="resv2">
+
+
+
+
+
+            <input type="button" value="계산하기" class="button" onclick="cal()">
+            <input type="button" value="초기화" class="button" onclick="reset()">
+        </div>
+    </div>
+</body>
+
+</html>
