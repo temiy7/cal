@@ -53,6 +53,8 @@ h2{ font-family:'Mabinogi';
     vertical-align: middle;
    
 }
-select{font-family:'Mabinogi'}
+select{font-family:'Mabinogi';
+font-size: 15px;}
 
-input{font-family:'Mabinogi'}
+input{font-family:'Mabinogi';
+font-size: 15px;}
