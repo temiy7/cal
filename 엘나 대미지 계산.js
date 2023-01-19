@@ -208,7 +208,7 @@ function cal() {
     res5_0c = res5_0*(2.5 + (v6/100))
     document.getElementById("res5_0c").value = Math.floor(res5_0c);
 
-    var res5_1; //아윈밀 인-자
+    var res5_1; //아윈밀 엘프
     res5_1 =(v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*((1*v2_1+0.03*v19)*(1+0.3*v16+v9/100)*(1+0.15*v22)+1*v2_0)*(1+v7/100)
     document.getElementById("res5_1").value = Math.floor(res5_1);
 
@@ -216,7 +216,7 @@ function cal() {
     res5_1c = res5_1*(2.5 + (v6/100))
     document.getElementById("res5_1c").value = Math.floor(res5_1c);
 
-    var res5_10; //아윈밀 인-자 폭발
+    var res5_10; //아윈밀 엘프 폭발
     res5_10 =(v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v2_01+1*v13*v2_02)*(1+v7/100)
     document.getElementById("res5_10").value = Math.floor(res5_10);
 
