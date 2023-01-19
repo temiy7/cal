@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>마비노기 방어 보호 계산기</title>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7RRZF9GD2Z');
+      </script>
+
+    <style>
+        .button {
+
+            width: 100px;
+
+            background-color: #00004a;
+
+            border: none;
+
+            color: #fff;
+
+            padding: 15px 0;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            display: inline-block;
+
+            font-size: 15px;
+
+            margin: 4px;
+
+            cursor: pointer;
+
+            border-radius: 10px;
+
+        }
+    </style>
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src="방보계산기.js"></script>
+    <link rel="stylesheet" href="./cont.css">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="status1">
+            <h2>마비노기 방어 보호 계산기</h2>
+            본인의 방어와 보호로 보호받을 수 있는 대미지를 계산해 줍니다.  <br>
+            결과의 대미지 차감비는 방어 보호를 모두 이용한 결과 입니다.
+
+
+            <br><br>
+            (마법)방어:
+            <input type="text" id="v1" size="5" placeholder="0"><br>
+            (마법)보호:
+            <input type="text" id="v2" size="5" placeholder="0"><br>
+        </div><br>
+
+             받는 대미지 계산: <br>
+            <input type="text" placeholder="대미지 입력" id="v3" size="10"> x (100- <input type="text" id="res1" size="3" style="border:none;text-align: center;">)%
+            - <input type="text"  id="res2" size="4" style="border:none;text-align: left; "><br>
+
+        <br>
+        <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+            받는 대미지<br>
+            <input type="text" placeholder="결과" id="res3" size="8" style="border:none;text-align: left; "><br><br>
+            대미지 차감비<br>
+            <input type="text" placeholder="결과" id="res4" size="4" style="border:none;text-align: right; ">%
+
+
+
+
+
+        </div><br>
+
+
+
+            <input type="button" value="계산하기" class="button" onclick="cal()">
+        <input type="button" value="초기화" class="button" onclick="reset()">
+    </div>
+</body>
+
+</html>
