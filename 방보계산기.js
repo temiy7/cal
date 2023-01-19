@@ -5,6 +5,7 @@ function cal() {
     var v1 = Number(document.getElementById("v1").value); // 방어
     var v2 = Number(document.getElementById("v2").value); // 보호
     var v3 = Number(document.getElementById("v3").value); // 받는대미지
+    var v4 = Number(document.getElementById("v4").value); // 받은대미지
 
 
 
@@ -16,11 +17,11 @@ function cal() {
     res1_1 = 29*Math.asinh(v2/24)+1
     if(res1_1>=100){res1=100}
     else {res1=res1_1}
-    document.getElementById("res1").value = Math.floor(res1);
+    document.getElementById("res1").value = Math.round(res1);
 
-    var res2; //보호 차감 비율
-    res2 = 1*v1
-    document.getElementById("res2").value = Math.floor(res2);
+    var res2; //방어 차감 비율
+    res2 = v1
+    document.getElementById("res2").value = Math.round(res2);
 
     var res3; //받는 대미지
     res3_1 = v3*(1-res1/100)-res2
@@ -32,6 +33,10 @@ function cal() {
     var res4; //대미지 차감비
     res4 = (1-(res3)/(v3))*100
     document.getElementById("res4").value = Math.floor(res4);
+
+    var res5; //역산
+    res5 = (v4+v1)/(1-0.01*res1)
+    document.getElementById("res5").value = Math.floor(res5);
 
 
 
@@ -45,6 +50,7 @@ function reset() {
     document.getElementById("v1").value = "";
     document.getElementById("v2").value = "";
     document.getElementById("v3").value = "";
+    document.getElementById("v4").value = "";
     document.getElementById("res1").value = "";
     document.getElementById("res2").value = "";
     document.getElementById("res3").value = "";
