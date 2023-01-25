@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
 
 <head>
     <meta charset="utf-8">
     <title>마비노기 방어 보호 계산기</title>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
         gtag('config', 'G-7RRZF9GD2Z');
-      </script>
+    </script>
 
     <style>
         .button {
@@ -48,48 +52,82 @@
 
 <body>
 
-    <div id="wrapper">
-        <div id="status1">
-            <h2>마비노기 방어 보호 계산기</h2>
-            본인의 방어와 보호로 보호받을 수 있는 대미지를 계산해 줍니다.  <br>
-            결과의 대미지 차감비는 방어 보호를 모두 이용한 결과 입니다.<br>
-            대미지 역산은 맞은 대미지를 입력하면 원래 대미지를 추정해줍니다.<br>
-            계산의 모든 소수점은 버림 합니다.
+<div id="wrapper">
+    <div id="status1">
+        <h2>마비노기 방어 보호 계산기</h2>
+        본인의 방어와 보호로 보호받을 수 있는 대미지를 계산해 줍니다. <br>
+        결과의 대미지 차감비는 방어 보호를 모두 이용한 결과 입니다.<br>
+        대미지 역산은 맞은 대미지를 입력하면 원래 대미지를 추정해줍니다.<br>
+        계산의 모든 소수점은 버림 합니다.
 
 
-            <br><br>
-            (마법)방어:
-            <input type="text" id="v1" size="5" placeholder="0"><br>
-            (마법)보호:
-            <input type="text" id="v2" size="5" placeholder="0"><br>
-        </div><br>
-
-             받는 대미지 계산: <br>
-            <input type="text" placeholder="대미지 입력" id="v3" size="10"> x (100- <input type="text" id="res1" size="3" style="border:none;text-align: center;">)%
-            - <input type="text"  id="res2" size="4" style="border:none;text-align: left; "><br>
-
+        <br><br>
+        <label for="v1">(마법)방어:</label><input type="text" id="v1" size="5" placeholder="0"><br>
+        <label for="v2">(마법)보호:</label><input type="text" id="v2" size="5" placeholder="0"><br>
+        <label for="v5">디펜스:</label><select name="v5" id="v5" style="background:#D9E5FF">
+        <option value="0" value2="0" value3="0" value4="0">연습</option>
+        <option value="20" value2="30" value3="5" value4="10">F</option>
+        <option value="21" value2="31" value3="6" value4="11">E</option>
+        <option value="22" value2="32" value3="7" value4="12">D</option>
+        <option value="24" value2="33" value3="8" value4="13">C</option>
+        <option value="26" value2="35" value3="9" value4="15">B</option>
+        <option value="28" value2="37" value3="10" value4="17">A</option>
+        <option value="32" value2="39" value3="12" value4="19">9</option>
+        <option value="34" value2="41" value3="13" value4="21">8</option>
+        <option value="38" value2="45" value3="14" value4="23">7</option>
+        <option value="42" value2="50" value3="15" value4="25">6</option>
+        <option value="46" value2="55" value3="17" value4="28">5</option>
+        <option value="50" value2="60" value3="20" value4="32">4</option>
+        <option value="55" value2="65" value3="25" value4="37">3</option>
+        <option value="60" value2="70" value3="30" value4="40">2</option>
+        <option value="65" value2="80" value3="35" value4="45">1</option>
+        <option value="70" value2="90" value3="35" value4="45">1단</option>
+        <option value="75" value2="100" value3="35" value4="45">2단</option>
+        <option value="80" value2="110" value3="35" value4="45" selected> 3단</option>
+    </select>
         <br>
-        <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
-            받는 대미지<br>
-            <input type="text" placeholder="결과" id="res3" size="8" style="border:none;text-align: left; "><br><br>
-            대미지 차감비<br>
-            <input type="text" placeholder="결과" id="res4" size="4" style="border:none;text-align: right; ">%<br><br>
-            대미지 역산<br>
-             <input type="text" placeholder="받은대미지" id="v4" size="10"><br>
-            추정대미지 :
-            <input type="text" placeholder="결과" id="res5" size="8" style="border:none;text-align: left; ">
+        방패착용(인엘 대형방패 불가):
+        <select name="v9" id="v9" style="background:#D9E5FF">
+        <option value="1" selected>없음</option>
+        <option value="0.5">소형방패</option>
+        <option value="0.3">중형방패</option>
+        <option value="0">대형방패</option>
+    </select>
 
 
-
-
-
-        </div><br>
-
-
-
-            <input type="button" value="계산하기" class="button" onclick="cal()">
-        <input type="button" value="초기화" class="button" onclick="reset()">
     </div>
+    <br>
+
+    받는 대미지 계산: <br>
+    <input type="text" placeholder="대미지 입력" id="v3" size="10"><label for="v3"> x (100- </label>
+    x (100- <input type="text" id="res1" size="3" style="border:none;text-align: center;">)%
+    - <input type="text" id="res2" size="4" style="border:none;text-align: left; "><br>
+
+    <br>
+    <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+        받는 대미지<br>
+        <input type="text" placeholder="결과" id="res3" size="8" style="border:none;text-align: left; "><br><br>
+        대미지 차감비<br>
+        <input type="text" placeholder="결과" id="res4" size="4" style="border:none;text-align: right; ">%<br><br>
+        대미지 역산<br>
+        <input type="text" placeholder="받은대미지" id="v4" size="10"><br>
+        추정대미지 :
+        <input type="text" placeholder="결과" id="res5" size="8" style="border:none;text-align: left; ">
+    </div>
+    <br>
+    디펜스시 받는 대미지
+    <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+        인간-엘프:
+        <input type="text" placeholder="결과" id="res6" size="8" style="border:none;text-align: left; "><br>
+        자이언트:
+        <input type="text" placeholder="결과" id="res7" size="8" style="border:none;text-align: left; ">
+    </div>
+    <br>
+
+
+    <input type="button" value="계산하기" class="button" onclick="cal()">
+    <input type="button" value="초기화" class="button" onclick="reset()">
+</div>
 </body>
 
 </html>
