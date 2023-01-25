@@ -41,6 +41,11 @@ function cal() {
 
     var res4; //대미지 차감비
     res4 = (1 - (res3) / (v3)) * 100
+    if (isNaN(res4)) { // 값이 없어서 NaN값이 나올 경우
+
+        res4 = 0;
+
+    }
     document.getElementById("res4").value = Math.floor(res4);
 
     var res5; //역산
