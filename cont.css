@@ -58,3 +58,8 @@ font-size: 15px;}
 
 input{font-family:'Mabinogi';
 font-size: 15px;}
+
+   .flex-container{
+            display: inline-flex;
+        }
+   .dam{margin: 4px;}
