@@ -6,8 +6,8 @@ function cal() {
     var v00_1 = $('input[name="v00"]:checked').attr('value1'); //종족
     var v0 = Number(document.getElementById("v0").value); // 물공
     var v1 = $("#v1 option:selected").attr('value'); // 매그샷 랭크
-    var v2 = $("#v2 option:selected").attr('value'); // 크래시샷 랭크
-    var v2_1 = $("#v2 option:selected").attr('value2'); // 크래시샷 랭크
+    var v2 = $("#v2 option:selected").attr('value2'); // 크래시샷 랭크
+    var v2_1 = $("#v2 option:selected").attr('value'); // 크래시샷 랭크
     var v3 = $("#v3 option:selected").attr('value'); // 어전트샷 랭크
     // // var v4 = $("#v4 option:selected").attr('value'); // 리볼버 랭크
     //
