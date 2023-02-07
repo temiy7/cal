@@ -1,0 +1,73 @@
+@font-face {
+  font-family :'Mabinogi';
+  src : url(Mabinogi.otf)
+}
+
+.form-contact {
+  font-family: 'Mabinogi';
+    width: 90%;
+    margin: auto;
+}
+
+.thankyou_message {
+    font-family :'Mabinogi';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    display: none;
+}
+h1{ font-family:'Mabinogi';
+    font-size: 20px;
+    color: #212931;
+    text-align:left;
+}
+
+.thankyou_message > section > h1 {
+    font-family :'Mabinogi';
+    color: #59c3c3;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.thankyou_message > section {
+    font-family :'Mabinogi';
+    width: 550px;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-size: 240px;
+    color: #3c4147;
+}
+
+.button {
+            font-family: 'Mabinogi';
+            width: 80px;
+
+            background-color: #00004a;
+
+            border: none;
+
+            color: #fff;
+
+            padding: 15px 0;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            display: inline-block;
+
+            font-size: 15px;
+
+            margin: 4px;
+
+            cursor: pointer;
+
+            border-radius: 10px;
+
+        }

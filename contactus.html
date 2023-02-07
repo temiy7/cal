@@ -1,0 +1,49 @@
+<!-- forms -->
+<!DOCTYPE html>
+<html lang="ko">
+<meta charset="UTF-8">
+
+<body>
+
+
+<form method="post"
+      action="https://script.google.com/macros/s/AKfycbxBMY8r1e1pkAkD9D3wUpK_JkbZibCMlexMWyBbY_Cy0wAfaj1Jh_ya8Ac8WLBEoZJyrg/exec"
+      class="mt-5 form-contact slideanim">
+
+    <link rel="stylesheet" href="./contacus.css">
+    <div class="row">
+        <h1>문의하기</h1><br>
+        <div class="form-group col-sm-6">
+            <label for="usr" class="blind">이름:</label>
+            <input type="text" class="form-control" id="usr" name="username" value="이름입력">
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="email" class="blind">답변 받을 이메일:</label>
+            <input type="email" class="form-control" id="email" name="email" value="AAA@mabinogi.com">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="comment" class="blind">문의 내용:</label><br>
+        <textarea class="form-control" rows="5" id="comment" name="message" placeholder="comment"></textarea>
+    </div>
+
+
+
+    <button type="submit" class="button">문의하기</button>
+
+
+    <script data-cfasync="false" type="text/javascript" src="formhandler.js"></script>
+
+       <div style="display:none" class="thankyou_message">
+        <!-- You can customize the thankyou message by editing the code below -->
+        <h2><em>Thanks</em> for contacting us! We will get back to you soon!
+        </h2>
+    </div>
+
+</form>
+
+
+
+</body>
+</html>
