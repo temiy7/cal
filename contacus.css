@@ -8,6 +8,11 @@
     width: 90%;
     margin: auto;
 }
+.blind{
+  font-family: 'Mabinogi';
+    width: 90%;
+    margin: auto;
+}
 
 .thankyou_message {
     font-family :'Mabinogi';
@@ -23,6 +28,12 @@
 h1{ font-family:'Mabinogi';
     font-size: 20px;
     color: #212931;
+    text-align:left;
+}
+
+h2{ font-family:'Mabinogi';
+    font-size: 20px;
+    color: white;
     text-align:left;
 }
 

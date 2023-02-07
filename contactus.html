@@ -2,13 +2,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <meta charset="UTF-8">
+<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
 
 <body>
 
 
 <form method="post"
       action="https://script.google.com/macros/s/AKfycbxBMY8r1e1pkAkD9D3wUpK_JkbZibCMlexMWyBbY_Cy0wAfaj1Jh_ya8Ac8WLBEoZJyrg/exec"
-      class="mt-5 form-contact slideanim">
+      class="gform pure-form pure-form-stacked">
 
     <link rel="stylesheet" href="./contacus.css">
     <div class="row">
@@ -29,20 +30,18 @@
     </div>
 
 
-
     <button type="submit" class="button">문의하기</button>
 
 
-    <script data-cfasync="false" type="text/javascript" src="formhandler.js"></script>
-
-       <div style="display:none" class="thankyou_message">
+    <div style="display:none" class="thankyou_message">
         <!-- You can customize the thankyou message by editing the code below -->
-        <h2><em>Thanks</em> for contacting us! We will get back to you soon!
+        <h2>의견을 보내주셔서 감사합니다. 이 창은 2초 후 자동으로 닫힙니다.
         </h2>
     </div>
 
 </form>
 
+<script data-cfasync="false" src="formhandler.js"></script>
 
 
 </body>
