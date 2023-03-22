@@ -81,6 +81,7 @@ header{
 
 
 .frame1{
+    font-family:'Mabinogi';
     clear: left;
     float: left;
     padding-bottom: 75%; 
@@ -96,7 +97,27 @@ header{
         width: 100vmin
     }
   }
-.frame1 iframe{
+
+  
+  #viewport{
+  font-family:'Mabinogi';
+  clear: left;
+  float: left;
+  padding-bottom: 75%; 
+  max-width: 100%;
+  position: relative;
+  
+  width: auto;
+              
+}
+
+@media (max-width: 600px) {
+  #viewport {
+      width: 100vmin
+  }
+}
+
+/* .frame1 iframe{
     position: absolute;
     top: 20px;
     left: 120px;
@@ -104,12 +125,12 @@ header{
     height: 100vh;
     
     
-}
+} */
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     .frame1 iframe{
         width: 100vmin;
         left: 10px;
         
     }
-  }
+  } */
