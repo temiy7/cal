@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>마비노기 마법 대미지 계산기</title>
+    <title>마비노기 대미지 계산기</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RRZF9GD2Z"></script>
+    <script type="text/javascript" src="jq.js"></script>
     <meta name="naver-site-verification" content="f3ba84aa5ae74d0b160c34a2a9e99839bfc3a39f" />
 
     <script>
@@ -17,9 +18,6 @@
     </script>
 
     <script type="text/javascript">
-        /** @type {HTMLElement|undefined} */
-        let viewport = undefined;
-
         async function loadViewport(command) {
             if (!command) 
                 return;
@@ -27,22 +25,11 @@
             const url = `${command}.html`;
             const r = await (await fetch(url)).text();
 
-            const setter = () => {
-                if (viewport)
-                        viewport.innerHTML = r;
-            }
-
-            if (!viewport) {
-                return setTimeout(setter, 10);
-            }
-                
-            setter();
+            $('#viewport').html(r);
         }
 
         function init() {
-            viewport = document.getElementById('viewport');
             const command = getCommand();
-            
             loadViewport(command);
         }
 
@@ -52,7 +39,7 @@
                 window.location.hash.slice(1) : window.location.hash;
         }
 
-        document.addEventListener('DOMContentLoaded', init);
+        $(document).ready(init);
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
