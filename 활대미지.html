@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="">
+<html>
 
 <head>
     <meta charset="utf-8">
     <title>활 대미지 계산기</title>
+    <link rel="stylesheet" href="./cont.css">
+
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
+        function gtag() {dataLayer.push(arguments);}        
         gtag('js', new Date());
+
         gtag('config', 'G-7RRZF9GD2Z');
     </script>
 
@@ -46,15 +45,16 @@
     </style>
     <script type="text/javascript" src="jq.js"></script>
     <script type="text/javascript" src="활계산.js"></script>
-    <link rel="stylesheet" href="./cont.css">
+    
 
 </head>
 
 <body>
 
     <div id="wrapper">
+
+        <h2>마비노기 활 대미지 계산기</h2>
         <div id="status1">
-            <h2>마비노기 활 대미지 계산기</h2>
             활 대미지를 계산해줍니다. <br>
             작성자는 활 장비가 없어 테스트 할 수 없습니다. <br>
             화살에 붙어있는 최대대미지는 자동으로 추가되지 않습니다. <br>
@@ -196,7 +196,7 @@
 
         </div>
 
-        <br>
+    
         <div id="result">
             활 대미지 결과:
             <br>
@@ -218,8 +218,8 @@
                 <input type="text" placeholder="결과" id="res3" size="8" style="border:none;text-align: left; "><br>
                 크래시샷 파편크리:<br>
                 <input type="text" placeholder="결과" id="res3c" size="8" style="border:none;text-align: left; "><br><br>
-                <div class="flex-container">
-                    <div class="dam">
+                <div id="flex-container">
+                    <div id="dam">
                         리볼버 대미지:<br>
                         1타<input type="text" placeholder="결과" id="res4" size="8"
                             style="border:none;text-align: left; "><br>
@@ -235,8 +235,7 @@
                             style="border:none;text-align: left; "><br>
                     </div>
                     <br>
-
-                    <div class="dam">
+                    <div id="dam">
                         리볼버 크리:<br>
                         1타<input type="text" placeholder="결과" id="res4c" size="8"
                             style="border:none;text-align: left; "><br>
