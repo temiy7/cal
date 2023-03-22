@@ -64,7 +64,8 @@ function cal() {
 
     var v21 =  Number(document.getElementById("v21").value); //추가 대미지 비율
 
-
+    
+  
 
     //계산식
 
@@ -87,6 +88,8 @@ function cal() {
     
 
     document.getElementById("res2").value = Math.floor(res2);
+
+
 
     
 
