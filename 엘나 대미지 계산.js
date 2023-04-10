@@ -166,7 +166,7 @@ function cal() {
     document.getElementById("res2_1c").value = Math.floor(res2_1c);
 
     var res3; //다운어택 대미지
-    res3 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v3+0.04*v20)*(1+0.15*v15+v10/100)*(1+v7/100)
+    res3 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v3+0.04*v20)*(1+0.15*v21+v10/100)*(1+v7/100)
     document.getElementById("res3").value = Math.floor(res3);
 
     var res3c; //다운어택 크리
@@ -225,7 +225,7 @@ function cal() {
     document.getElementById("res5_10c").value = Math.floor(res5_10c);
 
     var res6; //파이어리프어택
-    res6 =(v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*((1*v3+0.04*v20)*(1+0.15*v15+v10/100)+1*v3_0+1*v14*v3_01)*(1+v7/100)
+    res6 =(v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*((1*v3+0.04*v20)*(1+0.15*v21+v10/100)+1*v3_0+1*v14*v3_01)*(1+v7/100)
     document.getElementById("res6").value = Math.floor(res6);
 
     var res6c; //크리
