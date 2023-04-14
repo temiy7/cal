@@ -42,8 +42,8 @@ function cal() {
     //세공
     var v10 = Number(document.getElementById("v10").value); //랜차 대미지
     // var v11 = Number(document.getElementById("v11").value); //랜차 거리
-    var v12 = Number(document.getElementById("v12").value); //주 목표물 대미지
     var v13 = Number(document.getElementById("v13").value); //마상 돌진 대미지
+    var v12 = Number(document.getElementById("v12").value); //주 목표물 대미지
     var v14 = Number(document.getElementById("v14").value); //마상 돌진 추가거리
 
 

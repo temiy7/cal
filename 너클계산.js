@@ -17,6 +17,7 @@ function cal() {
     var v6 = $("#v6 option:selected").attr('value'); // 섬머솔트 랭크
     var v7 = $("#v7 option:selected").attr('value'); // 파운딩 랭크
 
+
     var v8 = Number(document.getElementById("v8").value); // 전장비율
     //
     //크리
@@ -72,12 +73,14 @@ function cal() {
     var v30 = $("#v18 option:selected").attr('value1'); // 베본
     var v30_1 = $("#v18 option:selected").attr('value2'); // 패러
 
+
     //
 
     //계산식
     var res0; //연속기 대미지
-    res0 = (v0 * (1 + 0.2 * v17) * (1 + (v8 / 100) * (1 + 0.2 * v17))) * (1 + (1 * v1 * v00 + 1 * v1_1 * v00_1 + 1 * v1_2 * v00_2) + 1*v18 + 1*v28 + 0.01 * v22) * (1 + v10 / 100) * (1 - v1_3 * v29 * v00 - v1_3 * v29 * v00_1)
+    res0 = (v0 * (1 + 0.2 * v17) * (1 + (v8 / 100) * (1 + 0.2 * v17))) * (1 + (1 * v1 * v00 + 1 * v1_1 * v00_1 + 1 * v1_2 * v00_2) + 1 * v18 + 1 * v28 + 0.01 * v22) * (1 + v10 / 100) * (1 - v1_3 * v29 * v00 - v1_3 * v29 * v00_1)
     document.getElementById("res0").value = res0.toFixed(2);
+
 
     var res1; //대시펀치
     res1 = res0 * (1 * v2 + 0.03 * v23) * (1 + 0.3 * v19) * (1 + v11 / 100)
@@ -96,7 +99,7 @@ function cal() {
     document.getElementById("res2c").value = Math.floor(res2c);
 
     var res3; //드롭킥 대미지
-    res3 = res0 * (1 * v4 + 0.09 * v25) * (1 + 1*v30) * (1 + 0.1 * v21) * (1 + v13 / 100)
+    res3 = res0 * (1 * v4 + 0.09 * v25) * (1 + 1 * v30) * (1 + 0.1 * v21) * (1 + v13 / 100)
     document.getElementById("res3").value = Math.floor(res3);
 
     var res3c; //드롭킥 크리
@@ -120,7 +123,7 @@ function cal() {
     document.getElementById("res5c").value = Math.floor(res5c);
 
     var res6; //파운딩 대미지
-    res6 = res0 * (1 * v7 + 0.09 * v27 + 1*v30_1 )*(1+ v16 / 100)
+    res6 = res0 * (1 * v7 + 0.09 * v27 + 1 * v30_1) * (1 + v16 / 100)
     document.getElementById("res6").value = Math.floor(res6);
 
     var res6c; //파운딩 크리
