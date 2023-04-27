@@ -150,7 +150,7 @@ function cal() {
     document.getElementById("res1_1c").value = Math.floor(res1_1c);
 
     var res2; //윈드밀 대미지 인간-자이언트
-    res2 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v2+0.03*v19)*(1+0.3*v16+v9/100)*(1+0.15*v22)*(1+v7/100)
+    res2 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v2+0.03*v19+0.3*v16)*(1+v9/100)*(1+0.15*v22)*(1+v7/100)
     document.getElementById("res2").value = Math.floor(res2);
 
     var res2c; //윈드밀 대미지  인간 자이언트 크리
@@ -158,7 +158,7 @@ function cal() {
     document.getElementById("res2c").value = Math.floor(res2c);
 
     var res2_1; //윈드밀 대미지 엘프
-    res2_1 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v2_1+0.03*v19)*(1+0.3*v16+v9/100)*(1+0.15*v22)*(1+v7/100)
+    res2_1 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v2_1+0.03*v19+0.3*v16)*(1+v9/100)*(1+0.15*v22)*(1+v7/100)
     document.getElementById("res2_1").value = Math.floor(res2_1);
 
     var res2_1c; //윈드밀 대미지 엘프 크리
