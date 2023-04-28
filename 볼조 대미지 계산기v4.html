@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="css/cont.css">
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'G-7RRZF9GD2Z');
@@ -107,23 +111,19 @@
             var v26 = $("#v26 option:selected").attr('value'); //매웨마 랭크
             var v27 = $("#v27 option:selected").attr('value'); //라이트닝마스터리 랭크
             var v28 = $("#v28 option:selected").attr('value'); //파이어마스터리 랭크
-
-
-
-
-
-
+            var v29 = $("#v29 option:selected").attr('value'); // 블리안
+            var v29_1 = $("#v29 option:selected").attr('value2'); // 블리안
 
             var res1; //파이어볼트 대미지
 
-            res1 = (1 * v22 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 5 * v18_1) * v18 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100)) * (1 + v17 / 100);
+            res1 = (1 * v22 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 5 * v18_1) * v18 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100)+0.15*v29) * (1 + v17 / 100);
 
             document.getElementById("res1").value = Math.floor(res1);
 
 
             var res4; //볼트조합5 대미지
 
-            res4 = ((((1 * v22 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 5 * v18_1) * v18 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100))) + ((1 * v23 + 0.6 * v1 + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + (7 + 0.75 * v19) * v18_1) * v18_2 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v27 + 0.01 * v7 + 0.005 * v6 + (v12 / 100)))) * (1 + 0.01 * v25 + 0.01 * v8) * (1 + 0.05 * v15) * (1 + v17 / 100)) * (1 + 0.01 * v21);
+            res4 = ((((1 * v22 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 5 * v18_1) * v18 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100)+0.15*v29)) + ((1 * v23 + 0.6 * v1 + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + (7 + 0.75 * v19) * v18_1) * v18_2 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v27 + 0.01 * v7 + 0.005 * v6 + (v12 / 100)+0.15*v29))) * (1 + 0.01 * v25 + 0.01 * v8) * (1 + 0.05 * v15) * (1 + v17 / 100)) * (1 + 0.01 * v21);
 
             document.getElementById("res4").value = Math.floor(res4);
 
@@ -144,13 +144,11 @@
 
             if ((v18 > 3) && (v20 >= 91.2)) {
                 res8 = res4 / 0.5182
-            }
-            else if ((v18 > 3)) {
-                res8 = res4 /(3 * (1 - v20 / 100) + 0.252)
-            }
-            else if (v20 >= 83) { res8 = res4 / 0.5182 }
-
-            else {
+            } else if ((v18 > 3)) {
+                res8 = res4 / (3 * (1 - v20 / 100) + 0.252)
+            } else if (v20 >= 83) {
+                res8 = res4 / 0.5182
+            } else {
                 res8 = res4 / (1.5 * (1 - v20 / 100) + 0.252)
             }
 
@@ -161,19 +159,15 @@
 
             if ((v18 > 3) && (v20 >= 91.2)) {
                 res9 = 39
-            }
-            else if ((v18 > 3)) {
+            } else if ((v18 > 3)) {
                 res9 = 20 / (3 * (1 - v20 / 100) + 0.252)
-            }
-            else if (v20 >= 83) { res9 = 39 }
-            else {
+            } else if (v20 >= 83) {
+                res9 = 39
+            } else {
                 res9 = 20 / (1.5 * (1 - v20 / 100) + 0.252)
             }
 
             document.getElementById("res9").value = Math.floor(res9);
-
-
-
 
 
         }
@@ -204,299 +198,304 @@
 </head>
 
 <body>
-    <div id="wrapper">
-        <h2>마비노기 볼트조합 대미지 계산기</h2>
-        <div id="status1">
-            DPS 계산에서 볼트조합의 발사 딜레이는 0.08초를 기준으로 하고, 차지간에 있을 수있는 딜레이는 무시합니다. <br>
-            DPS 계산에서 1~3차지까진는 1차지, 4~5차지는 2차지로 계산 됩니다. (체인캐스팅 +2렙만을 기준으로 합니다.)<br>
-            캐스팅속도 총합은 계산기에 있는 캐속계산기의 원드 캐스팅 속도증가% 값 입니다.
+<div id="wrapper">
+    <h2>마비노기 볼트조합 대미지 계산기</h2>
+    <div id="status1">
+        DPS 계산에서 볼트조합의 발사 딜레이는 0.08초를 기준으로 하고, 차지간에 있을 수있는 딜레이는 무시합니다. <br>
+        DPS 계산에서 1~3차지까진는 1차지, 4~5차지는 2차지로 계산 됩니다. (체인캐스팅 +2렙만을 기준으로 합니다.)<br>
+        캐스팅속도 총합은 계산기에 있는 캐속계산기의 원드 캐스팅 속도증가% 값 입니다.
+
+    </div>
+    <br><br>
+    <div id="status">
+        스텟<br>
+        <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
+            마법공격력:
+            <input type="text" id="v1" size="5" placeholder="0"><br>
+            최댐인챈트+낭농최댐:
+            <input type="text" id="v2" size="5" placeholder="0"><br>
+            볼트차지
+            <select name="v18" id="v18" style="background:#D9E5FF">
+                <option value="1" value1="1" value2="1" selected>1차지</option>
+                <option value="2" value1="1" value2="2">2차지</option>
+                <option value="3" value1="1" value2="3">3차지</option>
+                <option value="4" value1="1" value2="4">4차지</option>
+                <option value="6.5" value1="1.28" value2="5">5차지</option>
+            </select>
+        </div>
+
+        스킬랭크<br>
+        <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
+
+            파이어볼트:
+            <select name="v22" id="v22" style="background:#D9E5FF">
+                <option value="10">연습</option>
+                <option value="25">F</option>
+                <option value="27">E</option>
+                <option value="28">D</option>
+                <option value="30">C</option>
+                <option value="35">B</option>
+                <option value="40">A</option>
+                <option value="45">9</option>
+                <option value="50">8</option>
+                <option value="55">7</option>
+                <option value="60">6</option>
+                <option value="80">5</option>
+                <option value="85">4</option>
+                <option value="90">3</option>
+                <option value="95">2</option>
+                <option value="120">1</option>
+                <option value="122">1단</option>
+                <option value="124">2단</option>
+                <option value="126" selected>3단</option>
+            </select>
+            <br>
+            라이트닝볼트:
+            <select name="v23" id="v23" style="background:#D9E5FF">
+                <option value="10">연습</option>
+                <option value="40">F</option>
+                <option value="46">E</option>
+                <option value="52">D</option>
+                <option value="58">C</option>
+                <option value="65">B</option>
+                <option value="72">A</option>
+                <option value="79">9</option>
+                <option value="86">8</option>
+                <option value="93">7</option>
+                <option value="100">6</option>
+                <option value="110">5</option>
+                <option value="120">4</option>
+                <option value="130">3</option>
+                <option value="140">2</option>
+                <option value="150">1</option>
+                <option value="160">1단</option>
+                <option value="170">2단</option>
+                <option value="180" selected>3단</option>
+            </select><br>
+
+            볼트조합 마스터리:
+            <select name="v25" id="v25" style="background:#D9E5FF">
+                <option value="0">연습</option>
+                <option value="2">F</option>
+                <option value="4">E</option>
+                <option value="6">D</option>
+                <option value="8">C</option>
+                <option value="10">B</option>
+                <option value="12">A</option>
+                <option value="14">9</option>
+                <option value="16">8</option>
+                <option value="18">7</option>
+                <option value="20">6</option>
+                <option value="22">5</option>
+                <option value="24">4</option>
+                <option value="26">3</option>
+                <option value="28">2</option>
+                <option value="30" selected>1</option>
+            </select><br>
+
+            볼트 마스터리:
+            <select name="v24" id="v24" style="background:#D9E5FF">
+                <option value="0">연습</option>
+                <option value="1">F</option>
+                <option value="2">E</option>
+                <option value="3">D</option>
+                <option value="4">C</option>
+                <option value="5">B</option>
+                <option value="6">A</option>
+                <option value="7">9</option>
+                <option value="8">8</option>
+                <option value="9">7</option>
+                <option value="10">6</option>
+                <option value="11">5</option>
+                <option value="12">4</option>
+                <option value="13">3</option>
+                <option value="14">2</option>
+                <option value="15" selected>1</option>
+            </select><br>
+
+            매직 웨폰 마스터리:
+            <select name="v26" id="v26" style="background:#D9E5FF">
+                <option value="5">연습</option>
+                <option value="10">F</option>
+                <option value="20">E</option>
+                <option value="30">D</option>
+                <option value="40">C</option>
+                <option value="50">B</option>
+                <option value="60">A</option>
+                <option value="70">9</option>
+                <option value="80">8</option>
+                <option value="90">7</option>
+                <option value="100">6</option>
+                <option value="110">5</option>
+                <option value="120">4</option>
+                <option value="130">3</option>
+                <option value="140">2</option>
+                <option value="150" selected>1</option>
+            </select><br>
+
+            라이트닝 마스터리:
+            <select name="v27" id="v27" style="background:#D9E5FF">
+                <option value="0">연습</option>
+                <option value="1">F</option>
+                <option value="2">E</option>
+                <option value="3">D</option>
+                <option value="4">C</option>
+                <option value="5">B</option>
+                <option value="6">A</option>
+                <option value="7">9</option>
+                <option value="8">8</option>
+                <option value="9">7</option>
+                <option value="10">6</option>
+                <option value="11">5</option>
+                <option value="12">4</option>
+                <option value="13">3</option>
+                <option value="14">2</option>
+                <option value="15" selected>1</option>
+            </select><br>
+
+            파이어 마스터리:
+            <select name="v28" id="v28" style="background:#D9E5FF">
+                <option value="0">연습</option>
+                <option value="1">F</option>
+                <option value="2">E</option>
+                <option value="3">D</option>
+                <option value="4">C</option>
+                <option value="5">B</option>
+                <option value="6">A</option>
+                <option value="7">9</option>
+                <option value="8">8</option>
+                <option value="9">7</option>
+                <option value="10">6</option>
+                <option value="11">5</option>
+                <option value="12">4</option>
+                <option value="13">3</option>
+                <option value="14">2</option>
+                <option value="15" selected>1</option>
+            </select><br>
+        </div>
+
+        <br>
+        세공<br>
+        <span style="font-size:5px; color: red;">*마기그래프는 세공과 합연산이므로 더해서 사용하시면 됩니다.</span><br>
+        <div style="height: auto; width:350px; border: 1px solid; padding:10px">
+            파이어볼트최댐 세공LV:
+            <input type="text" id="v3" size="5" placeholder="0"><br>
+            라이트닝볼트최댐 세공LV:
+            <input type="text" id="v4" size="5" placeholder="0"> <br>
+            파이어마스터리 세공LV:
+            <input type="text" id="v5" size="5" placeholder="0"><br>
+            라이트닝마스터리 세공LV:
+            <input type="text" id="v6" size="5" placeholder="0"><br>
+            볼트마스터리 세공LV:
+            <input type="text" id="v7" size="5" placeholder="0"><br>
+            볼트조합마스터리 세공LV:
+            <input type="text" id="v8" size="5" placeholder="0"><br>
+            라이트닝볼트 원드영향력 세공LV:
+            <input type="text" id="v19" size="5" placeholder="0"><br><br>
+            헤보나세트:
+            <input type="radio" name="v9" id="v9" value="1" checked>미적용
+            <input type="radio" name="v9" id="v9_1" value="0">적용<br>
+            블리안 엔더슨 세트:
+            <input type="radio" name="29" id="29" value="1" checked>미적용
+            <input type="radio" name="29" id="29_1" value="0">적용
+            <br><br>
+            무기강화 효과:
+            <select name="v21" id="v21" style="background:#D9E5FF">
+                <option value="0" value2="0" selected>미적용</option>
+                <option value="15" value2="1">엘리멘토</option>
+                <option value="0.8" value2="0">심볼1</option>
+                <option value="1.6" value2="0">심볼2</option>
+                <option value="2.4" value2="0">심볼3</option>
+                <option value="3.2" value2="0">심볼4</option>
+                <option value="4.0" value2="0">심볼5</option>
+                <option value="4.8" value2="0">심볼6</option>
+                <option value="5.6" value2="0">심볼7</option>
+                <option value="6.4" value2="0">심볼8</option>
+                <option value="7.2" value2="0">심볼9</option>
+                <option value="8" value2="0">심볼10</option>
+            </select>
+
 
         </div>
+        <br>
+        볼트조합 마스터 타이틀:
+        <input type="radio" name="v15" id="v15" value="1" checked>미적용
+        <input type="radio" name="v15" id="v15_1" value="0">적용
         <br><br>
-        <div id="status">
-            스텟<br>
-            <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
-                마법공격력:
-                <input type="text" id="v1" size="5" placeholder="0"><br>
-                최댐인챈트+낭농최댐:
-                <input type="text" id="v2" size="5" placeholder="0"><br>
-                볼트차지
-                <select name="v18" id="v18" style="background:#D9E5FF">
-                    <option value="1" value1="1" value2="1" selected>1차지</option>
-                    <option value="2" value1="1" value2="2">2차지</option>
-                    <option value="3" value1="1" value2="3">3차지</option>
-                    <option value="4" value1="1" value2="4">4차지</option>
-                    <option value="6.5" value1="1.28" value2="5">5차지 </option>
-                </select>
-            </div>
+        (엘리멘토 자동적용 포함x)<br>
+        추가크리 대미지%(이보나, 붉개등)
+        <input type="text" id="v10" size="5" placeholder="0">
+        <br>
 
-            스킬랭크<br>
-            <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
+        추가 대미지%(낭농,토템,정령등)
+        <input type="text" id="v17" size="5" placeholder="0">
+        <br><br>
 
-                파이어볼트:
-                <select name="v22" id="v22" style="background:#D9E5FF">
-                    <option value="10">연습</option>
-                    <option value="25">F</option>
-                    <option value="27">E</option>
-                    <option value="28">D</option>
-                    <option value="30">C</option>
-                    <option value="35">B</option>
-                    <option value="40">A</option>
-                    <option value="45">9</option>
-                    <option value="50">8</option>
-                    <option value="55">7</option>
-                    <option value="60">6</option>
-                    <option value="80">5</option>
-                    <option value="85">4</option>
-                    <option value="90">3</option>
-                    <option value="95">2</option>
-                    <option value="120">1</option>
-                    <option value="122">1단</option>
-                    <option value="124">2단</option>
-                    <option value="126" selected>3단</option>
-                </select>
-                <br>
-                라이트닝볼트:
-                <select name="v23" id="v23" style="background:#D9E5FF">
-                    <option value="10">연습</option>
-                    <option value="40">F</option>
-                    <option value="46">E</option>
-                    <option value="52">D</option>
-                    <option value="58">C</option>
-                    <option value="65">B</option>
-                    <option value="72">A</option>
-                    <option value="79">9</option>
-                    <option value="86">8</option>
-                    <option value="93">7</option>
-                    <option value="100">6</option>
-                    <option value="110">5</option>
-                    <option value="120">4</option>
-                    <option value="130">3</option>
-                    <option value="140">2</option>
-                    <option value="150">1</option>
-                    <option value="160">1단</option>
-                    <option value="170">2단</option>
-                    <option value="180" selected>3단</option>
-                </select><br>
-
-                볼트조합 마스터리:
-                <select name="v25" id="v25" style="background:#D9E5FF">
-                    <option value="0">연습</option>
-                    <option value="2">F</option>
-                    <option value="4">E</option>
-                    <option value="6">D</option>
-                    <option value="8">C</option>
-                    <option value="10">B</option>
-                    <option value="12">A</option>
-                    <option value="14">9</option>
-                    <option value="16">8</option>
-                    <option value="18">7</option>
-                    <option value="20">6</option>
-                    <option value="22">5</option>
-                    <option value="24">4</option>
-                    <option value="26">3</option>
-                    <option value="28">2</option>
-                    <option value="30" selected>1</option>
-                </select><br>
-
-                볼트 마스터리:
-                <select name="v24" id="v24" style="background:#D9E5FF">
-                    <option value="0">연습</option>
-                    <option value="1">F</option>
-                    <option value="2">E</option>
-                    <option value="3">D</option>
-                    <option value="4">C</option>
-                    <option value="5">B</option>
-                    <option value="6">A</option>
-                    <option value="7">9</option>
-                    <option value="8">8</option>
-                    <option value="9">7</option>
-                    <option value="10">6</option>
-                    <option value="11">5</option>
-                    <option value="12">4</option>
-                    <option value="13">3</option>
-                    <option value="14">2</option>
-                    <option value="15" selected>1</option>
-                </select><br>
-
-                매직 웨폰 마스터리:
-                <select name="v26" id="v26" style="background:#D9E5FF">
-                    <option value="5">연습</option>
-                    <option value="10">F</option>
-                    <option value="20">E</option>
-                    <option value="30">D</option>
-                    <option value="40">C</option>
-                    <option value="50">B</option>
-                    <option value="60">A</option>
-                    <option value="70">9</option>
-                    <option value="80">8</option>
-                    <option value="90">7</option>
-                    <option value="100">6</option>
-                    <option value="110">5</option>
-                    <option value="120">4</option>
-                    <option value="130">3</option>
-                    <option value="140">2</option>
-                    <option value="150" selected>1</option>
-                </select><br>
-
-                라이트닝 마스터리:
-                <select name="v27" id="v27" style="background:#D9E5FF">
-                    <option value="0">연습</option>
-                    <option value="1">F</option>
-                    <option value="2">E</option>
-                    <option value="3">D</option>
-                    <option value="4">C</option>
-                    <option value="5">B</option>
-                    <option value="6">A</option>
-                    <option value="7">9</option>
-                    <option value="8">8</option>
-                    <option value="9">7</option>
-                    <option value="10">6</option>
-                    <option value="11">5</option>
-                    <option value="12">4</option>
-                    <option value="13">3</option>
-                    <option value="14">2</option>
-                    <option value="15" selected>1</option>
-                </select><br>
-
-                파이어 마스터리:
-                <select name="v28" id="v28" style="background:#D9E5FF">
-                    <option value="0">연습</option>
-                    <option value="1">F</option>
-                    <option value="2">E</option>
-                    <option value="3">D</option>
-                    <option value="4">C</option>
-                    <option value="5">B</option>
-                    <option value="6">A</option>
-                    <option value="7">9</option>
-                    <option value="8">8</option>
-                    <option value="9">7</option>
-                    <option value="10">6</option>
-                    <option value="11">5</option>
-                    <option value="12">4</option>
-                    <option value="13">3</option>
-                    <option value="14">2</option>
-                    <option value="15" selected>1</option>
-                </select><br>
-            </div>
-
-            <br>
-            세공<br>
-            <span style="font-size:5px; color: red;">*마기그래프는 세공과 합연산이므로 더해서 사용하시면 됩니다.</span><br>
-            <div style="height: auto; width:350px; border: 1px solid; padding:10px">
-                파이어볼트최댐 세공LV:
-                <input type="text" id="v3" size="5" placeholder="0"><br>
-                라이트닝볼트최댐 세공LV:
-                <input type="text" id="v4" size="5" placeholder="0"> <br>
-                파이어마스터리 세공LV:
-                <input type="text" id="v5" size="5" placeholder="0"><br>
-                라이트닝마스터리 세공LV:
-                <input type="text" id="v6" size="5" placeholder="0"><br>
-                볼트마스터리 세공LV:
-                <input type="text" id="v7" size="5" placeholder="0"><br>
-                볼트조합마스터리 세공LV:
-                <input type="text" id="v8" size="5" placeholder="0"><br>
-                라이트닝볼트 원드영향력 세공LV:
-                <input type="text" id="v19" size="5" placeholder="0"><br><br>
-                헤보나세트:
-                <input type="radio" name="v9" id="v9" value="1" checked>미적용
-                <input type="radio" name="v9" id="v9_1" value="0">적용<br>
-                무기강화 효과:
-                <select name="v21" id="v21" style="background:#D9E5FF">
-                    <option value="0" value2="0" selected>미적용</option>
-                    <option value="15" value2="1">엘리멘토</option>
-                    <option value="0.8" value2="0">심볼1</option>
-                    <option value="1.6" value2="0">심볼2</option>
-                    <option value="2.4" value2="0">심볼3</option>
-                    <option value="3.2" value2="0">심볼4</option>
-                    <option value="4.0" value2="0">심볼5</option>
-                    <option value="4.8" value2="0">심볼6</option>
-                    <option value="5.6" value2="0">심볼7</option>
-                    <option value="6.4" value2="0">심볼8</option>
-                    <option value="7.2" value2="0">심볼9</option>
-                    <option value="8" value2="0">심볼10</option>
-                </select>
-
-
-            </div>
-            <br>
-            볼트조합 마스터 타이틀:
-            <input type="radio" name="v15" id="v15" value="1" checked>미적용
-            <input type="radio" name="v15" id="v15_1" value="0">적용
-            <br><br>
-            (엘리멘토 자동적용 포함x)<br>
-            추가크리 대미지%(이보나, 붉개등)
-            <input type="text" id="v10" size="5" placeholder="0">
-            <br>
-
-            추가 대미지%(낭농,토템,정령등)
-            <input type="text" id="v17" size="5" placeholder="0">
-            <br><br>
-
-            도핑<br>
-            <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
-                전장비율%:
-                <input type="text" id="v13" size="5" placeholder="0"><br>
-                최대공격력:
-                <input type="text" id="v14" size="5" placeholder="0"><br>
-                물리공격력 증가포션:
-                <input type="radio" name="v16" id="v16" value="1" checked>미적용
-                <input type="radio" name="v16" id="v16_1" value="0">적용
-            </div>
-            <br>
-
-
-            콤보카드%(라파라파 일경우 동시입력)
-            <br>
-            <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
-                파볼트콤보카드%:
-                <input type="text" id="v11" size="5" placeholder="0"><br>
-                라볼트콤보카드%:
-                <input type="text" id="v12" size="5" placeholder="0">
-            </div><br>
-
-            캐스팅속도총합%:
-            <input type="text" id="v20" size="5" placeholder="0">
-
+        도핑<br>
+        <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
+            전장비율%:
+            <input type="text" id="v13" size="5" placeholder="0"><br>
+            최대공격력:
+            <input type="text" id="v14" size="5" placeholder="0"><br>
+            물리공격력 증가포션:
+            <input type="radio" name="v16" id="v16" value="1" checked>미적용
+            <input type="radio" name="v16" id="v16_1" value="0">적용
         </div>
-
-        <div id="result">
-            <strong>결과</strong>
-            <br>
-            <div style="font-weight: bold; height: auto; width: 350px; border: 1px solid; padding:10px;">
-                파이어볼트 <br>
-                대미지:
-                <input type="text" id="res1" size="7">
-                크리:
-                <input type="text" id="res5" size="7">
-                <br><br>
-
-                라파볼트 <br>
-                대미지:
-                <input type="text" id="res4" size="7">
-                크리:
-                <input type="text" id="res7" size="7">
-                <br>
-                DPS(노크리기준):
-                <input type="text" id="res8" size="7"><br>
-                20초간 발사횟수(싱펀타수)
-                <input type="text" id="res9" size="7">
-            </div>
-            <br><br>
+        <br>
 
 
-            <input type="button" value="계산하기" class="button" onclick="cal()">
-            <input type="button" value="초기화" class="button" onclick="reset()">
+        콤보카드%(라파라파 일경우 동시입력)
+        <br>
+        <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
+            파볼트콤보카드%:
+            <input type="text" id="v11" size="5" placeholder="0"><br>
+            라볼트콤보카드%:
+            <input type="text" id="v12" size="5" placeholder="0">
         </div>
+        <br>
+
+        캐스팅속도총합%:
+        <input type="text" id="v20" size="5" placeholder="0">
+
     </div>
 
-    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+    <div id="result">
+        <strong>결과</strong>
+        <br>
+        <div style="font-weight: bold; height: auto; width: 350px; border: 1px solid; padding:10px;">
+            파이어볼트 <br>
+            대미지:
+            <input type="text" id="res1" size="7">
+            크리:
+            <input type="text" id="res5" size="7">
+            <br><br>
+
+            라파볼트 <br>
+            대미지:
+            <input type="text" id="res4" size="7">
+            크리:
+            <input type="text" id="res7" size="7">
+            <br>
+            DPS(노크리기준):
+            <input type="text" id="res8" size="7"><br>
+            20초간 발사횟수(싱펀타수)
+            <input type="text" id="res9" size="7">
+        </div>
+        <br><br>
+
+
+        <input type="button" value="계산하기" class="button" onclick="cal()">
+        <input type="button" value="초기화" class="button" onclick="reset()">
+    </div>
+</div>
+
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 <script type="text/javascript">
-if(!wcs_add) var wcs_add = {};
-wcs_add["wa"] = "16bb61aebd2bc20";
-if(window.wcs) {
-  wcs_do();
-}
+    if (!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "16bb61aebd2bc20";
+    if (window.wcs) {
+        wcs_do();
+    }
 </script>
 
 </body>

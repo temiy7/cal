@@ -9,16 +9,30 @@
 </head>
 <body>
 <div class="container">
+    <br> 본 계산기는 대미지와 밸런스를 입력하면 해당 값에 대한 대미지 분포표와 평균대미지를 계산합니다.
+    <br> 민뎀 이하 대미지는 빨간색, 맥댐 이상은 노란색, 사이는 초록색 분포표로 나타나고
+    <br> 실제 대미지는 민댐 이하는 민댐으로, 맥뎀이하는 맥댐으로만 계산되는걸 참고해주시면 감사하겠습니다.
+    <br> 평균 대미지 계산도 민댐이하는 민댐으로, 맥댐이상은 맥댐으로 계산됩니다.
+    <br> 민댐과 맥댐 사이의 재미지에 대해서는 적분식을 사용하여 더했지만 정확하지 않을 수 있으니 참고해주세요.
+    <br> 그래프가 나오지 않는 경우 새로고침을 눌러주세요.
+    <br><br>
     <div class="inputs">
         <label for="value1">민뎀:</label>
         <input type="number" id="value1" value="980" step="any">
         <label for="value2">맥뎀:</label>
         <input type="number" id="value2" value="1020" step="any">
         <label for="valance">밸런스:</label>
-        <input type="number" id="valance" value="80" step="any" >
-<!--        <label for="mean">중앙값:</label>-->
-<!--        <input type="number" id="mean" step="any">-->
+        <input type="number" id="valance" value="80" step="any">
+        <!--        <label for="mean">중앙값:</label>-->
+        <!--        <input type="number" id=r"mean" step="any">-->
         <button id="update">그래프 업데이트</button>
+    </div>
+
+    <div class="probability-results">
+        <p>확률 (민뎀 이하): <span id="probLower"></span></p>
+        <p>확률 (민뎀과 맥뎀 사이): <span id="probBetween"></span></p>
+        <p>확률 (맥뎀 이상): <span id="probUpper"></span></p>
+        <p>평균대미지: <span id="expectedDamage"></span></p>
     </div>
     <canvas id="gaussian-chart"></canvas>
 </div>

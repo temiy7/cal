@@ -10,10 +10,11 @@ const gaussianFunction = (x, mean, variance) => {
     return coeff * Math.exp(exponent);
 };
 
+
 const createGaussianData = (mean, variance, value1, value2) => {
     const step = 1;
     const halfRange = 80;
-    const xValues = Array.from({ length: Math.ceil(2 * halfRange / step) }, (_, i) => mean - halfRange + i * step);
+    const xValues = Array.from({length: Math.ceil(2 * halfRange / step)}, (_, i) => mean - halfRange + i * step);
     const yValues = xValues.map(x => gaussianFunction(x, mean, variance));
 
     const borderColor = xValues.map(x => {
@@ -26,10 +27,13 @@ const createGaussianData = (mean, variance, value1, value2) => {
         }
     });
 
+    const modeRounded = Number(mean.toFixed(2));
+    const varianceRounded = Number(variance.toFixed(2));
+
     return {
         labels: xValues,
         datasets: [{
-            label: `중앙값: ${mean}, 분산: ${variance}`,
+            label: `중앙값(최빈값): ${modeRounded}, 분산: ${varianceRounded}`,
             data: yValues,
             borderColor: borderColor,
             borderWidth: 0,
@@ -101,8 +105,8 @@ const customGradientPlugin = {
 const config = {
     type: 'line',
     data: createGaussianData(
-        Number(value1Input.value)+Number(valanceInput.value)*((Number(value2Input.value) - Number(value1Input.value)) / 100),
-        variance=(28.9*((Number(value2Input.value) - Number(value1Input.value)) / 100))^2,
+        Number(value1Input.value) + Number(valanceInput.value) * ((Number(value2Input.value) - Number(value1Input.value)) / 100),
+        variance = (28.9 * ((Number(value2Input.value) - Number(value1Input.value)) / 100)) ^ 2,
         Number(valanceInput.value),
         Number(value1Input.value),
         Number(value2Input.value)
@@ -117,7 +121,7 @@ const config = {
                 display: true,
                 title: {
                     display: true,
-                    text: 'X'
+                    text: '대미지'
                 }
             },
 
@@ -125,26 +129,78 @@ const config = {
                 display: true,
                 title: {
                     display: true,
-                    text: 'P(X)'
+                    text: '확률'
                 }
             }
         }
     },
     plugins: [customFillPlugin, customGradientPlugin]
 };
+const numericalIntegration = (func, start, end, numSteps) => {
+    const stepSize = (end - start) / numSteps;
+    let area = 0;
 
+    for (let i = 0; i < numSteps; i++) {
+        const x1 = start + i * stepSize;
+        const x2 = start + (i + 1) * stepSize;
+        const y1 = func(x1);
+        const y2 = func(x2);
+        const trapezoidArea = (y1 + y2) / 2 * stepSize;
+        area += trapezoidArea;
+    }
+
+    return area;
+};
+
+const expectedDamageSpan = document.getElementById('expectedDamage');
 const gaussianChart = new Chart(ctx, config);
+const probLowerSpan = document.getElementById('probLower');
+const probBetweenSpan = document.getElementById('probBetween');
+const probUpperSpan = document.getElementById('probUpper');
+probLowerSpan.innerText = (probLower * 100).toFixed(2) + '%';
+probBetweenSpan.innerText = (probBetween * 100).toFixed(2) + '%';
+probUpperSpan.innerText = (probUpper * 100).toFixed(2) + '%';
+
+const expectedValueBetween = (func, lowerBound, upperBound, numSteps) => {
+    const stepSize = (upperBound - lowerBound) / numSteps;
+    let expectedValue = 0;
+
+    for (let i = 0; i < numSteps; i++) {
+        const x1 = lowerBound + stepSize * i;
+        const x2 = lowerBound + stepSize * (i + 1);
+        const midPoint = (x1 + x2) / 2;
+        expectedValue += func(midPoint) * midPoint * stepSize;
+    }
+
+    return expectedValue;
+};
 
 const updateChart = () => {
-    const mean =  Number(value1Input.value)+Number(valanceInput.value)*((Number(value2Input.value) - Number(value1Input.value)) / 100);
-    const variance = (28.9*((Number(value2Input.value) - Number(value1Input.value)) / Number(valanceInput.value)))^2;
+    const mean = Number(value1Input.value) + Number(valanceInput.value) * ((Number(value2Input.value) - Number(value1Input.value)) / 100);
+    const variance = (28.9 * ((Number(value2Input.value) - Number(value1Input.value)) / 100)) ** 2;
     const value1 = Number(value1Input.value);
     const value2 = Number(value2Input.value);
-    const valance = Number(valanceInput.value);
+    const gaussianFunc = x => gaussianFunction(x, mean, variance);
+
+    const probLower = numericalIntegration(gaussianFunc, mean - 4 * Math.sqrt(variance), value1, 1000);
+    const probBetween = numericalIntegration(gaussianFunc, value1, value2, 1000);
+    const probUpper = numericalIntegration(gaussianFunc, value2, mean + 4 * Math.sqrt(variance), 1000);
+
+    probLowerSpan.innerText = (probLower * 100).toFixed(2) + '%';
+    probBetweenSpan.innerText = (probBetween * 100).toFixed(2) + '%';
+    probUpperSpan.innerText = (probUpper * 100).toFixed(2) + '%';
+
+    const expectedDamageLower = probLower * value1;
+    const expectedDamageBetween = expectedValueBetween(gaussianFunc, value1, value2, 1000);
+    const expectedDamageUpper = probUpper * value2;
+    const totalExpectedDamage = expectedDamageLower + expectedDamageBetween + expectedDamageUpper;
+
+    expectedDamageSpan.innerText = totalExpectedDamage.toFixed(2);
 
     gaussianChart.data = createGaussianData(mean, variance, value1, value2);
     gaussianChart.originalBorderColor = [...gaussianChart.data.datasets[0].borderColor];
     gaussianChart.update();
 };
+
 
 updateButton.addEventListener('click', updateChart);

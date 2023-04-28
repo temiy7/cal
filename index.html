@@ -7,11 +7,15 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RRZF9GD2Z"></script>
     <script type="text/javascript" src="jq.js"></script>
-    <meta name="naver-site-verification" content="f3ba84aa5ae74d0b160c34a2a9e99839bfc3a39f" />
+    <meta name="naver-site-verification" content="f3ba84aa5ae74d0b160c34a2a9e99839bfc3a39f"/>
 
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'G-7RRZF9GD2Z');
@@ -19,7 +23,7 @@
 
     <script type="text/javascript">
         async function loadViewport(command) {
-            if (!command) 
+            if (!command)
                 return;
 
             const url = `${command}.html`;
@@ -49,58 +53,61 @@
 
 
 <body>
-    <div id="wrapper">
-        <div id="page">
-            <a href="index.html">
-                <h1 id="header">마비노기 계산기</h1>
-            </a>
-            <p style="text-align: right"> by [만돌린]템이 </p>
-            <header>
-                <nav id="manu">
-                    <ul>
-                        <li><a href="#볼조 대미지 계산기v4" onclick="loadViewport('볼조 대미지 계산기v4')">볼트조합 계산기</a></li>
-                        <li><a href="#중마대미지계산기" onclick="loadViewport('중마대미지계산기')">중상급마법 계산기</a></li>
-                        <li><a href="#스텟 효율 계산기" onclick="loadViewport('스텟 효율 계산기')">스탯효율 계산기</a></li>
-                        <li><a href="#캐속계산기" onclick="loadViewport('캐속계산기')">캐속 계산기</a></li>
-                        <li><a href="#볼조장비" onclick="loadViewport('볼조장비')">볼조 대미지 비교</a></li>
-                        <li><a href="#스태프장비" onclick="loadViewport('스태프장비')">중상마 대미지 비교</a></li>
-                        <li><a href="#알반계산기" onclick="loadViewport('알반계산기')">알반훈련석 계산기</a></li>
-                        <li><a href="#플레이머대미지" onclick="loadViewport('플레이머대미지')">플레이머 계산기</a></li>
-                        <li><a href="#엘나 대미지" onclick="loadViewport('엘나 대미지')">엘리멘탈나이트 계산기</a></li>
-                        <li><a href="#방어 보호 계산기" onclick="loadViewport('방어 보호 계산기')">방어 보호 계산기</a></li>
-                        <li><a href="#랜차계산기" onclick="loadViewport('랜차계산기')">랜스차지 계산기</a></li>
-                        <li><a href="#너클대미지" onclick="loadViewport('너클대미지')">너클대미지 계산기</a></li>
-                        <li><a href="#활대미지" onclick="loadViewport('활대미지')">활대미지 계산기</a></li>
+<div id="wrapper">
+    <div id="page">
+        <a href="index.html">
+            <h1 id="header">마비노기 계산기</h1>
+        </a>
+        <p style="text-align: right"> by [만돌린]템이 </p>
+        <header>
+            <nav id="manu">
+                <ul>
+                    <li><a href="#볼조 대미지 계산기v4" onclick="loadViewport('볼조 대미지 계산기v4')">볼트조합 계산기</a></li>
+                    <li><a href="#중마대미지계산기" onclick="loadViewport('중마대미지계산기')">중상급마법 계산기</a></li>
+                    <li><a href="#스텟 효율 계산기" onclick="loadViewport('스텟 효율 계산기')">스탯효율 계산기</a></li>
+                    <li><a href="#캐속계산기" onclick="loadViewport('캐속계산기')">캐속 계산기</a></li>
+                    <li><a href="#볼조장비" onclick="loadViewport('볼조장비')">볼조 대미지 비교</a></li>
+                    <li><a href="#스태프장비" onclick="loadViewport('스태프장비')">중상마 대미지 비교</a></li>
+                    <li><a href="#알반계산기" onclick="loadViewport('알반계산기')">알반훈련석 계산기</a></li>
+                    <li><a href="#플레이머대미지" onclick="loadViewport('플레이머대미지')">플레이머 계산기</a></li>
+                    <li><a href="#엘나 대미지" onclick="loadViewport('엘나 대미지')">엘리멘탈나이트 계산기</a></li>
+                    <li><a href="#방어 보호 계산기" onclick="loadViewport('방어 보호 계산기')">방어 보호 계산기</a></li>
+                    <li><a href="#랜차계산기" onclick="loadViewport('랜차계산기')">랜스차지 계산기</a></li>
+                    <li><a href="#너클대미지" onclick="loadViewport('너클대미지')">너클대미지 계산기</a></li>
+                    <li><a href="#활대미지" onclick="loadViewport('활대미지')">활대미지 계산기</a></li>
+                    <li><a href="#평균 대미지" onclick="loadViewport('평균 대미지')">평균 대미지 계산기</a></li>
+                    <li><a href="contactus.html"
+                           onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">문의하기</a>
+                    </li>
+                </ul>
+            </nav>
 
-                        <li><a href="contactus.html" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">문의하기</a></li>
-                    </ul>
-                </nav>
+        </header>
+        <section>
+            <div class="frame1" id="viewport">
+                <br><br>
+                마비노기의 여러가지 값을 계산하는 계산기 입니다.<br>
+                계산기에 사용된 계산식은 공식적으로 공개된 값이 아니므로 실제 값과 차이가 발생할 수 있습니다<br>
+                혹시 실제 값과 현저하게 차이가 나는 부분이 있다면 문의하기를 통해 알려주시면 수정하도록 하겠습니다.<br>
+            </div>
 
-            </header>
-            <section>
-                <div class="frame1" id="viewport">
-                    <br><br>
-                    마비노기의 여러가지 값을 계산하는 계산기 입니다.<br>
-                    계산기에 사용된 계산식은 공식적으로 공개된 값이 아니므로 실제 값과 차이가 발생할 수 있습니다<br>
-                    혹시 실제 값과 현저하게 차이가 나는 부분이 있다면 문의하기를 통해 알려주시면 수정하도록 하겠습니다.<br>
-                </div>
+            <article></article>
+        </section>
+        <aside></aside>
 
-                <article></article>
-            </section>
-            <aside></aside>
+        <footer></footer>
 
-            <footer></footer>
-
-        </div>
     </div>
+</div>
 
- <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script type="text/javascript">
-if(!wcs_add) var wcs_add = {};
-wcs_add["wa"] = "16bb61aebd2bc20";
-if(window.wcs) {
-  wcs_do();
-}
+    if (!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "16bb61aebd2bc20";
+    if (window.wcs) {
+        wcs_do();
+    }
 </script>
 
 </body>
