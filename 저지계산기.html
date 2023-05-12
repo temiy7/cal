@@ -53,16 +53,16 @@
 <body>
 
 <div id="wrapper">
-        <h2>마비노기 저지먼트 블레이드 대미지 계산기</h2>
-        <div id="status1">
+    <h2>마비노기 저지먼트 블레이드 대미지 계산기</h2>
+    <div id="status1">
         저지먼트 대미지를 계산해줍니다. <br>
         저지먼트 대미지 배율을 알려줍니다. <br>
         혹시 대미지가 맞지 않는다면 알려주시면 감사합니다. <br>
         계산의 모든 소수점은 버림 합니다.
-        </div>
+    </div>
 
 
-        <br><br>
+    <br><br>
     <div id="status">
         스텟관련<br></br>
         <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
@@ -96,7 +96,8 @@
                 <option value="1.35" selected>70~</option>
             </select><br>
 
-            대미지:<input type="text" id="v6" size="5" placeholder="0">~<input type="text" id="v2" size="5" placeholder="0"><br>
+            대미지:<input type="text" id="v6" size="5" placeholder="0">~<input type="text" id="v2" size="5"
+                                                                            placeholder="0"><br>
             전장의서곡 비율:<input type="text" id="v3" size="5" placeholder="0">%<br>
             보너스 대미지:<input type="text" id="v4" size="5" placeholder="0">%<br>
             추가크리대미지:<input type="text" id="v5" size="5" placeholder="0">%<br>
@@ -164,6 +165,28 @@
             <input type="radio" name="v19" id="v19" value="1" checked>미적용
             <input type="radio" name="v19" id="v19_1" value="0">적용<br>
         </div>
+        보호감소 관련
+        <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+            하데+미르:
+            <input type="radio" name="v21" id="v21" value="1" checked>미적용
+            <input type="radio" name="v21" id="v21_1" value="0">적용<br>
+            상지:
+            <input type="radio" name="v22" id="v22" value="1" checked>미적용
+            <input type="radio" name="v22" id="v22_1" value="0">적용<br>
+            연막:
+            <input type="radio" name="v23" id="v23" value="1" checked>미적용
+            <input type="radio" name="v23" id="v23_1" value="0">적용<br>
+            어퍼컷:
+            <input type="radio" name="v00" value="1" value1="0" value2="0" checked>미적용
+            <input type="radio" name="v00" value="0" value1="1" value2="0">세공없음
+            <input type="radio" name="v00" value="0" value1="0" value2="1">장갑세공<br>
+            붕파:
+            <input type="radio" name="v24" id="v24" value="1" checked>미적용
+            <input type="radio" name="v24" id="v24_1" value="0">적용<br>
+
+
+
+        </div>
     </div>
 
 
@@ -185,6 +208,10 @@
             버프적용 크리티컬 대미지: <br>
             <input type="text" placeholder="결과" id="res4" size="8" style="border:none;text-align: center; ">~
             <input type="text" placeholder="결과" id="res4_1" size="8" style="border:none;text-align: center; "><br>
+
+            하시딤 대미지: <input type="text" placeholder="결과" id="res6" size="12" style="border:none;text-align: center; "><br>
+            <input type="text" placeholder="결과" id="res5" size="8" style="border:none;text-align: center; ">~
+            <input type="text" placeholder="결과" id="res5_1" size="8" style="border:none;text-align: center; "><br>
 
         </div>
         <br>

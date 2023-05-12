@@ -129,6 +129,47 @@ function cal() {
 
     var v20 = $("#v20 option:selected").attr('value'); // 칼의세레
 
+    var v00 = $('input[name="v00"]:checked').attr('value')
+    var v00_1 = $('input[name="v00"]:checked').attr('value1'); //종족
+    var v00_2 = $('input[name="v00"]:checked').attr('value2'); //종족
+
+    var v21v = document.getElementsByName("v21"); // 저지세트
+    var v21 = document.getElementById("v21")
+    for (var i = 0; i < v21v.length; i++) {
+        if (v21v[i].checked)
+            v21 = 0
+        else
+            v21 = 1;
+        break;
+    }
+
+    var v22v = document.getElementsByName("v22"); // 저지세트
+    var v22 = document.getElementById("v22")
+    for (var i = 0; i < v22v.length; i++) {
+        if (v22v[i].checked)
+            v22 = 0
+        else
+            v22 = 1;
+        break;
+    }
+    var v23v = document.getElementsByName("v23"); // 저지세트
+    var v23 = document.getElementById("v23")
+    for (var i = 0; i < v23v.length; i++) {
+        if (v23v[i].checked)
+            v23 = 0
+        else
+            v23 = 1;
+        break;
+    }
+    var v24v = document.getElementsByName("v24"); // 저지세트
+    var v24 = document.getElementById("v24")
+    for (var i = 0; i < v24v.length; i++) {
+        if (v24v[i].checked)
+            v24 = 0
+        else
+            v24 = 1;
+        break;
+    }
 
 
     //계산식
@@ -147,26 +188,43 @@ function cal() {
     document.getElementById("res2").value = Math.floor(res2);
 
     var res2_1; // (크리포함)대미지 배율
-    res2_1 = (100 * (1 + 0.2 * v7) * (1 + (v3 / 100) * (1 + 0.2 * v7))) * v1 * (1 + 0.1 * v8) * (1 * v9) * (1 + v4 / 100) * (2.5 +1*v20 + v5 / 100)
+    res2_1 = (100 * (1 + 0.2 * v7) * (1 + (v3 / 100) * (1 + 0.2 * v7))) * v1 * (1 + 0.1 * v8) * (1 * v9) * (1 + v4 / 100) * (2.5 + 1 * v20 + v5 / 100)
     document.getElementById("res2_1").value = Math.floor(res2_1);
 
 
     var res3; //저지 크리 맥대미지
-    res3 = res1 * (2.5 +1*v20 + v5 / 100)
+    res3 = res1 * (2.5 + 1 * v20 + v5 / 100)
     document.getElementById("res3").value = Math.floor(res3);
 
     var res3_1; //저지 크리 민대미지
-    res3_1 = res1_1 + res1 * (1.5 +1*v20+ v5 / 100)
+    res3_1 = res1_1 + res1 * (1.5 + 1 * v20 + v5 / 100)
     document.getElementById("res3_1").value = Math.floor(res3_1);
 
     var res4; //하시딤 한방 피통 55만
-    res4 = res3_1 * (1 + 0.25*v10+(0.03*v11+0.05*v12)*v10)*(1+0.7*v13+(0.36*v14+0.1*v15)*v13)*(1+0.15*v16*v13)*(1+0.5*v17)*(1+0.1*v18)*(1+0.05*v19);
+    res4 = res3_1 * (1 + 0.25 * v10 + (0.03 * v11 + 0.05 * v12) * v10) * (1 + 0.7 * v13 + (0.36 * v14 + 0.1 * v15) * v13) * (1 + 0.15 * v16 * v13) * (1 + 0.5 * v17) * (1 + 0.1 * v18) * (1 + 0.05 * v19);
     document.getElementById("res4").value = Math.floor(res4);
 
     var res4_1; //하시딤 한방 피통 55만
-    res4_1 = res3 * (1 + 0.25*v10+(0.03*v11+0.05*v12)*v10)*(1+0.7*v13+(0.36*v14+0.1*v15)*v13)*(1+0.15*v16*v13)*(1+0.5*v17)*(1+0.1*v18)*(1+0.05*v19);
+    res4_1 = res3 * (1 + 0.25 * v10 + (0.03 * v11 + 0.05 * v12) * v10) * (1 + 0.7 * v13 + (0.36 * v14 + 0.1 * v15) * v13) * (1 + 0.15 * v16 * v13) * (1 + 0.5 * v17) * (1 + 0.1 * v18) * (1 + 0.05 * v19);
     document.getElementById("res4_1").value = Math.floor(res4_1);
 
+    var res5; //하시딤 민대미지
+    res5 = res4 * (1 - (29 * Math.asinh(((150 * (1 - 0.11 * v22) - 20 * v21 - 7 * v23 - 10 * v00_1 - 15 * v00_2 - 25 * v24)) / 24) + 1) / 100);
+    document.getElementById("res5").value = Math.floor(res5);
+
+    var res5_1; //하시딤 맥대미지
+    res5_1 = res4_1 * (1 - (29 * Math.asinh(((150 * (1 - 0.11 * v22) - 20 * v21 - 7 * v23 - 10 * v00_1 - 15 * v00_2 - 25 * v24)) / 24) + 1) / 100);
+    document.getElementById("res5_1").value = Math.floor(res5_1);
+
+    var res6; //디펜스적용(자)
+    if (res5_1 < 550000 && res5 < 550000) {
+        res6 = "한방안나옴"}
+    else if (res5 < 550000 && res5_1 > 550000) {
+    res6 = "확률한방"}
+else  {
+   res6 = "확정한방"
+}
+document.getElementById("res6").value = res6;
 
 }
 
@@ -182,5 +240,10 @@ function reset() {
     document.getElementById("res2").value = "";
     document.getElementById("res3").value = "";
     document.getElementById("res3_1").value = "";
+    document.getElementById("res4").value = "";
+    document.getElementById("res4_1").value = "";
+    document.getElementById("res5").value = "";
+    document.getElementById("res5_1").value = "";
+    document.getElementById("res6").value = "";
 
 }
