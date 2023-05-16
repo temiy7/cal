@@ -171,6 +171,9 @@ function cal() {
         break;
     }
 
+        var v25 = $("#v25 option:selected").attr('value'); // 피어싱
+
+
 
     //계산식
 
@@ -209,11 +212,11 @@ function cal() {
     document.getElementById("res4_1").value = Math.floor(res4_1);
 
     var res5; //하시딤 민대미지
-    res5 = res4 * (1 - (29 * Math.asinh(((150 * (1 - 0.11 * v22) - 20 * v21 - 7 * v23 - 10 * v00_1 - 15 * v00_2 - 25 * v24)) / 24) + 1) / 100);
+    res5 = res4 * (1 - (29 * Math.asinh(((150 * (1 - 0.11 * v22) - 20 * v21 - 7 * v23 - 10 * v00_1 - 15 * v00_2 - 25 * v24 - 1*v25)) / 24) + 1) / 100);
     document.getElementById("res5").value = Math.floor(res5);
 
     var res5_1; //하시딤 맥대미지
-    res5_1 = res4_1 * (1 - (29 * Math.asinh(((150 * (1 - 0.11 * v22) - 20 * v21 - 7 * v23 - 10 * v00_1 - 15 * v00_2 - 25 * v24)) / 24) + 1) / 100);
+    res5_1 = res4_1 * (1 - (29 * Math.asinh(((150 * (1 - 0.11 * v22) - 20 * v21 - 7 * v23 - 10 * v00_1 - 15 * v00_2 - 25 * v24 - 1*v25)) / 24) + 1) / 100);
     document.getElementById("res5_1").value = Math.floor(res5_1);
 
     var res6; //디펜스적용(자)
