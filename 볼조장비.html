@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="css/cont.css">
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'G-7RRZF9GD2Z');
@@ -85,29 +89,30 @@
             var v18 = $("#v18 option:selected").attr('value'); // 엘리멘토  
             var v518 = $("#v518 option:selected").attr('value'); //엘리멘토 
             var v18_1 = $("#v18 option:selected").attr('value2'); // 엘리멘토  
-            var v518_1 = $("#v518 option:selected").attr('value2'); //엘리멘토 
-
-
-
+            var v518_1 = $("#v518 option:selected").attr('value2'); //엘리멘토
+            var v19 = Number(document.getElementById("v19").value); // 블리안
+            var v519 = Number(document.getElementById("v519").value); // 블리안
+            var v20 = Number(document.getElementById("v20").value); // 라볼영향력
+            var v520 = Number(document.getElementById("v520").value); // 라볼영향력
 
 
             var res1; //파이어볼트5 대미지
 
-            res1 = (126 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 25) * 6.5 * (1 + 1.5 + 0.3 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100)) * (1 + v17 / 100);
+            res1 = (126 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 25) * 6.5 * (1 + 1.5 + 0.3 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + 0.15 * v19 + (v11 / 100)) * (1 + v17 / 100);
 
             document.getElementById("res1").value = Math.floor(res1);
 
 
             var res3; //볼트조합3 대미지
 
-            res3 = (((126 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 15) * 3 * (1 + 1.5 + 0.3 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100))) + ((180 + 0.6 * v1 + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + 21) * (1 + 1.5 + 0.3 + 0.01 * v7 + 0.005 * v6 + (v12 / 100)))) * (1 + 0.3 + 0.01 * v8) * (1 + 0.05 * v15) * (1 + v17 / 100) * (1 + 0.01 * v18);
+            res3 = (((126 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 15) * 3 * (1 + 1.5 + 0.3 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + 0.15 * v19 + (v11 / 100))) + ((180 + 0.6 * v1 + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + (7 + 0.75 * v20) * 3) * (1 + 1.5 + 0.3 + 0.01 * v7 + 0.005 * v6 + 0.15 * v19 + (v12 / 100)))) * (1 + 0.3 + 0.01 * v8) * (1 + 0.05 * v15) * (1 + v17 / 100) * (1 + 0.01 * v18);
 
             document.getElementById("res3").value = Math.floor(res3);
 
 
             var res4; //볼트조합5 대미지
 
-            res4 = (((126 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 25) * 6.5 * (1 + 1.5 + 0.3 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100))) + ((180 + 0.6 * v1 + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + 35) * 1.28 * (1 + 1.5 + 0.3 + 0.01 * v7 + 0.005 * v6 + (v12 / 100)))) * (1 + 0.3 + 0.01 * v8) * (1 + 0.05 * v15) * (1 + v17 / 100) * (1 + 0.01 * v18);
+            res4 = (((126 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 25) * 6.5 * (1 + 1.5 + 0.3 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + 0.15 * v19 + (v11 / 100))) + ((180 + 0.6 * v1 + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + (7 + 0.75 * v20) * 5) * 1.28 * (1 + 1.5 + 0.3 + 0.01 * v7 + 0.005 * v6 + 0.15 * v19 + (v12 / 100)))) * (1 + 0.3 + 0.01 * v8) * (1 + 0.05 * v15) * (1 + v17 / 100) * (1 + 0.01 * v18);
 
             document.getElementById("res4").value = Math.floor(res4);
 
@@ -133,37 +138,37 @@
 
             var res8; //파볼트 차이
 
-            res8 = (126 + 0.5 * v51 + 0.4 * v52 + v514 * (1 + 0.2 * v516) * 0.4 * (v513 / 100) + 2.5 * v53 + 25) * 6.5 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v55 + 0.15 * v59 + (v511 / 100)) * (1 + v517 / 100) - res1
+            res8 = (126 + 0.5 * v51 + 0.4 * v52 + v514 * (1 + 0.2 * v516) * 0.4 * (v513 / 100) + 2.5 * v53 + 25) * 6.5 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v55 + 0.15 * v59 + 0.15 * v519 + (v511 / 100)) * (1 + v517 / 100) - res1
 
             document.getElementById("res8").value = Math.floor(res8);
 
             var res9; //볼조3차이
 
-            res9 = (((126 + 0.5 * v51 + 0.4 * v52 + v514 * (1 + 0.2 * v516) * 0.4 * (v513 / 100) + 2.5 * v53 + 15) * 3 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v55 + 0.15 * v59 + (v511 / 100))) + ((180 + 0.6 * v51 + 0.44 * v52 + v514 * (1 + 0.2 * v516) * 0.44 * (v513 / 100) + 2.5 * v54 + 21) * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v56 + (v512 / 100)))) * (1 + 0.3 + 0.01 * v58) * (1 + 0.05 * v515) * (1 + v517 / 100) * (1 + 0.01 * v518) - res3
+            res9 = (((126 + 0.5 * v51 + 0.4 * v52 + v514 * (1 + 0.2 * v516) * 0.4 * (v513 / 100) + 2.5 * v53 + 15) * 3 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v55 + 0.15 * v59 + 0.15 * v519 + (v511 / 100))) + ((180 + 0.6 * v51 + 0.44 * v52 + v514 * (1 + 0.2 * v516) * 0.44 * (v513 / 100) + 2.5 * v54 + (7 + 0.75 * v520) * 3) * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v56 + 0.15 * v519 + (v512 / 100)))) * (1 + 0.3 + 0.01 * v58) * (1 + 0.05 * v515) * (1 + v517 / 100) * (1 + 0.01 * v518) - res3
 
             document.getElementById("res9").value = Math.floor(res9);
 
             var res10; //볼조5차이
 
-            res10 = (((126 + 0.5 * v51 + 0.4 * v52 + v514 * (1 + 0.2 * v516) * 0.4 * (v513 / 100) + 2.5 * v53 + 25) * 6.5 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v55 + 0.15 * v59 + (v511 / 100))) + ((180 + 0.6 * v51 + 0.44 * v52 + v514 * (1 + 0.2 * v516) * 0.44 * (v513 / 100) + 2.5 * v54 + 35) * 1.28 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v56 + (v512 / 100)))) * (1 + 0.3 + 0.01 * v58) * (1 + 0.05 * v515) * (1 + v517 / 100) * (1 + 0.01 * v518) - res4;
+            res10 = (((126 + 0.5 * v51 + 0.4 * v52 + v514 * (1 + 0.2 * v516) * 0.4 * (v513 / 100) + 2.5 * v53 + 25) * 6.5 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v55 + 0.15 * v59 + 0.15 * v519 + (v511 / 100))) + ((180 + 0.6 * v51 + 0.44 * v52 + v514 * (1 + 0.2 * v516) * 0.44 * (v513 / 100) + 2.5 * v54 + (7 + 0.75 * v520) * 5) * 1.28 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v56 + 0.15 * v519 + (v512 / 100)))) * (1 + 0.3 + 0.01 * v58) * (1 + 0.05 * v515) * (1 + v517 / 100) * (1 + 0.01 * v518) - res4;
 
             document.getElementById("res10").value = Math.floor(res10);
 
             var res11; //파볼트 크리차이
 
-            res11 = (126 + 0.5 * v51 + 0.4 * v52 + v514 * (1 + 0.2 * v516) * 0.4 * (v513 / 100) + 2.5 * v53 + 25) * 6.5 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v55 + 0.15 * v59 + (v511 / 100)) * (1 + v517 / 100) * (2.5 + (v510 / 100) + 0.07 * v518_1) - res1 * (2.5 + (v10 / 100) + 0.07 * v18_1);
+            res11 = (126 + 0.5 * v51 + 0.4 * v52 + v514 * (1 + 0.2 * v516) * 0.4 * (v513 / 100) + 2.5 * v53 + 25) * 6.5 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v55 + 0.15 * v59 + 0.15 * v519 + (v511 / 100)) * (1 + v517 / 100) * (2.5 + (v510 / 100) + 0.07 * v518_1) - res1 * (2.5 + (v10 / 100) + 0.07 * v18_1);
 
             document.getElementById("res11").value = Math.floor(res11);
 
             var res12; //볼조3 크리차이
 
-            res12 = (((126 + 0.5 * v51 + 0.4 * v52 + v514 * (1 + 0.2 * v516) * 0.4 * (v513 / 100) + 2.5 * v53 + 15) * 3 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v55 + 0.15 * v59 + (v511 / 100))) + ((180 + 0.6 * v51 + 0.44 * v52 + v514 * (1 + 0.2 * v516) * 0.44 * (v513 / 100) + 2.5 * v54 + 21) * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v56 + (v512 / 100)))) * (1 + 0.3 + 0.01 * v58) * (1 + 0.05 * v515) * (1 + v517 / 100) * (1 + 0.01 * v518) * (2.5 + (v510 / 100 + 0.07 * v518_1)) - res3 * (2.5 + (v10 / 100) + 0.07 * v18_1);
+            res12 = (((126 + 0.5 * v51 + 0.4 * v52 + v514 * (1 + 0.2 * v516) * 0.4 * (v513 / 100) + 2.5 * v53 + 15) * 3 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v55 + 0.15 * v59 + 0.15 * v519 + (v511 / 100))) + ((180 + 0.6 * v51 + 0.44 * v52 + v514 * (1 + 0.2 * v516) * 0.44 * (v513 / 100) + 2.5 * v54 + (7 + 0.75 * v20) * 3) * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v56 + 0.15 * v519 + (v512 / 100)))) * (1 + 0.3 + 0.01 * v58) * (1 + 0.05 * v515) * (1 + v517 / 100) * (1 + 0.01 * v518) * (2.5 + (v510 / 100 + 0.07 * v518_1)) - res3 * (2.5 + (v10 / 100) + 0.07 * v18_1);
 
             document.getElementById("res12").value = Math.floor(res12);
 
             var res13; //볼조5 크리차이
 
-            res13 = (((126 + 0.5 * v51 + 0.4 * v52 + v514 * (1 + 0.2 * v516) * 0.4 * (v513 / 100) + 2.5 * v53 + 25) * 6.5 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v55 + 0.15 * v59 + (v511 / 100))) + ((180 + 0.6 * v51 + 0.44 * v52 + v514 * (1 + 0.2 * v516) * 0.44 * (v513 / 100) + 2.5 * v54 + 35) * 1.28 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v56 + (v512 / 100)))) * (1 + 0.3 + 0.01 * v58) * (1 + 0.05 * v515) * (1 + v517 / 100) * (1 + 0.01 * v518) * (2.5 + (v510 / 100) + 0.07 * v518_1) - res4 * (2.5 + (v10 / 100) + 0.07 * v18_1);
+            res13 = (((126 + 0.5 * v51 + 0.4 * v52 + v514 * (1 + 0.2 * v516) * 0.4 * (v513 / 100) + 2.5 * v53 + 25) * 6.5 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v55 + 0.15 * v59 + 0.15 * v519 + (v511 / 100))) + ((180 + 0.6 * v51 + 0.44 * v52 + v514 * (1 + 0.2 * v516) * 0.44 * (v513 / 100) + 2.5 * v54 + (7 + 0.75 * v20) * 5) * 1.28 * (1 + 1.5 + 0.3 + 0.01 * v57 + 0.005 * v56 + 0.15 * v519 + (v512 / 100)))) * (1 + 0.3 + 0.01 * v58) * (1 + 0.05 * v515) * (1 + v517 / 100) * (1 + 0.01 * v518) * (2.5 + (v510 / 100) + 0.07 * v518_1) - res4 * (2.5 + (v10 / 100) + 0.07 * v18_1);
 
             document.getElementById("res13").value = Math.floor(res13);
 
@@ -205,8 +210,6 @@
             document.getElementById("res19").value = Math.floor(res19);
 
 
-
-
         }
 
         function reset() {
@@ -238,6 +241,8 @@
             document.getElementById("v514").value = "";
             document.getElementById("v17").value = "";
             document.getElementById("v517").value = "";
+            document.getElementById("v520").value = "";
+            document.getElementById("v20").value = "";
             document.getElementById("res1").value = "";
             document.getElementById("res3").value = "";
             document.getElementById("res4").value = "";
@@ -256,207 +261,230 @@
             document.getElementById("res17").value = "";
             document.getElementById("res18").value = "";
             document.getElementById("res19").value = "";
-            
+
+
         }
 
     </script>
 </head>
 
 <body>
-    <div id="wrapper">
-        <h2>마비노기 볼트조합 대미지 비교.</h2>
-        <div id="status1">
-            해당 계산기에 적용되는 모든 마법 및 패시브의 랭크는 최고랭크 기준입니다. <br>
-            각 항목의 앞쪽과 뒷쪽의 수치를 입력하고 계산하기를 누르면 대미지 차이를 비교합니다.
+<div id="wrapper">
+    <h2>마비노기 볼트조합 대미지 비교.</h2>
+    <div id="status1">
+        해당 계산기에 적용되는 모든 마법 및 패시브의 랭크는 최고랭크 기준입니다. <br>
+        각 항목의 앞쪽과 뒷쪽의 수치를 입력하고 계산하기를 누르면 대미지 차이를 비교합니다.
+    </div>
+    <br><br>
+    <div id="status">
+        스텟<br>
+        <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
+            마법공격력:
+            <input type="text" id="v1" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
+                type="text" id="v51" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
+            최댐인챈트+낭농최댐:
+            <input type="text" id="v2" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
+                type="text" id="v52" size="5" placeholder="0" style="background-color:#D9E5FF ;">
         </div>
         <br><br>
-        <div id="status">
-            스텟<br>
-            <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
-                마법공격력:
-                <input type="text" id="v1" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
-                    type="text" id="v51" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
-                최댐인챈트+낭농최댐:
-                <input type="text" id="v2" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
-                    type="text" id="v52" size="5" placeholder="0" style="background-color:#D9E5FF ;">
-            </div>
-            <br><br>
-            세공<br>
-            <span style="font-size:5px; color: red;">*마기그래프는 세공과 합연산이므로 더해서 사용하시면 됩니다.</span><br>
-            <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
-                파이어볼트최댐 세공LV:
-                <input type="text" id="v3" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
-                    type="text" id="v53" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
-                라이트닝볼트최댐 세공LV:
-                <input type="text" id="v4" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
-                    type="text" id="v54" size="5" placeholder="0" style="background-color:#D9E5FF ;"> <br>
-                파이어마스터리 세공LV:
-                <input type="text" id="v5" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
-                    type="text" id="v55" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
-                라이트닝마스터리 세공LV:
-                <input type="text" id="v6" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
-                    type="text" id="v56" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
-                볼트마스터리 세공LV:
-                <input type="text" id="v7" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
-                    type="text" id="v57" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
-                볼트조합마스터리 세공LV:
-                <input type="text" id="v8" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
-                    type="text" id="v58" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br><br>
-                헤보나세트:
-                <select name="v9" id="v9" style="background:#FFd8d8 ">
-                    <option value="0" selected>미적용</option>
-                    <option value="1">적용</option>
-                </select>
-                <select name="v59" id="v59" style="background:#D9E5FF">
-                    <option value="0" selected>미적용</option>
-                    <option value="1">적용</option>
-                </select><br>
-
-                무기강화효과:
-                <select name="v18" id="v18" style="background:#FFd8d8">
-                    <option value="0" value2="0" selected>미적용</option>
-                    <option value="15" value2="1">엘리멘토</option>
-                    <option value="0.8" value2="0">심볼1</option>
-                    <option value="1.6" value2="0">심볼2</option>
-                    <option value="2.4" value2="0">심볼3</option>
-                    <option value="3.2" value2="0">심볼4</option>
-                    <option value="4.0" value2="0">심볼5</option>
-                    <option value="4.8" value2="0">심볼6</option>
-                    <option value="5.6" value2="0">심볼7</option>
-                    <option value="6.4" value2="0">심볼8</option>
-                    <option value="7.2" value2="0">심볼9</option>
-                    <option value="8" value2="0">심볼10</option>
-                </select>
-
-                <select name="v518" id="v518" style="background:#D9E5FF">
-                    <option value="0" value2="0" selected>미적용</option>
-                    <option value="15" value2="1">엘리멘토</option>
-                    <option value="0.8" value2="0">심볼1</option>
-                    <option value="1.6" value2="0">심볼2</option>
-                    <option value="2.4" value2="0">심볼3</option>
-                    <option value="3.2" value2="0">심볼4</option>
-                    <option value="4.0" value2="0">심볼5</option>
-                    <option value="4.8" value2="0">심볼6</option>
-                    <option value="5.6" value2="0">심볼7</option>
-                    <option value="6.4" value2="0">심볼8</option>
-                    <option value="7.2" value2="0">심볼9</option>
-                    <option value="8" value2="0">심볼10</option>
-                </select>
-            </div>
-
-            <br><br>
-            볼트조합 마스터 타이틀:
-            <select name="v15" id="v15" style="background:#FFd8d8 ">
+        세공<br>
+        <span style="font-size:5px; color: red;">*마기그래프는 세공과 합연산이므로 더해서 사용하시면 됩니다.</span><br>
+        <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
+            파이어볼트최댐 세공LV:
+            <input type="text" id="v3" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
+                type="text" id="v53" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
+            라이트닝볼트최댐 세공LV:
+            <input type="text" id="v4" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
+                type="text" id="v54" size="5" placeholder="0" style="background-color:#D9E5FF ;"> <br>
+            파이어마스터리 세공LV:
+            <input type="text" id="v5" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
+                type="text" id="v55" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
+            라이트닝마스터리 세공LV:
+            <input type="text" id="v6" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
+                type="text" id="v56" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
+            원드 영향력 세공LV:
+            <input type="text" id="v20" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
+                type="text" id="v520" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
+            볼트마스터리 세공LV:
+            <input type="text" id="v7" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
+                type="text" id="v57" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
+            볼트조합마스터리 세공LV:
+            <input type="text" id="v8" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
+                type="text" id="v58" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br><br>
+            헤보나세트:
+            <select name="v9" id="v9" style="background:#FFd8d8 ">
                 <option value="0" selected>미적용</option>
                 <option value="1">적용</option>
             </select>
-            <select name="v515" id="v515" style="background:#D9E5FF">
+            <select name="v59" id="v59" style="background:#D9E5FF">
+                <option value="0" selected>미적용</option>
+                <option value="1">적용</option>
+            </select><br>
+            블리안세트:
+            <select name="v19" id="v19" style="background:#FFd8d8 ">
                 <option value="0" selected>미적용</option>
                 <option value="1">적용</option>
             </select>
-            <br><br>
-            추가크리 대미지%(이보나, 붉개등)
-            <input type="text" id="v10" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input type="text"
-                id="v510" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br><br>
-            추가 대미지%(낭농,토템,정령등)
-            <input type="text" id="v17" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input type="text"
-                id="v517" size="5" placeholder="0" style="background-color:#D9E5FF ;">
-            <br><br>
+            <select name="v519" id="v519" style="background:#D9E5FF">
+                <option value="0" selected>미적용</option>
+                <option value="1">적용</option>
+            </select><br>
 
-            도핑<br>
-            <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
-                전장비율%:
-                <input type="text" id="v13" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
-                    type="text" id="v513" size="5" placeholder="0" style="background-color:#D9E5FF ;"> <br>
-                최대공격력:
-                <input type="text" id="v14" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
-                    type="text" id="v514" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
-                물리공격력 증가포션:
-                <select name="v16" id="v16" style="background:#FFd8d8 ">
-                    <option value="0" selected>미적용</option>
-                    <option value="1">적용</option>
-                </select>
-                <select name="v516" id="v516" style="background:#D9E5FF">
-                    <option value="0" selected>미적용</option>
-                    <option value="1">적용</option>
-                </select>
-            </div>
-            <br><br>
+            무기강화효과:
+            <select name="v18" id="v18" style="background:#FFd8d8">
+                <option value="0" value2="0" selected>미적용</option>
+                <option value="15" value2="1">엘리멘토</option>
+                <option value="0.8" value2="0">심볼1</option>
+                <option value="1.6" value2="0">심볼2</option>
+                <option value="2.4" value2="0">심볼3</option>
+                <option value="3.2" value2="0">심볼4</option>
+                <option value="4.0" value2="0">심볼5</option>
+                <option value="4.8" value2="0">심볼6</option>
+                <option value="5.6" value2="0">심볼7</option>
+                <option value="6.4" value2="0">심볼8</option>
+                <option value="7.2" value2="0">심볼9</option>
+                <option value="8" value2="0">심볼10</option>
+            </select>
 
-
-            콤보카드%(라파라파 일경우 동시입력)
-            <br>
-            <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
-                파볼트콤보카드%:
-                <input type="text" id="v11" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
-                    type="text" id="v511" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
-                라볼트콤보카드%:
-                <input type="text" id="v12" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
-                    type="text" id="v512" size="5" placeholder="0" style="background-color:#D9E5FF ;">
-            </div>
+            <select name="v518" id="v518" style="background:#D9E5FF">
+                <option value="0" value2="0" selected>미적용</option>
+                <option value="15" value2="1">엘리멘토</option>
+                <option value="0.8" value2="0">심볼1</option>
+                <option value="1.6" value2="0">심볼2</option>
+                <option value="2.4" value2="0">심볼3</option>
+                <option value="3.2" value2="0">심볼4</option>
+                <option value="4.0" value2="0">심볼5</option>
+                <option value="4.8" value2="0">심볼6</option>
+                <option value="5.6" value2="0">심볼7</option>
+                <option value="6.4" value2="0">심볼8</option>
+                <option value="7.2" value2="0">심볼9</option>
+                <option value="8" value2="0">심볼10</option>
+            </select>
         </div>
 
+        <br><br>
+        볼트조합 마스터 타이틀:
+        <select name="v15" id="v15" style="background:#FFd8d8 ">
+            <option value="0" selected>미적용</option>
+            <option value="1">적용</option>
+        </select>
+        <select name="v515" id="v515" style="background:#D9E5FF">
+            <option value="0" selected>미적용</option>
+            <option value="1">적용</option>
+        </select>
+        <br><br>
+        추가크리 대미지%(이보나, 붉개등)
+        <input type="text" id="v10" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input type="text"
+                                                                                                        id="v510"
+                                                                                                        size="5"
+                                                                                                        placeholder="0"
+                                                                                                        style="background-color:#D9E5FF ;"><br><br>
+        추가 대미지%(낭농,토템,정령등)
+        <input type="text" id="v17" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input type="text"
+                                                                                                        id="v517"
+                                                                                                        size="5"
+                                                                                                        placeholder="0"
+                                                                                                        style="background-color:#D9E5FF ;">
+        <br><br>
 
-        <div id="result">
-            결과
-            <br>
-            결과는 기존 대미지와 대미지의 증가량을 보여줍니다.
-            <br>
-            <div style="font-weight: bold; height: auto; width:  350px; border: 1px solid; padding:10px;">
-                파이어볼트5차지 <br>
-                대미지:
-                <input type="text" id="res1" size="10" style="background-color:#FFd8d8 ;"> + <input type="text"
-                    id="res8" size="10"> <br>
-                크리:
-                <input type="text" id="res5" size="10" style="background-color:#FFd8d8 ;"> + <input type="text"
-                    id="res11" size="10"> <br>
-                증감비(%):
-                <input type="text" id="res14" size="10"><br>
-                크리증감비(%):
-                <input type="text" id="res17" size="10">
-                <br>
-                <br>
-                볼트조합3차지 <br>
-                대미지:
-                <input type="text" id="res3" size="10" style="background-color:#FFd8d8 ;"> + <input type="text"
-                    id="res9" size="10"><br>
-                크리:
-                <input type="text" id="res6" size="10" style="background-color:#FFd8d8 ;"> +<input type="text"
-                    id="res12" size="10"> <br>
-                증감비(%):
-                <input type="text" id="res15" size="10"><br>
-                크리증감비(%):
-                <input type="text" id="res18" size="10">
-                <br><br>
-
-                볼트조합5차지 <br>
-                대미지:
-                <input type="text" id="res4" size="10" style="background-color:#FFd8d8 ;"> + <input type="text"
-                    id="res10" size="10"><br>
-                크리:
-                <input type="text" id="res7" size="10" style="background-color:#FFd8d8 ;"> + <input type="text"
-                    id="res13" size="10"><br>
-                증감비(%):
-                <input type="text" id="res16" size="10"><br>
-                크리증감비(%):
-                <input type="text" id="res19" size="10">
-            </div>
-            <br> <br>
+        도핑<br>
+        <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
+            전장비율%:
+            <input type="text" id="v13" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
+                type="text" id="v513" size="5" placeholder="0" style="background-color:#D9E5FF ;"> <br>
+            최대공격력:
+            <input type="text" id="v14" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
+                type="text" id="v514" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
+            물리공격력 증가포션:
+            <select name="v16" id="v16" style="background:#FFd8d8 ">
+                <option value="0" selected>미적용</option>
+                <option value="1">적용</option>
+            </select>
+            <select name="v516" id="v516" style="background:#D9E5FF">
+                <option value="0" selected>미적용</option>
+                <option value="1">적용</option>
+            </select>
+        </div>
+        <br><br>
 
 
-
-            <input type="button" value="계산하기" class="button" onclick="cal()">
-            <input type="button" value="초기화" class="button" onclick="reset()">
+        콤보카드%(라파라파 일경우 동시입력)
+        <br>
+        <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
+            파볼트콤보카드%:
+            <input type="text" id="v11" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
+                type="text" id="v511" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
+            라볼트콤보카드%:
+            <input type="text" id="v12" size="5" placeholder="0" style="background-color:#FFd8d8 ;"> <input
+                type="text" id="v512" size="5" placeholder="0" style="background-color:#D9E5FF ;">
         </div>
     </div>
 
-    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+
+    <div id="result">
+        결과
+        <br>
+        결과는 기존 대미지와 대미지의 증가량을 보여줍니다.
+        <br>
+        <div style="font-weight: bold; height: auto; width:  350px; border: 1px solid; padding:10px;">
+            파이어볼트5차지 <br>
+            대미지:
+            <input type="text" id="res1" size="10" style="background-color:#FFd8d8 ;"> + <input type="text"
+                                                                                                id="res8" size="10">
+            <br>
+            크리:
+            <input type="text" id="res5" size="10" style="background-color:#FFd8d8 ;"> + <input type="text"
+                                                                                                id="res11" size="10">
+            <br>
+            증감비(%):
+            <input type="text" id="res14" size="10"><br>
+            크리증감비(%):
+            <input type="text" id="res17" size="10">
+            <br>
+            <br>
+            볼트조합3차지 <br>
+            대미지:
+            <input type="text" id="res3" size="10" style="background-color:#FFd8d8 ;"> + <input type="text"
+                                                                                                id="res9" size="10"><br>
+            크리:
+            <input type="text" id="res6" size="10" style="background-color:#FFd8d8 ;"> +<input type="text"
+                                                                                               id="res12" size="10">
+            <br>
+            증감비(%):
+            <input type="text" id="res15" size="10"><br>
+            크리증감비(%):
+            <input type="text" id="res18" size="10">
+            <br><br>
+
+            볼트조합5차지 <br>
+            대미지:
+            <input type="text" id="res4" size="10" style="background-color:#FFd8d8 ;"> + <input type="text"
+                                                                                                id="res10"
+                                                                                                size="10"><br>
+            크리:
+            <input type="text" id="res7" size="10" style="background-color:#FFd8d8 ;"> + <input type="text"
+                                                                                                id="res13"
+                                                                                                size="10"><br>
+            증감비(%):
+            <input type="text" id="res16" size="10"><br>
+            크리증감비(%):
+            <input type="text" id="res19" size="10">
+        </div>
+        <br> <br>
+
+
+        <input type="button" value="계산하기" class="button" onclick="cal()">
+        <input type="button" value="초기화" class="button" onclick="reset()">
+    </div>
+</div>
+
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 <script type="text/javascript">
-if(!wcs_add) var wcs_add = {};
-wcs_add["wa"] = "16bb61aebd2bc20";
-if(window.wcs) {
-  wcs_do();
-}
+    if (!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "16bb61aebd2bc20";
+    if (window.wcs) {
+        wcs_do();
+    }
 </script>
 
 </body>
