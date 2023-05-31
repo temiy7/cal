@@ -58,6 +58,7 @@
         본인의 방어와 보호로 보호받을 수 있는 대미지를 계산해 줍니다. <br>
         결과의 대미지 차감비는 방어 보호를 모두 이용한 결과 입니다.<br>
         대미지 역산은 맞은 대미지를 입력하면 원래 대미지를 추정해줍니다.<br>
+        마나실드의 랭크는 6랭기준입니다.마실효율은 마나1당 흡수하는 대미지 입니다.<br>
         계산의 모든 소수점은 버림 합니다.
 
 
@@ -84,15 +85,22 @@
         <option value="70" value2="90" value3="35" value4="45">1단</option>
         <option value="75" value2="100" value3="35" value4="45">2단</option>
         <option value="80" value2="110" value3="35" value4="45" selected> 3단</option>
-    </select>
-        <br>
+    </select><br>
         방패착용(인엘 대형방패 불가):
         <select name="v9" id="v9" style="background:#D9E5FF">
-        <option value="1" selected>없음</option>
-        <option value="0.5">소형방패</option>
-        <option value="0.3">중형방패</option>
-        <option value="0">대형방패</option>
-    </select>
+            <option value="1" selected>없음</option>
+            <option value="0.5">소형방패</option>
+            <option value="0.3">중형방패</option>
+            <option value="0">대형방패</option>
+        </select><br>
+         <label for="v10">마법공격력:</label><input type="text" id="v10" size="5" placeholder="0"><br>
+        <label for="v11">마나실드세공레벨:</label><input type="text" id="v11" size="5" placeholder="0"><br>
+        마법무기:
+        <select name="v12" id="v12" style="background:#D9E5FF">
+            <option value="0" selected>없음</option>
+            <option value="1">일반마법무기</option>
+            <option value="1.5">힐링원드</option>
+        </select>
 
 
     </div>
@@ -123,7 +131,10 @@
         <input type="text" placeholder="결과" id="res7" size="8" style="border:none;text-align: left; ">
     </div>
     <br>
-    
+    마나실드효율:<input type="text" placeholder="결과" id="res8" size="8" style="border:none;text-align: center; "><br>
+    마실대미지감소비율:<input type="text" placeholder="결과" id="res9" size="3" style="border:none;text-align: center; ">%<br>
+
+    <br>
 
 
     <input type="button" value="계산하기" class="button" onclick="cal()">
@@ -133,11 +144,11 @@
 
 <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 <script type="text/javascript">
-if(!wcs_add) var wcs_add = {};
-wcs_add["wa"] = "16bb61aebd2bc20";
-if(window.wcs) {
-  wcs_do();
-}
+    if (!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "16bb61aebd2bc20";
+    if (window.wcs) {
+        wcs_do();
+    }
 </script>
 
 </html>

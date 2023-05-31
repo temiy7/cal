@@ -11,6 +11,9 @@ function cal() {
     var v7 = $("#v5 option:selected").attr('value3'); // 디팬스랭크별 보호
     var v8 = $("#v5 option:selected").attr('value4'); // 디팬스랭크별 보호
     var v9 = $("#v9 option:selected").attr('value'); // 방패종류
+    var v10 = Number(document.getElementById("v10").value); // 마공
+    var v11 = Number(document.getElementById("v11").value); // 마실세공
+    var v12 = $("#v12 option:selected").attr('value'); // 방패종류
 
 
     //계산식
@@ -72,7 +75,23 @@ function cal() {
     document.getElementById("res7").value = Math.floor(res7);
 
 
+    var res8; //마실효율
+    res8_1 = v10 * 0.01;
+    res8_2 = 1.8 + 0.2 * v11;
+    if (res8_1 <= res8_2) {
+        res8 = res8_2 + 1 * v12
+    } else {
+        res8 = res8_1 + 1 * v12
+    }
+    document.getElementById("res8").value = res8;
+
+    var res9; //마실 대미지 감소 비율
+    res9 = (1-(1 / res8))*100
+    document.getElementById("res9").value = Math.round(res9);
+
+
 }
+
 
 //리셋
 function reset() {
@@ -80,6 +99,8 @@ function reset() {
     document.getElementById("v2").value = "";
     document.getElementById("v3").value = "";
     document.getElementById("v4").value = "";
+    document.getElementById("v10").value = "";
+    document.getElementById("v11").value = "";
     document.getElementById("res1").value = "";
     document.getElementById("res2").value = "";
     document.getElementById("res3").value = "";
@@ -87,6 +108,8 @@ function reset() {
     document.getElementById("res5").value = "";
     document.getElementById("res6").value = "";
     document.getElementById("res7").value = "";
+    document.getElementById("res8").value = "";
+    document.getElementById("res9").value = "";
 
 
 }
