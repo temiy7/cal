@@ -195,6 +195,7 @@ const updateChart = () => {
     const expectedDamageUpper = probUpper * value2;
     const totalExpectedDamage = expectedDamageLower + expectedDamageBetween + expectedDamageUpper;
 
+
     expectedDamageSpan.innerText = totalExpectedDamage.toFixed(2);
 
     gaussianChart.data = createGaussianData(mean, variance, value1, value2);
