@@ -176,7 +176,7 @@ function cal() {
 
 
     var res4; //라스매 엘-인
-    res4 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*((1*v1+0.1*v18)*(1+0.15*v15+v8/100)*(1+0.2*v17)+1*v1_0+1*v12*v1_01)*(1+v7/100)
+    res4 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*((1*v1+0.1*v18)*(1+0.15*v15)*(1+0.2*v17)+1*v1_0+1*v12*v1_01)*(1+v7/100)
     document.getElementById("res4").value = Math.floor(res4);
 
     var res4c; //라스매 엘-인 크리
@@ -184,7 +184,7 @@ function cal() {
     document.getElementById("res4c").value = Math.floor(res4c);
 
     var res4_1; //라스매 자이언트
-    res4_1 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*((1*v1_1+0.1*v18)*(1+0.15*v15+v8/100)*(1+0.2*v17)+1*v1_0+1*v12*v1_01)*(1+v7/100)
+    res4_1 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*((1*v1_1+0.1*v18)*(1+0.15*v15)*(1+0.2*v17)+1*v1_0+1*v12*v1_01)*(1+v7/100)
     document.getElementById("res4_1").value = Math.floor(res4_1);
 
     var res4_1c; //라스매 엘-인
@@ -193,7 +193,7 @@ function cal() {
 
 
     var res5; //아윈밀 인-자
-    res5 =(v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*((1*v2+0.03*v19)*(1+0.3*v16+v9/100)*(1+0.15*v22)+1*v2_0)*(1+v7/100)
+    res5 =(v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*((1*v2+0.03*v19)*(1+0.3*v16)*(1+0.15*v22)+1*v2_0)*(1+v7/100)
     document.getElementById("res5").value = Math.floor(res5);
 
     var res5c; //크리
@@ -209,7 +209,7 @@ function cal() {
     document.getElementById("res5_0c").value = Math.floor(res5_0c);
 
     var res5_1; //아윈밀 엘프
-    res5_1 =(v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*((1*v2_1+0.03*v19)*(1+0.3*v16+v9/100)*(1+0.15*v22)+1*v2_0)*(1+v7/100)
+    res5_1 =(v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*((1*v2_1+0.03*v19)*(1+0.3*v16)*(1+0.15*v22)+1*v2_0)*(1+v7/100)
     document.getElementById("res5_1").value = Math.floor(res5_1);
 
     var res5_1c; //크리
@@ -225,7 +225,7 @@ function cal() {
     document.getElementById("res5_10c").value = Math.floor(res5_10c);
 
     var res6; //파이어리프어택
-    res6 =(v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*((1*v3+0.04*v20)*(1+0.15*v21+v10/100)+1*v3_0+1*v14*v3_01)*(1+v7/100)
+    res6 =(v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*((1*v3+0.04*v20)*(1+0.15*v21)+1*v3_0+1*v14*v3_01)*(1+v7/100)
     document.getElementById("res6").value = Math.floor(res6);
 
     var res6c; //크리
