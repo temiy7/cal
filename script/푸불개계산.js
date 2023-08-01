@@ -2,114 +2,70 @@ function cal() {
 
     //변수
     //기본댐
-    var v1 = Number(document.getElementById("v1").value); // 방어
-    var v2 = Number(document.getElementById("v2").value); // 보호
-    var v3 = Number(document.getElementById("v3").value); // 받는대미지
-    var v4 = Number(document.getElementById("v4").value); // 받은대미지
-    var v5 = $("#v5 option:selected").attr('value');  // 디팬스랭크별 방어
-    var v6 = $("#v5 option:selected").attr('value2');  // 디팬스랭크별 방어
-    var v7 = $("#v5 option:selected").attr('value3'); // 디팬스랭크별 보호
-    var v8 = $("#v5 option:selected").attr('value4'); // 디팬스랭크별 보호
-    var v9 = $("#v9 option:selected").attr('value'); // 방패종류
-    var v10 = Number(document.getElementById("v10").value); // 마공
-    var v11 = Number(document.getElementById("v11").value); // 마실세공
-    var v12 = $("#v12 option:selected").attr('value'); // 방패종류
+    var v1 = Number(document.getElementById("v1").value); // 맥댐
+    var v2 = Number(document.getElementById("v2").value); // 크리확률
+    var v3 = Number(document.getElementById("v3").value); // 추가크리댐(기본)
+    var v4 = Number(document.getElementById("v4").value); // 보너스대미지(기본)
+    var v5 = Number(document.getElementById("v5").value);  // 붉개강화 추가크리
+    var v6 = Number(document.getElementById("v6").value); // 푸개추가댐
+    var v7 = Number(document.getElementById("v7").value); // 푸개보너스대미지
 
 
     //계산식
 
-    var res1; //보호 차감 비율
-    res1_1 = 29 * Math.asinh(v2 / 24) + 1
-    if (res1_1 >= 100) {
-        res1 = 100
-    } else {
-        res1 = res1_1
-    }
-    document.getElementById("res1").value = Math.round(res1);
+    var res1; //푸개 노크리
+    res1 = (v1 + v6) * (1 + v4 / 100 + v7 / 100);
+    document.getElementById("res1").value = Math.floor(res1);
 
+    var res2; //푸개 크리
+    res2 = res1 * (2.5 + v3 / 100);
+    document.getElementById("res2").value = Math.floor(res2);
 
-    var res2; //방어 차감 비율
-    res2 = v1
-    document.getElementById("res2").value = Math.round(res2);
-
-    var res3; //받는 대미지
-    res3_1 = v3 * (1 - res1 / 100) - v1
-    if (res3_1 <= 0) {
-        res3 = 0
-    } else {
-        res3 = res3_1
-    }
+    var res3; //푸개 크리 환산
+    res3 = res1 + (res2-res1)*v2/100
     document.getElementById("res3").value = Math.floor(res3);
 
-
-    var res4; //대미지 차감비
-    res4 = (1 - (res3) / (v3)) * 100
-    if (isNaN(res4)) { // 값이 없어서 NaN값이 나올 경우
-
-        res4 = 0;
-
-    }
+    var res4; //붉개 노크리
+    res4 = (v1) * (1 + v4 / 100)
     document.getElementById("res4").value = Math.floor(res4);
 
-    var res5; //역산
-    res5 = (v4 + v1) / (1 - 0.01 * res1)
+    var res5; //붉개크리
+    res5 = res4 * (2.5 + v3 / 100 + v5 / 100)
     document.getElementById("res5").value = Math.floor(res5);
 
 
-    var res6; //디펜스적용(인-엘)
-    res6_1 = (res3 * (1 - (29 * Math.asinh(v7 / 24) + 1) / 100) - v5) * v9
-    if (res6_1 <= 0) {
-        res6 = 0
-    } else {
-        res6 = res6_1
-    }
+    var res6; //붉개 크리 환산
+    res6 = res4 + (res5-res4)*v2/100
     document.getElementById("res6").value = Math.floor(res6);
 
-    var res7; //디펜스적용(자)
-    res7_1 = (res3 * (1 - (29 * Math.asinh((1 * v8) / 24) + 1) / 100) - v6) * 1 * v9
-    if (res7_1 <= 0) {
-        res7 = 0
+    var res7; //환산대미지 비
+    if (res3 < res6) {
+        res7 = "붉개 승!"
+    } else if (res3 == res6) {
+        res7 = "똑같음"
     } else {
-        res7 = res7_1
+        res7 = "푸개 승!"
     }
-    document.getElementById("res7").value = Math.floor(res7);
-
-
-    var res8; //마실효율
-    res8_1 = v10 * 0.01;
-    res8_2 = 1.8 + 0.2 * v11;
-    if (res8_1 <= res8_2) {
-        res8 = res8_2 + 1 * v12
-    } else {
-        res8 = res8_1 + 1 * v12
-    }
-    document.getElementById("res8").value = res8;
-
-    var res9; //마실 대미지 감소 비율
-    res9 = (1-(1 / res8))*100
-    document.getElementById("res9").value = Math.round(res9);
-
-
-}
+    document.getElementById("res7").value = res7;
 
 
 //리셋
-function reset() {
-    document.getElementById("v1").value = "";
-    document.getElementById("v2").value = "";
-    document.getElementById("v3").value = "";
-    document.getElementById("v4").value = "";
-    document.getElementById("v10").value = "";
-    document.getElementById("v11").value = "";
-    document.getElementById("res1").value = "";
-    document.getElementById("res2").value = "";
-    document.getElementById("res3").value = "";
-    document.getElementById("res4").value = "";
-    document.getElementById("res5").value = "";
-    document.getElementById("res6").value = "";
-    document.getElementById("res7").value = "";
-    document.getElementById("res8").value = "";
-    document.getElementById("res9").value = "";
+    function reset() {
+        document.getElementById("v1").value = "";
+        document.getElementById("v2").value = "";
+        document.getElementById("v3").value = "";
+        document.getElementById("v4").value = "";
+        document.getElementById("v5").value = "";
+        document.getElementById("v6").value = "";
+        document.getElementById("v7").value = "";
+        document.getElementById("res1").value = "";
+        document.getElementById("res2").value = "";
+        document.getElementById("res3").value = "";
+        document.getElementById("res4").value = "";
+        document.getElementById("res5").value = "";
+        document.getElementById("res6").value = "";
+        document.getElementById("res7").value = "";
 
 
+    }
 }
