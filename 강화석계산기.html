@@ -53,52 +53,104 @@
 <body>
 
 <div id="wrapper">
+    <h2>마비노기 특별개조 계산기</h2>
     <div id="status1">
-        <h2>마비노기 특별개조 계산기</h2>
         본인의 최대대미지를 기준으로 푸불개 선택에 도움을 주기 위한 계산기 입니다. <br>
-        크리티컬 환산 대미지는 기본대미지+크리티컬로 증가하는 대미지*크리티걸확률 입니다.
+        크리티컬 환산 대미지는 기본대미지+크리티컬로 증가하는 대미지*크리티걸확률 입니다. <br><br>
+    </div>
 
+    <div id="status">
+        개조석 제외 옵션
+        <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+            <label for="v1">총 대미지:</label>
+            <output id="v1"></output><br>
+            <div style="height: auto; width: 200px; border: 1px solid; padding:10px">
+                <label for="v1_1">맥댐:</label><input type="text" id="v1_1" size="5" placeholder="0"><br>
+                <label for="v1_2">전장:</label><input type="text" id="v1_2" size="5" placeholder="0">%<br>
+                물공포:<input type="checkbox" name="v1_3" value=1.2><br>
+            </div><br>
+            <label for="v2">크리확률:</label>
+            <output id="v2"></output>
+            %<br>
+            <div style="height: auto; width: 200px; border: 1px solid; padding:10px">
+                평판-네일:<input type="checkbox" name="v2_1" value=7.5><br>
+                정령무기:<input type="checkbox" name="v2_2" value="5"><br>
+                아르카레벨:<select name="v2_3" id="v2_3" style="background:#D9E5FF">
+                <option value="0" selected>0</option>
+                <option value="2">50</option>
+                <option value="4">100</option>
+                <option value="6">150</option>
+            </select>
+            </div>
+            <br>
 
-        <br><br>
-        <label for="v1">맥댐:</label><input type="text" id="v1" size="5" placeholder="0"><br>
-        <label for="v2">크리확률:</label><input type="text" id="v2" size="5" placeholder="0">%<br>
-        <label for="v3">추가크리댐(기본):</label><input type="text" id="v3" size="5" placeholder="0">%<br>
-        <label for="v4">보너스대미지(기본):</label><input type="text" id="v4" size="5" placeholder="0">%<br>
-        <label for="v5">붉개 추가크리:</label><input type="text" id="v5" size="5" placeholder="0">%<br>
-        <label for="v6">푸개 추가댐:</label><input type="text" id="v6" size="5" placeholder="0"><br>
-        <label for="v7">푸개 보너스댐:</label><input type="text" id="v7" size="5" placeholder="0">%<br>
+            <label for="v3">크리대미지:</label>
+            <output id="v3"></output>
+            %<br>
+            <div style="height: auto; width: 200px; border: 1px solid; padding:10px">
+                평판-이보나:<input type="checkbox" name="v3_1" value=10><br>
+                정령무기:<input type="checkbox" name="v3_2" value="15"><br>
+                알반문장레벨:<select name="v3_3" id="v3_3" style="background:#D9E5FF">
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+                <label for="v3_4">낭만농장:</label><input type="text" id="v3_4" size="5" placeholder="0">%<br>
+                <label for="v3_5">인형가방:</label><input type="text" id="v3_5" size="5" placeholder="0">%<br>
+                <label for="v3_6">2차타이틀:</label><input type="text" id="v3_6" size="5" placeholder="0">%<br>
+            </div>
+            <br>
+            <label for="v4">보너스대미지</label>
+            <output id="v4"></output>
+            %<br>
+            <div style="height: auto; width: 200px; border: 1px solid; padding:10px">
+                배틀맴버십:<input type="checkbox" name="v4_1" value=1><br>
+                <label for="v4_2">낭만농장:</label><input type="text" id="v4_2" size="5" placeholder="0">%<br>
+                <label for="v4_3">토템:</label><input type="text" id="v4_3" size="5" placeholder="0">%<br>
+            </div>
+
+        </div>
+        <br>
 
 
 
     </div>
-    <br>
 
-    <br>
-    <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
-        푸개 노크리:
-        <input type="text" placeholder="결과" id="res1" size="8" style="border:none;text-align: left; "><br>
-        붉개노크리:
-        <input type="text" placeholder="결과" id="res4" size="8" style="border:none;text-align: left; ">
-        <br><br>
-        푸개 크리:
-        <input type="text" placeholder="결과" id="res2" size="8" style="border:none;text-align: left; "><br>
-        붉개크리
-        <input type="text" placeholder="결과" id="res5" size="8" style="border:none;text-align: left; ">
-        <br><br>
-        푸개 크리 환산:
-        <input type="text" placeholder="결과" id="res3" size="8" style="border:none;text-align: left; "><br>
-        붉개 크리 환산
-        <input type="text" placeholder="결과" id="res6" size="8" style="border:none;text-align: left; ">
-        <br><br>
-        뭐가좋음? <output id="res7"></output>
+    <div id="result">
+        개조석 옵션<br>
+        <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+            <label for="v5">붉개 추가크리:</label><input type="text" id="v5" size="5" placeholder="0">%<br>
+            <label for="v6">푸개 추가댐:</label><input type="text" id="v6" size="5" placeholder="0"><br>
+            <label for="v7">푸개 보너스댐:</label><input type="text" id="v7" size="5" placeholder="0">%<br>
+        </div><br>
+        개조석 계산기 결과
+        <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+            푸개 노크리:
+            <input type="text" placeholder="결과" id="res1" size="8" style="border:none;text-align: left; "><br>
+            붉개노크리:
+            <input type="text" placeholder="결과" id="res4" size="8" style="border:none;text-align: left; ">
+            <br><br>
+            푸개 크리:
+            <input type="text" placeholder="결과" id="res2" size="8" style="border:none;text-align: left; "><br>
+            붉개크리
+            <input type="text" placeholder="결과" id="res5" size="8" style="border:none;text-align: left; ">
+            <br><br>
+            푸개 크리 환산:
+            <input type="text" placeholder="결과" id="res3" size="8" style="border:none;text-align: left; "><br>
+            붉개 크리 환산
+            <input type="text" placeholder="결과" id="res6" size="8" style="border:none;text-align: left; ">
+            <br><br>
+            뭐가좋음?
+            <output id="res7"></output>
+        </div>
 
 
+        <input type="button" value="계산하기" class="button" onclick="cal()">
+        <!--    <input type="button" value="초기화" class="button" onclick="reset()">-->
     </div>
-
-
-
-    <input type="button" value="계산하기" class="button" onclick="cal()">
-<!--    <input type="button" value="초기화" class="button" onclick="reset()">-->
 </div>
 </body>
 

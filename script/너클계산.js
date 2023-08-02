@@ -2,7 +2,7 @@ function cal() {
 
     //변수
     //기본댐
-    var v00 = $('input[name="v00"]:checked').attr('value')
+    var v00 = $('input[name="v00"]:checked').attr('value');
     var v00_1 = $('input[name="v00"]:checked').attr('value1'); //종족
     var v00_2 = $('input[name="v00"]:checked').attr('value2'); //종족
     var v0 = Number(document.getElementById("v0").value); // 물공
