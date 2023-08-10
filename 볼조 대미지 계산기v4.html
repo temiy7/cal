@@ -97,6 +97,8 @@
             var v18 = $("#v18 option:selected").attr('value'); //차지수(6.5배)
             var v18_1 = $("#v18 option:selected").attr('value2'); //차지수(5배)
             var v18_2 = $("#v18 option:selected").attr('value1'); //차지수(1.28배)
+            var v18_3 = $('input[name="v18_3"]').is(':checked') ? parseFloat($('input[name="v18_3"]').val()) : 0; //평
+
             var v19 = Number(document.getElementById("v19").value); //라볼 원드 영향력
             var v20 = Number(document.getElementById("v20").value); //캐속옵션
 
@@ -150,11 +152,11 @@
 
             var res8; //dps
 
-            if ((v18 > 3) && (v20 >= 91.2)) {
+            if ((v18_3==0) &&(v18 > 3) && (v20 >= 91.2)) {
                 res8 = res4 / 0.5182
-            } else if ((v18 > 3)) {
+            } else if ((v18_3==0) && (v18  > 3)) {
                 res8 = res4 / (3 * (1 - v20 / 100) + 0.252)
-            } else if (v20 >= 83) {
+            } else if ((v18_3==0)&&(v20 >= 83)) {
                 res8 = res4 / 0.5182
             } else {
                 res8 = res4 / (1.5 * (1 - v20 / 100) + 0.252)
@@ -165,11 +167,11 @@
 
             var res9; //싱펀타수
 
-            if ((v18 > 3) && (v20 >= 91.2)) {
+            if ((v18_3==0) && ( v18 > 3) && (v20 >= 91.2)) {
                 res9 = 39
-            } else if ((v18 > 3)) {
+            } else if ((v18_3==0) && (v18 > 3)) {
                 res9 = 20 / (3 * (1 - v20 / 100) + 0.252)
-            } else if (v20 >= 83) {
+            } else if ((v18_3==0) &&(v20 >= 83)) {
                 res9 = 39
             } else {
                 res9 = 20 / (1.5 * (1 - v20 / 100) + 0.252)
@@ -230,6 +232,7 @@
                 <option value="4" value1="1" value2="4">4차지</option>
                 <option value="6.5" value1="1.28" value2="5">5차지</option>
             </select>
+            +1번에 5차지<input type="checkbox" name="v18_3" value="1">
         </div>
 
         스킬랭크<br>
