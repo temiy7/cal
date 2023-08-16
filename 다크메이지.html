@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>마비노기 다크메이지 계산기</title>
+    <link rel="stylesheet" href="css/cont.css">
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-7RRZF9GD2Z');
+    </script>
+
+
+    <style>
+        .button {
+            font-family: 'Mabinogi';
+            width: 100px;
+
+            background-color: #00004a;
+
+            border: none;
+
+            color: #fff;
+
+            padding: 15px 0;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            display: inline-block;
+
+            font-size: 15px;
+
+            margin: 4px;
+
+            cursor: pointer;
+
+            border-radius: 10px;
+
+        }
+    </style>
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src="script/다크메이지.js"></script>
+    <link rel="stylesheet" href="css/cont.css">
+
+
+</head>
+
+<body>
+<div id="wrapper">
+    <h2>마비노기 다크메이지 계산기 Beta</h2>
+    <div id="status1">
+        해당 계산기에 적용되는 모든 마법 및 패시브의 랭크는 최고랭크 기준입니다. <br>
+        이 계산기는 다크메이지 아르카나 스킬의 대미지를 보여줍니다. <br>
+        아르카나스킬의 추정 대미지 공식을 이용하여 값이 부정확할 수 있습니다.<br>
+        값이 현저하게 차이가 난다면 알려주시면 감사하겠습니다.
+    </div>
+    <br><br>
+    <div id="status">
+        스텟<br>
+        <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
+            마법공격력:
+            <input type="text" id="v1" size="5" placeholder="0"><br>
+            최댐인챈트+낭농최댐+타이틀:
+            <input type="text" id="v2" size="5" placeholder="0">
+        </div>
+        <br>
+        최대 대미지 세공<br>
+        <span style="font-size:5px; color: red;">*마기그래프는 세공과 합연산이므로 더해서 사용하시면 됩니다. </span><br>
+        <div style="height: auto; width:350px; border: 1px solid; padding:10px">
+            라이트닝볼트 세공Lv:
+            <input type="text" id="v3" size="5" placeholder="0"> <br>
+            파이어볼 세공Lv:
+            <input type="text" id="v7" size="5" placeholder="0"><br>
+            아이스 스피어 세공Lv:
+            <input type="text" id="v8" size="5" placeholder="0"><br>
+            라이트닝볼트 원드영향력Lv:
+            <input type="text" id="v31" size="5" placeholder="0">
+        </div>
+        <br>
+
+        마스터리 세공<br>
+        <div style="height: auto; width:350px; border: 1px solid; padding:10px">
+            볼트마스터리 세공Lv:
+            <input type="text" id="v12" size="5" placeholder="0"><br>
+            라이트닝 마스터리 세공Lv:
+            <input type="text" id="v14" size="5" placeholder="0"><br>
+            파이어 마스터리 세공Lv:
+            <input type="text" id="v15" size="5" placeholder="0"><br>
+            아이스마스터리 Lv:
+            <input type="text" id="v16" size="5" placeholder="0"><br>
+        </div>
+        <br>
+
+        아이템,타이틀
+        <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
+            무기(디트볼=엘리멘토)
+            <select name="v30" id="v30" style="background:#D9E5FF">
+                <option value="1.05" value1="1" value2="1">켈트볼</option>
+                <option value="1.07" value1="1" value2="0" selected>일반스태프</option>
+                <option value="1.05" value1="1.05" value2="1">엘리멘토</option>
+                <option value="1.07" value1="1.15" value2="0">인퀴지터</option>
+            </select><br>
+
+            헤보나세트:
+            <input type="radio" name="v26" id="v26" value="1" checked>미적용
+            <input type="radio" name="v26" id="v26_1" value="0">적용<br>
+
+            로즈마리장갑:
+            <input type="radio" name="v27" id="v27" value="1" checked>미적용
+            <input type="radio" name="v27" id="v27_1" value="0">적용<br>
+
+            블리안세트:
+            <input type="radio" name="v28" id="v28" value="1" checked>미적용
+            <input type="radio" name="v28" id="v28_1" value="0">적용<br>
+
+            속성 마스터 타이틀:
+            <input type="radio" name="v33" id="v33" value="1" checked>미적용
+            <input type="radio" name="v33" id="v33_1" value="0">적용<br>
+
+
+            추가 대미지%(낭농,토템,정령등)
+            <input type="text" id="v29" size="5" placeholder="0"><br>
+            추가 크리티컬 대미지%
+            <input type="text" id="v32" size="5" placeholder="0">%
+
+
+        </div>
+    </div>
+
+    <div id="result">
+        결과
+        <br>
+        <!--현재값 저장을 누르면 현재값을 기억해 이후 계산값과 비교합니다. -->
+        <br>
+        <div style="font-weight: bold; height: auto; width: 350px; border: 1px solid; padding:10px;">
+
+            익스플로전 런지:
+            <input type="text" id="res1" size="8" style="border:none;text-align: left "> <br>
+            크리티컬:
+            <input type="text" id="res1_1" size="8" style="border:none; text-align: left"> <br><br>
+            라이트닝체인:
+            <input type="text" id="res2" size="8" style="border:none; text-align: left"> <br>
+            크리티컬:
+            <input type="text" id="res2_1" size="8" style="border:none; text-align: left"> <br><br>
+
+            스노우스톰:
+            <input type="text" id="res3" size="8" style="border:none; text-align: left"> <br>
+            크리티컬:
+            <input type="text" id="res3_1" size="8" style="border:none; text-align: left"> <br>
+
+        </div>
+
+        <input type="button" value="계산하기" class="button" onclick="cal()">
+        <input type="button" value="초기화" class="button" onclick="reset()">
+    </div>
+</div>
+
+
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+    if (!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "16bb61aebd2bc20";
+    if (window.wcs) {
+        wcs_do();
+    }
+</script>
+
+</body>
+
+</html>
