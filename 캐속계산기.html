@@ -79,6 +79,7 @@
             var v11 = $("#v9 option:selected").attr('value3'); //에르그
 
             var v12 =  $("#v12 option:selected").attr('value'); //캐속에코
+            var v13 = $('input[name="v13"]').is(':checked') ? parseFloat($('input[name="v13"]').val()) : 1; //피파원
 
 
 
@@ -89,14 +90,26 @@
 
 
 
+            
+            
+
+           
 
 
+            var res1_1; // 캐스팅 시간(초) 라볼           
+            res1_1 = 1 * (1 - 0.01 * v1*v13) * Math.pow((1 - 0.015 * v2),2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v10)* Math.pow((1 - 1*v12),2);
+            document.getElementById("res1_1").value = res1_1.toFixed(2);
 
-            var res1; // 캐스팅 시간(초)
-
-            res1 = 1.5 * (1 - 0.01 * v1) * Math.pow((1 - 0.015 * v2),2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v10)* Math.pow((1 - 1*v12),2);
-
+            var res1_1; // 캐스팅 시간(초)           
+            if(res1_1>=res1) 
+             {res1 = res1_1}
+                else{ res1 = 1.5 * (1 - 0.01 * v1) * Math.pow((1 - 0.015 * v2),2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v10)* Math.pow((1 - 1*v12),2)};
             document.getElementById("res1").value = res1.toFixed(2);
+
+
+
+
+
 
             var res2; // 캐스팅 시간(초)헤일
 
@@ -107,9 +120,20 @@
             document.getElementById("res2").value = res2.toFixed(2);
 
 
+            var res3_1; // 원드 캐스팅 속도 증가(%) 피파원
+
+            res3_1 = 100 * (1 - (1 - 0.01 * v1)*  Math.pow((1 - 0.015 * v2),2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v10)* Math.pow((1 - 1*v12),2));
+
+            document.getElementById("res3_1").value = res3_1.toFixed(2);
+
+
             var res3; // 원드 캐스팅 속도 증가(%)
 
-            res3 = 100 * (1 - (1 - 0.01 * v1) * Math.pow((1 - 0.015 * v2),2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v10)* Math.pow((1 - 1*v12),2));
+            if((v1>=33.33)&(v13==0)){
+                res3= 100 *  (1 -  0.66 * Math.pow((1 - 0.015 * v2),2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v10)* Math.pow((1 - 1*v12),2));}
+                else{            
+
+             res3 = 100 * (1 - (1 - 0.01 * v1) * Math.pow((1 - 0.015 * v2),2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v10)* Math.pow((1 - 1*v12),2))};
 
             document.getElementById("res3").value = res3.toFixed(2);
 
@@ -182,8 +206,8 @@
             <br><br>
             지력:
             <input type="text" id="v7" size="5" placeholder="0"><br>
-            무기캐스팅개조(%):
-            <input type="text" id="v1" size="5" placeholder="0"><br>
+            무기캐스팅개조(%):  
+            <input type="text" id="v1" size="5" placeholder="0">, 피파원<input type="checkbox" name="v13" value=0><br>
             매직웨폰마스터리 랭크:
                 <select name="v8" id="v8" style="background:#D9E5FF">
                  <option value="0"selected >연습</option>
@@ -247,15 +271,19 @@
 
         <br>
 
-
+        <input type="hidden" placeholder="" id="res1_1" size="0" style="border:none;text-align: right; ">
+        
         결과
         <br>
         <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
             원드<br><br>
-            파이어볼트(라파볼트) 캐스팅 시간 <br>
+            라파볼트 캐스팅 시간 <br>
             <input type="text" id="res1" size="5"> 초<br>
-            원드 캐스팅 속도증가<br>
-            <input type="text" id="res3" size="5"> %
+            볼트조합 캐스팅 속도증가<br>
+            <input type="text" id="res3" size="5"> %<br>
+            파이어볼트 캐스팅 속도증가<br>
+            <input type="text" id="res3_1" size="5"> %
+
         </div><br>
 
         <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
