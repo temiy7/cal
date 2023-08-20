@@ -2,35 +2,36 @@ function cal() {
 
     //변수
     //기본댐
+    var v1_1 = Number(document.getElementById("v1_1").value); // 맥뎀
+    var v1_2 = Number(document.getElementById("v1_2").value); // 전장
+    var v1_3 = $('input[name="v1_3"]').is(':checked') ? parseFloat($('input[name="v1_3"]').val()) : 1; //물공포
 
-    var v1_1 = Number(document.getElementById("v1_1").value); // 크리확률
-    var v1_2 = Number(document.getElementById("v1_2").value); // 크리확률
-    var v1_3 = $('input[name="v1_3"]').is(':checked') ? parseFloat($('input[name="v1_3"]').val()) : 1; //평
     var v1;//맥뎀
-    v1 = v1_1*v1_3*(1+v1_2/100 * v1_3);
+    v1 = (v1_1)*v1_3*(1+v1_2/100 * v1_3);
     document.getElementById("v1").value = parseFloat(v1).toFixed(2);
 
-    var v2_1 = $('input[name="v2_1"]').is(':checked') ? parseFloat($('input[name="v2_1"]').val()) : 0; //평
-    var v2_2 = $('input[name="v2_2"]').is(':checked') ? parseFloat($('input[name="v2_2"]').val()) : 0; //정ㅍ
-    var v2_3 = Number(document.getElementById("v2_3").value); // 크리확률
+
+    var v2_1 = $('input[name="v2_1"]').is(':checked') ? parseFloat($('input[name="v2_1"]').val()) : 0; //네일
+    var v2_2 = $('input[name="v2_2"]').is(':checked') ? parseFloat($('input[name="v2_2"]').val()) : 0; //정령
+    var v2_3 = Number(document.getElementById("v2_3").value); // 아르카나
     // var v2_4 = Number(document.getElementById("v2_4").value); // 크리확률
     var v2; // 크리확률
     v2 = 30 + v2_1 + v2_2 + v2_3;
     document.getElementById("v2").value = parseFloat(v2).toFixed(2);
 
-    var v3_1 = $('input[name="v3_1"]').is(':checked') ? parseFloat($('input[name="v3_1"]').val()) : 0; //평
+    var v3_1 = $('input[name="v3_1"]').is(':checked') ? parseFloat($('input[name="v3_1"]').val()) : 0; //이보나
     var v3_2 = $('input[name="v3_2"]').is(':checked') ? parseFloat($('input[name="v3_2"]').val()) : 0; //정령
-    var v3_3 = Number(document.getElementById("v3_3").value); // 크리확률
-    var v3_4 = Number(document.getElementById("v3_4").value); // 크리확률
-    var v3_5 = Number(document.getElementById("v3_5").value); // 크리확률
-    var v3_6 = Number(document.getElementById("v3_6").value); // 크리확률
+    var v3_3 = Number(document.getElementById("v3_3").value); // 알반
+    var v3_4 = Number(document.getElementById("v3_4").value); // 낭농
+    var v3_5 = Number(document.getElementById("v3_5").value); // 인령가방
+    var v3_6 = Number(document.getElementById("v3_6").value); // 2차타이틀
     var v3  // 추가크리댐(기본)
     v3 = 250 + v3_1 + v3_2 + v3_3 + v3_4 + v3_5 + v3_6;
     document.getElementById("v3").value = parseFloat(v3).toFixed(2);
 
-    var v4_1 = $('input[name="v4_1"]').is(':checked') ? parseFloat($('input[name="v4_1"]').val()) : 0; //평
-    var v4_3 = Number(document.getElementById("v4_3").value); // 크리확률
-    var v4_2 = Number(document.getElementById("v4_2").value); // 크리확률
+    var v4_1 = $('input[name="v4_1"]').is(':checked') ? parseFloat($('input[name="v4_1"]').val()) : 0; //래뱀
+    var v4_3 = Number(document.getElementById("v4_3").value); // 낭농
+    var v4_2 = Number(document.getElementById("v4_2").value); // 토템
     var v4  // 추가크리댐(기본)
     v4 =v4_1 + v4_2 + v4_3;
     document.getElementById("v4").value = parseFloat(v4).toFixed(2);
@@ -42,8 +43,9 @@ function cal() {
     //계산식
 
     var res1; //푸개 노크리
-    res1 = (v1 + v6) * (1 + v4 / 100 + v7 / 100);
+    res1 = (v1+v6*v1_3*(1+v1_2/100 * v1_3))  * (1 + v4 / 100 + v7 / 100);
     document.getElementById("res1").value = Math.floor(res1);
+    
 
     var res2; //푸개 크리
     res2 = res1 * (v3 / 100);
@@ -75,14 +77,23 @@ function cal() {
         res7 = "푸개 승!"
     }
     document.getElementById("res7").value = res7;
+}
 
 
 //리셋
     function reset() {
         document.getElementById("v1").value = "";
+        document.getElementById("v1_1").value = "";
+        document.getElementById("v1_2").value = "";
         document.getElementById("v2").value = "";
+        document.getElementById("v2_3").value = "";
         document.getElementById("v3").value = "";
+        document.getElementById("v3_4").value = "";
+        document.getElementById("v3_5").value = "";
+        document.getElementById("v3_6").value = "";
         document.getElementById("v4").value = "";
+        document.getElementById("v4_2").value = "";
+        document.getElementById("v4_3").value = "";
         document.getElementById("v5").value = "";
         document.getElementById("v6").value = "";
         document.getElementById("v7").value = "";
@@ -93,7 +104,8 @@ function cal() {
         document.getElementById("res5").value = "";
         document.getElementById("res6").value = "";
         document.getElementById("res7").value = "";
+       $("input:checkbox").prop("checked", false);
+
 
 
     }
-}
