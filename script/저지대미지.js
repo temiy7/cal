@@ -63,7 +63,7 @@ function cal() {
             v12 = 1;
         break;
     }
-    var v13v = document.getElementsByName("v13"); // 저지세트
+    var v13v = document.getElementsByName("v13"); // 서샷
     var v13 = document.getElementById("v13")
     for (var i = 0; i < v13v.length; i++) {
         if (v13v[i].checked)
@@ -72,7 +72,7 @@ function cal() {
             v13 = 1;
         break;
     }
-    var v14v = document.getElementsByName("v14"); // 저지세트
+    var v14v = document.getElementsByName("v14"); // 폭서마
     var v14 = document.getElementById("v14")
     for (var i = 0; i < v14v.length; i++) {
         if (v14v[i].checked)
@@ -81,7 +81,7 @@ function cal() {
             v14 = 1;
         break;
     }
-    var v15v = document.getElementsByName("v15"); // 저지세트
+    var v15v = document.getElementsByName("v15"); // 서샷마기
     var v15 = document.getElementById("v15")
     for (var i = 0; i < v15v.length; i++) {
         if (v15v[i].checked)
@@ -90,7 +90,7 @@ function cal() {
             v15 = 1;
         break;
     }
-    var v16v = document.getElementsByName("v16"); // 저지세트
+    var v16v = document.getElementsByName("v16"); // 서샷세트
     var v16 = document.getElementById("v16")
     for (var i = 0; i < v16v.length; i++) {
         if (v16v[i].checked)
@@ -204,11 +204,11 @@ function cal() {
     document.getElementById("res3_1").value = Math.floor(res3_1);
 
     var res4; //하시딤 한방 피통 55만
-    res4 = res3_1 * (1 + 0.25 * v10 + (0.03 * v11 + 0.05 * v12) * v10) * (1 + 0.7 * v13 + (0.36 * v14 + 0.1 * v15) * v13) * (1 + 0.15 * v16 * v13) * (1 + 0.5 * v17) * (1 + 0.1 * v18) * (1 + 0.05 * v19);
+    res4 = res3_1 * (1 + 0.25 * v10 + (0.03 * v11 + 0.05 * v12) * v10) * (1 + 0.1 * v13 + (0.06 * v14 + 0.03 * v15) * v13+ 0.15 * v16 * v13) * (1 + 0.5 * v17) * (1 + 0.1 * v18) * (1 + 0.05 * v19);
     document.getElementById("res4").value = Math.floor(res4);
 
     var res4_1; //하시딤 한방 피통 55만
-    res4_1 = res3 * (1 + 0.25 * v10 + (0.03 * v11 + 0.05 * v12) * v10) * (1 + 0.7 * v13 + (0.36 * v14 + 0.1 * v15) * v13) * (1 + 0.15 * v16 * v13) * (1 + 0.5 * v17) * (1 + 0.1 * v18) * (1 + 0.05 * v19);
+    res4_1 = res3 * (1 + 0.25 * v10 + (0.03 * v11 + 0.05 * v12) * v10) * (1 + 0.1 * v13 + (0.06 * v14 + 0.03 * v15) * v13+ 0.15 * v16 * v13) * (1 + 0.5 * v17) * (1 + 0.1 * v18) * (1 + 0.05 * v19);
     document.getElementById("res4_1").value = Math.floor(res4_1);
 
     var res5; //하시딤 민대미지
