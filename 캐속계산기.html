@@ -6,11 +6,11 @@
     <title>마비노기 마법 캐스팅 속도 계산기</title>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-      
+
         gtag('config', 'G-7RRZF9GD2Z');
-      </script>
+    </script>
 
     <style>
         .button {
@@ -70,15 +70,15 @@
 
             var v6 = Number(document.getElementById("v6").value); // 쾌속
 
-            var v7 =  Number(document.getElementById("v7").value); // 지력
+            var v7 = Number(document.getElementById("v7").value); // 지력
 
-            var v8 =  Number(document.getElementById("v8").value); // 매직웨폰 마스터리 랭크
+            var v8 = Number(document.getElementById("v8").value); // 매직웨폰 마스터리 랭크
 
-            var v9 =  $("#v9 option:selected").attr('value'); //에르그
+            var v9 = $("#v9 option:selected").attr('value'); //에르그
             var v10 = $("#v9 option:selected").attr('value2'); //에르그
             var v11 = $("#v9 option:selected").attr('value3'); //에르그
 
-            var v12 =  $("#v12 option:selected").attr('value'); //캐속에코
+            var v12 = $("#v12 option:selected").attr('value'); //캐속에코
             var v13 = $('input[name="v13"]').is(':checked') ? parseFloat($('input[name="v13"]').val()) : 1; //피파원
 
 
@@ -90,20 +90,19 @@
 
 
 
-            
-            
 
-           
+
+
+
 
 
             var res1_1; // 캐스팅 시간(초) 라볼           
-            res1_1 = 1 * (1 - 0.01 * v1*v13) * Math.pow((1 - 0.015 * v2),2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v10)* Math.pow((1 - 1*v12),2);
+            res1_1 = 1 * (1 - 0.01 * v1 * v13) * Math.pow((1 - 0.015 * v2), 2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v10) * Math.pow((1 - 1 * v12), 2);
             document.getElementById("res1_1").value = res1_1.toFixed(2);
 
             var res1_1; // 캐스팅 시간(초)           
-            if(res1_1>=res1) 
-             {res1 = res1_1}
-                else{ res1 = 1.5 * (1 - 0.01 * v1) * Math.pow((1 - 0.015 * v2),2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v10)* Math.pow((1 - 1*v12),2)};
+            if (res1_1 >= res1) { res1 = res1_1 }
+            else { res1 = 1.5 * (1 - 0.01 * v1) * Math.pow((1 - 0.015 * v2), 2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v10) * Math.pow((1 - 1 * v12), 2) };
             document.getElementById("res1").value = res1.toFixed(2);
 
 
@@ -113,35 +112,38 @@
 
             var res2; // 캐스팅 시간(초)헤일
 
-            res2_1 = 3 * (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v11)*(1-1*v12);
-            if((res2_1<=1.5)&(v6==0))
-            { res2 = 1.5
-            }else{res2 =res2_1}
+            res2_1 = 3 * (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v11) * (1 - 1 * v12);
+            if ((res2_1 <= 1.5) & (v6 == 0)) {
+                res2 = 1.5
+            } else { res2 = res2_1 }
             document.getElementById("res2").value = res2.toFixed(2);
 
 
             var res3_1; // 원드 캐스팅 속도 증가(%) 피파원
 
-            res3_1 = 100 * (1 - (1 - 0.01 * v1)*  Math.pow((1 - 0.015 * v2),2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v10)* Math.pow((1 - 1*v12),2));
+            res3_1 = 100 * (1 - (1 - 0.01 * v1) * Math.pow((1 - 0.015 * v2), 2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v10) * Math.pow((1 - 1 * v12), 2));
 
             document.getElementById("res3_1").value = res3_1.toFixed(2);
 
 
             var res3; // 원드 캐스팅 속도 증가(%)
 
-            if((v1>=33.33)&(v13==0)){
-                res3= 100 *  (1 -  0.66 * Math.pow((1 - 0.015 * v2),2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v10)* Math.pow((1 - 1*v12),2));}
-                else{            
+            if ((v1 >= 33.33) & (v13 == 0)) {
+                res3 = 100 * (1 - 0.66 * Math.pow((1 - 0.015 * v2), 2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v10) * Math.pow((1 - 1 * v12), 2));
+            }
+            else {
 
-             res3 = 100 * (1 - (1 - 0.01 * v1) * Math.pow((1 - 0.015 * v2),2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v10)* Math.pow((1 - 1*v12),2))};
+                res3 = 100 * (1 - (1 - 0.01 * v1) * Math.pow((1 - 0.015 * v2), 2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v10) * Math.pow((1 - 1 * v12), 2))
+            };
 
             document.getElementById("res3").value = res3.toFixed(2);
 
             var res4; // 스태프 캐스팅 속도 증가(%)
-            res4_1 = 100 * (1 - (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6)*(1-1*v11)*(1-1*v12));
-            if(((res4_1>=50)&(v6==0))
-            ){ res4 = 50
-            }else{res4 =res4_1}
+            res4_1 = 100 * (1 - (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v11) * (1 - 1 * v12));
+            if (((res4_1 >= 50) & (v6 == 0))
+            ) {
+                res4 = 50
+            } else { res4 = res4_1 }
 
 
             document.getElementById("res4").value = res4.toFixed(2);
@@ -149,23 +151,33 @@
 
             var res5; // 중급마법 캐스팅 속도
 
-            if((100 * (1 - (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5)*(1-(v7/5000))*(1-v8)*(1-1*v12))>50) 
-            ){ res5 =50*(1+1*v9)*(1+0.01 * v6)
-            }else{res5 =(100 * (1 - (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5)*(1-(v7/5000))*(1-v8)*(1-1*v9)*(1 - 0.01 * v6)*(1-1*v12)))}
+            if ((100 * (1 - (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - (v7 / 5000)) * (1 - v8) * (1 - 1 * v12)) > 50)
+            ) {
+                res5 = 50 * (1 + 1 * v9) * (1 + 0.01 * v6)
+            } else { res5 = (100 * (1 - (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - (v7 / 5000)) * (1 - v8) * (1 - 1 * v9) * (1 - 0.01 * v6) * (1 - 1 * v12))) }
 
             document.getElementById("res5").value = res5.toFixed(2);
 
 
             var res6; // 중급마법 캐스팅 시간
 
-            if((2*(1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1-v8)*(1-(v7/5000)*(1-1*v12))) < 1){ res6 =1*(1-1*v9)*(1 - 0.01 * v6)
-            }else{ res6 =(2*(1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1-v8)*(1-(v7/5000))*(1-1*v9)*(1 - 0.01 * v6)*(1-1*v12))}
+            if ((2 * (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - v8) * (1 - (v7 / 5000) * (1 - 1 * v12))) < 1) {
+                res6 = 1 * (1 - 1 * v9) * (1 - 0.01 * v6)
+            } else { res6 = (2 * (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - v8) * (1 - (v7 / 5000)) * (1 - 1 * v9) * (1 - 0.01 * v6) * (1 - 1 * v12)) }
 
             document.getElementById("res6").value = res6.toFixed(2);
 
 
+            var res7; // 런지
+            res7 = 1.5 * (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v12);
+            document.getElementById("res7").value = res7.toFixed(2);
+
+            var res8; // 비율
+            res8 = 100 *(1-(1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v12));
+            document.getElementById("res8").value = res8.toFixed(2);
+
         }
-        
+
 
 
 
@@ -186,7 +198,7 @@
             document.getElementById("res5").value = "";
             document.getElementById("res6").value = "";
             $("input:checkbox").prop("checked", false);
-            
+
 
         }
 
@@ -202,117 +214,135 @@
             완드의경우 세공렙당 1.5%가 2번 곱연산 되어 증가하지만, 스태프는 1.5% 한번으로 적용됩니다.<br>
             스태프의 경우 중급마법과 상급마법의 캐스팅속도 증가에 50%캡이 걸려 있습니다. <br>
             중급마법의 에르그의 경우 캡을 벗어나 적용되지만, 상급마법의 경우 그렇지 않습니다. <br>
-            쾌속을 사용하는경우 상급마법은 캐스팅속도 캡이 사라집니다.
+            쾌속을 사용하는경우 상급마법은 캐스팅속도 캡이 사라집니다.<br>
+            아르카나 스킬의 경우 캐스팅속도 세공이 스태프와 원드 모두 동일합니다. (1번만 적용)
 
             <br><br>
-            지력:
-            <input type="text" id="v7" size="5" placeholder="0"><br>
-            무기캐스팅개조(%):  
-            <input type="text" id="v1" size="5" placeholder="0">, 피파원<input type="checkbox" name="v13" value=0><br>
-            매직웨폰마스터리 랭크:
+            <div id="status">
+                지력:
+                <input type="text" id="v7" size="5" placeholder="0"><br>
+                무기캐스팅개조(%):
+                <input type="text" id="v1" size="5" placeholder="0">, 피파원<input type="checkbox" name="v13" value=0><br>
+                매직웨폰마스터리 랭크:
                 <select name="v8" id="v8" style="background:#D9E5FF">
-                 <option value="0"selected >연습</option>
-                <option value="0.01" >F</option>
-                <option value="0.02">E</option>
-                <option value="0.03" >D</option>
-                <option value="0.04" >C</option>
-                <option value="0.05" >B </option>
-                <option value="0.06" >A</option>
-                <option value="0.07">9</option>
-                <option value="0.08" >8</option>
-                <option value="0.09" >7</option>
-                <option value="0.10" >6</option>
-                <option value="0.11">5</option>
-                <option value="0.12" >4</option>
-                <option value="0.13" >3</option>
-                <option value="0.14" >2</option>
-                <option value="0.15" >1</option>
-            </select><br>
-            에르그레벨:
-            <select name="v9" id="v9" style="background:#D9E5FF">
-                <option value="0"value2="0" value3="0" selected>35미만</option>
-                <option value="0.06" value2="0.05" value3="0" >S35</option>
-                <option value="0.11" value2="0.1"  value3="0">S40</option>
-                <option value="0.18"value2="0.12" value3="0" >A50</option>
-                <option value="0.2" value2="0.15"  value3="0.15">S45</option>
-                <option value="0.3" value2="0.2" value3="0.3">S50</option>
-            </select><br>
-            <div>
-                <label>캐스팅 속도 세공:</label><br>
-                <input type="range" id="v2" size="5" placeholder="0" min="0" max="25" value="0"
-                    oninput="document.getElementById('캐스팅 속도 세공(레벨):').innerHTML=this.value;">
-                <span id="캐스팅 속도 세공(레벨):"></span>레벨
+                    <option value="0" selected>연습</option>
+                    <option value="0.01">F</option>
+                    <option value="0.02">E</option>
+                    <option value="0.03">D</option>
+                    <option value="0.04">C</option>
+                    <option value="0.05">B </option>
+                    <option value="0.06">A</option>
+                    <option value="0.07">9</option>
+                    <option value="0.08">8</option>
+                    <option value="0.09">7</option>
+                    <option value="0.10">6</option>
+                    <option value="0.11">5</option>
+                    <option value="0.12">4</option>
+                    <option value="0.13">3</option>
+                    <option value="0.14">2</option>
+                    <option value="0.15">1</option>
+                </select><br>
+                에르그레벨:
+                <select name="v9" id="v9" style="background:#D9E5FF">
+                    <option value="0" value2="0" value3="0" selected>35미만</option>
+                    <option value="0.06" value2="0.05" value3="0">S35</option>
+                    <option value="0.11" value2="0.1" value3="0">S40</option>
+                    <option value="0.18" value2="0.12" value3="0">A50</option>
+                    <option value="0.2" value2="0.15" value3="0.15">S45</option>
+                    <option value="0.3" value2="0.2" value3="0.3">S50</option>
+                </select><br>
+                <div>
+                    <label>캐스팅 속도 세공:</label><br>
+                    <input type="range" id="v2" size="5" placeholder="0" min="0" max="25" value="0"
+                        oninput="document.getElementById('캐스팅 속도 세공(레벨):').innerHTML=this.value;">
+                    <span id="캐스팅 속도 세공(레벨):"></span>레벨
+                </div>
+                <div>
+                    <label>(특성)쾌속비율: </label> <br>
+                    <details>
+                        <summary>쾌속레벨당 캐속비율</summary>
+                        <p>(쾌속레벨 1:1%, 2~3:2%, 4~5:3%, 6~7:4%, 8:5%, 9:6%, 10:7%)</p>
+                    </details>
+                    <input type="range" id="v6" size="5" placeholder="0" min="0" max="7" value="0"
+                        oninput="document.getElementById('쾌속비율(%):').innerHTML=this.value;">
+                    <span id="쾌속비율(%):"></span> %
+                </div>
+                비바체 마법 캐스팅속도(%):
+                <input type="text" id="v3" size="5" placeholder="0"><br>
+                스페셜공허의나비 타이틀:
+                <input type="radio" name="v4" id="v4" value="1" checked>미적용
+                <input type="radio" name="v4" id="v4_1" value="0">적용<br>
+                캐스팅속도 증가포션:
+                <input type="radio" name="v5" id="v5" value="1" checked>미적용
+                <input type="radio" name="v5" id="v5_1" value="0">적용<br>
+
+                캐스팅속도 에코스톤
+                <select name="v12" id="v12" style="background:#D9E5FF">
+                    <option value="0" selected>미적용</option>
+                    <option value="0.015">1렙</option>
+                    <option value="0.03">2렙</option>
+                    <option value="0.045">3렙</option>
+                </select>
+
+
+
             </div>
-            <div>
-                <label>(특성)쾌속비율: </label>(쾌속레벨 1:1%, 2~3:2%, 4~5:3%, 6~7:4%, 8:5%, 9:6%, 10:7%)<br>
-                <input type="range" id="v6" size="5" placeholder="0" min="0" max="7" value="0"
-                    oninput="document.getElementById('쾌속비율(%):').innerHTML=this.value;">
-                <span id="쾌속비율(%):"></span> %
-            </div>
-            비바체 마법 캐스팅속도(%):
-            <input type="text" id="v3" size="5" placeholder="0"><br>
-            스페셜공허의나비 타이틀:
-            <input type="radio" name="v4" id="v4" value="1" checked>미적용
-            <input type="radio" name="v4" id="v4_1" value="0">적용<br>
-            캐스팅속도 증가포션:
-            <input type="radio" name="v5" id="v5" value="1" checked>미적용
-            <input type="radio" name="v5" id="v5_1" value="0">적용<br>
-
-            캐스팅속도 에코스톤
-            <select name="v12" id="v12" style="background:#D9E5FF">
-                <option value="0"selected >미적용</option>
-               <option value="0.015" >1렙</option>
-               <option value="0.03">2렙</option>
-               <option value="0.045">3렙</option>
-            </select>
 
 
+            <br>
 
+            <input type="hidden" placeholder="" id="res1_1" size="0" style="border:none;text-align: right; ">
         </div>
 
-
-        <br>
-
-        <input type="hidden" placeholder="" id="res1_1" size="0" style="border:none;text-align: right; ">
-        
         결과
         <br>
-        <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
-            원드<br><br>
-            라파볼트 캐스팅 시간 <br>
-            <input type="text" id="res1" size="5"> 초<br>
-            볼트조합 캐스팅 속도증가<br>
-            <input type="text" id="res3" size="5"> %<br>
-            파이어볼트 캐스팅 속도증가<br>
-            <input type="text" id="res3_1" size="5"> %
+        <div id="result">
+            <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+                원드<br><br>
+                라파볼트 캐스팅 시간 <br>
+                <input type="text" id="res1" size="5"> 초<br>
+                볼트조합 캐스팅 속도증가<br>
+                <input type="text" id="res3" size="5"> %<br>
+                파이어볼트 캐스팅 속도증가<br>
+                <input type="text" id="res3_1" size="5"> %
 
-        </div><br>
+            </div><br>
 
-        <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
-            스태프<br><br>
-            해일스톰 캐스팅시간 <br>
-            <input type="text" id="res2" size="5"> 초 <br>
-            상급마법 캐스팅 속도증가<br>
-            <input type="text" id="res4" size="5"> % <br>
-            파이어볼 캐스팅 시간<br>
-            <input type="text" id="res6" size="5"> 초 <br>
-            중급마법 캐스팅 속도증가<br>
-            <input type="text" id="res5" size="5"> %<br>
-            
-        </div><br><br>
+            <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+                스태프<br><br>
+                해일스톰 캐스팅시간 <br>
+                <input type="text" id="res2" size="5"> 초 <br>
+                상급마법 캐스팅 속도증가<br>
+                <input type="text" id="res4" size="5"> % <br>
+                파이어볼 캐스팅 시간<br>
+                <input type="text" id="res6" size="5"> 초 <br>
+                중급마법 캐스팅 속도증가<br>
+                <input type="text" id="res5" size="5"> %<br>
 
-        <input type="button" value="계산하기" class="button" onclick="cal()">
-        <input type="button" value="초기화" class="button" onclick="reset()">
+            </div><br><br>
+
+            <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+                아르카나스킬<br>
+                익스플로전 런지 캐스팅시간 <br>
+                <input type="text" id="res7" size="5"> 초 <br>
+                아르카나 캐스팅 속도증가<br>
+                <input type="text" id="res8" size="5"> % <br>
+
+            </div>
+
+            <input type="button" value="계산하기" class="button" onclick="cal()">
+            <input type="button" value="초기화" class="button" onclick="reset()">
+        </div>
     </div>
 
     <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
-<script type="text/javascript">
-if(!wcs_add) var wcs_add = {};
-wcs_add["wa"] = "16bb61aebd2bc20";
-if(window.wcs) {
-  wcs_do();
-}
-</script>
+    <script type="text/javascript">
+        if (!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "16bb61aebd2bc20";
+        if (window.wcs) {
+            wcs_do();
+        }
+    </script>
 
 </body>
 
