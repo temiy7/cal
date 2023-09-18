@@ -114,7 +114,7 @@
             var v27 = $("#v27 option:selected").attr('value'); //라이트닝마스터리 랭크
             var v28 = $("#v28 option:selected").attr('value'); //파이어마스터리 랭크
 
-            var vn = document.getElementsByName("v29"); // 물공포
+            var vn = document.getElementsByName("v29"); // 블리안
             var v29 = document.getElementById("v29")
             for (var i = 0; i < vn.length; i++) {
                 if (vn[i].checked)
@@ -123,6 +123,17 @@
                     v29 = 1;
                 break;
             }
+
+            var v30; //블리안 엘리멘토 추가 크리댐
+
+             if (v29 + v21_1 >0) {
+                v30 = 1
+            } else {
+                v30 = 0
+            }
+
+            document.getElementById("v30").value = Math.floor(v30);
+
 
             var res1; //파이어볼트 대미지
 
@@ -139,22 +150,22 @@
 
             var res5; //파볼트 크리
 
-            res5 = res1 * (2.5 + (v10 / 100) + 0.07 * v21_1);
+            res5 = res1 * (2.5 + (v10 / 100) + 0.07 * v30);
 
             document.getElementById("res5").value = Math.floor(res5);
 
 
             var res7; //볼트조합 크리
 
-            res7 = res4 * (2.5 + (v10 / 100) + 0.07 * v21_1);
+            res7 = res4 * (2.5 + (v10 / 100) + 0.07 * v30);
 
             document.getElementById("res7").value = Math.floor(res7);
 
             var res8; //dps
 
-            if ((v18_3==0) &&(v18 > 3) && (v20 >= 91.2)) {
+            if ((v18_3 == 0) && (v18 > 3) && (v20 >= 91.2)) {
                 res8 = res4 / 0.5182
-            } else if ((v18_3==0) && (v18  > 3)) {
+            } else if ((v18_3 == 0) && (v18 > 3)) {
                 res8 = res4 / (3 * (1 - v20 / 100) + 0.252)
             } else if ((v20 >= 83)) {
                 res8 = res4 / 0.5182
@@ -167,9 +178,9 @@
 
             var res9; //싱펀타수
 
-            if ((v18_3==0) && ( v18 > 3) && (v20 >= 91.2)) {
+            if ((v18_3 == 0) && (v18 > 3) && (v20 >= 91.2)) {
                 res9 = 39
-            } else if ((v18_3==0) && (v18 > 3)) {
+            } else if ((v18_3 == 0) && (v18 > 3)) {
                 res9 = 20 / (3 * (1 - v20 / 100) + 0.252)
             } else if ((v20 >= 83)) {
                 res9 = 39
@@ -214,7 +225,8 @@
         DPS 계산에서 볼트조합의 발사 딜레이는 0.08초를 기준으로 하고, 차지간에 있을 수있는 딜레이는 무시합니다. <br>
         DPS 계산에서 1~3차지까지는 한 번 시전, 4~5차지는 두 번 시전으로 계산 됩니다. <br>
         한 번에 5차지를 선택하시면 4~5차지도 한 번 시전으로 계산합니다.<br>
-        캐스팅속도 총합은 계산기에 있는 캐속계산기의 원드 캐스팅 속도증가% 값 입니다.
+        캐스팅속도 총합은 계산기에 있는 캐속계산기의 원드 캐스팅 속도증가% 값 입니다.<br>
+
 
     </div>
     <br><br>
@@ -434,10 +446,11 @@
         <input type="radio" name="v15" id="v15" value="1" checked>미적용
         <input type="radio" name="v15" id="v15_1" value="0">적용
         <br><br>
-        (엘리멘토 자동적용 포함x)<br>
-        추가크리 대미지%(이보나, 붉개등)
+
+        추가크리 대미지%(이보나, 붉개등):
         <input type="text" id="v10" size="5" placeholder="0">
-        <br>
+        <br>(엘리멘토 블리안 자동으로 포함. 7%추가입력 불필요)<br><br>
+
 
         추가 대미지%(낭농,토템,정령등)
         <input type="text" id="v17" size="5" placeholder="0">
@@ -456,7 +469,7 @@
         <br>
 
 
-        콤보카드%(라파라파 일경우 동시입력)
+        콤보카드%(파라=동시입력,파파=파볼트만 입력)
         <br>
         <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
             파볼트콤보카드%:
@@ -468,13 +481,13 @@
 
         캐스팅속도총합%:
         <input type="text" id="v20" size="5" placeholder="0">
-
     </div>
 
     <div id="result">
         <strong>결과</strong>
         <br>
         <div style="font-weight: bold; height: auto; width: 350px; border: 1px solid; padding:10px;">
+            <input type="hidden" id="v30">
             파이어볼트 <br>
             대미지:
             <input type="text" id="res1" size="7">
