@@ -169,12 +169,20 @@
 
 
             var res7; // 런지
-            res7 = 1.5 * (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v12);
+            res7 = 1.5 * (1 - 0.01 * v1) * Math.pow((1 - 0.015 * v2), 2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v12);
             document.getElementById("res7").value = res7.toFixed(2);
 
+            var res7_1; // 런지
+            res7_1 = 1.5 * (1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v12);
+            document.getElementById("res7_1").value = res7_1.toFixed(2);
+
             var res8; // 비율
-            res8 = 100 *(1-(1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v12));
+            res8 = 100*(1-(1 - 0.01 * v1) * (1 - 0.015 * v2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v12));
             document.getElementById("res8").value = res8.toFixed(2);
+            
+            var res8_1; // 비율
+            res8_1 = 100*(1-(1 - 0.01 * v1) * Math.pow((1 - 0.015 * v2), 2) * (1 - 0.01 * v3) * (1 - v4 * 0.05) * (1 - 0.1 * v5) * (1 - 0.01 * v6) * (1 - 1 * v12));
+            document.getElementById("res8_1").value = res8_1.toFixed(2);
 
         }
 
@@ -215,8 +223,6 @@
             스태프의 경우 중급마법과 상급마법의 캐스팅속도 증가에 50%캡이 걸려 있습니다. <br>
             중급마법의 에르그의 경우 캡을 벗어나 적용되지만, 상급마법의 경우 그렇지 않습니다. <br>
             쾌속을 사용하는경우 상급마법은 캐스팅속도 캡이 사라집니다.<br>
-            아르카나 스킬의 경우 캐스팅속도 세공이 스태프와 원드 모두 동일합니다. (1번만 적용)
-
             <br><br>
             <div id="status">
                 지력:
@@ -294,10 +300,9 @@
             <input type="hidden" placeholder="" id="res1_1" size="0" style="border:none;text-align: right; ">
         </div>
 
-
+        결과
         <br>
         <div id="result">
-            결과
             <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
                 원드<br><br>
                 라파볼트 캐스팅 시간 <br>
@@ -305,7 +310,11 @@
                 볼트조합 캐스팅 속도증가<br>
                 <input type="text" id="res3" size="5"> %<br>
                 파이어볼트 캐스팅 속도증가<br>
-                <input type="text" id="res3_1" size="5"> %
+                <input type="text" id="res3_1" size="5"> %<br>
+                익스플로전 런지 캐스팅시간 <br>
+                <input type="text" id="res7" size="5"> 초 <br>
+                아르카나 캐스팅 속도증가<br>
+                <input type="text" id="res8_1" size="5"> % <br>
 
             </div><br>
 
@@ -319,17 +328,12 @@
                 <input type="text" id="res6" size="5"> 초 <br>
                 중급마법 캐스팅 속도증가<br>
                 <input type="text" id="res5" size="5"> %<br>
-
-            </div><br>
-
-            <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
-                아르카나스킬<br>
                 익스플로전 런지 캐스팅시간 <br>
-                <input type="text" id="res7" size="5"> 초 <br>
+                <input type="text" id="res7_1" size="5"> 초 <br>
                 아르카나 캐스팅 속도증가<br>
                 <input type="text" id="res8" size="5"> % <br>
 
-            </div>
+            </div><br><br>
 
             <input type="button" value="계산하기" class="button" onclick="cal()">
             <input type="button" value="초기화" class="button" onclick="reset()">
