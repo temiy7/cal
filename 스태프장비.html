@@ -151,15 +151,27 @@
             document.getElementById("res6").value = Math.floor(res6);
 
 
+            var res7_h; //헤일스톰 대미지위한 v25 수정값
+            if(v25==15) {res7_h = 2*v25}
+            else {res7_h = 1*v25}
+            document.getElementById("res7_h").value =res7_h;
+
+            var res7_h2; //헤일스톰 대미지위한 v25 수정값
+            if(v525==15) {res7_h2 = 2*v525}
+            else {res7_h2 = 1*v525}
+            document.getElementById("res7_h2").value =res7_h2;
+
+
+
             var res7; //헤일스톰 대미지
 
-            res7 = ((300 + 3.2 * v51 + 10 * v518) * 6.25 * (1 + 0.15 + 0.005 * v58 + 0.15 * v59 + (v516 / 100) + 0.1 * v528+0.15*v529) * (1 + v524 / 100) * (1 + 0.01 * v525) - (300 + 3.2 * v1 + 10 * v18) * 6.25 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v16 / 100) + 0.1 * v28+0.15*v29) * (1 + v24 / 100) * (1 + 0.01 * v25))
+            res7 = ((300 + 3.2 * v51 + 10 * v518) * 6.25 * (1 + 0.15 + 0.005 * v58 + 0.15 * v59 + (v516 / 100) + 0.1 * v528+0.15*v529) * (1 + v524 / 100) * (1 + 0.01 * res7_h2) - (300 + 3.2 * v1 + 10 * v18) * 6.25 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v16 / 100) + 0.1 * v28+0.15*v29) * (1 + v24 / 100) * (1 + 0.01 * res7_h))
 
             document.getElementById("res7").value = Math.floor(res7);
 
             var res8; //라이트닝 로드 대미지
 
-            res8 = (500 + 12 * v51 + 20 * v519) * (3.3 + (v520 / 100)) * (1 + 0.15 + 0.005 * v56 + (v517 / 100) + 0.1 * v527+0.15*v529) * (1 + 0.1 * v521) * (1 + v524 / 100) - (500 + 12 * v1 + 20 * v19) * 3.3 * (1 + 0.15 + 0.005 * v6 + (v17 / 100) + (v20 / 100) + 0.1 * v27+0.15*v29) * (1 + 0.1 * v21) * (1 + v24 / 100)
+            res8 = (500 + 12 * v51 + 20 * v519) * (3.3 + (v520 / 100)) * (1 + 0.15 + 0.005 * v56 + (v517 / 100) + 0.1 * v527+0.15*v529) * (1 + 0.1 * v521) * (1 + v524 / 100) * (1 + 0.01 * v525) - (500 + 12 * v1 + 20 * v19) * 3.3 * (1 + 0.15 + 0.005 * v6 + (v17 / 100) + (v20 / 100) + 0.1 * v27+0.15*v29) * (1 + 0.1 * v21) * (1 + v24 / 100)* (1 + 0.01 * v25)
 
             document.getElementById("res8").value = Math.floor(res8);
 
@@ -171,7 +183,7 @@
 
             var res18; //메테오
 
-            res18 = (7517 + (8400 + 160 * v51 + 150 * v522) * (1 + 0.15 + 0.005 * v57 + 0.1 * v526+0.15*v529)) * (1 + v524 / 100) - (7517 + (8400 + 160 * v1 + 150 * v22) * (1 + 0.15 + 0.005 * v7 + 0.1 * v26+0.15*v29)) * (1 + v24 / 100)
+            res18 = (7517 + (8400 + 160 * v51 + 150 * v522) * (1 + 0.15 + 0.005 * v57 + 0.1 * v526+0.15*v529)) * (1 + v524 / 100)* (1 + 0.01 * v525) - (7517 + (8400 + 160 * v1 + 150 * v22) * (1 + 0.15 + 0.005 * v7 + 0.1 * v26+0.15*v29)) * (1 + v24 / 100)* (1 + 0.01 * v25)
 
             document.getElementById("res18").value = Math.floor(res18);
 
@@ -191,13 +203,13 @@
 
             var res11; //헤일비율
 
-            res11 = 100 * res7 / (((300 + 3.2 * v1 + 10 * v18) * 6.25 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v16 / 100) + 0.1 * v28+0.15*v29) * (1 + v24 / 100) * (1 + 0.01 * v25)))
+            res11 = 100 * res7 / (((300 + 3.2 * v1 + 10 * v18) * 6.25 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v16 / 100) + 0.1 * v28+0.15*v29) * (1 + v24 / 100) * (1 + 0.01 * res7_h)))
 
             document.getElementById("res11").value = Math.floor(res11);
 
             var res12; //라로비율
 
-            res12 = 100 * res8 / ((500 + 12 * v1 + 20 * v19) * (3.3 + (v20 / 100)) * (1 + 0.15 + 0.005 * v6 + (v17 / 100) + 0.1 * v27+0.15*v29) * (1 + 0.1 * v21) * (1 + v24 / 100))
+            res12 = 100 * res8 / ((500 + 12 * v1 + 20 * v19) * (3.3 + (v20 / 100)) * (1 + 0.15 + 0.005 * v6 + (v17 / 100) + 0.1 * v27+0.15*v29) * (1 + 0.1 * v21) * (1 + v24 / 100)* (1 + 0.01 * v25))
 
             document.getElementById("res12").value = Math.floor(res12);
 
@@ -211,7 +223,7 @@
 
             var res14; //메테오 비율
 
-            res14 = 100 * res18 / ((7517 + (8400 + 160 * v1 + 150 * v22) * (1 + 0.15 + 0.005 * v7 + 0.1 * v26+0.15*v29)) * (1 + v24 / 100))
+            res14 = 100 * res18 / ((7517 + (8400 + 160 * v1 + 150 * v22) * (1 + 0.15 + 0.005 * v7 + 0.1 * v26+0.15*v29)) * (1 + v24 / 100)* (1 + 0.01 * v25))
 
             document.getElementById("res14").value = Math.floor(res14);
 
@@ -375,6 +387,8 @@
             <input type="text" id="v5" size="5" placeholder="0" style="background-color:#FFd8d8 ;">&nbsp;<input
                 type="text" id="v55" size="5" placeholder="0" style="background-color:#D9E5FF ;"><br>
             헤일스톰 최댐 세공LV:
+            <input type="hidden" id="res7_h">
+            <input type="hidden" id="res7_h2">
             <input type="text" id="v18" size="5" placeholder="0" style="background-color:#FFd8d8 ;">&nbsp;<input
                 type="text" id="v518" size="5" placeholder="0" style="background-color:#D9E5FF ;">
 
@@ -417,6 +431,7 @@
             <select name="v25" id="v25" style="background:#FFd8d8">
                 <option value="0" selected>미적용</option>
                 <option value="15">인퀴지터</option>
+                <option value="10">패러</option>
                 <option value="0.8">심볼1</option>
                 <option value="1.6">심볼2</option>
                 <option value="2.4">심볼3</option>
@@ -431,6 +446,7 @@
             <select name="v525" id="v525" style="background:#D9E5FF">
                 <option value="0" selected>미적용</option>
                 <option value="15">인퀴지터</option>
+                <option value="10">패러</option>
                 <option value="0.8">심볼1</option>
                 <option value="1.6">심볼2</option>
                 <option value="2.4">심볼3</option>
