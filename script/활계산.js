@@ -131,7 +131,7 @@ function cal() {
     document.getElementById("res2c").value = Math.floor(res2c);
 
     var res3; //크래시샷 파편댐
-    res3 = res0 * (1 * v00 + 0.5 * v00_1) * (1 * v2_1 + 0.04 * v19 + v9 / 100) * (1 + 1 * v11)
+    res3 = res0 * (1 * v00 + 0.5 * v00_1) * (1 * v2_1 + 0.035 * v19 + v9 / 100) * (1 + 1 * v11)
     document.getElementById("res3").value = Math.floor(res3);
 
     var res3c; //파편댐크리
