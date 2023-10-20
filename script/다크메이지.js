@@ -20,7 +20,6 @@ function cal() {
     //아이템 타이틀
   
     var v27 = $('input[name="v27"]').is(':checked') ? parseFloat($('input[name="v27"]').val()) : 0; //로즈마리장
-
     var v28 = $('input[name="v28"]').is(':checked') ? parseFloat($('input[name="v28"]').val()) : 0; //블리안세트
 
 
@@ -41,6 +40,7 @@ function cal() {
     var v32 = Number(document.getElementById("v32").value); //추가크리대미지
     var v32_1 = $('input[name="v32_1"]').is(':checked') ? parseFloat($('input[name="v32_1"]').val()) : 0; //정령연마
     var v32_2 = $('input[name="v32_2"]').is(':checked') ? parseFloat($('input[name="v32_2"]').val()) : 0; //이보나
+    var v32_3 = $('input[name="v32_3"]').is(':checked') ? parseFloat($('input[name="v32_3"]').val()) : 0; //크리증가세트
 
 
     var v33 = $('input[name="v33"]').is(':checked') ? parseFloat($('input[name="v33"]').val()) : 0; //속성타이틀
@@ -72,6 +72,15 @@ function cal() {
     var res3_1//스톰크리
     res3_1 = res3 * (2.5 +  (v32+v32_1+v32_2)/ 100)
     document.getElementById("res3_1").value = Math.floor(res3_1);
+
+    var res4; //보너스대미지 총합
+    res4 = v29+v29_1+v29_2+v29_3;
+    document.getElementById("res4").value = res4;
+
+    var res5; //보너스 크리 총합
+    res5 = v32+v32_1+v32_2+v32_3;
+    document.getElementById("res5").value = res5;
+
 
 
 }

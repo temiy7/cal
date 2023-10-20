@@ -62,6 +62,8 @@
         해당 계산기에 적용되는 모든 마법 및 패시브의 랭크는 최고랭크 기준입니다. <br>
         이 계산기는 다크메이지 아르카나 스킬의 대미지를 보여줍니다. <br>
         값이 현저하게 차이가 난다면 알려주시면 감사하겠습니다.<br>
+        재능관련 추가대미지 요소는 아르카나 스킬의 자체 대미지에는 영향을 주지 않습니다.<br>
+    
         </div>
     <br><br>
     <div id="status">
@@ -118,19 +120,22 @@
 
             블리안세트:
             <input type="checkbox" name="v28" value=1><br>
-
-
+           
             속성 마스터 타이틀:
             <input type="checkbox" name="v33" value=1><br><br>
 
 
-            추가 대미지%
-            <input type="text" id="v29" size="5" placeholder="0"><br>
-            약점분석<input type="checkbox" name="v29_1" value=10>,광폭화<input type="checkbox" name="v29_2" value=10>,배틀맴버쉽:<input type="checkbox" name="v29_3" value=1> <br><br>
+            추가 대미지 <output id="res4"></output>%<br>
+            푸개,인형,토템,낭농등의 합:<input type="text" id="v29" size="5" placeholder="0">%<br>
+            약점분석<input type="checkbox" name="v29_1" value=10>,광폭화<input type="checkbox" name="v29_2" value=10>,배틀맴버쉽:<input type="checkbox" name="v29_3" value=1> <br>
+            <br><br>
 
-            추가 크리티컬 대미지%
-            <input type="text" id="v32" size="5" placeholder="0"><br>
-            정령연마:<input type="checkbox" name="v32_1" value=15>,이보나평판:<input type="checkbox" name="v32_2" value=10><br>
+            추가 크리티컬 대미지 <output id="res5"></output>%<br>
+            붉개,토템,낭농등의 합:<input type="text" id="v32" size="5" placeholder="0">%<br>
+            정령연마:<input type="checkbox" name="v32_1" value=15>,이보나평판:<input type="checkbox" name="v32_2" value=10>, 크리티컬 증가 세트:
+            <input type="checkbox" name="v32_3" value=7><br><br>
+     
+            
 
 
         </div>
