@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>활 대미지 계산기</title>
+    <link rel="stylesheet" href="css/cont.css">
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}        
+        gtag('js', new Date());
+
+        gtag('config', 'G-7RRZF9GD2Z');
+    </script>
+
+    <style>
+        .button {
+
+            width: 100px;
+
+            background-color: #00004a;
+
+            border: none;
+
+            color: #fff;
+
+            padding: 15px 0;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            display: inline-block;
+
+            font-size: 15px;
+
+            margin: 4px;
+
+            cursor: pointer;
+
+            border-radius: 10px;
+
+        }
+    </style>
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src="script/알스 대미지 계산.js"></script>
+    
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <h2>마비노기 알케믹스팅어 대미지 계산기</h2>
+        <div id="status1">
+            알케믹스팅어의 스킬 대미지를 계산해줍니다. <br>
+            작성자는 활 장비가 없어 테스트 할 수 없습니다. <br>
+            화살에 붙어있는 최대대미지는 자동으로 추가되지 않습니다. <br>
+            혹시 대미지가 맞지 않는다면 알려주시면 감사합니다. <br>
+            계산의 모든 소수점은 버림 합니다.
+        </div>
+        <br><br>
+
+        <div id="status">
+
+            <input type="radio" name="v00" value="1" value1="0" value2="0" checked>인간
+            <input type="radio" name="v00" value="0" value1="1" value2="0">엘프<br><br>
+            <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+                최대 대미지:<input type="text" id="v0" size="5" placeholder="0"><br>
+                매그넘샷 랭크:<select name="v1" id="v1" style="background:#D9E5FF">
+                    <option value="2.3">F</option>
+                    <option value="2.4">E</option>
+                    <option value="2.5">D</option>
+                    <option value="2.6">C</option>
+                    <option value="2.7">B</option>
+                    <option value="2.8">A</option>
+                    <option value="3.3">9</option>
+                    <option value="3.4">8</option>
+                    <option value="3.5">7</option>
+                    <option value="3.6">6</option>
+                    <option value="4.3">5</option>
+                    <option value="4.5">4</option>
+                    <option value="4.7">3</option>
+                    <option value="4.9">2</option>
+                    <option value="5.3">1</option>
+                    <option value="5.5">1단</option>
+                    <option value="5.7">2단</option>
+                    <option value="5.9" selected> 3단</option>
+                </select><br>
+                
+                크래시샷 랭크: <select name="v2" id="v2" style="background:#D9E5FF">
+                    <option value="1.9" value2="0.6">F</option>
+                    <option value="1.95" value2="0.63">E</option>
+                    <option value="2" value2="0.66">D</option>
+                    <option value="2.05" value2="0.69">C</option>
+                    <option value="2.1" value2="0.72">B</option>
+                    <option value="2.15" value2="0.75">A</option>
+                    <option value="2.4" value2="0.9">9</option>
+                    <option value="2.45" value2="0.93">8</option>
+                    <option value="2.5" value2="0.96">7</option>
+                    <option value="2.55" value2="0.99">6</option>
+                    <option value="2.9" value2="1.2">5</option>
+                    <option value="3" value2="1.26">4</option>
+                    <option value="3.1" value2="1.32">3</option>
+                    <option value="3.2" value2="1.38">2</option>
+                    <option value="3.4" value2="1.5">1</option>
+                    <option value="3.5" value2="1.62">1단</option>
+                    <option value="3.6" value2="1.74">2단</option>
+                    <option value="3.7" value2="1.86" selected>3단</option>
+                </select><br>
+                
+             
+
+
+                전장의서곡 비율:<input type="text" id="v5" size="5" placeholder="0">%<br>
+                보너스 대미지:<input type="text" id="v7" size="5" placeholder="0">%<br>
+                추가크리대미지:<input type="text" id="v6" size="5" placeholder="0">%<br>
+
+
+                <br>
+                콤보카드비율:<br>
+                매그넘:<input type="text" id="v8" size="5" placeholder="0">%<br>
+                크래시샷:<input type="text" id="v9" size="5" placeholder="0">%<br>
+
+
+                <br>
+                활 종류:
+                <select name="v11" id="v11" style="background:#D9E5FF">
+                    <option value="0" selected>일반활</option>
+                    <option value="0.08" selected>심볼10렙</option>
+                    <option value="0.1">위스퍼링&매커나이즈</option>
+                    <option value="0.15">프레데터&로그</option>
+                </select><br><br>
+
+                화살 종류:
+                <select name="v12" id="v12" style="background:#D9E5FF">
+                    <option value="0" selected>일반화살</option>
+                    <option value="0.1">예리&스페셜화살</option>
+                    <option value="0.12">꿰숲화살</option>
+                    <option value="0.15">헌트리스</option>
+                    <option value="0.2">샤프슈터</option>
+                </select><br>
+                (최대대미지+ 옵션 반영하지 않습니다)<br><br>
+
+                보헤미안세트:
+                <input type="radio" name="v14" id="v14" value="1" checked>미적용
+                <input type="radio" name="v14" id="v14_1" value="0">적용
+                <br>
+                어전트샷적용:
+                <input type="radio" name="v20" id="v20" value="1" checked>미적용
+                <input type="radio" name="v20" id="v20_1" value="0">적용
+                <br>
+                파이널샷 샷적용:
+                <input type="radio" name="v21" id="v21" value="1" checked>미적용
+                <input type="radio" name="v21" id="v21_1" value="0">적용
+                <br>
+
+                물공포:
+                <input type="radio" name="v10" id="v10" value="1" checked>미적용
+                <input type="radio" name="v10" id="v10_1" value="0">적용<br>
+                크래시샷 맞힌파편수:<input type="text" id="v16" size="5" value="5">개<br>
+
+
+            </div>
+            <br>
+            <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+                세공<br>
+                매그넘 대미지:<input type="text" id="v13" size="5" placeholder="0">레벨<br>
+                크래시샷파편 대미지:<input type="text" id="v19" size="5" placeholder="0">레벨<br>
+                <input type="hidden" placeholder="" id="v14d" size="1" style="border:none;text-align: right; "><br>
+
+            </div>
+
+        </div>
+
+    
+        <div id="result">
+            활 대미지 결과:
+            <br>
+            <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+                <input type="hidden" id="res0_1">
+                레인지 대미지(엘프는 2발합산):<br>
+                <input type="text" placeholder="결과" id="res0" size="8" style="border:none;text-align: left; "><br>
+                레인지 크리:<br>
+                <input type="text" placeholder="결과" id="res0c" size="8" style="border:none;text-align: left; "><br><br>
+                매그넘샷 대미지:<br>
+                <input type="text" placeholder="결과" id="res1" size="8" style="border:none;text-align: left; "><br>
+                매그넘샷 크리:<br>
+                <input type="text" placeholder="결과" id="res1c" size="8" style="border:none;text-align: left; "><br><br>
+                크래시샷 중앙대미지:<br>
+                <input type="text" placeholder="결과" id="res2" size="8" style="border:none;text-align: left; "><br>
+                크래시샷 중앙 크리:<br>
+                <input type="text" placeholder="결과" id="res2c" size="8" style="border:none;text-align: left; "><br>
+                크래시샷 파편대미지:<br>
+                <input type="text" placeholder="결과" id="res3" size="8" style="border:none;text-align: left; "><br>
+                크래시샷 파편크리:<br>
+                <input type="text" placeholder="결과" id="res3c" size="8" style="border:none;text-align: left; "><br><br>
+              
+                <br>
+            </div>
+
+            <br>
+
+
+            <input type="button" value="계산하기" class="button" onclick="cal()">
+            <input type="button" value="초기화" class="button" onclick="reset()">
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "16bb61aebd2bc20";
+if(window.wcs) {
+  wcs_do();
+}
+</script>
+
+</body>
+
+</html>
