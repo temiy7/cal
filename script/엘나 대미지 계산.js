@@ -90,16 +90,8 @@ function cal() {
 
     }
 
-    var v17v = document.getElementsByName("v17"); // 양손검
-    var v17 = document.getElementById("v17")
-    for (var i = 0; i < v17v.length; i++) {
-        if (v17v[i].checked)
-            v17 = 0
-        else
-            v17 = 1;
-        break;
 
-    }
+
 
     var v21v = document.getElementsByName("v21"); // 다운어택 세트
     var v21 = document.getElementById("v21")
@@ -112,16 +104,12 @@ function cal() {
 
     }
 
-   var v22v = document.getElementsByName("v22"); // 워로드
-    var v22 = document.getElementById("v22")
-    for (var i = 0; i < v22v.length; i++) {
-        if (v22v[i].checked)
-            v22 = 0
-        else
-            v22 = 1;
-        break;
+    var v17  = $("#v17 option:selected").attr('value'); // 양손검 옵션
+    var v22 = $("#v17 option:selected").attr('value2'); //  스매강 세트효과
+    var v22_1 = $("#v17 option:selected").attr('value3'); // 워로드 윈드밀강 세트효과
 
-    }
+    
+    
 
     //세공
     var v18 =  Number(document.getElementById("v18").value); //스매시 최댐 세공
@@ -134,7 +122,7 @@ function cal() {
     //계산식
 
     var res1; //스매시 대미지 인간-엘프
-    res1 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v1+0.1*v18)*(1+0.15*v15+v8/100)*(1+0.2*v17)*(1+v7/100)*(1+0.15*v22)
+    res1 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v1+0.1*v18)*(1+0.15*v15+v8/100)*(1+0.2*v17)*(1+v7/100)*(1+1*v22)
     document.getElementById("res1").value = Math.floor(res1);
 
     var res1c; //스매시 대미지 인간-엘프 크
@@ -142,7 +130,7 @@ function cal() {
     document.getElementById("res1c").value = Math.floor(res1c);
 
     var res1_1; //스매시 대미지 자이언트
-    res1_1 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v1_1+0.1*v18)*(1+0.15*v15+v8/100)*(1+0.2*v17)*(1+v7/100)*(1+0.15*v22)
+    res1_1 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v1_1+0.1*v18)*(1+0.15*v15+v8/100)*(1+0.2*v17)*(1+v7/100)*(1+1*v22)
     document.getElementById("res1_1").value = Math.floor(res1_1);
 
     var res1_1c; //스매시 대미지  자이언트 크리
@@ -150,7 +138,7 @@ function cal() {
     document.getElementById("res1_1c").value = Math.floor(res1_1c);
 
     var res2; //윈드밀 대미지 인간-자이언트
-    res2 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v2+0.03*v19+0.3*v16)*(1+v9/100)*(1+0.15*v22)*(1+v7/100)
+    res2 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v2+0.03*v19+0.3*v16)*(1+v9/100)*(1+1*v22_1)*(1+v7/100)
     document.getElementById("res2").value = Math.floor(res2);
 
     var res2c; //윈드밀 대미지  인간 자이언트 크리
@@ -158,7 +146,7 @@ function cal() {
     document.getElementById("res2c").value = Math.floor(res2c);
 
     var res2_1; //윈드밀 대미지 엘프
-    res2_1 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v2_1+0.03*v19+0.3*v16)*(1+v9/100)*(1+0.15*v22)*(1+v7/100)
+    res2_1 = (v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11)))*(1*v2_1+0.03*v19+0.3*v16)*(1+v9/100)*(1+1*v22_1)*(1+v7/100)
     document.getElementById("res2_1").value = Math.floor(res2_1);
 
     var res2_1c; //윈드밀 대미지 엘프 크리
