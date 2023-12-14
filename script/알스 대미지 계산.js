@@ -152,11 +152,11 @@ function cal() {
     document.getElementById("res4_4").value = Math.floor(res4_4);
 
     var res5; //트라이어설트 대미지
-    res5 = res0 * 10 * (1 + (v7_0+v7_3)  / 100) * (1 + 0.01*(v15+v16+v17+v18))*(1 + res01)* (1 +  0.01*v23*v22_2)
+    res5 = res0 * 10 * (1 + (v7_0+v7_3)  / 100) * (1 + 0.005*(v15+v16+v17)+0.002*v18)*(1 + res01)* (1 +  0.01*v23*v22_2)
     document.getElementById("res5").value = Math.floor(res5);
     
     var res5_1; //트라이어설트 대미지2
-    res5_1 = res0 * 25 * (1 + (v7_0+v7_3) / 100) * (1 + 0.01*(v15+v16+v17+v18))*(1 + res01)* (1 +  0.01*v23*v22_2)
+    res5_1 = res0 * 25 * (1 + (v7_0+v7_3) / 100) * (1 + 0.005*(v15+v16+v17)+0.002*v18)*(1 + res01)* (1 +  0.01*v23*v22_2)
     document.getElementById("res5_1").value = Math.floor(res5_1);
     
     var res5_2; //트라이어설트 대미지3
