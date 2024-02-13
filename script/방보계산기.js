@@ -136,7 +136,7 @@ function cal() {
 
 
     var res6; //디펜스적용(인-엘)
-    res6_1 = (res3 * (1 - (29 * Math.asinh(v7 / 24) + 1) / 100) - v5) 
+    res6_1 = (res3 * (1 - (100 / Math.sqrt(2)) * Math.log10((1*v7 + 10*Math.sqrt(2)) / (10*Math.sqrt(2))) / 100) - v5) 
     if (res6_1 <= 0) {
         res6 = 0
     } else {
@@ -145,7 +145,7 @@ function cal() {
     document.getElementById("res6").value = Math.round(res6*10)/10;
 
     var res7; //디펜스적용(자)
-    res7_1 = (res3 * (1 - (29 * Math.asinh((1 * v8) / 24) + 1) / 100) - v6)
+    res7_1 = (res3 * (1 -(100 / Math.sqrt(2)) * Math.log10((1*v8 + 10*Math.sqrt(2)) / (10*Math.sqrt(2))) / 100) - v6)
     if (res7_1 <= 0) {
         res7 = 0
     } else {
