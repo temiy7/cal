@@ -59,7 +59,8 @@
         결과의 대미지 차감비는 방어 보호를 모두 이용한 결과 입니다.<br>
         대미지 역산은 맞은 대미지를 입력하면 원래 대미지를 추정해줍니다.<br>
         마나실드의 랭크는 6랭기준입니다.마실효율은 마나1당 흡수하는 대미지 입니다.<br>
-        계산의 모든 소수점은 버림 합니다.
+        계산은 소수 둘째자리에서 반올림 합니다. <br>
+        대미지 증가비는 방보깍이 없을때 대비 대미지증가 비입니다. <br>
 
 
         <br><br>
@@ -86,12 +87,14 @@
         <option value="75" value2="100" value3="35" value4="45">2단</option>
         <option value="80" value2="110" value3="35" value4="45" selected> 3단</option>
     </select><br>
-        방패착용(인엘 대형방패 불가):
+        방패착용:
         <select name="v9" id="v9" style="background:#D9E5FF">
             <option value="1" selected>없음</option>
-            <option value="0.5">소형방패</option>
-            <option value="0.3">중형방패</option>
-            <option value="0">대형방패</option>
+            <option value="0.85">디바인실드</option>
+            <option value="0.8">센티널 실드 </option>
+            <option value="0.7">뱅가드 </option>
+            <option value="0.86">노던 실드 </option>
+            <option value="0.82">매시브 실드 </option>
         </select><br>
          <label for="v10">마법공격력:</label><input type="text" id="v10" size="5" placeholder="0"><br>
         <label for="v11">마나실드세공레벨:</label><input type="text" id="v11" size="5" placeholder="0"><br>
@@ -106,24 +109,27 @@
     </div>
     <br>
 
-    받는 대미지 계산: <br>
-    <input type="text" placeholder="대미지 입력" id="v3" size="10">
-    x (100- <input type="text" id="res1" size="3" style="border:none;text-align: center;">)%
-    - <input type="text" id="res2" size="4" style="border:none;text-align: left; "><br>
+    대미지: <input type="text" placeholder="대미지 입력" id="v3" name="v3" size="10"><br>
+
+
 
     <br>
+    밀레시안
     <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
-        받는 대미지<br>
-        <input type="text" placeholder="결과" id="res3" size="8" style="border:none;text-align: left; "><br><br>
-        대미지 차감비<br>
-        <input type="text" placeholder="결과" id="res4" size="4" style="border:none;text-align: right; ">%<br><br>
-        대미지 역산<br>
+        받는 대미지:<br>
+        <output type="text" id="res10"> </output>
+        x (100- <input type="text" id="res1" size="5" style="border:none;text-align: center;">)%
+        - <input type="text" id="res2" size="5" style="border:none;text-align: left; "><br>
+        =<output type="text" placeholder="결과" id="res3"></output><br><br>
+        대미지 차감비
+        <output type="text" placeholder="결과" id="res4" size="5"></output>%<br><br>
+        대미지 역산
         <input type="text" placeholder="받은대미지" id="v4" size="10"><br>
         추정대미지 :
-        <input type="text" placeholder="결과" id="res5" size="8" style="border:none;text-align: left; ">
+        <output type="text" placeholder="결과" id="res5"></output>
     </div>
     <br>
-    디펜스시 받는 대미지
+    디펜스시 받는 대미지(방패크기적용 안됨)
     <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
         인간-엘프:
         <input type="text" placeholder="결과" id="res6" size="8" style="border:none;text-align: left; "><br>
@@ -131,8 +137,41 @@
         <input type="text" placeholder="결과" id="res7" size="8" style="border:none;text-align: left; ">
     </div>
     <br>
+    <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
     마나실드효율:<input type="text" placeholder="결과" id="res8" size="8" style="border:none;text-align: center; "><br>
-    마실대미지감소비율:<input type="text" placeholder="결과" id="res9" size="3" style="border:none;text-align: center; ">%<br>
+    마실대미지감소비율:<input type="text" placeholder="결과" id="res9" size="5" style="border:none;text-align: center; ">%<br>
+    </div><br>
+
+    나의 피어싱레벨:
+    <select name="v13_1" id="v13_1" style="background:#D9E5FF">
+        <option value="0"  value2="0" selected>0</option>
+        <option value="5"  value2="6">1</option>
+        <option value="10"  value2="12">2</option>
+        <option value="15"  value2="20">3</option>
+        <option value="20"  value2="30">4</option>
+        <option value="25"  value2="40">5</option>
+        <option value="30"  value2="50">6</option>
+        <option value="35"  value2="60">7</option>
+        <option value="40"  value2="70">8</option>
+        <option value="45"  value2="80">9</option>
+    </select><br>
+    방깍:<input type="text" placeholder="0" id="v14_2" size="5"style="border:none;text-align: left; ">합:<input type="text" placeholder="0" id="v14" size="5"style="border:none;text-align: left; "><br>
+    보깍: <input type="text" placeholder="0" id="v13_2" size="5"style="border:none;text-align: left; ">합:<input type="text" placeholder="0" id="v13" size="5"style="border:none;text-align: left; "><br>
+    <br>
+
+    몬스터 
+    <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+        받는 대미지:<br>
+        <output type="text" id="res11"> </output>
+        x (100- <input type="text" id="res1m" size="5" style="border:none;text-align: center;">)%
+        - <input type="text" id="res2m" size="5" style="border:none;text-align: left; "><br>
+        =<output type="text"  id="res3m"></output><br><br>
+        대미지 차감비:
+        <output type="text"  id="res4m"></output>%<br><br>
+        대미지 증가비:
+        <output type="text"  id="res5m"></output>%<br>
+
+    </div>
 
     <br>
 
