@@ -81,7 +81,7 @@ function cal() {
 
     var res01; //알케믹시너지(증발 추댐)
     if(res00==3){
-        res01= (0.2+0.01*v15+0.01*v16+0.15-0.25)*(1+0.1*v22_2)}
+        res01= (0.01*v15+0.01*v16+0.15-0.25)}
     else {
         res01= 0}
     document.getElementById("res01").value = Math.round(res01*1000)/1000;
@@ -124,7 +124,7 @@ function cal() {
     document.getElementById("res3").value = Math.floor(res3);
 
     var res3_1; //하이드로피어스 대미지
-    res3_1 = (res3 + res1) * (1 + res01)
+    res3_1 = (res3 + res1) * (1 + res01)*(1+0.1*v22_2) 
     document.getElementById("res3_1").value = Math.floor(res3_1);
 
     var res3_2; //하이드로피어스 크리 대미지
@@ -136,11 +136,11 @@ function cal() {
     document.getElementById("res4").value = Math.floor(res4);
 
     var res4_1; //플레임버스트 대미지    
-    res4_1 = (res4 + res2)*(1 + res01);
+    res4_1 = (res4 + res2)*(1 + res01)*(1+0.1*v22_2) ;
     document.getElementById("res4_1").value = Math.floor(res4_1);
 
     var res4_2; //플레임버스트 대미지    
-    res4_2 = 3*(res4 + res2)*(1 + res01);
+    res4_2 = 3*(res4 + res2)*(1 + res01)*(1+0.1*v22_2) ;
     document.getElementById("res4_2").value = Math.floor(res4_2);
 
 
@@ -152,11 +152,11 @@ function cal() {
     document.getElementById("res4_4").value = Math.floor(res4_4);
 
     var res5; //트라이어설트 대미지
-    res5 = res0 * 10 * (1 + (v7_0+v7_3)  / 100) * (1 + 0.005*(v15+v16+v17)+0.002*v18)*(1 + res01)* (1 +  0.01*v23*v22_2)
+    res5 = res0 * 10 * (1 + (v7_0+v7_3)  / 100) * (1 + 0.005*(v15+v16+v17)+0.002*v18)*(1 + res01)*(1+0.1*v22_2) * (1 +  0.01*v23*v22_2)*(1+0.2*v22)
     document.getElementById("res5").value = Math.floor(res5);
     
     var res5_1; //트라이어설트 대미지2
-    res5_1 = res0 * 25 * (1 + (v7_0+v7_3) / 100) * (1 + 0.005*(v15+v16+v17)+0.002*v18)*(1 + res01)* (1 +  0.01*v23*v22_2)
+    res5_1 = res0 * 25 * (1 + (v7_0+v7_3) / 100) * (1 + 0.005*(v15+v16+v17)+0.002*v18)*(1 + res01)*(1+0.1*v22_2) * (1 +  0.01*v23*v22_2)*(1+0.2*v22)
     document.getElementById("res5_1").value = Math.floor(res5_1);
     
     var res5_2; //트라이어설트 대미지3
