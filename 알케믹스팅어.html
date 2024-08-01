@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>알케믹스팅어 대미지 계산기</title>
+    <link rel="stylesheet" href="css/cont.css">
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7RRZF9GD2Z');
+    </script>
+
+    <style>
+        .button {
+
+            width: 100px;
+
+            background-color: #00004a;
+
+            border: none;
+
+            color: #fff;
+
+            padding: 15px 0;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            display: inline-block;
+
+            font-size: 15px;
+
+            margin: 4px;
+
+            cursor: pointer;
+
+            border-radius: 10px;
+
+        }
+    </style>
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src="script/알스 대미지 계산.js"></script>
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <h2>마비노기 알케믹스팅어 대미지 계산기</h2>
+        <div id="status1">
+            알케믹스팅어의 스킬 대미지를 계산해줍니다. <br>
+            작성자는 활 장비가 없어 테스트 할 수 없습니다. <br>
+            화살에 붙어있는 최대대미지는 자동으로 추가되지 않습니다. <br>
+            혹시 대미지가 맞지 않는다면 알려주시면 감사합니다. <br>
+            계산의 모든 소수점은 버림 합니다.<br><br>
+            베이스 스킬이 있는 스킬의 대미지는<br> 
+            <b> 베이스 스킬 대미지 + 아르카나 스킬 대미지 = 해당 스킬의 대미지로 표기합니다.</b><br>
+        </div>
+        <br><br>
+        
+        <div id="status">
+
+
+            <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+                최대 대미지:<input type="text" id="v0" size="5" placeholder="0"><br>
+                매그넘샷 랭크:<select name="v1" id="v1" style="background:#D9E5FF">
+                    <option value="2.3">F</option>
+                    <option value="2.4">E</option>
+                    <option value="2.5">D</option>
+                    <option value="2.6">C</option>
+                    <option value="2.7">B</option>
+                    <option value="2.8">A</option>
+                    <option value="3.3">9</option>
+                    <option value="3.4">8</option>
+                    <option value="3.5">7</option>
+                    <option value="3.6">6</option>
+                    <option value="4.3">5</option>
+                    <option value="4.5">4</option>
+                    <option value="4.7">3</option>
+                    <option value="4.9">2</option>
+                    <option value="5.3">1</option>
+                    <option value="5.5">1단</option>
+                    <option value="5.7">2단</option>
+                    <option value="5.9" selected> 3단</option>
+                </select><br>
+
+                크래시샷 랭크: <select name="v2" id="v2" style="background:#D9E5FF">
+                    <option value="1.9" value2="0.6">F</option>
+                    <option value="1.95" value2="0.63">E</option>
+                    <option value="2" value2="0.66">D</option>
+                    <option value="2.05" value2="0.69">C</option>
+                    <option value="2.1" value2="0.72">B</option>
+                    <option value="2.15" value2="0.75">A</option>
+                    <option value="2.4" value2="0.9">9</option>
+                    <option value="2.45" value2="0.93">8</option>
+                    <option value="2.5" value2="0.96">7</option>
+                    <option value="2.55" value2="0.99">6</option>
+                    <option value="2.9" value2="1.2">5</option>
+                    <option value="3" value2="1.26">4</option>
+                    <option value="3.1" value2="1.32">3</option>
+                    <option value="3.2" value2="1.38">2</option>
+                    <option value="3.4" value2="1.5">1</option>
+                    <option value="3.5" value2="1.62">1단</option>
+                    <option value="3.6" value2="1.74">2단</option>
+                    <option value="3.7" value2="1.86" selected>3단</option>
+                </select><br>
+
+                물공포:
+                <input type="checkbox" name="v8" value=1>
+                
+
+                전장의서곡 비율:<input type="text" id="v5" size="5" placeholder="0">%<br><br>
+
+                추가 대미지 <output id="v7"></output>% <br>
+                푸개,인형,토템,낭농등의 합: :
+                <input type="text" id="v7_0" size="5" placeholder="0"><br>
+                약점분석<input type="checkbox" name="v7_1" value=10>,<br>
+                광폭화<input type="checkbox" name="v7_2" value=10>,<br>
+                배틀맴버쉽:<input type="checkbox" name="v7_3" value=1> <br><br>
+
+
+                추가크리 대미지 <output id="v6"></output>% <br>
+                붉개,토템,낭농등의 합:
+                <input type="text" id="v6_0" size="5" placeholder="0"><br>
+                정령연마:<input type="checkbox" name="v6_1" value=15>,<br>
+                이보나평판:<input type="checkbox" name="v6_2" value=10><br>
+                크리티컬세트:<input type="checkbox" name="v6_3" value=1><br><br>
+
+                활 종류:
+                <select name="v11" id="v11" style="background:#D9E5FF">
+                    <option value="0" selected>일반활</option>
+                    <option value="0.08">심볼10렙</option>
+                    <option value="0.1">위스퍼링&매커나이즈</option>
+                    <option value="0.15">프레데터&로그</option>
+                </select><br><br>
+
+                화살 종류:
+                <select name="v12" id="v12" style="background:#D9E5FF">
+                    <option value="0" selected>일반화살</option>
+                    <option value="0.1">예리&스페셜화살</option>
+                    <option value="0.12">꿰숲화살</option>
+                    <option value="0.15">헌트리스</option>
+                    <option value="0.2">샤프슈터</option>
+                </select><br>
+                (화살의 맥뎀수치 자동 반영하지 않습니다)
+                <br>
+
+                거리
+               <input type="range" id="v23" size="5" placeholder="0" min="0" max="15" value="15"
+                    oninput="document.getElementById('거리:').innerHTML=this.value;">
+                <span id="거리:"></span> m<br><br> 
+                보헤미안세트:
+                <input type="checkbox" name="v9" value=1>
+                <br>
+                어전트샷적용:
+                <input type="checkbox" name="v10" value=1>
+                <br>
+                비전오브라데카:
+                <input type="checkbox" name="v4" value=1>
+                <br>
+                아르카나 링크
+                <select name="v22" id="v22" style="background:#D9E5FF">
+                    <option value="0" value1="0" value2="0">0레벨</option>
+                    <option value="1" value1="0" value2="0">5레벨</option>
+                    <option value="1" value1="1" value2="0">8레벨</option>
+                    <option value="1" value1="1" value2="1" selected>10레벨</option>
+                </select><br>
+            </div>
+
+            <br>
+            <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+                세공<br>
+                매그넘 대미지:<input type="text" id="v13" size="5" placeholder="0">레벨<br>
+                크래시샷파편 대미지:<input type="text" id="v19" size="5" placeholder="0">레벨<br>
+                불연금효율:<input type="text" id="v15" size="5" placeholder="0">레벨<br>
+                물연금효율:<input type="text" id="v16" size="5" placeholder="0">레벨<br>
+                바람연금효율:<input type="text" id="v17" size="5" placeholder="0">레벨<br>
+                흙연금효율:<input type="text" id="v18" size="5" placeholder="0">레벨<br>
+                <br>
+                알케믹시너지조합: <output id="res01_1"></output><br>
+                사용불가 조합은 반영안됨.<br>
+                1번 조합: 
+                <input type="radio" name="v19" value="1" value1="0" value2="0" value3="0" value4="1"  checked>불
+                <input type="radio" name="v19" value="0" value1="1" value2="0" value3="0" value4="3" >물
+                <input type="radio" name="v19" value="0" value1="0" value2="1" value3="0" value4="5">바람
+                <input type="radio" name="v19" value="0" value1="0" value2="0" value3="1" value4="7">흙
+                <br>
+                2번조합:
+                <input type="radio" name="v20" value="1" value1="0" value2="0" value3="0" value4="1" checked>불
+                <input type="radio" name="v20" value="0" value1="1" value2="0" value3="0" value4="3">물
+                <input type="radio" name="v20" value="0" value1="0" value2="1" value3="0" value4="5">바람
+                <input type="radio" name="v20" value="0" value1="0" value2="0" value3="1" value4="7">흙
+                <br> 
+
+
+            </div>
+
+        </div>
+
+
+        <div id="result">
+
+            알케믹스팅어 대미지 결과:
+            <br>
+
+            <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+                <input type="hidden" id="v7">
+                <input type="hidden" id="v6">
+                <input type="hidden" id="res00">
+                <input type="hidden" id="res01">                
+
+                기본대미지: <output id="res0"></output><br><br>
+
+                하이드로피어스 대미지:<br>
+                <input type="text" id="res1" size="7">+<input type="text" id="res3" size="7"> = <input type="text"
+                    id="res3_1" size="7"><br>
+                하이드로피어스 크리:<br>
+                <input type="text" id="res3_2" size="9"><br>
+                <br>
+                플레임버스트 대미지(1타),(3타):<br>
+                <input type="text" id="res2" size="7">+<input type="text" id="res4" size="7"> = <input type="text"
+                    id="res4_1" size="7">,<input type="text"
+                    id="res4_2" size="7"><br>
+                플레임버스트 크리(1타),(3타):<br>
+                <input type="text" id="res4_3" size="9">,<input type="text" id="res4_4" size="9"> <br><br>
+
+                트라이어설트 대미지:<br>
+                2X<input type="text" id="res5" size="7">+<input type="text" id="res5_1" size="7"> =  <input type="text" id="res5_2" size="7">
+                <br>
+                트라이어설트 크리(합산):<br>
+                <input type="text" id="res5_3" size="9">
+                
+
+                <br>
+            </div>
+
+            <br>
+
+
+            <input type="button" value="계산하기" class="button" onclick="cal()">
+            <input type="button" value="초기화" class="button" onclick="reset()">
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+    <script type="text/javascript">
+        if (!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "16bb61aebd2bc20";
+        if (window.wcs) {
+            wcs_do();
+        }
+    </script>
+
+</body>
+
+</html>

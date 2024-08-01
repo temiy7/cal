@@ -58,8 +58,9 @@
         DPS 계산에서 볼트조합의 발사 딜레이는 0.08초를 기준으로 하고, 차지간에 있을 수있는 딜레이는 무시합니다. <br>
         DPS 계산에서 1~3차지까지는 한 번 시전, 4~5차지는 두 번 시전으로 계산 됩니다. <br>
         한 번에 5차지를 선택하시면 4~5차지도 한 번 시전으로 계산합니다.<br>
-        캐스팅속도 총합은 계산기에 있는 캐속계산기의 원드 캐스팅 속도증가% 값 입니다.
-
+        캐스팅속도 총합은 계산기에 있는 캐속계산기의 원드 캐스팅 속도증가% 값 입니다.<br>
+        유효세공 레벨 비교(5차지기준)은 볼트조합세공의 증가율을 기준으로 같은 량이 증가하려면 어느정도 세공레벨이 필요한지를 보여줍니다.<br>
+        
     </div>
     <br><br>
     <div id="status">
@@ -71,11 +72,11 @@
             <input type="text" id="v2" size="5" placeholder="0"><br>
             볼트차지
             <select name="v18" id="v18" style="background:#D9E5FF">
-                <option value="1" value1="1" value2="1" selected>1차지</option>
-                <option value="2" value1="1" value2="2">2차지</option>
-                <option value="3" value1="1" value2="3">3차지</option>
-                <option value="4" value1="1" value2="4">4차지</option>
-                <option value="6.5" value1="1.1" value2="5">5차지</option>
+                <option value="1" value1="0" value2="1" selected>1차지</option>
+                <option value="2" value1="0" value2="2">2차지</option>
+                <option value="3" value1="0" value2="3">3차지</option>
+                <option value="4" value1="0" value2="4">4차지</option>
+                <option value="6.5" value1="0.28" value2="5">5차지</option>
             </select>
             한 번에 5차지<input type="checkbox" name="v18_3" value="1">
         </div><br>
@@ -261,7 +262,7 @@
             <select name="v21" id="v21" style="background:#D9E5FF">
                 <option value="0" value2="0" selected>미적용</option>
                 <option value="35" value2="1">엘리멘토</option>
-                <option value="20" value2="1">패러</option>
+                <option value="20" value2="0">패러</option>
                 <option value="0.8" value2="0">심볼1</option>
                 <option value="1.6" value2="0">심볼2</option>
                 <option value="2.4" value2="0">심볼3</option>
@@ -336,6 +337,15 @@
         <input type="hidden" id="v10">
         <input type="hidden" id="v17">
         <input type="hidden" id="v30_1">
+        <input type="hidden" id="res10">
+        <input type="hidden" id="res11">
+        <input type="hidden" id="res12">
+        <input type="hidden" id="res13">
+        <input type="hidden" id="res14">
+        <inuut type="hidden" id="res10_0">
+        <input type="hidden" id="res15_0">
+
+    
         
         <br>
         <div style="font-weight: bold; height: auto; width: 350px; border: 1px solid; padding:10px;">
@@ -355,7 +365,9 @@
             DPS(노크리기준):
             <input type="text" id="res8" size="7"><br>
             20초간 발사횟수(싱펀타수)
-            <input type="text" id="res9" size="7">
+            <input type="text" id="res9" size="7"><br><br>
+            유효세공 레벨 비교(5차지기준)<br>
+            볼조마1</output>=볼트마<output type="text" id="res15_1"></output>=파마<output type="text" id="res15_2"></output>=마공<output type="text" id="res15_3"></output>=파볼트<output type="text" id="res15_4"></output>
         </div>
         <br><br>
 
