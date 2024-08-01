@@ -1,9 +1,8 @@
 function cal() {
     // 기본 스텟
     var v1 = Number(document.getElementById("v1").value); // 마법공격력
-
-    // 마스터리
-    var v2 = Number(document.getElementById("v2").value); // 대형 낫 마스터리
+    var v2 = $("#v2 option:selected").attr('value'); // 공격카드수
+    var v2_1 = $("#v2_1 option:selected").attr('value'); // 공격카드 종류
 
     // 무기와 에르그
     var v3 = $("#v3 option:selected").attr('value'); // 에르그
@@ -27,18 +26,20 @@ function cal() {
     var v15 = Number(document.getElementById("v15").value); // 스텔라 브레이크 %
     var v16 = Number(document.getElementById("v16").value); // 스핀 스퍼트 %
     var v17 = Number(document.getElementById("v17").value); // 리볼브 쇼크 %
-    var v18 = Number(document.getElementById("v18").value); // 스타사인 스프레드 %
     var v19 = Number(document.getElementById("v19").value); // 페이탈 크러시 %
 
     // 보너스 대미지 총합
-    var bonusDamage = 1 + (v5 + v6 + v7 + v8) / 100;
+    var bonusDamage =(v5 + v6 + v7 + v8)
+    document.getElementById("bonusDamage").value= bonusDamage.toFixed(2);
+
 
     // 무기와 에르그 대미지 합
-    var weaponErg = Number(v3) + Number(v4);
+    var weaponErg = (Number(v3) + Number(v4))*100
+    document.getElementById("weaponErg").value = weaponErg.toFixed(2);
 
     // 계산식
     function calculateDamage(skillPercent) {
-        return v1 * skillPercent * weaponErg * bonusDamage;
+        return v1 * skillPercent * (1+weaponErg/100) * (1+bonusDamage/100);
     }
 
     var res1 = calculateDamage(v13); // 사이드 슬래시
@@ -56,33 +57,30 @@ function cal() {
     var res5 = calculateDamage(v17); // 리볼브 쇼크
     document.getElementById("res5").value = Math.floor(res5);
 
-    var res6 = calculateDamage(v18); // 스타사인 스프레드
-    document.getElementById("res6").value = Math.floor(res6);
-
-    var res7 = calculateDamage(v19); // 페이탈 크러시
+    var res7 =v1*v19*(1+weaponErg/100)*(1+bonusDamage/100+0.05*Number(v2_1))*Number(v2) // 페이탈 크러시
     document.getElementById("res7").value = Math.floor(res7);
 
     // 크리티컬 대미지 계산
-    var criticalMultiplier = 2.5 + (v9 + v10 + v11 + v12) / 100;
+    var criticalMultiplier = (v9 + v10 + v11 + v12) ;
+    document.getElementById("criticalMultiplier").value= criticalMultiplier.toFixed(2);    
     
-    document.getElementById("res1_crit").value = Math.floor(res1 * criticalMultiplier);
-    document.getElementById("res2_crit").value = Math.floor(res2 * criticalMultiplier);
-    document.getElementById("res3_crit").value = Math.floor(res3 * criticalMultiplier);
-    document.getElementById("res4_crit").value = Math.floor(res4 * criticalMultiplier);
-    document.getElementById("res5_crit").value = Math.floor(res5 * criticalMultiplier);
-    document.getElementById("res6_crit").value = Math.floor(res6 * criticalMultiplier);
-    document.getElementById("res7_crit").value = Math.floor(res7 * criticalMultiplier);
+    document.getElementById("res1_crit").value = Math.floor(res1 * (2.5+criticalMultiplier/100));
+    document.getElementById("res2_crit").value = Math.floor(res2 * (2.5+criticalMultiplier/100));
+    document.getElementById("res3_crit").value = Math.floor(res3 * (2.5+criticalMultiplier/100));
+    document.getElementById("res4_crit").value = Math.floor(res4 * (2.5+criticalMultiplier/100));
+    document.getElementById("res5_crit").value = Math.floor(res5 * (2.5+criticalMultiplier/100));
+    document.getElementById("res7_crit").value = Math.floor(res7 * (2.5+criticalMultiplier/100));
 }
 
 // 리셋 함수
 function reset() {
     // 입력 필드 리셋
-    var inputFields = ["v1", "v2", "v5", "v9", "v13", "v14", "v15", "v16", "v17", "v18", "v19"];
+    var inputFields = ["v1", "v2", "v5", "v9"];
     inputFields.forEach(field => document.getElementById(field).value = "");
 
     // 결과 필드 리셋
     var resultFields = ["res1", "res2", "res3", "res4", "res5", "res6", "res7", 
-                        "res1_crit", "res2_crit", "res3_crit", "res4_crit", "res5_crit", "res6_crit", "res7_crit"];
+                        "res1_crit", "res2_crit", "res3_crit", "res4_crit", "res5_crit", "res7_crit"];
     resultFields.forEach(field => document.getElementById(field).value = "");
 
     // 체크박스 리셋
