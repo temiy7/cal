@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>마비노기 전투점성술 계산기</title>
+    <link rel="stylesheet" href="css/cont.css">
+
+    <!-- 기존 스크립트 및 스타일 유지 -->
+
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src="script/다크메이지.js"></script>
+</head>
+
+<body>
+<div id="wrapper">
+    <h2>마비노기 전투점성술 계산기 </h2>
+    <div id="status1">
+        <!-- 기존 설명 유지 -->
+    </div>
+    <br><br>
+    <div id="status">
+        스텟<br>
+        <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
+            마법공격력:
+            <input type="text" id="v1" size="5" placeholder="0"><br>
+            대형 낫 마스터리:
+            <input type="text" id="v2" size="5" placeholder="0"><br>
+        </div>
+        <br>
+
+        무기와 에르그<br>
+        <div style="height: auto; width:350px; border: 1px solid; padding:10px">
+            에르그:
+            <select name="v3" id="v3" style="background:#D9E5FF">
+                <option value="0" selected>없음</option>
+                <option value="0.1">대형 낫 S50</option>
+            </select><br>
+            무기:
+            <select name="v4" id="v4" style="background:#D9E5FF">
+                <option value="1.05" selected>기본 대형 낫</option>
+                <option value="1.07">고급 대형 낫</option>
+            </select><br>
+        </div>
+        <br>
+
+        추가 대미지<br>
+        <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
+            추가 대미지: <input type="text" id="v5" size="5" placeholder="0">%<br>
+            약점분석: <input type="checkbox" name="v6" value="10"><br>
+            광폭화: <input type="checkbox" name="v7" value="10"><br>
+            배틀맴버쉽: <input type="checkbox" name="v8" value="1"><br>
+        </div>
+        <br>
+
+        추가 크리티컬 대미지<br>
+        <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
+            추가 크리티컬 대미지: <input type="text" id="v9" size="5" placeholder="0">%<br>
+            정령연마: <input type="checkbox" name="v10" value="15"><br>
+            이보나평판: <input type="checkbox" name="v11" value="10"><br>
+            크리티컬 증가 세트: <input type="checkbox" name="v12" value="7"><br>
+        </div>
+        <br>
+
+        스킬 데미지 퍼센트<br>
+        <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
+            사이드 슬래시: 
+            <select name="v13" id="v13" style="background:#D9E5FF">
+                <option value="10">연습</option>
+                <option value="25">F</option>
+                <option value="27">E</option>
+                <option value="28">D</option>
+                <option value="30">C</option>
+                <option value="35">B</option>
+                <option value="40">A</option>
+                <option value="45">9</option>
+                <option value="50">8</option>
+                <option value="55">7</option>
+                <option value="60">6</option>
+                <option value="80">5</option>
+                <option value="85">4</option>
+                <option value="90">3</option>
+                <option value="95">2</option>
+                <option value="120">1</option>
+            </select><br>
+        
+            스타 데토네이션: 
+            <select name="v14" id="v14" style="background:#D9E5FF">
+                <option value="10">연습</option>
+                <option value="25">F</option>
+                <option value="27">E</option>
+                <option value="28">D</option>
+                <option value="30">C</option>
+                <option value="35">B</option>
+                <option value="40">A</option>
+                <option value="45">9</option>
+                <option value="50">8</option>
+                <option value="55">7</option>
+                <option value="60">6</option>
+                <option value="80">5</option>
+                <option value="85">4</option>
+                <option value="90">3</option>
+                <option value="95">2</option>
+                <option value="120">1</option>
+            </select><br>
+        
+            스텔라 브레이크: 
+            <select name="v15" id="v15" style="background:#D9E5FF">
+                <option value="10">연습</option>
+                <option value="25">F</option>
+                <option value="27">E</option>
+                <option value="28">D</option>
+                <option value="30">C</option>
+                <option value="35">B</option>
+                <option value="40">A</option>
+                <option value="45">9</option>
+                <option value="50">8</option>
+                <option value="55">7</option>
+                <option value="60">6</option>
+                <option value="80">5</option>
+                <option value="85">4</option>
+                <option value="90">3</option>
+                <option value="95">2</option>
+                <option value="120">1</option>
+            </select><br>
+        
+            스핀 스퍼트: 
+            <select name="v16" id="v16" style="background:#D9E5FF">
+                <option value="10">연습</option>
+                <option value="25">F</option>
+                <option value="27">E</option>
+                <option value="28">D</option>
+                <option value="30">C</option>
+                <option value="35">B</option>
+                <option value="40">A</option>
+                <option value="45">9</option>
+                <option value="50">8</option>
+                <option value="55">7</option>
+                <option value="60">6</option>
+                <option value="80">5</option>
+                <option value="85">4</option>
+                <option value="90">3</option>
+                <option value="95">2</option>
+                <option value="120">1</option>
+            </select><br>
+        
+            리볼브 쇼크: 
+            <select name="v17" id="v17" style="background:#D9E5FF">
+                <option value="10">연습</option>
+                <option value="25">F</option>
+                <option value="27">E</option>
+                <option value="28">D</option>
+                <option value="30">C</option>
+                <option value="35">B</option>
+                <option value="40">A</option>
+                <option value="45">9</option>
+                <option value="50">8</option>
+                <option value="55">7</option>
+                <option value="60">6</option>
+                <option value="80">5</option>
+                <option value="85">4</option>
+                <option value="90">3</option>
+                <option value="95">2</option>
+                <option value="120">1</option>
+            </select><br>
+        
+            스타사인 스프레드: 
+            <select name="v18" id="v18" style="background:#D9E5FF">
+                <option value="10">연습</option>
+                <option value="25">F</option>
+                <option value="27">E</option>
+                <option value="28">D</option>
+                <option value="30">C</option>
+                <option value="35">B</option>
+                <option value="40">A</option>
+                <option value="45">9</option>
+                <option value="50">8</option>
+                <option value="55">7</option>
+                <option value="60">6</option>
+                <option value="80">5</option>
+                <option value="85">4</option>
+                <option value="90">3</option>
+                <option value="95">2</option>
+                <option value="120">1</option>
+            </select><br>
+        
+            페이탈 크러시: 
+            <select name="v19" id="v19" style="background:#D9E5FF">
+                <option value="10">연습</option>
+                <option value="25">F</option>
+                <option value="27">E</option>
+                <option value="28">D</option>
+                <option value="30">C</option>
+                <option value="35">B</option>
+                <option value="40">A</option>
+                <option value="45">9</option>
+                <option value="50">8</option>
+                <option value="55">7</option>
+                <option value="60">6</option>
+                <option value="80">5</option>
+                <option value="85">4</option>
+                <option value="90">3</option>
+                <option value="95">2</option>
+                <option value="120">1</option>
+            </select><br>
+        </div>
+    </div>
+
+    <div id="result">
+        결과
+        <br>
+        <div style="font-weight: bold; height: auto; width: 350px; border: 1px solid; padding:10px;">
+            사이드 슬래시: <input type="text" id="res1" size="8" style="border:none;text-align: left">
+            크리티컬: <input type="text" id="res1_crit" size="8" style="border:none; text-align: left"><br>
+
+            스타 데토네이션: <input type="text" id="res2" size="8" style="border:none;text-align: left">
+            크리티컬: <input type="text" id="res2_crit" size="8" style="border:none; text-align: left"><br>
+
+            스텔라 브레이크: <input type="text" id="res3" size="8" style="border:none;text-align: left">
+            크리티컬: <input type="text" id="res3_crit" size="8" style="border:none; text-align: left"><br>
+
+            스핀 스퍼트: <input type="text" id="res4" size="8" style="border:none;text-align: left">
+            크리티컬: <input type="text" id="res4_crit" size="8" style="border:none; text-align: left"><br>
+
+            리볼브 쇼크: <input type="text" id="res5" size="8" style="border:none;text-align: left">
+            크리티컬: <input type="text" id="res5_crit" size="8" style="border:none; text-align: left"><br>
+
+            스타사인 스프레드: <input type="text" id="res6" size="8" style="border:none;text-align: left">
+            크리티컬: <input type="text" id="res6_crit" size="8" style="border:none; text-align: left"><br>
+
+            페이탈 크러시: <input type="text" id="res7" size="8" style="border:none;text-align: left">
+            크리티컬: <input type="text" id="res7_crit" size="8" style="border:none; text-align: left"><br>
+        </div>
+
+        <input type="button" value="계산하기" class="button" onclick="cal()">
+        <input type="button" value="초기화" class="button" onclick="reset()">
+    </div>
+</div>
+
+
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+    if (!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "16bb61aebd2bc20";
+    if (window.wcs) {
+        wcs_do();
+    }
+</script>
+
+</body>
+
+</html>

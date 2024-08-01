@@ -1,0 +1,94 @@
+function cal() {
+    // 기본 스텟
+    var v1 = Number(document.getElementById("v1").value); // 마법공격력
+
+    // 마스터리
+    var v2 = Number(document.getElementById("v2").value); // 대형 낫 마스터리
+
+    // 무기와 에르그
+    var v3 = $("#v3 option:selected").attr('value'); // 에르그
+    var v4 = $("#v4 option:selected").attr('value'); // 무기
+
+    // 보너스 대미지
+    var v5 = Number(document.getElementById("v5").value); // 추댐
+    var v6 = $('input[name="v6"]').is(':checked') ? parseFloat($('input[name="v6"]').val()) : 0; // 약분
+    var v7 = $('input[name="v7"]').is(':checked') ? parseFloat($('input[name="v7"]').val()) : 0; // 광폭
+    var v8 = $('input[name="v8"]').is(':checked') ? parseFloat($('input[name="v8"]').val()) : 0; // 배맴
+
+    // 추가 크리 대미지
+    var v9 = Number(document.getElementById("v9").value); // 추가크리대미지
+    var v10 = $('input[name="v10"]').is(':checked') ? parseFloat($('input[name="v10"]').val()) : 0; // 정령연마
+    var v11 = $('input[name="v11"]').is(':checked') ? parseFloat($('input[name="v11"]').val()) : 0; // 이보나
+    var v12 = $('input[name="v12"]').is(':checked') ? parseFloat($('input[name="v12"]').val()) : 0; // 크리증가세트
+
+    // 새로운 스킬
+    var v13 = Number(document.getElementById("v13").value); // 사이드 슬래시 %
+    var v14 = Number(document.getElementById("v14").value); // 스타 데토네이션 %
+    var v15 = Number(document.getElementById("v15").value); // 스텔라 브레이크 %
+    var v16 = Number(document.getElementById("v16").value); // 스핀 스퍼트 %
+    var v17 = Number(document.getElementById("v17").value); // 리볼브 쇼크 %
+    var v18 = Number(document.getElementById("v18").value); // 스타사인 스프레드 %
+    var v19 = Number(document.getElementById("v19").value); // 페이탈 크러시 %
+
+    // 보너스 대미지 총합
+    var bonusDamage = 1 + (v5 + v6 + v7 + v8) / 100;
+
+    // 무기와 에르그 대미지 합
+    var weaponErg = Number(v3) + Number(v4);
+
+    // 계산식
+    function calculateDamage(skillPercent) {
+        return v1 * skillPercent * weaponErg * bonusDamage;
+    }
+
+    var res1 = calculateDamage(v13); // 사이드 슬래시
+    document.getElementById("res1").value = Math.floor(res1);
+
+    var res2 = calculateDamage(v14); // 스타 데토네이션
+    document.getElementById("res2").value = Math.floor(res2);
+
+    var res3 = calculateDamage(v15); // 스텔라 브레이크
+    document.getElementById("res3").value = Math.floor(res3);
+
+    var res4 = calculateDamage(v16); // 스핀 스퍼트
+    document.getElementById("res4").value = Math.floor(res4);
+
+    var res5 = calculateDamage(v17); // 리볼브 쇼크
+    document.getElementById("res5").value = Math.floor(res5);
+
+    var res6 = calculateDamage(v18); // 스타사인 스프레드
+    document.getElementById("res6").value = Math.floor(res6);
+
+    var res7 = calculateDamage(v19); // 페이탈 크러시
+    document.getElementById("res7").value = Math.floor(res7);
+
+    // 크리티컬 대미지 계산
+    var criticalMultiplier = 2.5 + (v9 + v10 + v11 + v12) / 100;
+    
+    document.getElementById("res1_crit").value = Math.floor(res1 * criticalMultiplier);
+    document.getElementById("res2_crit").value = Math.floor(res2 * criticalMultiplier);
+    document.getElementById("res3_crit").value = Math.floor(res3 * criticalMultiplier);
+    document.getElementById("res4_crit").value = Math.floor(res4 * criticalMultiplier);
+    document.getElementById("res5_crit").value = Math.floor(res5 * criticalMultiplier);
+    document.getElementById("res6_crit").value = Math.floor(res6 * criticalMultiplier);
+    document.getElementById("res7_crit").value = Math.floor(res7 * criticalMultiplier);
+}
+
+// 리셋 함수
+function reset() {
+    // 입력 필드 리셋
+    var inputFields = ["v1", "v2", "v5", "v9", "v13", "v14", "v15", "v16", "v17", "v18", "v19"];
+    inputFields.forEach(field => document.getElementById(field).value = "");
+
+    // 결과 필드 리셋
+    var resultFields = ["res1", "res2", "res3", "res4", "res5", "res6", "res7", 
+                        "res1_crit", "res2_crit", "res3_crit", "res4_crit", "res5_crit", "res6_crit", "res7_crit"];
+    resultFields.forEach(field => document.getElementById(field).value = "");
+
+    // 체크박스 리셋
+    $("input:checkbox").prop("checked", false);
+
+    // 선택 옵션 리셋
+    $("#v3").val($("#v3 option:first").val());
+    $("#v4").val($("#v4 option:first").val());
+}
