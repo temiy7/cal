@@ -28,6 +28,19 @@ function cal() {
     var v17 = Number(document.getElementById("v17").value); // 리볼브 쇼크 %
     var v19 = Number(document.getElementById("v19").value); // 페이탈 크러시 %
 
+    //세공
+    var v21 = Number(document.getElementById("v21").value);
+    v21 = v21 * 0.02; // 사이드슬래시대미지 
+    var v22 = Number(document.getElementById("v22").value);
+    v22 = v22 * 0.1; // 스타데토네이션대미지
+    var v23 = Number(document.getElementById("v23").value); 
+    v23 = v23 * 0.25; // 스텔라브레이크대미지
+    var v24 = Number(document.getElementById("v24").value); 
+    v24 = v24 * 0.02; // 리볼브쇼크대미지
+    var v25 = Number(document.getElementById("v25").value);
+    v25 = v25 * 0.3; // 페이탈크러시대미지
+
+
     // 보너스 대미지 총합
     var bonusDamage =(v5 + v6 + v7 + v8)
     document.getElementById("bonusDamage").value= bonusDamage.toFixed(2);
@@ -38,26 +51,26 @@ function cal() {
     document.getElementById("weaponErg").value = weaponErg.toFixed(2);
 
     // 계산식
-    function calculateDamage(skillPercent) {
-        return v1 * skillPercent * (1+weaponErg/100) * (1+bonusDamage/100);
+    function calculateDamage(skillPercent,sg) {
+        return v1 * (skillPercent+sg) * (1+weaponErg/100) * (1+bonusDamage/100);
     }
 
-    var res1 = calculateDamage(v13); // 사이드 슬래시
+    var res1 = calculateDamage(v13,v21); // 사이드 슬래시
     document.getElementById("res1").value = Math.floor(res1);
 
-    var res2 = calculateDamage(v14); // 스타 데토네이션
+    var res2 = calculateDamage(v14,v22); // 스타 데토네이션
     document.getElementById("res2").value = Math.floor(res2);
 
-    var res3 = calculateDamage(v15); // 스텔라 브레이크
+    var res3 = calculateDamage(v15,v23); // 스텔라 브레이크
     document.getElementById("res3").value = Math.floor(res3);
 
-    var res4 = calculateDamage(v16); // 스핀 스퍼트
+    var res4 = calculateDamage(v16,0); // 스핀 스퍼트
     document.getElementById("res4").value = Math.floor(res4);
 
-    var res5 = calculateDamage(v17); // 리볼브 쇼크
+    var res5 = calculateDamage(v17,v24); // 리볼브 쇼크
     document.getElementById("res5").value = Math.floor(res5);
 
-    var res7 =v1*v19*(1+weaponErg/100)*(1+bonusDamage/100+0.05*Number(v2_1))*Number(v2) // 페이탈 크러시
+    var res7 =v1*(v19+v25)*(1+weaponErg/100)*(1+bonusDamage/100+0.05*Number(v2_1))*Number(v2) // 페이탈 크러시
     document.getElementById("res7").value = Math.floor(res7);
 
     // 크리티컬 대미지 계산
