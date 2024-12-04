@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>마비노기 변신 시간 계산기</title>
+    <link rel="stylesheet" href="css/cont.css">
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}        
+        gtag('js', new Date());
+        gtag('config', 'G-7RRZF9GD2Z');
+    </script>
+
+    <style>
+        .button {
+            width: 100px;
+            background-color: #00004a;
+            border: none;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            margin: 4px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+    </style>
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src="script/변신시간.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <h2>마비노기 변신 시간 계산기</h2>
+        <div id="status1">
+            변신의 지속시간을 계산해줍니다. <br>
+            인간: 팔라딘/다크나이트, 엘프/자이언트: 야수화 공통입니다 <br>
+            나이는 외형의 나이가 아닌 실제 나이를 입력하시면 됩니다. <br>
+        </div>
+        <br><br>
+
+        <div id="status">
+            <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+                환생 횟수:<input type="text" id="rebirthCount" size="6" placeholder="1"><br>
+                나이:<select id="age" style="background:#D9E5FF">
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17" selected>17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                </select><br>
+
+                추가 변신 지속 시간:<input type="text" id="additionalSec" size="5" value="0">초<br>
+            </div>
+        </div>
+
+        <div id="result">
+            계산 결과:
+            <br>
+            <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
+                변신 지속 시간: <input type="text" placeholder="결과" id="transformDuration" size="12" style="border:none;text-align: right; "><br><br>
+            </div>
+            <br>
+            <input type="button" value="계산하기" class="button" onclick="cal()">
+            <input type="button" value="초기화" class="button" onclick="reset()">
+        </div>
+    </div>
+
+    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "16bb61aebd2bc20";
+if(window.wcs) {
+  wcs_do();
+}
+</script>
+
+</body>
+
+</html>
