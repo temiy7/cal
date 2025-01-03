@@ -39,6 +39,9 @@ function cal() {
     v24 = v24 * 0.02; // 리볼브쇼크대미지
     var v25 = Number(document.getElementById("v25").value);
     v25 = v25 * 0.3; // 페이탈크러시대미지
+    var v26 = Number(document.getElementById("v26").value); 
+    v26 = v26*0.12; // 스핀스퍼트대미지
+
 
 
     // 보너스 대미지 총합
@@ -64,7 +67,7 @@ function cal() {
     var res3 = calculateDamage(v15,v23); // 스텔라 브레이크
     document.getElementById("res3").value = Math.floor(res3);
 
-    var res4 = calculateDamage(v16,0); // 스핀 스퍼트
+    var res4 = calculateDamage(v16,v26); // 스핀 스퍼트
     document.getElementById("res4").value = Math.floor(res4);
 
     var res5 = calculateDamage(v17,v24); // 리볼브 쇼크
