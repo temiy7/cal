@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>마비노기 블래스트랜서 대미지 계산기</title>
+    <link rel="stylesheet" href="css/cont.css">
+
+    <!-- 기존 스크립트 및 스타일 유지 -->
+
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src="script/블래스트랜서.js"></script>
+</head>
+
+<body>
+<div id="wrapper">
+    <h2>마비노기 블래스트랜서 대미지 계산기 </h2>
+    <div id="status1">
+        해당 계산기는 마비노기 블래스트랜서 스킬 대미지 계산기를 계산하기 위한 계산기 입니다<br>
+        값이 현저하게 차이난다면 알려주시면 감사하겠습니다.
+    </div>
+    <br><br>
+    <div id="status">
+        스텟<br>
+        <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
+            최대대미지:
+            <input type="text" id="v1" size="5" placeholder="0"><br>
+            전장비율:
+            <input type="text" id="v2" size="5" placeholder="0"><br>
+            물공포: <input type="checkbox" name="v2_2" value="1"><br>
+            링크개방:
+            <select name="v3_1" id="v3_1" style="background:#D9E5FF">
+                <option value="0">5이하</option>
+                <option value="0.1">6단계</option>
+                <option value="0.11">7단계</option>
+                <option value="0.12">8단계</option>
+                <option value="0.13">9단계</option>
+                <option value="0.15" selected>10단계</option>
+            </select><br>
+            마나셀: <input type="text" id="v3" size="5" placeholder="0">%<br>
+        </div>
+        <br>
+
+        무기(
+        <output id="weaponErg"></output>
+        %)<br>
+        <div style="height: auto; width:350px; border: 1px solid; padding:10px">
+            무기:
+            <select name="v4" id="v4" style="background:#D9E5FF">
+                <option value="0" selected>일반</option>
+                <option value="0.15">패러</option>
+                <option value="0.2">나브</option>
+            </select><br>
+            마력탄:
+            <select name="v4_1" id="v4_1" style="background:#D9E5FF">
+                <option value="5">실습용마력탄</option>
+                <option value="10" selected>마력탄</option>
+                <option value="20">고밀도마력탄</option>
+                <option value="30">고대마력탄</option>
+                <option value="50">강화된마력탄</option>
+            </select><br>
+            펫탑승상태: <input type="checkbox" name="v4_2" value="1"><br>
+
+        </div>
+        <br>
+
+        추가 대미지(
+        <output id="bonusDamage"></output>
+        %)<br>
+        <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
+            추가 대미지: <input type="text" id="v5" size="5" placeholder="0">%<br>
+            푸개:
+            <select name="v5_1" id="v5_1" style="background:#D9E5FF">
+                <option value="0" selected>없음</option>
+                <option value="7">6강</option>
+                <option value="9" >7강</option>
+            </select><br>
+            약점분석: <input type="checkbox" name="v6" value="10"><br>
+            광폭화: <input type="checkbox" name="v7" value="10"><br>
+            배틀맴버쉽: <input type="checkbox" name="v8" value="1"><br>
+        </div>
+        <br>
+
+        추가 크리티컬 대미지(
+        <output id="criticalMultiplier"></output>
+        %)<br>
+        <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
+            추가 크리티컬 대미지: <input type="text" id="v9" size="5" placeholder="0">%<br>
+            붉개:
+            <select name="v9_1" id="v9_1" style="background:#D9E5FF">
+                <option value="0">없음</option>
+                <option value="62">6강</option>
+                <option value="74" selected>7강</option>
+            </select><br>
+            정령연마: <input type="checkbox" name="v10" value="15"><br>
+            이보나평판: <input type="checkbox" name="v11" value="10"><br>
+            크리티컬 증가 세트: <input type="checkbox" name="v12" value="7"><br>
+        </div>
+        <br>
+
+        스킬 정보<br>
+        <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
+            크로스버스터:
+            <select name="v13" id="v13" style="background:#D9E5FF">
+                <option value="3.69">연습</option>
+                <option value="4.5">F</option>
+                <option value="4.75">E</option>
+                <option value="5.12">D</option>
+                <option value="5.62">C</option>
+                <option value="6">B</option>
+                <option value="6.5">A</option>
+                <option value="7">9</option>
+                <option value="7.62">8</option>
+                <option value="8.25">7</option>
+                <option value="8.87">6</option>
+                <option value="9.5">5</option>
+                <option value="10.25">4</option>
+                <option value="11.12">3</option>
+                <option value="12">2</option>
+                <option value="13">1</option>
+                <option value="14">1단</option>
+                <option value="15.12">2단</option>
+                <option value="16.25" selected>3단</option>
+            </select>, 세공 <input type="text" id="v21" size="5" placeholder="0">레벨<br>
+
+
+            임팩트크러쉬:
+            <select name="v13_1" id="v13_1" style="background:#D9E5FF">
+                <option value="5">F</option>
+                <option value="7">E</option>
+                <option value="8">D</option>
+                <option value="9">C</option>
+                <option value="10">B</option>
+                <option value="11">A</option>
+                <option value="12">9</option>
+                <option value="13">8</option>
+                <option value="14">7</option>
+                <option value="15">6</option>
+                <option value="16">5</option>
+                <option value="17">4</option>
+                <option value="18">3</option>
+                <option value="19">2</option>
+                <option value="20" selected>1</option>
+            </select><br>
+
+            클로져:
+            <select name="v14" id="v14" style="background:#D9E5FF">
+                <option value="1.6">연습</option>
+                <option value="1.7">F</option>
+                <option value="1.8">E</option>
+                <option value="1.9">D</option>
+                <option value="2.0">C</option>
+                <option value="2.1">B</option>
+                <option value="2.2">A</option>
+                <option value="2.4">9</option>
+                <option value="2.6">8</option>
+                <option value="2.8">7</option>
+                <option value="3">6</option>
+                <option value="3.2">5</option>
+                <option value="3.4">4</option>
+                <option value="3.6">3</option>
+                <option value="3.8">2</option>
+                <option value="4" selected>1</option>
+            </select>, 세공 <input type="text" id="v22" size="5" placeholder="0">레벨<br>
+
+            스파이럴 볼택스:
+            <select name="v14_1" id="v14_1" style="background:#D9E5FF">
+                <option value="10">F</option>
+                <option value="11">E</option>
+                <option value="12">D</option>
+                <option value="13">C</option>
+                <option value="14">B</option>
+                <option value="15">A</option>
+                <option value="16">9</option>
+                <option value="17">8</option>
+                <option value="18">7</option>
+                <option value="19">6</option>
+                <option value="20">5</option>
+                <option value="22">4</option>
+                <option value="24">3</option>
+                <option value="27">2</option>
+                <option value="30" selected>1</option>
+            </select> <br>
+
+            랜스 블로우:
+            <select name="v15" id="v15" style="background:#D9E5FF">
+                <option value="3.5">연습</option>
+                <option value="3.8">F</option>
+                <option value="4.1">E</option>
+                <option value="4.4">D</option>
+                <option value="4.7">C</option>
+                <option value="5">B</option>
+                <option value="5.3">A</option>
+                <option value="5.6">9</option>
+                <option value="5.9">8</option>
+                <option value="6.2">7</option>
+                <option value="6.5">6</option>
+                <option value="6.8">5</option>
+                <option value="7.1">4</option>
+                <option value="7.4">3</option>
+                <option value="7.7">2</option>
+                <option value="8" selected>1</option>
+            </select> <br>
+
+
+            차지 어설트:
+            <select name="v15_1" id="v15_1" style="background:#D9E5FF">
+                <option value="5">F</option>
+                <option value="5.5">E</option>
+                <option value="6">D</option>
+                <option value="6.5">C</option>
+                <option value="7">B</option>
+                <option value="7.5">A</option>
+                <option value="8">9</option>
+                <option value="8.5">8</option>
+                <option value="9">7</option>
+                <option value="9.5">6</option>
+                <option value="10">5</option>
+                <option value="10.5">4</option>
+                <option value="11">3</option>
+                <option value="11.5">2</option>
+                <option value="11.5" selected>1</option>
+            </select> <br>
+
+            랜스차지 :
+            <select name="v16" id="v16" style="background:#D9E5FF">
+                <option value="0.8">연습</option>
+                <option value="1">F</option>
+                <option value="1.05">E</option>
+                <option value="1.1">D</option>
+                <option value="1.15">C</option>
+                <option value="1.2">B</option>
+                <option value="1.25">A</option>
+                <option value="1.35">9</option>
+                <option value="1.45">8</option>
+                <option value="1.55">7</option>
+                <option value="1.65">6</option>
+                <option value="1.8">5</option>
+                <option value="1.95">4</option>
+                <option value="2.1">3</option>
+                <option value="2.25">2</option>
+                <option value="2.5">1</option>
+                <option value="2.65">1단</option>
+                <option value="2.8">2단</option>
+                <option value="2.95" selected> 3단</option>
+            </select><br>
+            랜차세공 <input type="text" id="v23" size="5" placeholder="0">레벨<br>
+            주목세공 <input type="text" id="v24" size="5" placeholder="0">레벨<br>
+            마상세공 <input type="text" id="v25" size="5" placeholder="0">레벨<br>
+            마상거리세공 <input type="text" id="v26" size="5" placeholder="0">레벨<br>
+
+
+            오버드라이브:
+            <select name="v16_1" id="v16_1" style="background:#D9E5FF">
+                <option value="2.5" value2="8">F</option>
+                <option value="2.6" value2="8.5">E</option>
+                <option value="2.7" value2="9">D</option>
+                <option value="2.8" value2="9.5">C</option>
+                <option value="3" value2="10">B</option>
+                <option value="3.2" value2="10.5">A</option>
+                <option value="3.4" value2="11">9</option>
+                <option value="3.6" value2="11.5">8</option>
+                <option value="3.8" value2="12">7</option>
+                <option value="4" value2="12.5">6</option>
+                <option value="4.2" value2="13">5</option>
+                <option value="4.4" value2="13.5">4</option>
+                <option value="4.6" value2="14">3</option>
+                <option value="4.8" value2="14.5">2</option>
+                <option value="5" value2="15" selected>1</option>
+            </select> <br>
+
+            어나이얼레이션:
+            <select name="v16_2" id="v16_2" style="background:#D9E5FF">
+                <option value="3">F</option>
+                <option value="3.5">E</option>
+                <option value="4">D</option>
+                <option value="4.5">C</option>
+                <option value="5">B</option>
+                <option value="5.5">A</option>
+                <option value="6">9</option>
+                <option value="6.5">8</option>
+                <option value="7">7</option>
+                <option value="7.5">6</option>
+                <option value="8">5</option>
+                <option value="8.5">4</option>
+                <option value="9">3</option>
+                <option value="9.5">2</option>
+                <option value="10" selected>1</option>
+            </select> <br>
+        </div>
+    </div>
+
+    <div id="result">
+        결과
+        <br>
+        <div style="font-weight: bold; height: auto; width: 400px; border: 1px solid; padding:10px;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                <tr>
+                    <th style="text-align: left;">스킬</th>
+                    <th style="text-align: left;">대미지</th>
+                    <th style="text-align: center;">크리티컬</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>크로스버스터</td>
+                    <td><input type="text" id="res1" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res1_crit" size="6" style="border:none; text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td>임팩트크러쉬</td>
+                    <td><input type="text" id="res2" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res2_crit" size="6" style="border:none; text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td>클로져</td>
+                    <td><input type="text" id="res3" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res3_crit" size="6" style="border:none; text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td>스파이럴 볼택스</td>
+                    <td><input type="text" id="res4" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res4_crit" size="6" style="border:none; text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td>랜스블로우</td>
+                    <td><input type="text" id="res5" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res5_crit" size="6" style="border:none; text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td>차지어설트</td>
+                    <td><input type="text" id="res6" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res6_crit" size="6" style="border:none; text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td>랜스차지</td>
+                    <td><input type="text" id="res7" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res7_crit" size="6" style="border:none; text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td>오버드라이브</td>
+                    <td><input type="text" id="res8_0" size="6" style="border:none; text-align: center;">
+                        +<input type="text" id="res8" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res8_crit" size="6" style="border:none; text-align: center;"></td>
+                </tr>
+                <tr>
+                    <td>어나이레이션</td>
+                    <td><input type="text" id="res9" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res9_crit" size="6" style="border:none; text-align: center;"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <input type="button" value="계산하기" class="button" onclick="cal()">
+        <input type="button" value="초기화" class="button" onclick="reset()">
+    </div>
+</div>
+
+
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+    if (!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "16bb61aebd2bc20";
+    if (window.wcs) {
+        wcs_do();
+    }
+</script>
+
+</body>
+
+</html>
