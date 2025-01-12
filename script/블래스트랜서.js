@@ -61,17 +61,20 @@ function cal() {
         v26d = v26 * 100
     }
 
-    // 보너스 대미지 총합
-    var bonusDamage = (v5 + v5_1 * 1 + v6 + v7 + v8)
-    document.getElementById("bonusDamage").value = bonusDamage.toFixed(2);
+    var basedamage = (v1 * (1 + 0.2 * v2_2) * (1 + (v2 / 100) * (1 + 0.2 * v2_2)))
+    document.getElementById("basedamage").value = basedamage.toFixed(1);
+
+
+    var bonusDamage = (v5 + v5_1 * 1 + v6 + v7 + v8) 
+    document.getElementById("bonusDamage").value = bonusDamage.toFixed(2);    // 보너스 대미지 총합
 
     // 계산식
     function calculateDamage(skillPercent, sg) {
-        return (v1 * (1 + 0.2 * v2_2) * (1 + (v2 / 100) * (1 + 0.2 * v2_2))) * (skillPercent + sg) * (1 + bonusDamage / 100);
+        return basedamage * (skillPercent + sg) * (1 + bonusDamage / 100);
     }
 
     function calculateDamage2(baseskill, arkana) {
-        return baseskill + (v1 * (1 + 0.2 * v2_2) * (1 + (v2 / 100) * (1 + 0.2 * v2_2))) * arkana *(1+v3_1) * (1 + bonusDamage / 100);
+        return baseskill + basedamage * arkana *(1+v3_1) * (1 + bonusDamage / 100);
     }
 
     var res1 = calculateDamage(v13, v21); // 크로스버스터 대미지
@@ -92,16 +95,16 @@ function cal() {
     var res6 = calculateDamage2(res5, v15_1); // 차지 어설트 대미지
     document.getElementById("res6").value = Math.floor(res6);
 
-    var res7 = (v1 * (1 + 0.2 * v2_2) * (1 + (v2 / 100) * (1 + 0.2 * v2_2))) * (1 * v16 + v23) * (2 + v24) * ((1000 + 400 + (400 + v26d) * v4_2) / 1400) * (1 + (0.2 + v25) * v4_2) * (1+v4) // 랜스차지 대미지
+    var res7 = basedamage * (1 * v16 + v23) * (2 + v24) * ((1000 + 400 + (400 + v26d) * v4_2) / 1400) * (1 + (0.2 + v25) * v4_2) * (1+v4) // 랜스차지 대미지
     document.getElementById("res7").value = Math.floor(res7);
 
-    var res8_0 = calculateDamage2(res7, v16_0); // 오버드라이브 찌르기 대미지
+    var res8_0 = calculateDamage(v16_0, 0); // 오버드라이브 찌르기 대미지
     document.getElementById("res8_0").value = Math.floor(res8_0);
 
     var res8 = calculateDamage2(res7, v16_1); // 오버드라이브 폭발 대미지
     document.getElementById("res8").value = Math.floor(res8);
 
-    var res9 = calculateDamage2(res7, v16_2); //어나이얼레이션 찌르기 대미지
+    var res9 = calculateDamage(16_2, 0); //어나이얼레이션 찌르기 대미지
     document.getElementById("res9").value = Math.floor(res9);
 
     // 크리티컬 대미지 계산
@@ -114,7 +117,7 @@ function cal() {
     document.getElementById("res5_crit").value = Math.floor(res5 * (2.5 + criticalMultiplier / 100));
     document.getElementById("res6_crit").value = Math.floor(res6 * (2.5 + criticalMultiplier / 100));
     document.getElementById("res7_crit").value = Math.floor(res7 * (2.5 + criticalMultiplier / 100));
-    document.getElementById("res8_crit").value = Math.floor(res8 * (2.5 + criticalMultiplier / 100));
+    document.getElementById("res8_crit").value = Math.floor((res8_0+res8) * (2.5 + criticalMultiplier / 100));
     document.getElementById("res9_crit").value = Math.floor(res9 * (2.5 + criticalMultiplier / 100));
 }
 

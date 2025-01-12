@@ -17,6 +17,7 @@
     <h2>마비노기 블래스트랜서 대미지 계산기 </h2>
     <div id="status1">
         해당 계산기는 마비노기 블래스트랜서 스킬 대미지 계산기를 계산하기 위한 계산기 입니다<br>
+        어나이얼레이션은 폭발 공식을 확인 할 때까지 찌르기만 계산됩니다. <br>
         값이 현저하게 차이난다면 알려주시면 감사하겠습니다.
     </div>
     <br><br>
@@ -298,56 +299,56 @@
                 <thead>
                 <tr>
                     <th style="text-align: left;">스킬</th>
-                    <th style="text-align: left;">대미지</th>
+                    <th style="text-align: left;">대미지(<output id="basedamage"></output>) </th>
                     <th style="text-align: center;">크리티컬</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>크로스버스터</td>
-                    <td><input type="text" id="res1" size="6" style="border:none; text-align: center;"></td>
-                    <td><input type="text" id="res1_crit" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res1" size="8" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res1_crit" size="8" style="border:none; text-align: center;"></td>
                 </tr>
                 <tr>
                     <td>임팩트크러쉬</td>
-                    <td><input type="text" id="res2" size="6" style="border:none; text-align: center;"></td>
-                    <td><input type="text" id="res2_crit" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res2" size="8" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res2_crit" size="8" style="border:none; text-align: center;"></td>
                 </tr>
                 <tr>
                     <td>클로져</td>
-                    <td><input type="text" id="res3" size="6" style="border:none; text-align: center;"></td>
-                    <td><input type="text" id="res3_crit" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res3" size="8" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res3_crit" size="8" style="border:none; text-align: center;"></td>
                 </tr>
                 <tr>
                     <td>스파이럴 볼택스</td>
-                    <td><input type="text" id="res4" size="6" style="border:none; text-align: center;"></td>
-                    <td><input type="text" id="res4_crit" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res4" size="8" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res4_crit" size="8" style="border:none; text-align: center;"></td>
                 </tr>
                 <tr>
                     <td>랜스블로우</td>
-                    <td><input type="text" id="res5" size="6" style="border:none; text-align: center;"></td>
-                    <td><input type="text" id="res5_crit" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res5" size="8" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res5_crit" size="8" style="border:none; text-align: center;"></td>
                 </tr>
                 <tr>
                     <td>차지어설트</td>
-                    <td><input type="text" id="res6" size="6" style="border:none; text-align: center;"></td>
-                    <td><input type="text" id="res6_crit" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res6" size="8" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res6_crit" size="8" style="border:none; text-align: center;"></td>
                 </tr>
                 <tr>
                     <td>랜스차지</td>
-                    <td><input type="text" id="res7" size="6" style="border:none; text-align: center;"></td>
-                    <td><input type="text" id="res7_crit" size="6" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res7" size="8" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res7_crit" size="8" style="border:none; text-align: center;"></td>
                 </tr>
                 <tr>
-                    <td>오버드라이브</td>
-                    <td><input type="text" id="res8_0" size="6" style="border:none; text-align: center;">
-                        +<input type="text" id="res8" size="6" style="border:none; text-align: center;"></td>
-                    <td><input type="text" id="res8_crit" size="6" style="border:none; text-align: center;"></td>
+                    <td>오버드라이브(찌르기+폭발)</td>
+                    <td><input type="text" id="res8_0" size="8" style="border:none; text-align: center;">
+                        +<input type="text" id="res8" size="8" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res8_crit" size="8" style="border:none; text-align: center;"></td>
                 </tr>
                 <tr>
-                    <td>어나이레이션</td>
-                    <td><input type="text" id="res9" size="6" style="border:none; text-align: center;"></td>
-                    <td><input type="text" id="res9_crit" size="6" style="border:none; text-align: center;"></td>
+                    <td>어나이레이션(찌르기)</td>
+                    <td><input type="text" id="res9" size="8" style="border:none; text-align: center;"></td>
+                    <td><input type="text" id="res9_crit" size="8" style="border:none; text-align: center;"></td>
                 </tr>
                 </tbody>
             </table>
