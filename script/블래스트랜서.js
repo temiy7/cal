@@ -70,11 +70,11 @@ function cal() {
 
     // 계산식
     function calculateDamage(skillPercent, sg) {
-        return basedamage * (skillPercent + sg) * (1 + bonusDamage / 100);
+        return basedamage * (Number(skillPercent) + sg) * (1 + bonusDamage / 100);
     }
 
     function calculateDamage2(baseskill, arkana) {
-        return baseskill + basedamage * arkana *(1+v3_1) * (1 + bonusDamage / 100);
+        return baseskill + basedamage * Number(arkana) *(1+Number(v3_1)) * (1 + bonusDamage / 100);
     }
 
     var res1 = calculateDamage(v13, v21); // 크로스버스터 대미지
@@ -104,7 +104,7 @@ function cal() {
     var res8 = calculateDamage2(res7, v16_1); // 오버드라이브 폭발 대미지
     document.getElementById("res8").value = Math.floor(res8);
 
-    var res9 = calculateDamage(16_2, 0); //어나이얼레이션 찌르기 대미지
+    var res9 = calculateDamage(v16_2, 0); //어나이얼레이션 찌르기 대미지
     document.getElementById("res9").value = Math.floor(res9);
 
     // 크리티컬 대미지 계산
