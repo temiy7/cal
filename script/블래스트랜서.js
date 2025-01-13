@@ -34,7 +34,7 @@ function cal() {
     var v14_1 = Number(document.getElementById("v14_1").value); // 스파이럴 볼택스 %
     var v15 = Number(document.getElementById("v15").value); // 랜스블로우
     var v15_1 = Number(document.getElementById("v15_1").value); // 차지 어설트
-    var v16 = Number(document.getElementById("v16").value); // 랜스차지
+    var v16 =  $("#v16 option:selected").attr('value'); // 랜스차지
     var v16_0 = $("#v16_1 option:selected").attr('value'); // 오버드라이브 찌르기
     var v16_1 = $("#v16_1 option:selected").attr('value2'); // 오버드라이브 폭발
     var v16_2 = Number(document.getElementById("v16_2").value); // 어나이얼레이션
@@ -61,7 +61,7 @@ function cal() {
         v26d = v26 * 100
     }
 
-    var basedamage = (v1 * (1 + 0.2 * v2_2) * (1 + (v2 / 100) * (1 + 0.2 * v2_2)))
+    var basedamage = (Number(v1) * (1 + 0.2 * v2_2) * (1 + (v2 / 100) * (1 + 0.2 * v2_2)))
     document.getElementById("basedamage").value = basedamage.toFixed(1);
 
 
@@ -74,7 +74,7 @@ function cal() {
     }
 
     function calculateDamage2(baseskill, arkana) {
-        return baseskill + basedamage * Number(arkana) *(1+Number(v3_1)) * (1 + bonusDamage / 100);
+        return Number(baseskill) + basedamage * Number(arkana) *(1+Number(v3_1)) * (1 + bonusDamage / 100);
     }
 
     var res1 = calculateDamage(v13, v21); // 크로스버스터 대미지
@@ -95,7 +95,7 @@ function cal() {
     var res6 = calculateDamage2(res5, v15_1); // 차지 어설트 대미지
     document.getElementById("res6").value = Math.floor(res6);
 
-    var res7 = Number(basedamage) * ( Number(v16) + v23) * (2 + v24) * ((1000 + 400 + (400 + v26d) * v4_2) / 1400) * (1 + (0.2 + v25) * Number(v4_2) )* (1+v4) // 랜스차지 대미지
+    var res7 = basedamage * ( Number(v16) + v23) * (2 + v24) * ((1000 + 400 + (400 + Number(v26d)) * Number(v4_2)) / 1400) * (1 + (0.2 + v25) * Number(v4_2) )* (1+Number(v4)) // 랜스차지 대미지
     document.getElementById("res7").value = Math.floor(res7);
 
     var res8_0 = calculateDamage(v16_0, 0); // 오버드라이브 찌르기 대미지
