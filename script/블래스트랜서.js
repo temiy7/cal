@@ -3,7 +3,7 @@ function cal() {
     var v1 = Number(document.getElementById("v1").value); // 최대공격력
     var v2 = Number(document.getElementById("v2").value); // 전장비율
     var v2_2 = $('input[name="v2_2"]').is(':checked') ? parseFloat($('input[name="v2_2"]').val()) : 0; // 물공포
-    var v3 = Number(document.getElementById("v3").value); // 마나셀
+    var v3 =  $("#v3 option:selected").attr('value'); // 과열
     var v3_1 = $("#v3_1 option:selected").attr('value'); // 아르카나 링크개
 
 
@@ -95,7 +95,7 @@ function cal() {
     var res6 = calculateDamage2(res5, v15_1); // 차지 어설트 대미지
     document.getElementById("res6").value = Math.floor(res6);
 
-    var res7 = basedamage * (1 * v16 + v23) * (2 + v24) * ((1000 + 400 + (400 + v26d) * v4_2) / 1400) * (1 + (0.2 + v25) * v4_2) * (1+v4) // 랜스차지 대미지
+    var res7 = basedamage * (1 * v16 + v23) * (2 + v24) * ((1000 + 400 + (400 + v26d) * v4_2) / 1400) * (1 + (0.2 + v25) * v4_2) * (1+Number(v4)) // 랜스차지 대미지
     document.getElementById("res7").value = Math.floor(res7);
 
     var res8_0 = calculateDamage(v16_0, 0); // 오버드라이브 찌르기 대미지
@@ -106,6 +106,9 @@ function cal() {
 
     var res9 = calculateDamage(v16_2, 0); //어나이얼레이션 찌르기 대미지
     document.getElementById("res9").value = Math.floor(res9);
+
+    var res10 = res7 + Number(v3)*basedamage; //어나이얼레이션 폭발 대미지
+    document.getElementById("res10").value = Math.floor(res10);
 
     // 크리티컬 대미지 계산
     var criticalMultiplier = (v9 + v9_1 * 1 + v10 + v11 + v12);
@@ -118,7 +121,7 @@ function cal() {
     document.getElementById("res6_crit").value = Math.floor(res6 * (2.5 + criticalMultiplier / 100));
     document.getElementById("res7_crit").value = Math.floor(res7 * (2.5 + criticalMultiplier / 100));
     document.getElementById("res8_crit").value = Math.floor((res8_0+res8) * (2.5 + criticalMultiplier / 100));
-    document.getElementById("res9_crit").value = Math.floor(res9 * (2.5 + criticalMultiplier / 100));
+    document.getElementById("res9_crit").value = Math.floor(res9+res10 * (2.5 + criticalMultiplier / 100));
 }
 
 // 리셋 함수
