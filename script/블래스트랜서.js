@@ -95,11 +95,8 @@ function cal() {
     var res6 = calculateDamage2(res5, v15_1); // 차지 어설트 대미지
     document.getElementById("res6").value = Math.floor(res6);
 
-<<<<<<< HEAD
     var res7 = basedamage * (1 * v16 + v23) * (2 + v24) * ((1000 + 400 + (400 + v26d) * v4_2) / 1400) * (1 + (0.2 + v25) * v4_2) * (1+Number(v4)) // 랜스차지 대미지
-=======
-    var res7 = basedamage * ( Number(v16) + v23) * (2 + v24) * ((1000 + 400 + (400 + Number(v26d)) * Number(v4_2)) / 1400) * (1 + (0.2 + v25) * Number(v4_2) )* (1+Number(v4)) // 랜스차지 대미지
->>>>>>> 2ddfc65700951006e1eb00b63bf65aeb31459c5a
+
     document.getElementById("res7").value = Math.floor(res7);
 
     var res8_0 = calculateDamage(v16_0, 0); // 오버드라이브 찌르기 대미지
