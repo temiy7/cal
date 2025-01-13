@@ -133,7 +133,7 @@ function reset() {
     // 결과 필드 리셋
     var resultFields = ["res1", "res2", "res3", "res4", "res5", "res6", "res7",
         "res1_crit", "res2_crit", "res3_crit", "res4_crit", "res5_crit", "res6_crit","res7_crit",
-        "res8", "res8_crit", "res9", "res9_crit"];
+        "res8","res8_0", "res8_crit", "res10","res9", "res9_crit"];
     resultFields.forEach(field => document.getElementById(field).value = "");
 
     // 체크박스 리셋
