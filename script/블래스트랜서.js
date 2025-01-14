@@ -3,10 +3,16 @@ function cal() {
     var v1 = Number(document.getElementById("v1").value); // 최대공격력
     var v2 = Number(document.getElementById("v2").value); // 전장비율
     var v2_2 = $('input[name="v2_2"]').is(':checked') ? parseFloat($('input[name="v2_2"]').val()) : 0; // 물공포
-    var v3 =  $("#v3 option:selected").attr('value'); // 과열
+    var v3 =  Number(document.getElementById("v3").value); // 과열
+    if (v3<= 30) 
+        {v3=0.2*v3;
+    }else if (v3<=70)
+    {v3=0.25*v3;}
+    else if (v3<100)
+    {v3=0.3*v3;}
+    else {v3=0.4*v3}    
+
     var v3_1 = $("#v3_1 option:selected").attr('value'); // 아르카나 링크개
-
-
     // 무기와 에르그
     var v4 = $("#v4 option:selected").attr('value'); // 무기
     var v4_1 = $("#v4_1 option:selected").attr('value'); // 마력탄
@@ -38,7 +44,6 @@ function cal() {
     var v16_0 = $("#v16_1 option:selected").attr('value'); // 오버드라이브 찌르기
     var v16_1 = $("#v16_1 option:selected").attr('value2'); // 오버드라이브 폭발
     var v16_2 = Number(document.getElementById("v16_2").value); // 어나이얼레이션
-    var v16_3 = v16_3 = v3 + v4_1; // 어나일 폭발 계수
 
     //세공
     var v21 = Number(document.getElementById("v21").value);
@@ -108,7 +113,7 @@ function cal() {
     var res9 = calculateDamage(v16_2, 0); //어나이얼레이션 찌르기 대미지
     document.getElementById("res9").value = Math.floor(res9);
 
-    var res10 = res7 + Number(v3)*basedamage; //어나이얼레이션 폭발 대미지
+    var res10 = res7+basedamage*Number(v3); //어나이얼레이션 폭발 대미지
     document.getElementById("res10").value = Math.floor(res10);
 
     // 크리티컬 대미지 계산
