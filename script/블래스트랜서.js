@@ -6,12 +6,12 @@ function cal() {
     var v3 =  Number(document.getElementById("v3").value); // 과열
     var v3_2 =  Number(document.getElementById("v3_2").value); // 마나셀
     if (v3< 35) 
-        {v3=0.2*v3,v3_2=0.0002*v3_2;
+        {v3=0.2*v3,v3_2=0.06*v3_2;
     }else if (v3<70)
-    {v3=0.25*v3,v3_2=0.0003*v3_2;}
+    {v3=0.25*v3,v3_2=0.09*v3_2;}
     else if (v3<100)
-    {v3=0.32*v3,v3_2=0.0004*v3_2;}
-    else {v3=0.41*v3,v3_2=0.0005*v3_2}   
+    {v3=0.32*v3,v3_2=0.12*v3_2;}
+    else {v3=0.41*v3,v3_2=0.15*v3_2}   
 
     var v3_1 = $("#v3_1 option:selected").attr('value'); // 아르카나 링크개
     // 무기와 에르그
@@ -67,7 +67,7 @@ function cal() {
         v26d = v26 * 100
     }
 
-    var basedamage = (Number(v1) * (1 + 0.2 * v2_2) * (1 + (v2 / 100) * (1 + 0.2 * v2_2)))
+    var basedamage = ((Number(v1)+Number(v4_1)) * (1 + 0.2 * v2_2) * (1 + (v2 / 100) * (1 + 0.2 * v2_2)))
     document.getElementById("basedamage").value = basedamage.toFixed(1);
 
 
@@ -114,7 +114,7 @@ function cal() {
     var res9 = basedamage*Number(v16_2)*(1+Number(v3_1))*(1 + bonusDamage / 100); //어나이얼레이션 찌르기 대미지
     document.getElementById("res9").value = Math.floor(res9);
 
-    var res10 = res7+basedamage*(Number(v3)+Number(v3_2)*Number(v4_1))* (1+Number(v3_1))* (1 + bonusDamage / 100); //어나이얼레이션 폭발 대미지
+    var res10 = res7+(basedamage*Number(v3)+Number(v3_2))* (1+Number(v3_1))* (1 + bonusDamage / 100); //어나이얼레이션 폭발 대미지
     document.getElementById("res10").value = Math.floor(res10);
 
     // 크리티컬 대미지 계산
