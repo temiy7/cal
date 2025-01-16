@@ -14,6 +14,7 @@ function cal() {
     else {v3=0.41*v3,v3_2=0.15*v3_2}   
 
     var v3_1 = $("#v3_1 option:selected").attr('value'); // 아르카나 링크개
+    var v3_2 = $("#v3_1 option:selected").attr('value2'); // 아르카나 링크개
     // 무기와 에르그
     var v4 = $("#v4 option:selected").attr('value'); // 무기
     var v4_1 = $("#v4_1 option:selected").attr('value'); // 마력탄
@@ -114,7 +115,7 @@ function cal() {
     var res9 = basedamage*Number(v16_2)*(1+Number(v3_1))*(1 + bonusDamage / 100); //어나이얼레이션 찌르기 대미지
     document.getElementById("res9").value = Math.floor(res9);
 
-    var res10 = res7+(basedamage*Number(v3)+Number(v3_2))* (1+Number(v3_1))* (1 + bonusDamage / 100); //어나이얼레이션 폭발 대미지
+    var res10 = res7+(basedamage*Number(v3)+Number(v3_2))* (1+Number(v3_1))*(1+Number(v3_2))* (1 + bonusDamage / 100); //어나이얼레이션 폭발 대미지
     document.getElementById("res10").value = Math.floor(res10);
 
     // 크리티컬 대미지 계산
