@@ -87,7 +87,7 @@ function cal() {
     var res1 = calculateDamage(v13, v21); // 크로스버스터 대미지
     document.getElementById("res1").value = Math.floor(res1);
 
-    var res2 = calculateDamage2(res1, v13_1); // 임팩트크러쉬 대미지
+    var res2 = res1 + basedamage * v13_1 * (1+Number(v3_1))* (1 + bonusDamage / 100); // 임팩트크러쉬 대미지
     document.getElementById("res2").value = Math.floor(res2);
 
     var res3 = calculateDamage(v14, v22); // 클로져 대미지
