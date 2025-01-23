@@ -4,6 +4,11 @@ function cal() {
     //기본스텟
     var v1 = Number(document.getElementById("v1").value); // 마법공격력
     var v2 = Number(document.getElementById("v2").value); // 최댐인챈트
+    var v2_1 = Number(document.getElementById("v2_1").value); // 맥뎀
+    var v2_2 = Number(document.getElementById("v2_2").value); // 전장비
+    var v2_3 = $('input[name="v2_3"]').is(':checked') ? parseFloat($('input[name="v2_3"]').val()) : 1; //물공포
+
+    
     //마법최댐
     var v3 = Number(document.getElementById("v3").value); // 라볼트최댐
     var v4 = $('input[name="v4"]').is(':checked') ? parseFloat($('input[name="v4"]').val()) : 1; //라체상태
@@ -51,7 +56,7 @@ function cal() {
     //계산식
 
     var res1; //런지
-    res1 = ((6000 + v1 * 100) * (1 + 0.15 + 0.005 * v15 + 0.15 * v28)* (1 + (v29+v29_3 )/ 100) + ((2760 + 0.85*21 * v1 + 0.85*0.5 * v2 + 15 * v7) * (1 + 0.15 + 0.005 * v15 + 0.1 * v33 + 0.15 * v28)) * (1 + (v29+v29_1+v29_2+v29_3 )/100 )*(1+ (1*v34 +1*v30_1))) * v30 * v4;
+    res1 = ((6000 + v1 * 100) * (1 + 0.15 + 0.005 * v15 + 0.15 * v28)* (1 + (v29+v29_3 )/ 100) + ((2760 + 0.85*21 * v1 + 0.85*0.5 * (v2+v2_1*v2_2/100*(1+0.2*v2_3)) + 15 * v7) * (1 + 0.15 + 0.005 * v15 + 0.1 * v33 + 0.15 * v28)) * (1 + (v29+v29_1+v29_2+v29_3 )/100 )*(1+ (1*v34 +1*v30_1))) * v30 * v4;
     document.getElementById("res1").value = Math.floor(res1);
 
     var res1_1; // 런지 크리
@@ -59,7 +64,7 @@ function cal() {
     document.getElementById("res1_1").value = Math.floor(res1_1);
 
     var res2; //체인
-    res2 = ((800 + v1 * 11) * (1 + 0.15 + 0.005 * v14 + 0.15 * v28)* (1 + (v29+v29_3 )/ 100) + ((180 + 0.6 * v1 + 0.44 * v2 + 2.5 * v3 + (7 + 0.75 * v31) * v30_2) *1.1* (1 + 1.5 + 0.3 + 0.01 * v12 + 0.005 * v14 +  0.15 * v28 +0.1*v33))* (1 + (v29+v29_1+v29_2+v29_3 )/ 100)) * v30 ;
+    res2 = ((800 + v1 * 11) * (1 + 0.15 + 0.005 * v14 + 0.15 * v28)* (1 + (v29+v29_3 )/ 100) + ((180 + 0.6 * v1 + 0.44 * (v2+v2_1*v2_2/100*(1+0.2*v2_3)) + 2.5 * v3 + (7 + 0.75 * v31) * v30_2) *1.1* (1 + 1.5 + 0.3 + 0.01 * v12 + 0.005 * v14 +  0.15 * v28 +0.1*v33))* (1 + (v29+v29_1+v29_2+v29_3 )/ 100)) * v30 ;
     document.getElementById("res2").value = Math.floor(res2);
 
     var res2_1; //체인크리
@@ -68,7 +73,7 @@ function cal() {
 
 
     var res3; //스톰
-    res3 = ((1000 + v1 * 17) * (1 + 0.15 + 0.005 * v16 + 0.15 * v28+0.15*v27)* (1 + (v29+v29_3 )/ 100) + ((336 + 2.3 * v1 + 0.1 * v2 + 5 * v8) * (1 + 0.15 + 0.005 * v16 + 0.15 * v27 + 0.1 * v33 + 0.15 * v28) * v30_1* (1 + (v29+v29_1+v29_2+v29_3 )/ 100) *(1+ (1*v34 +1*v30_1)))) * v30 ;
+    res3 = ((1000 + v1 * 17) * (1 + 0.15 + 0.005 * v16 + 0.15 * v28+0.15*v27)* (1 + (v29+v29_3 )/ 100) + ((336 + 2.3 * v1 + 0.1 * (v2+v2_1*v2_2/100*(1+0.2*v2_3)) + 5 * v8) * (1 + 0.15 + 0.005 * v16 + 0.15 * v27 + 0.1 * v33 + 0.15 * v28) * v30_1* (1 + (v29+v29_1+v29_2+v29_3 )/ 100) *(1+ (1*v34 +1*v30_1)))) * v30 ;
     document.getElementById("res3").value = Math.floor(res3);
 
     var res3_1//스톰크리
