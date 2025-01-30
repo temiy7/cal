@@ -128,8 +128,10 @@ function cal() {
     document.getElementById("res5_crit").value = Math.floor(res5 * (2.5 + criticalMultiplier / 100));
     document.getElementById("res6_crit").value = Math.floor(res6 * (2.5 + criticalMultiplier / 100));
     document.getElementById("res7_crit").value = Math.floor(res7 * (2.5 + criticalMultiplier / 100));
-    document.getElementById("res8_crit").value = Math.floor((res8_0+res8) * (2.5 + criticalMultiplier / 100));
-    document.getElementById("res9_crit").value = Math.floor(res9+res10 * (2.5 + criticalMultiplier / 100));
+    document.getElementById("res8_crit0").value = Math.floor(res8_0 * (2.5 + criticalMultiplier / 100));
+    document.getElementById("res8_crit").value = Math.floor(res8 * (2.5 + criticalMultiplier / 100));
+    document.getElementById("res9_crit0").value = Math.floor(res9 * (2.5 + criticalMultiplier / 100));
+    document.getElementById("res10_crit").value = Math.floor(res10 * (2.5 + criticalMultiplier / 100));
 }
 
 // 리셋 함수
@@ -141,7 +143,7 @@ function reset() {
     // 결과 필드 리셋
     var resultFields = ["res1", "res2", "res3", "res4", "res5", "res6", "res7",
         "res1_crit", "res2_crit", "res3_crit", "res4_crit", "res5_crit", "res6_crit","res7_crit",
-        "res8","res8_0", "res8_crit", "res10","res9", "res9_crit"];
+        "res8","res8_0", "res8_crit", "res10","res9", "res9_crit0","res10_crit","res8_crit0"];
     resultFields.forEach(field => document.getElementById(field).value = "");
 
     // 체크박스 리셋
