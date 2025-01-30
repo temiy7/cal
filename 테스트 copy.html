@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마비노기 경매장 목록</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h2>마비노기 경매장 목록</h2>
+    
+    <label for="v3">아이템 선택: </label>
+    <select name="v3" id="v3" style="background:#D9E5FF" onchange="fetchData('v3')">
+        <option value="0" style="background:#87cefa" selected>없음</option>
+        <option value="10" data-label="[파티원-생명력 회복 속도 70%]" style="background:#87cefa">생명력 회복속도 70%</option>
+        <option value="10" data-label="[파티원-스테미나 회복 속도 70%]" style="background:#87cefa">스테미나 회복속도 70%</option>
+        <option value="10" data-label="[파티원-마나 회복 속도 70%]" style="background:#87cefa">마나 회복속도 70%</option>
+    </select> 경매장 최저가: <span id="v3-price">-</span><br>
+
+    <label for="v4">훈련장 인원: </label>
+    <select name="v4" id="v4" style="background:#D9E5FF" onchange="fetchData('v4')">
+        <option value="0" selected>없음</option>
+        <option value="0" data-label="[훈련 인원-4인]">4인</option>
+        <option value="0" data-label="[훈련 인원-6인]">6인</option>
+        <option value="-30" data-label="[훈련 인원-무제한]">무제한</option>
+    </select> 경매장 최저가: <span id="v4-price">-</span><br>
+
+    <script>
+        function fetchData(selectId) {
+            const selectElement = document.getElementById(selectId);
+            const selectedOption = selectElement.options[selectElement.selectedIndex];
+            const selectedItem = selectedOption.getAttribute("data-label") || selectedOption.value;
+
+            if (!selectedItem || selectedItem === "0") {
+                console.error("아이템이 선택되지 않았습니다.");
+                document.getElementById(selectId + "-price").textContent = "- G";
+                return;
+            }
+
+            const fullItemName = `알반 기사단의 훈련석 ${selectedItem}`;
+            const encodedItemName = encodeURIComponent(fullItemName);
+            console.log(`Fetching data for ${selectId}:`, fullItemName, "Encoded:", encodedItemName);
+            
+            fetch(`https://open.api.nexon.com/mabinogi/v1/auction/list?auction_item_category=%EC%95%8C%EB%B0%98%20%ED%9B%88%EB%A0%A8%EC%84%9D&item_name=${encodedItemName}`, {
+                headers: { 'x-nxopen-api-key': 'test_e029fef28e4f8314da748ec208ff1d1958582825ae14bb0f6b8ed2fca32514a2efe8d04e6d233bd35cf2fabdeb93fb0d' }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(`Received data for ${selectId}:`, data);
+                if (data.auction_item && data.auction_item.length > 0) {
+                    let lowestPrice = Math.min(...data.auction_item.map(item => item.auction_price_per_unit));
+                    document.getElementById(selectId + "-price").textContent = lowestPrice.toLocaleString() + " G";
+                } else {
+                    document.getElementById(selectId + "-price").textContent = "- G";
+                }
+            })
+            .catch(error => console.error("데이터를 불러오는 중 오류 발생:", error));
+        }
+    </script>
+</body>
+</html>

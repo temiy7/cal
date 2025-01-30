@@ -3,14 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>마비노기 마법 캐스팅 속도 계산기</title>
+    <title>알반훈련소 난이도 계산기</title>
     <link rel="stylesheet" href="css/cont.css">
-    <link rel="stylesheet" href="css/cont.css">
-    <script>
+    <script type="text/javascript" src="script/알반.js"></script>
+   <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-7RRZF9GD2Z');
     </script>
 
@@ -43,180 +42,7 @@
 
         }
     </style>
-    <link rel="stylesheet" href="css/cont.css">
 
-    <script>
-
-        function cal() {
-            var v1 = Number(document.getElementById("v1").value); // 난이도
-            var v2 = Number(document.getElementById("v2").value); // 몬스터
-            var v3 = Number(document.getElementById("v3").value); // 파티원
-            var v4 = Number(document.getElementById("v4").value); // 인원
-
-            var res1; //알반 더하기
-
-            res1 = v1 + v2 + v3 + v4;
-
-            document.getElementById("res1").value = res1;
-
-            var res2; //등급
-
-            if (res1 < 70) { res2 = "C" }
-            else if (res1 < 100) { res2 = "B" }
-            else if (res1 < 130) { res2 = "A" }
-            else if (res1 < 190) { res2 = "S" }
-            else { res2 = "SS" }
-
-            document.getElementById("res2").value = res2;
-
-
-            var res3; // A 만들기
-
-
-
-            if (res1 < 100 && (100 - res1) <= 10 && v2 == 0 && v3 != 0) { res3 = "몬스터 (생명력 150%~500%, 대미지 150%~500%, 몹등장수 150%~200% 보호/방어 110%~150% 지력/행운120%~200%)" }
-            else if (res1 < 100 && (100 - res1) <= 15 && v2 == 0 && v3 != 0) { res3 = "몬스터 (방어/보호120%~150%, 대미지/생명력 300%~500%, 등장수 150%~200%, 지력/행운 150%~200%)" }
-            else if (res1 < 100 && (100 - res1) <= 20 && v2 == 0 && v3 != 0) { res3 = "몬스터 (방어/보호120%~150%, 대미지/생명력 300~500%, 등장수 150~200%, 지력/행운 200% )" }
-            else if (res1 < 100 && (100 - res1) <= 25 && v2 == 0 && v3 != 0) { res3 = "몬스터 (방어/보호 150%, 대미지/생명력 300%~500%, 등장수200%)" }
-            else if (res1 < 100 && (100 - res1) <= 30 && v2 == 0 && v3 != 0) { res3 = "몬스터 (보호 150%, 대미지/생명력 300%~500%, 등장수 200%)" }
-            else if (res1 < 100 && (100 - res1) <= 40 && v2 == 0 && v3 != 0) { res3 = "몬스터 (등장수 200%, 생명력/대미지 500%)" }
-            else if (res1 < 100 && (100 - res1) <= 45 && v2 == 0 && v3 != 0) { res3 = "몬스터 (생명력/대미지 500%)" }
-
-            else if (res1 < 100 && (100 - res1) <= 10 && v2 != 0 && v3 == 0) { res3 = "파티원 (생/마/스 회복속도 50%~70%, 마법/궁술속도50%~70%, 근접대미지/생명력/크리티컬확률 50%~70%, 최대대미지 70%)" }
-            // else if (res1 < 100 && (100 - res1) <= 15 && v2 != 0 && v3 == 0) { res3 = "파티원 (생/마/스 회복속도 50%, 마법/궁술속도50%, 근접대미지/생명력/크리티컬확률 50%, 최대대미지 50%~70%)" }
-            else if (res1 < 100 && (100 - res1) <= 20 && v2 != 0 && v3 == 0) { res3 = "파티원 (생/마/스 회복속도 50%, 마법/궁술속도50%, 근접대미지/생명력/크리티컬확률 50%, 최대대미지 50%~70%)" }
-            else if (res1 < 100 && (100 - res1) <= 30 && v2 != 0 && v3 == 0) { res3 = "파티원 (생명력 50%, 최대대미지 50%)" }
-            else if (res1 < 100 && (100 - res1) <= 45 && v2 != 0 && v3 == 0) { res3 = "파티원 (최대대미지 50%)" }
-
-
-            else if (res1 < 100 && (100 - res1) <= 55 && v2 == 0 && v3 == 0) { res3 = "몬스터 (생명력 150%~500%, 대미지 150%~500%, 몹등장수 150%~200% 보호/방어 110%~150% 지력/행운120%~200%) " }
-            else if (res1 < 100 && (100 - res1) <= 60 && v2 == 0 && v3 == 0) { res3 = "몬스터 (방어/보호120%~150%, 대미지/생명력 300%~500%, 등장수 150%~200%, 지력/행운 150%~200%) " }
-            else if (res1 < 100 && (100 - res1) <= 65 && v2 == 0 && v3 == 0) { res3 = "몬스터 (방어/보호120%~150%, 대미지/생명력 300~500%, 등장수 150~200%, 지력/행운 200% ) " }
-            else if (res1 < 100 && (100 - res1) <= 70 && v2 == 0 && v3 == 0) { res3 = "몬스터 (보호 150%, 대미지/생명력 300%~500%, 등장수 200%) " }
-            else if (res1 < 100 && (100 - res1) <= 85 && v2 == 0 && v3 == 0) { res3 = "몬스터 (등장수 200%, 생명력/대미지 500%)" }
-            else if (res1 < 100 && (100 - res1) <= 90 && v2 == 0 && v3 == 0) { res3 = "몬스터 (생명력/대미지 500%)" }
-
-
-
-
-            else { res3 = "만들수 없거나 다음레벨로 넘어감" }
-
-
-            document.getElementById("res3").value = res3;
-
-
-            var res3_1; // A 만들기
-            if (res1 < 100 && (100 - res1) <= 55 && v2 == 0 && v3 == 0) { res3_1 = " 파티원 (생/마/스 회복속도 50%~70%, 마법/궁술속도50%~70%, 근접대미지/생명력/크리티컬확률 50%~70%, 최대대미지 70%)" }
-            else if (res1 < 100 && (100 - res1) <= 60 && v2 == 0 && v3 == 0) { res3_1 = " 파티원 (생/마/스 회복속도 50%, 마법/궁술속도50%, 근접대미지/생명력/크리티컬확률 50%, 최대대미지 50%~70%) " }
-            else if (res1 < 100 && (100 - res1) <= 65 && v2 == 0 && v3 == 0) { res3_1 = " 파티원 (생/마/스 회복속도 50%, 마법/궁술속도50%, 근접대미지/생명력/크리티컬확률 50%, 최대대미지 50%~70%)" }
-            else if (res1 < 100 && (100 - res1) <= 70 && v2 == 0 && v3 == 0) { res3_1 = " 파티원 (생명력 50%, 최대대미지 50%)" }
-            // else if (res1 < 100 && (100 - res1) <= 85 && v2 == 0 && v3 == 0) { res3_1 = " 파티원 (최대대미지 50%)" }
-            else if (res1 < 100 && (100 - res1) <= 90 && v2 == 0 && v3 == 0) { res3_1 = " 파티원 (최대대미지 50%)" }
-
-            else { res3_1 = "" }
-
-            document.getElementById("res3_1").value = res3_1;
-
-
-
-
-
-
-            var res4; // S 만들기
-
-            if (res1 < 130 && (130 - res1) <= 10 && v2 == 0 && v3 != 0) { res4 = "몬스터 (생명력 150%~500%, 대미지 150%~500%, 몹등장수 150%~200% 보호/방어 110%~150% 지력/행운120%~200%)" }
-            else if (res1 < 130 && (130 - res1) <= 15 && v2 == 0 && v3 != 0) { res4 = "몬스터 (방어/보호120%~150%, 대미지/생명력 300%~500%, 등장수 150%~200%, 지력/행운 150%~200%)" }
-            else if (res1 < 130 && (130 - res1) <= 20 && v2 == 0 && v3 != 0) { res4 = "몬스터 (방어/보호120%~150%, 대미지/생명력 300~500%, 등장수 150~200%, 지력/행운 200% )" }
-            else if (res1 < 130 && (130 - res1) <= 25 && v2 == 0 && v3 != 0) { res4 = "몬스터 (방어/보호 150%, 대미지/생명력 300%~500%, 등장수200%)" }
-            else if (res1 < 130 && (130 - res1) <= 30 && v2 == 0 && v3 != 0) { res4 = "몬스터 (보호 150%, 대미지/생명력 300%~500%, 등장수 200%)" }
-            else if (res1 < 130 && (130 - res1) <= 40 && v2 == 0 && v3 != 0) { res4 = "몬스터 (등장수 200%, 생명력/대미지 500%)" }
-            else if (res1 < 130 && (130 - res1) <= 45 && v2 == 0 && v3 != 0) { res4 = "몬스터 (생명력/대미지 500%)" }
-
-            else if (res1 < 130 && (130 - res1) <= 10 && v2 != 0 && v3 == 0) { res4 = "파티원 (생/마/스 회복속도 50%~70%, 마법/궁술속도50%~70%, 근접대미지/생명력/크리티컬확률 50%~70%, 최대대미지 70%)" }
-            // else if (res1 < 130 && (130 - res1) <= 15 && v2 != 0 && v3 == 0) { res4 = "파티원 (생/마/스 회복속도 50%, 마법/궁술속도50%, 근접대미지/생명력/크리티컬확률 50%, 최대대미지 50%~70%)" }
-            else if (res1 < 130 && (130 - res1) <= 20 && v2 != 0 && v3 == 0) { res4 = "파티원 (생/마/스 회복속도 50%, 마법/궁술속도50%, 근접대미지/생명력/크리티컬확률 50%, 최대대미지 50%~70%)" }
-            else if (res1 < 130 && (130 - res1) <= 30 && v2 != 0 && v3 == 0) { res4 = "파티원 (생명력 50%, 최대대미지 50%)" }
-            else if (res1 < 130 && (130 - res1) <= 45 && v2 != 0 && v3 == 0) { res4 = "파티원 (최대대미지 50%)" }
-
-
-
-            else if (res1 < 130 && (130 - res1) <= 55 && v2 == 0 && v3 == 0) { res4 = "몬스터 (생명력 150%~500%, 대미지 150%~500%, 몹등장수 150%~200% 보호/방어 110%~150% 지력/행운120%~200%) " }
-            else if (res1 < 130 && (130 - res1) <= 60 && v2 == 0 && v3 == 0) { res4 = "몬스터 (방어/보호120%~150%, 대미지/생명력 300%~500%, 등장수 150%~200%, 지력/행운 150%~200%) " }
-            else if (res1 < 130 && (130 - res1) <= 65 && v2 == 0 && v3 == 0) { res4 = "몬스터 (방어/보호120%~150%, 대미지/생명력 300~500%, 등장수 150~200%, 지력/행운 200% ) " }
-            else if (res1 < 130 && (130 - res1) <= 70 && v2 == 0 && v3 == 0) { res4 = "몬스터 (보호 150%, 대미지/생명력 300%~500%, 등장수 200%) " }
-            else if (res1 < 130 && (130 - res1) <= 85 && v2 == 0 && v3 == 0) { res4 = "몬스터 (등장수 200%, 생명력/대미지 500%) " }
-            else if (res1 < 130 && (130 - res1) <= 90 && v2 == 0 && v3 == 0) { res4 = "몬스터 (생명력/대미지 500%)" }
-
-            else { res4 = "만들수 없거나 다음레벨로 넘어감" }
-
-
-            document.getElementById("res4").value = res4;
-
-
-
-            var res4_1; // s 만들기
-            if (res1 < 130 && (130 - res1) <= 55 && v2 == 0 && v3 == 0) { res4_1 = " 파티원 (생/마/스 회복속도 50%~70%, 마법/궁술속도50%~70%, 근접대미지/생명력/크리티컬확률 50%~70%, 최대대미지 70%)" }
-            else if (res1 < 130 && (130 - res1) <= 60 && v2 == 0 && v3 == 0) { res4_1 = " 파티원 (생/마/스 회복속도 50%, 마법/궁술속도50%, 근접대미지/생명력/크리티컬확률 50%, 최대대미지 50%~70%) " }
-            else if (res1 < 130 && (130 - res1) <= 65 && v2 == 0 && v3 == 0) { res4_1 = " 파티원 (생/마/스 회복속도 50%, 마법/궁술속도50%, 근접대미지/생명력/크리티컬확률 50%, 최대대미지 50%~70%)" }
-            else if (res1 < 130 && (130 - res1) <= 70 && v2 == 0 && v3 == 0) { res4_1 = " 파티원 (생명력 50%, 최대대미지 50%)" }
-            // else if (res1 < 130 && (130 - res1) <= 85 && v2 == 0 && v3 == 0) { res4_1 = " 파티원 (최대대미지 50%)" }
-            else if (res1 < 130 && (130 - res1) <= 90 && v2 == 0 && v3 == 0) { res4_1 = " 파티원 (최대대미지 50%)" }
-
-            else { res4_1 = "" }
-
-            document.getElementById("res4_1").value = res4_1;
-
-
-
-            var res5; // SS 만들기
-
-            if (res1 < 190 && (190 - res1) <= 10 && v2 == 0 && v3 != 0) { res5 = "몬스터 (생명력 150%~500%, 대미지 150%~500%, 몹등장수 150%~200% 보호/방어 110%~150% 지력/행운120%~200%)" }
-            else if (res1 < 190 && (190 - res1) <= 15 && v2 == 0 && v3 != 0) { res5 = "몬스터 (방어/보호120%~150%, 대미지/생명력 300%~500%, 등장수 150%~200%, 지력/행운 150%~200%)" }
-            else if (res1 < 190 && (190 - res1) <= 20 && v2 == 0 && v3 != 0) { res5 = "몬스터 (방어/보호120%~150%, 대미지/생명력 300~500%, 등장수 150~200%, 지력/행운 200% )" }
-            else if (res1 < 190 && (190 - res1) <= 25 && v2 == 0 && v3 != 0) { res5 = "몬스터 (방어/보호 150%, 대미지/생명력 300%~500%, 등장수200%)" }
-            else if (res1 < 190 && (190 - res1) <= 30 && v2 == 0 && v3 != 0) { res5 = "몬스터 (보호 150%, 대미지/생명력 300%~500%, 등장수 200%)" }
-            else if (res1 < 190 && (190 - res1) <= 40 && v2 == 0 && v3 != 0) { res5 = "몬스터 (등장수 200%, 생명력/대미지 500%)" }
-            else if (res1 < 190 && (190 - res1) <= 45 && v2 == 0 && v3 != 0) { res5 = "몬스터 (생명력/대미지 500%)" }
-
-            else if (res1 < 190 && (190 - res1) <= 10 && v2 != 0 && v3 == 0) { res5 = "파티원 (생/마/스 회복속도 50%~70%, 마법/궁술속도50%~70%, 근접대미지/생명력/크리티컬확률 50%~70%, 최대대미지 50~70%)" }
-            // else if (res1 < 190 && (190 - res1) <= 15 && v2 != 0 && v3 == 0) { res5 = "파티원 (생/마/스 회복속도 50%, 마법/궁술속도50%, 근접대미지/생명력/크리티컬확률 50%, 최대대미지 50%~70%)" }
-            else if (res1 < 190 && (190 - res1) <= 20 && v2 != 0 && v3 == 0) { res5 = "파티원 (생/마/스 회복속도 50%, 마법/궁술속도50%, 근접대미지/생명력/크리티컬확률 50%, 최대대미지 50%~70%)" }
-            else if (res1 < 190 && (190 - res1) <= 30 && v2 != 0 && v3 == 0) { res5 = "파티원 (생명력 50%, 최대대미지 50%)" }
-            else if (res1 < 190 && (190 - res1) <= 45 && v2 != 0 && v3 == 0) { res5 = "파티원 (최대대미지 50%)" }
-
-
-            else if (res1 < 190 && (190 - res1) <= 55 && v2 == 0 && v3 == 0) { res5 = "몬스터 (생명력 150%~500%, 대미지 150%~500%, 몹등장수 150%~200% 보호/방어 110%~150% 지력/행운120%~200%) " }
-            else if (res1 < 190 && (190 - res1) <= 60 && v2 == 0 && v3 == 0) { res5 = "몬스터 (방어/보호120%~150%, 대미지/생명력 300%~500%, 등장수 150%~200%, 지력/행운 150%~200%) " }
-            else if (res1 < 190 && (190 - res1) <= 65 && v2 == 0 && v3 == 0) { res5 = "몬스터 (방어/보호120%~150%, 대미지/생명력 300~500%, 등장수 150~200%, 지력/행운 200% ) " }
-            else if (res1 < 190 && (190 - res1) <= 70 && v2 == 0 && v3 == 0) { res5 = "몬스터 (보호 150%, 대미지/생명력 300%~500%, 등장수 200%) " }
-            else if (res1 < 190 && (190 - res1) <= 85 && v2 == 0 && v3 == 0) { res5 = "몬스터 (등장수 200%, 생명력/대미지 500%) " }
-            else if (res1 < 190 && (190 - res1) <= 90 && v2 == 0 && v3 == 0) { res5 = "몬스터 (생명력/대미지 500%)" }
-
-            else { res5 = "만들수 없거나 다음레벨로 넘어감" }
-
-
-            document.getElementById("res5").value = res5;
-
-
-            var res5_1; // ss 만들기
-            if (res1 < 190 && (190 - res1) <= 55 && v2 == 0 && v3 == 0) { res5_1 = " 파티원 (생/마/스 회복속도 50%~70%, 마법/궁술속도50%~70%, 근접대미지/생명력/크리티컬확률 50%~70%, 최대대미지 70%)" }
-            else if (res1 < 190 && (190 - res1) <= 60 && v2 == 0 && v3 == 0) { res5_1 = " 파티원 (생/마/스 회복속도 50%, 마법/궁술속도50%, 근접대미지/생명력/크리티컬확률 50%, 최대대미지 50%~70%) " }
-            else if (res1 < 190 && (190 - res1) <= 65 && v2 == 0 && v3 == 0) { res5_1 = " 파티원 (생/마/스 회복속도 50%, 마법/궁술속도50%, 근접대미지/생명력/크리티컬확률 50%, 최대대미지 50%~70%)" }
-            else if (res1 < 190 && (190 - res1) <= 70 && v2 == 0 && v3 == 0) { res5_1 = " 파티원 (생명력 50%, 최대대미지 50%)" }
-            // else if (res1 < 190 && (190 - res1) <= 85 && v2 == 0 && v3 == 0) { res5_1 = " 파티원 (최대대미지 50%)" }
-            else if (res1 < 190 && (190 - res1) <= 90 && v2 == 0 && v3 == 0) { res5_1 = " 파티원 (최대대미지 50%)" }
-
-            else { res5_1 = "" }
-
-            document.getElementById("res5_1").value = res5_1;
-
-
-
-
-
-        }
-
-    </script>
 </head>
 
 <body>
@@ -230,89 +56,90 @@
             혹시 계산이 정확하지 않거나 틀린부분이 있다면 만돌린서버 "템이" 로 쪽지 부탁드립니다. <br> <br>
 
         </div>
-        훈련장 난이도
-        <select name="v1" id="v1" style="background:#D9E5FF" onchange="cal()">
-            <option value="0" selected>없음</option>
-            <option value="50">중급</option>
-            <option value="70">상급</option>
-            <option value="100">하드-일반</option>
-            <option value="130">하드-중급</option>
+        <label for="v1">훈련장 난이도</label>
+        <select name="v1" id="v1" style="background:#D9E5FF" onchange="cal();fetchData('v1')">
+            <option value="0"  selected>없음</option>
+            <option value="50" data-label="[난이도-중급]">중급</option>
+            <option value="70" data-label="[난이도-상급]">상급</option>
+            <option value="100" data-label="[난이도-하드 일반]">하드-일반</option>
+            <option value="130" data-label="[난이도-하드 중급]">하드-중급</option>
 
-        </select><br>
+        </select>(경매장 최저가: <span id="v1-price">-</span>)<br>
 
-        몬스터 훈련석
-        <select name="v2" id="v2" style="background:#D9E5FF" onchange="cal()">
+        <label for="v2">몬스터 훈련석</label>
+        <select name="v2" id="v2" style="background:#D9E5FF" onchange="cal();fetchData('v2')">
             <option value="0" style="background:#87cefa" selected>없음</option>
 
-            <option value="10" style="background:#87cefa">생명력 150%</option>
-            <option value="10" style="background:#87cefa">대미지 150%</option>
-            <option value="10" style="background:#87cefa">보호 110%</option>
-            <option value="10" style="background:#87cefa">방어 110%</option>
-            <option value="10" style="background:#87cefa">지력 120%</option>
-            <option value="10" style="background:#87cefa">행운 120%</option>
-
-            <option value="15" style="background:#7b68ee">방어 120%</option>
-            <option value="15" style="background:#7b68ee">지력 150%</option>
-            <option value="15" style="background:#7b68ee">행운 150%</option>
-
-            <option value="20" style="background:#7b68ee">보호 120%</option>
-            <option value="20" style="background:#4682b4">등장수 150%</option>
-            <option value="20" style="background:#4682b4">지력 200%</option>
-            <option value="20" style="background:#4682b4">행운 200%</option>
-
-            <option value="25" style="background:#b0e0e6">방어 150%</option>
-
-            <option value="30" style="background:#48d1cc">보호 150%</option>
-            <option value="30" style="background:#48d1cc">대미지 300%</option>
-            <option value="30" style="background:#48d1cc">생명력 300%</option>
-
-            <option value="40" style="background:#5f9ea0">등장수 200%</option>
-
-            <option value="45" style="background:#4169e1">생명력 500%</option>
-            <option value="45" style="background:#4169e1">대미지 500%</option>
-
-
-
+            <option value="10" data-label="[몬스터-생명력 150%]" style="background:#87cefa">생명력 150%</option>
+            <option value="10" data-label="[몬스터-대미지 150%]" style="background:#87cefa">대미지 150%</option>
+            <option value="10" data-label="[몬스터-보호 110%]" style="background:#87cefa">보호 110%</option>
+            <option value="10" data-label="[몬스터-방어 110%]" style="background:#87cefa">방어 110%</option>
+            <option value="10" data-label="[몬스터-지력 120%]" style="background:#87cefa">지력 120%</option>
+            <option value="10" data-label="[몬스터-행운 120%]" style="background:#87cefa">행운 120%</option>
+            
+            <option value="15" data-label="[몬스터-방어 120%]" style="background:#7b68ee">방어 120%</option>
+            <option value="15" data-label="[몬스터-지력 150%]" style="background:#7b68ee">지력 150%</option>
+            <option value="15" data-label="[몬스터-행운 150%]" style="background:#7b68ee">행운 150%</option>
+            
+            <option value="20" data-label="[몬스터-보호 120%]" style="background:#7b68ee">보호 120%</option>
+            <option value="20" data-label="[몬스터-등장 수 150%]" style="background:#4682b4">등장수 150%</option>
+            <option value="20" data-label="[몬스터-지력 200%]" style="background:#4682b4">지력 200%</option>
+            <option value="20" data-label="[몬스터-행운 200%]" style="background:#4682b4">행운 200%</option>
+            
+            <option value="25" data-label="[몬스터-방어 150%]" style="background:#b0e0e6">방어 150%</option>
+            
+            <option value="30" data-label="[몬스터-보호 150%]" style="background:#48d1cc">보호 150%</option>
+            <option value="30" data-label="[몬스터-대미지 300%]" style="background:#48d1cc">대미지 300%</option>
+            <option value="30" data-label="[몬스터-생명력 300%]" style="background:#48d1cc">생명력 300%</option>
+            
+            <option value="40" data-label="[몬스터-등장 수 200%]" style="background:#5f9ea0">등장수 200%</option>
+            
+            <option value="45" data-label="[몬스터-생명력 500%]" style="background:#4169e1">생명력 500%</option>
+            <option value="45" data-label="[몬스터-대미지 500%]" style="background:#4169e1">대미지 500%</option>
+            
 
 
-        </select><br>
-
-        파티원 훈련석
-        <select name="v3" id="v3" style="background:#D9E5FF" onchange="cal()">
-            <option value="0" style="background:#87cefa" selected>없음</option>
-
-            <option value="10" style="background:#87cefa">생명력 회복속도 70%</option>
-            <option value="10" style="background:#87cefa">스테미나 회복속도 70%</option>
-            <option value="10" style="background:#87cefa">마나 회복속도 70%</option>
-            <option value="10" style="background:#87cefa">근접 스킬대미지 70%</option>
-            <option value="10" style="background:#87cefa">마법 시전속도 70%</option>
-            <option value="10" style="background:#87cefa">궁술 조준속도 70%</option>
-            <option value="10" style="background:#87cefa">크리티컬확률 70%</option>
-            <option value="10" style="background:#87cefa">생명력 70%</option>
-
-            <option value="20" style="background:#7b68ee">생명력 회복속도 50%</option>
-            <option value="20" style="background:#7b68ee">스테미나 회복속도 50%</option>
-            <option value="20" style="background:#7b68ee">근접 스킬 대미지50%</option>
-            <option value="20" style="background:#7b68ee">마법 시전속도 50%</option>
-            <option value="20" style="background:#7b68ee">궁술 조준속도 50%</option>
-            <option value="20" style="background:#7b68ee">크리티컬확률 50%</option>
-            <option value="20" style="background:#7b68ee">최대 대미지 70%</option>
-
-            <option value="30" style="background:#5f9ea0">생명력 50%</option>
-
-            <option value="45" style="background:#4169e1">최대 대미지 50%</option>
-
-        </select><br>
 
 
-        훈련장 인원
-        <select name="v4" id="v4" style="background:#D9E5FF" onchange="cal()">
+        </select>(경매장 최저가: <span id="v2-price">-</span>)<br>
+
+        <label for="v3">파티원 훈련석</label>
+        <select name="v3" id="v3" style="background:#D9E5FF" onchange="cal();fetchData('v3')">
+            <option value="0" data-label="없음" style="background:#87cefa" selected>없음</option>
+
+            <option value="10" data-label="[파티원-생명력 회복 속도 70%]" style="background:#87cefa">생명력 회복속도 70%</option>
+            <option value="10" data-label="[파티원-스테미나 회복 속도 70%]" style="background:#87cefa">스테미나 회복속도 70%</option>
+            <option value="10" data-label="[파티원-마나 회복 속도 70%]" style="background:#87cefa">마나 회복속도 70%</option>
+            <option value="10" data-label="[파티원-근접 스킬 대미지 70%]" style="background:#87cefa">근접 스킬대미지 70%</option>
+            <option value="10" data-label="[파티원-마법 시전 속도 70%]" style="background:#87cefa">마법 시전속도 70%</option>
+            <option value="10" data-label="[파티원-궁수 조준 속도 70%]" style="background:#87cefa">궁술 조준속도 70%</option>
+            <option value="10" data-label="[파티원-크리티컬 확률 70%]" style="background:#87cefa">크리티컬확률 70%</option>
+            <option value="10" data-label="[파티원-생명력 70%]" style="background:hsl(203, 92%, 75%)">생명력 70%</option>
+            
+            <option value="20" data-label="[파티원-생명력 회복 속도 50%]" style="background:#7b68ee">생명력 회복속도 50%</option>
+            <option value="20" data-label="[파티원-스테미나 회복 속도 50%]" style="background:#7b68ee">스테미나 회복속도 50%</option>
+            <option value="20" data-label="[파티원-근접 스킬 대미지 50%]" style="background:#7b68ee">근접 스킬 대미지 50%</option>
+            <option value="20" data-label="[파티원-마법 시전 속도 50%]" style="background:#7b68ee">마법 시전속도 50%</option>
+            <option value="20" data-label="[파티원-궁수 조준 속도 50%]" style="background:#7b68ee">궁술 조준속도 50%</option>
+            <option value="20" data-label="[파티원-크리티컬 확률 50%]" style="background:#7b68ee">크리티컬확률 50%</option>
+            <option value="20" data-label="[파티원-최대 대미지 70%]" style="background:#7b68ee">최대 대미지 70%</option>
+            
+            <option value="30" data-label="[파티원-생명력 50%]" style="background:#5f9ea0">생명력 50%</option>
+            
+            <option value="45" data-label="[파티원-최대 대미지 50%]" style="background:#4169e1">최대 대미지 50%</option>
+
+        </select> (경매장 최저가: <span id="v3-price">-</span>)<br>
+
+
+        <label for="v4">훈련장 인원</label>
+
+        <select name="v4" id="v4" style="background:#D9E5FF" onchange="cal();fetchData('v4')">
             <option value="0" selected>없음</option>
-            <option value="0">4인</option>
-            <option value="0">6인</option>
-            <option value="-30">무제한</option>
+            <option value="0" data-label="[훈련 인원-4인]">4인</option>
+            <option value="0" data-label="[훈련 인원-6인]">6인</option>
+            <option value="-30" data-label="[훈련 인원-무제한]">무제한</option>
+        </select> ,경매장 최저가 <span id="v4-price">-</span><br>
 
-        </select><br>
         <br>
         <div style="height: auto; width: 250px; border: 1px solid; padding:10px">
             보상 점수:
@@ -342,6 +169,7 @@
 
 
     </div>
+
 
     <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 <script type="text/javascript">
