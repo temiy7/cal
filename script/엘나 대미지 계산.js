@@ -115,6 +115,8 @@ function cal() {
     var v18 =  Number(document.getElementById("v18").value); //스매시 최댐 세공
     var v19 =  Number(document.getElementById("v19").value); //윈드밀 최댐 세공
     var v20 =  Number(document.getElementById("v20").value); //다운어택 최댐 세공
+    var v24 = $('input[name="v24"]').is(':checked') ? parseFloat($('input[name="v24"]').val()) : 0; // 빙결해제보너스
+
 
 
 
@@ -170,7 +172,7 @@ function cal() {
 
 
     var res4; //라스매 엘-인
-    res4 = res0*((1*v1+0.1*v18)*(1+0.15*v15)*(1+0.2*v17)*(1+1*v22)+(1*v1_0+1*v14*v1_01))*(1+v7/100)
+    res4 = res0*(((1*v1)+0.1*v18)*(1+0.15*v15)*(1+0.2*v17)*(1+1*v22)+((1*v1_0+6*v14+12*v24)))*(1+v7/100)
     document.getElementById("res4").value = Math.floor(res4);
 
     var res4c; //라스매 엘-인 크리
@@ -178,7 +180,7 @@ function cal() {
     document.getElementById("res4c").value = Math.floor(res4c);
 
     var res4_1; //라스매 자이언트
-    res4_1 = res0*((1*v1_1+0.1*v18)*(1+0.15*v15)*(1+0.2*v17)*(1+1*v22)+(1*v1_0+1*v14*v1_01))*(1+v7/100)
+    res4_1 = res0*(((1*v1_1)+0.1*v18)*(1+0.15*v15)*(1+0.2*v17)*(1+1*v22)+((1*v1_0+6*v14+12*v24)))*(1+v7/100)
     document.getElementById("res4_1").value = Math.floor(res4_1);
 
     var res4_1c; //라스매 엘-인
@@ -203,7 +205,7 @@ function cal() {
     // document.getElementById("res5_0c").value = Math.floor(res5_0c);
 
     var res5_1; //아윈밀 엘프
-    res5_1 =res0*((1*v2_1+0.03*v19+0.3*v16)*(1+0.15*v22_1)+((1*v2_0+v14*v2_02)))*(1+v7/100)
+    res5_1 =res0*((1*v2_1+0.03*v19+0.3*v16)*(1+0.15*v22_1)+((1*v2_0+4.5*v14)))*(1+v7/100)
     document.getElementById("res5_1").value = Math.floor(res5_1);
 
     var res5_1c; //크리
@@ -219,7 +221,7 @@ function cal() {
     // document.getElementById("res5_10c").value = Math.floor(res5_10c);
 
     var res6; //파이어리프어택
-    res6 =res0*((1*v3+0.04*v20)*(1+0.15*v21)+(1*v3_0+1*v14*v3_01))*(1+v7/100)
+    res6 =res0*(((1*v3)+0.04*v20)*(1+0.15*v21)+((1*v3_0+4*v14)+1*v14*v3_01))*(1+v7/100)
     document.getElementById("res6").value = Math.floor(res6);
 
     var res6c; //크리

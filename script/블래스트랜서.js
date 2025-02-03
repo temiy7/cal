@@ -81,7 +81,7 @@ function cal() {
     }
 
     function calculateDamage2(baseskill, arkana) {
-        return Number(baseskill) + basedamage * Number(arkana) * (1 + bonusDamage / 100);
+        return Number(baseskill) + basedamage * Number(arkana)*(1+Number(v3_1)) * (1 + bonusDamage / 100);
     }
 
     var res1 = calculateDamage(v13, v21); // 크로스버스터 대미지
