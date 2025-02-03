@@ -176,7 +176,7 @@ function fetchData(selectId) {
     console.log(`Fetching data for ${selectId}:`, fullItemName, "Encoded:", encodedItemName);
     
     fetch(`https://open.api.nexon.com/mabinogi/v1/auction/list?auction_item_category=%EC%95%8C%EB%B0%98%20%ED%9B%88%EB%A0%A8%EC%84%9D&item_name=${encodedItemName}`, {
-        headers: { 'x-nxopen-api-key': 'test_e029fef28e4f8314da748ec208ff1d1958582825ae14bb0f6b8ed2fca32514a2efe8d04e6d233bd35cf2fabdeb93fb0d' }
+        headers: { 'x-nxopen-api-key': 'live_e029fef28e4f8314da748ec208ff1d19523530c09077972ec39facefcb99235defe8d04e6d233bd35cf2fabdeb93fb0d' }
     })
     .then(response => response.json())
     .then(data => {
