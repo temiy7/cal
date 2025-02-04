@@ -1,0 +1,13 @@
+{
+    "name": "cal",
+    "version": "1.0.0",
+    "description": "Client project for cal repository",
+    "main": "index.js",
+    "scripts": {
+      "build": "echo 'No build step defined yet.'",
+      "start": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+  }
