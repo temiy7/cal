@@ -3,11 +3,11 @@ name: client
 on:
   push:
     branches:
-      - main  # 또는 배포를 원하는 브랜치
+      - main # 또는 배포를 원하는 브랜치
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout source code
@@ -25,4 +25,17 @@ jobs:
 
       - name: Verify replacement in 알반.js
         run: cat script/알반.js
-          
+  deploy:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    needs: jekyll-build
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+    steps:
+      - name: Deploy artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
