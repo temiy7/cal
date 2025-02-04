@@ -25,3 +25,9 @@ jobs:
 
       - name: Verify replacement in 알반.js
         run: cat script/알반.js
+
+      - name: Prepare deployment artifact
+        run: |
+          # 빌드 산출물이 "build" 폴더에 생성되었다고 가정하고, 이를 "docs" 폴더로 옮깁니다.
+          rm -rf docs
+          mv build docs
