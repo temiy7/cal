@@ -1,14 +1,14 @@
-name: client
+name: Client Build and Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # 또는 배포를 원하는 브랜치
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
@@ -21,13 +21,35 @@ jobs:
 
       - name: Inject API Key into built file
         run: |
-          sed -i "s/MABINOGI_API_KEY/${{vars.MABINOGI_API_KEY}}/g" script/알반.js
+          sed -i "s|MABINOGI_API_KEY|${{ secrets.MABINOGI_API_KEY }}|g" script/알반.js
 
       - name: Verify replacement in 알반.js
         run: cat script/알반.js
 
-      # - name: Prepare deployment artifact
-      #   run: |
-      #     # 빌드 산출물이 "build" 폴더에 생성되었다고 가정하고, 이를 "docs" 폴더로 옮깁니다.
-      #     rm -rf docs
-      #     rsync -av --exclude='.git' . docs
+      - name: Prepare deployment artifact
+        run: |
+          rm -rf docs
+          mkdir docs
+          # 예시: 루트에 생성된 HTML 파일과 assets 폴더를 docs로 복사
+          cp *.html docs/
+          cp -r assets docs/
+          # 추가적으로 필요한 파일들을 복사할 수 있습니다.
+
+      - name: Upload artifact for deployment
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
