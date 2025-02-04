@@ -164,7 +164,7 @@ function fetchData(selectId) {
     const selectElement = document.getElementById(selectId);
     const selectedOption = selectElement.options[selectElement.selectedIndex];
     const selectedItem = selectedOption.getAttribute("data-label") || selectedOption.value;
-    const MABINOGI_KEY = 'MABINOGI_API_KEY';
+    const MABINOGI_KEY = MABINOGI_API_KEY;
 
 
     if (!selectedItem || selectedItem === "0") {
