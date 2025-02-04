@@ -29,11 +29,7 @@ jobs:
       - name: Prepare deployment artifact
         run: |
           rm -rf docs
-          mkdir docs
-          # 예시: 루트에 생성된 HTML 파일과 assets 폴더를 docs로 복사
-          cp *.html docs/
-          cp -r assets docs/
-          # 추가적으로 필요한 파일들을 복사할 수 있습니다.
+          rsync -av --exclude='.git' . docs
 
       - name: Upload artifact for deployment
         uses: actions/upload-pages-artifact@v3
