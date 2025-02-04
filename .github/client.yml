@@ -7,11 +7,11 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04.1
 
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         working-directory: ./cal  # 실제 프로젝트 디렉터리 경로로 수정
@@ -22,6 +22,6 @@ jobs:
         run: npm run build
 
       - name: Inject API Key into built file
-        working-directory: ./cal  # 빌드 결과물이 위치한 디렉터리
+        working-directory: ./cal # 빌드 결과물이 위치한 디렉터리
         run: |
-          sed -i "s/MABINOGI_API_KEY/${{secrets.MABINOGI_API_KEY}}/g" build/js/main.js
+          sed -i "s/MABINOGI_API_KEY/${{secrets.MABINOGI_API_KEY}}/g" script/알반.js
