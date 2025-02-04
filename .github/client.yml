@@ -1,4 +1,4 @@
-name: Build and Deploy Client
+name: client
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: Install dependencies
         working-directory: ./cal  # 실제 프로젝트 디렉터리 경로로 수정
