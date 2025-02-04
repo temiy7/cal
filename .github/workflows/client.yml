@@ -21,7 +21,7 @@ jobs:
 
       - name: Inject API Key into built file
         run: |
-          sed -i "s/MABINOGI_API_KEY/${{variables.MABINOGI_API_KEY}}/g" script/알반.js
+          sed -i "s/MABINOGI_API_KEY/${{vars.MABINOGI_API_KEY}}/g" script/알반.js
 
       - name: Verify replacement in 알반.js
         run: cat script/알반.js
