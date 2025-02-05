@@ -102,7 +102,7 @@ function cal() {
     var res6 = calculateDamage2(res5, v15_1); // 차지 어설트 대미지
     document.getElementById("res6").value = Math.floor(res6);
 
-    var res7 = basedamage * (1 * v16 + v23) * (2 + v24) * ((1000 + 400 + (400 + v26d) * v4_2) / 1400) * (1 + (0.2 + v25) * v4_2) * (1+Number(v4)) // 랜스차지 대미지
+    var res7 = basedamage * (v16 + 0.04*v23) * (2 + 0.025*v24) * ((1000 + (400 + v26d) * v4_2) / 1000) * (1 + (0.2 + v25) * v4_2) * (1+Number(v4)) // 랜스차지 대미지
 
     document.getElementById("res7").value = Math.floor(res7);
 
