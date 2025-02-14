@@ -102,20 +102,20 @@ function cal() {
     var res6 = calculateDamage2(res5, v15_1); // 차지 어설트 대미지
     document.getElementById("res6").value = Math.floor(res6);
 
-    var res7 = basedamage * (Number(v16) + v23) * (2 + v24) * ((1000 + (400 + v26d) * v4_2) / 1000) * (1 + (0.2 + v25) * v4_2) * (1+Number(v4)) // 랜스차지 대미지
+    var res7 = basedamage * (Number(v16) + v23) * (2 + v24) * ((1000 + (400 + v26d) * v4_2) / 1000) * (1 + (0.2 + v25) * v4_2) * (1+Number(v4))*(1 + bonusDamage / 100) // 랜스차지 대미지
 
     document.getElementById("res7").value = Math.floor(res7);
 
     var res8_0 = basedamage*Number(v16_0)*(1+Number(v3_1))*(1 + bonusDamage / 100); // 오버드라이브 찌르기 대미지
     document.getElementById("res8_0").value = Math.floor(res8_0);
 
-    var res8 = calculateDamage2(res7, v16_1); // 오버드라이브 폭발 대미지
+    var res8 = res7* (1+Number(v3_1))+basedamage*Number(v16_1)*(1+Number(v3_1)) * (1 + bonusDamage / 100); // 오버드라이브 폭발 대미지
     document.getElementById("res8").value = Math.floor(res8);
 
     var res9 = basedamage*Number(v16_2)*(1+Number(v3_1))*(1 + bonusDamage / 100); //어나이얼레이션 찌르기 대미지
     document.getElementById("res9").value = Math.floor(res9);
 
-    var res10 = res7+(basedamage*Number(v3)+Number(v3_2))* (1+Number(v3_1))*(1+Number(v3_2))* (1 + bonusDamage / 100); //어나이얼레이션 폭발 대미지
+    var res10 = res7* (1+Number(v3_1))+(basedamage*Number(v3)+Number(v3_2))* (1+Number(v3_1))*(1+Number(v3_2))* (1 + bonusDamage / 100); //어나이얼레이션 폭발 대미지
     document.getElementById("res10").value = Math.floor(res10);
 
     // 크리티컬 대미지 계산

@@ -116,6 +116,10 @@ function cal() {
     var v19 =  Number(document.getElementById("v19").value); //윈드밀 최댐 세공
     var v20 =  Number(document.getElementById("v20").value); //다운어택 최댐 세공
     var v24 = $('input[name="v24"]').is(':checked') ? parseFloat($('input[name="v24"]').val()) : 0; // 빙결해제보너스
+    var v25 =  $("#v25 option:selected").attr('value'); // 배쉬
+    var v26 =  $("#v26 option:selected").attr('value'); // 마이트
+    var v27 =  $("#v26 option:selected").attr('value1'); // 브레스
+
 
 
 
@@ -130,7 +134,7 @@ function cal() {
     document.getElementById("res0").value = Math.floor(res0);
 
     var res1; //스매시 대미지 인간-엘프
-    res1 = res0*(1*v1+0.1*v18)*(1+0.15*v15+v8/100)*(1+0.2*v17)*(1+v7/100)*(1+1*v22)
+    res1 = res0*(1*v1+0.1*v18)*(1+0.15*v15+v8/100)*(1+0.2*v17)*(1+v7/100)*(1+1*v22)*(1+1*v25)*(1+1*v27)
     document.getElementById("res1").value = Math.floor(res1);
 
     var res1c; //스매시 대미지 인간-엘프 크
@@ -138,7 +142,7 @@ function cal() {
     document.getElementById("res1c").value = Math.floor(res1c);
 
     var res1_1; //스매시 대미지 자이언트
-    res1_1 = res0*(1*v1_1+0.1*v18)*(1+0.15*v15+v8/100)*(1+0.2*v17)*(1+v7/100)*(1+1*v22)
+    res1_1 = res0*(1*v1_1+0.1*v18)*(1+0.15*v15+v8/100)*(1+0.2*v17)*(1+v7/100)*(1+1*v22)*(1+1*v25)*(1+1*v26)
     document.getElementById("res1_1").value = Math.floor(res1_1);
 
     var res1_1c; //스매시 대미지  자이언트 크리
@@ -146,7 +150,7 @@ function cal() {
     document.getElementById("res1_1c").value = Math.floor(res1_1c);
 
     var res2; //윈드밀 대미지 인간-자이언트
-    res2 = res0*(1*v2+0.03*v19+0.3*v16)*(1+v9/100)*(1+1*v22_1)*(1+v7/100)
+    res2 = res0*(1*v2+0.03*v19+0.3*v16)*(1+v9/100)*(1+1*v22_1)*(1+v7/100)*(1+1*v25)*(1+1*v26)
     document.getElementById("res2").value = Math.floor(res2);
 
     var res2c; //윈드밀 대미지  인간 자이언트 크리
@@ -154,7 +158,7 @@ function cal() {
     document.getElementById("res2c").value = Math.floor(res2c);
 
     var res2_1; //윈드밀 대미지 엘프
-    res2_1 = res0*(1*v2_1+0.03*v19+0.3*v16)*(1+v9/100)*(1+1*v22_1)*(1+v7/100)
+    res2_1 = res0*(1*v2_1+0.03*v19+0.3*v16)*(1+v9/100)*(1+1*v22_1)*(1+v7/100)*(1+1*v25)
     document.getElementById("res2_1").value = Math.floor(res2_1);
 
     var res2_1c; //윈드밀 대미지 엘프 크리
@@ -162,7 +166,7 @@ function cal() {
     document.getElementById("res2_1c").value = Math.floor(res2_1c);
 
     var res3; //다운어택 대미지
-    res3 =res0*(1*v3+0.04*v20)*(1+0.15*v21+v10/100)*(1+v7/100)
+    res3 =res0*(1*v3+0.04*v20)*(1+0.15*v21+v10/100)*(1+v7/100)*(1+1*v25)*(1+1*v26)
     document.getElementById("res3").value = Math.floor(res3);
 
     var res3c; //다운어택 크리
@@ -172,7 +176,7 @@ function cal() {
 
 
     var res4; //라스매 엘-인
-    res4 = res0*(((1*v1)+0.1*v18)*(1+0.15*v15)*(1+0.2*v17)*(1+1*v22)+((1*v1_0+6*v14+12*v24)))*(1+v7/100)
+    res4 = res0*(((1*v1)+0.1*v18)*(1+0.15*v15)*(1+0.2*v17)*(1+1*v22)*(1+1*v25)*(1+1*v27)+((1*v1_0+6*v14+12*v24)))*(1+v7/100)
     document.getElementById("res4").value = Math.floor(res4);
 
     var res4c; //라스매 엘-인 크리
@@ -180,7 +184,7 @@ function cal() {
     document.getElementById("res4c").value = Math.floor(res4c);
 
     var res4_1; //라스매 자이언트
-    res4_1 = res0*(((1*v1_1)+0.1*v18)*(1+0.15*v15)*(1+0.2*v17)*(1+1*v22)+((1*v1_0+6*v14+12*v24)))*(1+v7/100)
+    res4_1 = res0*(((1*v1_1)+0.1*v18)*(1+0.15*v15)*(1+0.2*v17)*(1+1*v22)*(1+1*v25)*(1+1*v26)+((1*v1_0+6*v14+12*v24)))*(1+v7/100)
     document.getElementById("res4_1").value = Math.floor(res4_1);
 
     var res4_1c; //라스매 엘-인
@@ -189,7 +193,7 @@ function cal() {
 
 
     var res5; //아윈밀 인-자
-    res5 =res0*((1*v2+0.03*v19+0.3*v16)*(1+1*v22_1)+((1*v2_0+1*v14*v2_02)))*(1+v7/100)
+    res5 =res0*((1*v2+0.03*v19+0.3*v16)*(1+1*v22_1)+((1*v2_0+1*v14*v2_02)))*(1+v7/100)*(1+1*v25)*(1+1*v26)
     document.getElementById("res5").value = Math.floor(res5);
 
     var res5c; //크리
@@ -205,7 +209,7 @@ function cal() {
     // document.getElementById("res5_0c").value = Math.floor(res5_0c);
 
     var res5_1; //아윈밀 엘프
-    res5_1 =res0*((1*v2_1+0.03*v19+0.3*v16)*(1+0.15*v22_1)+((1*v2_0+4.5*v14)))*(1+v7/100)
+    res5_1 =res0*((1*v2_1+0.03*v19+0.3*v16)*(1+0.15*v22_1)+((1*v2_0+4.5*v14)))*(1+v7/100)*(1+1*v25)
     document.getElementById("res5_1").value = Math.floor(res5_1);
 
     var res5_1c; //크리
@@ -221,7 +225,7 @@ function cal() {
     // document.getElementById("res5_10c").value = Math.floor(res5_10c);
 
     var res6; //파이어리프어택
-    res6 =res0*(((1*v3)+0.04*v20)*(1+0.15*v21)+((1*v3_0+4*v14)+1*v14*v3_01))*(1+v7/100)
+    res6 =res0*(((1*v3)+0.04*v20)*(1+0.15*v21)*(1+1*v25)*(1+1*v26)+((1*v3_0+4*v14)+1*v14*v3_01))*(1+v7/100)
     document.getElementById("res6").value = Math.floor(res6);
 
     var res6c; //크리
