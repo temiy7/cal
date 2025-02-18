@@ -14,7 +14,7 @@ function cal() {
     else {v3=0.41*v3,v3_2=0.15*v3_2}   
 
     var v3_1 = $("#v3_1 option:selected").attr('value'); // 아르카나 링크개
-    var v3_2 = $("#v3_1 option:selected").attr('value2'); // 아르카나 링크개
+    var v3_12 = $("#v3_1 option:selected").attr('value2'); // 아르카나 링크개
     // 무기와 에르그
     var v4 = $("#v4 option:selected").attr('value'); // 무기
     var v4_1 = $("#v4_1 option:selected").attr('value'); // 마력탄
@@ -109,13 +109,13 @@ function cal() {
     var res8_0 = basedamage*Number(v16_0)*(1+Number(v3_1))*(1 + bonusDamage / 100); // 오버드라이브 찌르기 대미지
     document.getElementById("res8_0").value = Math.floor(res8_0);
 
-    var res8 = res7* (1+Number(v3_1))+basedamage*Number(v16_1)*(1+Number(v3_1)) * (1 + bonusDamage / 100); // 오버드라이브 폭발 대미지
+    var res8 = res7*(1+Number(v3_1))+basedamage*Number(v16_1) * (1 + bonusDamage / 100); // 오버드라이브 폭발 대미지
     document.getElementById("res8").value = Math.floor(res8);
 
     var res9 = basedamage*Number(v16_2)*(1+Number(v3_1))*(1 + bonusDamage / 100); //어나이얼레이션 찌르기 대미지
     document.getElementById("res9").value = Math.floor(res9);
 
-    var res10 = res7* (1+Number(v3_1))+(basedamage*Number(v3)+Number(v3_2))* (1+Number(v3_1))*(1+Number(v3_2))* (1 + bonusDamage / 100); //어나이얼레이션 폭발 대미지
+    var res10 = res7* (1+Number(v3_1))+(basedamage*Number(v3)+Number(v3_2))* (1+Number(v3_1))*(1+Number(v3_12))* (1 + bonusDamage / 100); //어나이얼레이션 폭발 대미지
     document.getElementById("res10").value = Math.floor(res10);
 
     // 크리티컬 대미지 계산
@@ -133,7 +133,7 @@ function cal() {
     document.getElementById("res9_crit0").value = Math.floor(res9 * (2.5 + criticalMultiplier / 100));
     document.getElementById("res10_crit").value = Math.floor(res10 * (2.5 + criticalMultiplier / 100));
 }
-
+    
 // 리셋 함수
 function reset() {
     // 입력 필드 리셋
