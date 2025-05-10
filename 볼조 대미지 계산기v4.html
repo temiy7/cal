@@ -68,19 +68,19 @@
         <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
             마법공격력:
             <input type="text" id="v1" size="5" placeholder="0"><br>
-            마법적용물공:
-            <input type="text" id="v2" size="5" placeholder="0"><br>
-            <details>
+            <!-- 마법적용물공:
+            <input type="text" id="v2" size="5" placeholder="0"><br> -->
+            <!-- <details>
                 <summary>마법 적용 물공 종류</summary>
                 <p>인챈트,낭만농장,타이틀,인형가방,무리아스성수,페스티벌푸드</p>
-            </details>
+            </details> -->
             볼트차지
             <select name="v18" id="v18" style="background:#D9E5FF">
                 <option value="1" value1="0" value2="1" selected>1차지</option>
                 <option value="2" value1="0" value2="2">2차지</option>
                 <option value="3" value1="0" value2="3">3차지</option>
                 <option value="4" value1="0" value2="4">4차지</option>
-                <option value="6.5" value1="0.28" value2="5">5차지</option>
+                <option value="6.7" value1="0.28" value2="5">5차지</option>
             </select>
             한 번에 5차지<input type="checkbox" name="v18_3" value="1">
         </div><br>
@@ -90,48 +90,48 @@
 
             파이어볼트:
             <select name="v22" id="v22" style="background:#D9E5FF">
-                <option value="10">연습</option>
-                <option value="25">F</option>
-                <option value="27">E</option>
-                <option value="28">D</option>
-                <option value="30">C</option>
-                <option value="35">B</option>
-                <option value="40">A</option>
-                <option value="45">9</option>
-                <option value="50">8</option>
-                <option value="55">7</option>
-                <option value="60">6</option>
-                <option value="80">5</option>
-                <option value="85">4</option>
-                <option value="90">3</option>
-                <option value="95">2</option>
-                <option value="120">1</option>
-                <option value="122">1단</option>
-                <option value="124">2단</option>
-                <option value="126" selected>3단</option>
+                <option value="0.155">연습</option>
+                <option value="0.163">F</option>
+                <option value="0.171">E</option>
+                <option value="0.179">D</option>
+                <option value="0.187">C</option>
+                <option value="0.195">B</option>
+                <option value="0.203">A</option>
+                <option value="0.211">9</option>
+                <option value="0.219">8</option>
+                <option value="0.227">7</option>
+                <option value="0.235">6</option>
+                <option value="0.243">5</option>
+                <option value="0.251">4</option>
+                <option value="0.259">3</option>
+                <option value="0.267">2</option>
+                <option value="0.275">1</option>
+                <option value="0.283">1단</option>
+                <option value="0.291">2단</option>
+                <option value="0.3" selected>3단</option>
             </select>
             <br>
             라이트닝볼트:
             <select name="v23" id="v23" style="background:#D9E5FF">
-                <option value="10">연습</option>
-                <option value="40">F</option>
-                <option value="46">E</option>
-                <option value="52">D</option>
-                <option value="58">C</option>
-                <option value="65">B</option>
-                <option value="72">A</option>
-                <option value="79">9</option>
-                <option value="86">8</option>
-                <option value="93">7</option>
-                <option value="100">6</option>
-                <option value="110">5</option>
-                <option value="120">4</option>
-                <option value="130">3</option>
-                <option value="140">2</option>
-                <option value="150">1</option>
-                <option value="160">1단</option>
-                <option value="170">2단</option>
-                <option value="180" selected>3단</option>
+                <option value="0.21">연습</option>
+                <option value="0.22">F</option>
+                <option value="0.23">E</option>
+                <option value="0.24">D</option>
+                <option value="0.25">C</option>
+                <option value="0.26">B</option>
+                <option value="0.27">A</option>
+                <option value="0.28">9</option>
+                <option value="0.29">8</option>
+                <option value="0.30">7</option>
+                <option value="0.31">6</option>
+                <option value="0.32">5</option>
+                <option value="0.33">4</option>
+                <option value="0.345">3</option>
+                <option value="0.355">2</option>
+                <option value="0.37">1</option>
+                <option value="0.38">1단</option>
+                <option value="0.39">2단</option>
+                <option value="0.4" selected>3단</option>
             </select><br>
 
             볼트조합 마스터리:
@@ -253,9 +253,9 @@
             <input type="text" id="v8" size="5" placeholder="0"><br>
             라이트닝볼트 원드영향력 세공LV:
             <input type="text" id="v19" size="5" placeholder="0"><br><br>
-            헤보나세트:
+            헤보나 세트:
             <input type="checkbox" name="v9" value=1><br>
-            블리안 엔더슨 세트:
+            블리안 세트:
             <input type="checkbox" name="v29" value=1><br>
             크리티컬 세트효과
             <input type="checkbox" name="v30" value=7>
@@ -287,9 +287,27 @@
 
 
         </div>
+        
         <br>
+        강화 스팩:<br>
+        <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
         볼트조합 마스터 타이틀:
-        <input type="checkbox" name="v15" value=1>
+        <input type="checkbox" name="v15" value=1><br>
+        볼트 대미지 증가 타이틀:
+        <select name="v15_2" id="v15_2" style="background:#D9E5FF" onchange="cal(v15_2)">
+            <option value="5" >아르(5%)</option>
+            <option value="3" >케흘렌(3%)</option>
+            <option value="2" >서큐(2%)</option>
+            <option value="1" >스청(1%)</option>
+            <option value="0" selected>없음</option>
+        </select><br>
+
+        다크메이지 링크(무기 보너스):
+        <select name="v15_1" id="v15_1" style="background:#D9E5FF">
+            <option value="0.1"  selected>9이상</option>
+            <option value="0.05" >4이상</option>
+            <option value="0" >3이하</option>
+        </select><br>
         
 
         <br><br>
@@ -300,23 +318,53 @@
 
         <br>
 
-        추가 대미지 <output id="v17"></output>%<br>
+        추가 대미지 <output id="v17" ></output>%<br>
        
         푸개,인형,토템,낭농등의 합:        :
-        <input type="text" id="v17_0" size="5" placeholder="0"><br>
-        약점분석<input type="checkbox" name="v17_1" value=10>,광폭화<input type="checkbox" name="v17_2" value=10>,배틀맴버쉽:<input type="checkbox" name="v17_3" value=1> <br>
+        <input type="text" id="v17_0" size="5" placeholder="0" ><br>
+        약점분석<input type="checkbox" name="v17_1" value=10>,
+        광폭화<input type="checkbox" name="v17_2" value=10>,
+        배틀맴버쉽:<input type="checkbox" name="v17_3" value=1> <br>
 
-        <br><br>
+        </div><br>
 
         도핑<br>
         <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
-            전장비율%:
+            비바체%:
             <input type="text" id="v13" size="5" placeholder="0"><br>
-            최대공격력:
-            <input type="text" id="v14" size="5" placeholder="0"><br>
-            물리공격력 증가포션:
+            마법공격력 증가포션:
             <input type="checkbox" name="v16" value=1>
+        </div><br>
 
+        마공포 미적용: <output id="v14" onchange="cal(v14)"></output><br>
+        <div style="height: auto; width: 350px; border: 1px solid; padding:10px">
+            아르카나 링크(마공 보너스):
+            <select name="v14_0" id="v14_0" style="background:#D9E5FF" onchange="cal(v14_0)">
+                <option value="250"  selected>5이상</option>
+                <option value="110" >4</option>
+                <option value="75" >3</option>
+                <option value="40" >2</option>
+                <option value="20" >1</option>
+                <option value="0" >0</option>
+            </select><br>
+            정령 육성레벨:
+            <select name="v14_1" id="v14_1" style="background:#D9E5FF" onchange="cal(v14_1)">
+                <option value="20"  selected>5</option>
+                <option value="16" >4</option>
+                <option value="12" >3</option>
+                <option value="8" >2</option>
+                <option value="4" >1</option>
+                <option value="0" >0</option>
+            </select><br>
+            정령제어레벨:
+            <select name="v14_2" id="v14_2" style="background:#D9E5FF" onchange="cal(v14_2)">
+                <option value="30"  selected>5</option>
+                <option value="24" >4</option>
+                <option value="18" >3</option>
+                <option value="12" >2</option>
+                <option value="6" >1</option>
+                <option value="0" >0</option>
+            </select>
         </div>
         <br>
 
@@ -340,6 +388,7 @@
         <strong>결과</strong>
         <input type="hidden" id="v10">
         <input type="hidden" id="v17">
+        <input type="hidden" id="v14">
         <input type="hidden" id="v30_1">
         <input type="hidden" id="res10">
         <input type="hidden" id="res11">
@@ -349,15 +398,24 @@
         <inuut type="hidden" id="res10_0">
         <input type="hidden" id="res15_0">
 
+
     
         
         <br>
+        총 마법공격력:  <output id="res0" onchange="cal(res0)"></output><br>
+        <input type="hidden" id="res0">
         <div style="font-weight: bold; height: auto; width: 350px; border: 1px solid; padding:10px;">
             파이어볼트 <br>
             대미지:
             <input type="text" id="res1" size="7">
             크리:
-            <input type="text" id="res5" size="7">
+            <input type="text" id="res1_1" size="7">
+            <br>
+            라이트닝볼트 <br>
+            대미지:
+            <input type="text" id="res2" size="7">
+            크리:
+            <input type="text" id="res2_1" size="7">
             <br><br>
 
             라파볼트 <br>

@@ -1,6 +1,6 @@
 function cal() {
     var v1 = Number(document.getElementById("v1").value); // 마법공격력
-    var v2 = Number(document.getElementById("v2").value); // 최댐인챈트
+    // var v2 = Number(document.getElementById("v2").value); // 최댐인챈트
     var v3 = Number(document.getElementById("v3").value); // 파볼트최댐
     var v4 = Number(document.getElementById("v4").value); // 라볼트최댐
     var v5 = Number(document.getElementById("v5").value); // 파이어마스터리
@@ -16,11 +16,16 @@ function cal() {
 
     var v11 = Number(document.getElementById("v11").value); // 파볼트콤카
     var v12 = Number(document.getElementById("v12").value); //라볼트콤카
-    var v13 = Number(document.getElementById("v13").value); // 전장비율
-    var v14 = Number(document.getElementById("v14").value); //맥뎀
+    var v13 = Number(document.getElementById("v13").value); // 비바체비율
+    var v14_0 =  $("#v14_0 option:selected").attr('value'); //링크보너스
+    var v14_1 =  $("#v14_1 option:selected").attr('value'); //정령육성 레벨
+    var v14_2 =  $("#v14_2 option:selected").attr('value'); //정령제어 레벨
 
     var v15 = $('input[name="v15"]').is(':checked') ? parseFloat($('input[name="v15"]').val()) : 0; //볼조타이틀
-    var v16 = $('input[name="v16"]').is(':checked') ? parseFloat($('input[name="v16"]').val()) : 0; //물공포
+    var v15_1 = $("#v15_1 option:selected").attr('value'); // 아르카나 링크 무기보너스
+    var v15_2 = $("#v15_2 option:selected").attr('value'); // 2차타이틀
+
+    var v16 = $('input[name="v16"]').is(':checked') ? parseFloat($('input[name="v16"]').val()) : 0; //마공포
 
 
     var v17_0 = Number(document.getElementById("v17_0").value); //추가대미지
@@ -74,28 +79,53 @@ function cal() {
     document.getElementById("v10").value = v10;
 
 
+    var v14; //마공포 미적용합
+    v14 = Number(v14_0)+Number(v14_1)+Number(v14_2)
+    document.getElementById("v14").value = v14;
+
 
 
     
+    var res0; //계산마공
+    res0 = ((v1-v14)*(1+0.2*v16)+v14)*(1+(v13/100)*(1+0.2*v16));
+    document.getElementById("res0").value = Math.floor(res0);
+
 
     var res1; //파이어볼트 대미지
 
-    res1 = (1 * v22 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 5 * v18_1) * v18 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100) + 0.15 * v29) * (1 + v17 / 100);
+    res1 = (res0 * (Number(v22)+0.002+0.001*v3) ) * v18 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100) + 0.15 * v29+0.01*v15_2) * (1 + v17 / 100)*(1+Number(v15_1));
 
     document.getElementById("res1").value = Math.floor(res1);
+
+    var res1_1; //파볼트 크리
+
+    res1_1 = res1 * (2.5 + (v10 / 100));
+
+    document.getElementById("res1_1").value = Math.floor(res1_1);
+
+    var res2; //라이트닝볼트 대미지
+
+    res2 = (res0 * (Number(v23)+0.002+0.001*v6+0.0003*v19) ) * (1+Number(v18_2) +0.01 * v26 + 0.01 * v24 + 0.01 * v27 + 0.01 * v7 + 0.005 * v6 + (v12 / 100) + 0.15 * v29+0.01*v15_2) * (1 + v17 / 100)*(1+Number(v15_1));
+
+    document.getElementById("res2").value = Math.floor(res2);
+    
+    var res2_1; //라볼트 크리
+
+    res2_1 = res2 * (2.5 + (v10 / 100));
+
+    document.getElementById("res2_1").value = Math.floor(res2_1);
+
+    
+
 
 
     var res4; //볼트조합5 대미지
 
-    res4 = (((1 * v22 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 5 * v18_1) * v18 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100) + 0.15 * v29)) + ((1 * v23 + 0.6 * v1 + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + (7 + 0.75 * v19)) *  (1 +1*v18_2 +0.01 * v26 + 0.01 * v24 + 0.01 * v27 + 0.01 * v7 + 0.005 * v6 + (v12 / 100) + 0.15 * v29))) *0.85* (1 + 0.01 * v25 + 0.01 * v8) * (1 + 0.05 * v15) * (1 + (v17 / 100) )*(1+ 0.01 * (1*v21+1*v21_2));
+    res4 = (res1+res2) *0.85* (1 + 0.01 * v25 + 0.01 * v8) * (1 + 0.05 * v15) *(1+ 0.01 * (1*v21+1*v21_2));
 
     document.getElementById("res4").value = Math.floor(res4);
 
-    var res5; //파볼트 크리
 
-    res5 = res1 * (2.5 + (v10 / 100));
-
-    document.getElementById("res5").value = Math.floor(res5);
 
 
     var res7; //볼트조합 크리
@@ -134,27 +164,25 @@ function cal() {
     document.getElementById("res9").value = Math.floor(res9);
 
     var res10_0; //볼조 상승  환산
-    res10_0 = (((1 * v22 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 5 * 5) * 6.5 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100) + 0.15 * v29)) + ((1 * v23 + 0.6 * v1 + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + (7 + 0.75 * v19)) *  (1+0.28 + 0.01 * v26 + 0.01 * v24 + 0.01 * v27 + 0.01 * v7 + 0.005 * v6 + (v12 / 100) + 0.15 * v29))) *0.85* (1 + 0.01 * v25 + 0.01 * v8) * (1 + 0.05 * v15) * (1 + (v17 / 100) )*(1+ 0.01 * (1*v21+1*v21_2));
+    res10_0 = res4
     document.getElementById("res10_0").value = Math.floor(res10);
 
     var res10; //볼조 상승  환산
-    res10 = (((1 * v22 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 5 * 5) * 6.5 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100) + 0.15 * v29)) + ((1 * v23 + 0.6 * v1 + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + (7 + 0.75 * v19)) *  (1+0.28 + 0.01 * v26 + 0.01 * v24 + 0.01 * v27 + 0.01 * v7 + 0.005 * v6 + (v12 / 100) + 0.15 * v29))) *0.85* (1 + 0.01 * v25 + 0.01 * (v8+1)) * (1 + 0.05 * v15) * (1 + (v17 / 100) )*(1+ 0.01 * (1*v21+1*v21_2));
-    document.getElementById("res10").value = Math.floor(res10);
+    res10 =  (res1+res2) *0.85* (1 + 0.01 * v25 + 0.01 * (v8+1)) * (1 + 0.05 * v15) *(1+ 0.01 * (1*v21+1*v21_2));
 
     var res11; //볼트마 상승 환산
-    res11 = (((1 * v22 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 5 * 5) * 6.5 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * (v7+1) + 0.005 * v5 + 0.15 * v9 + (v11 / 100) + 0.15 * v29)) + ((1 * v23 + 0.6 * v1 + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + (7 + 0.75 * v19)) *  (1+0.28 + 0.01 * v26 + 0.01 * v24 + 0.01 * v27 + 0.01 * (v7+1) + 0.005 * v6 + (v12 / 100) + 0.15 * v29))) *0.85* (1 + 0.01 * v25 + 0.01 * v8) * (1 + 0.05 * v15) * (1 + (v17 / 100) )*(1+ 0.01 * (1*v21+1*v21_2));
+    res11 =((res0 * (Number(v22)+0.002+0.001*v3) ) * v18 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * (v7+1) + 0.005 * v5 + 0.15 * v9 + (v11 / 100) + 0.15 * v29+0.01*v15_2) * (1 + v17 / 100)*(1+Number(v15_1))+(res0 * (Number(v23)+0.002+0.001*v6+0.0003*v19) ) * (1+Number(v18_2) +0.01 * v26 + 0.01 * v24 + 0.01 * v27 + 0.01 * (v7+1) + 0.005 * v6 + (v12 / 100) + 0.15 * v29+0.01*v15_2) * (1 + v17 / 100)*(1+Number(v15_1)))*0.85* (1 + 0.01 * v25 + 0.01 * (v8)) * (1 + 0.05 * v15) * (1 + (v17 / 100) )*(1+ 0.01 * (1*v21+1*v21_2));
     document.getElementById("res11").value = Math.floor(res11);
 
     var res12; //파마 상승 환산
-    res12 = (((1 * v22 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 5 * 5) * 6.5 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * v7 + 0.005 * (v5+1) + 0.15 * v9 + (v11 / 100) + 0.15 * v29)) + ((1 * v23 + 0.6 * v1 + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + (7 + 0.75 * v19)) *  (1+0.28 + 0.01 * v26 + 0.01 * v24 + 0.01 * v27 + 0.01 * v7 + 0.005 * v6 + (v12 / 100) + 0.15 * v29))) *0.85* (1 + 0.01 * v25 + 0.01 * v8) * (1 + 0.05 * v15) * (1 + (v17 / 100) )*(1+ 0.01 * (1*v21+1*v21_2));
+    res12 = ((res0 * (Number(v22)+0.002+0.001*v3) ) * v18 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * (v7) + 0.005 * (v5+1) + 0.15 * v9 + (v11 / 100) + 0.15 * v29+0.01*v15_2) * (1 + v17 / 100)*(1+Number(v15_1))+(res0 * (Number(v23)+0.002+0.001*v6+0.0003*v19) ) * (1+Number(v18_2) +0.01 * v26 + 0.01 * v24 + 0.01 * v27 + 0.01 * v7 + 0.005 * v6 + (v12 / 100) + 0.15 * v29+0.01*v15_2) * (1 + v17 / 100)*(1+Number(v15_1)))*0.85* (1 + 0.01 * v25 + 0.01 * (v8)) * (1 + 0.05 * v15) * (1 + (v17 / 100) )*(1+ 0.01 * (1*v21+1*v21_2));
     document.getElementById("res12").value = Math.floor(res12);
 
     var res13; //마공 상승 환산
-    res13 = (((1 * v22 + 0.5 * (v1+4) + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * v3 + 5 * 5) * 6.5 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100) + 0.15 * v29)) + ((1 * v23 + 0.6 * (v1+4) + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + (7 + 0.75 * v19)) *  (1+0.28 + 0.01 * v26 + 0.01 * v24 + 0.01 * v27 + 0.01 * v7 + 0.005 * v6 + (v12 / 100) + 0.15 * v29))) *0.85* (1 + 0.01 * v25 + 0.01 * v8) * (1 + 0.05 * v15) * (1 + (v17 / 100) )*(1+ 0.01 * (1*v21+1*v21_2));
-    document.getElementById("res13").value = Math.floor(res13);
+    res13 =((((v1+4-v14)*(1+0.2*v16)+v14)*(1+(v13/100)*(1+0.2*v16)) * (Number(v22)+0.002+0.001*v3) ) * v18 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * (v7) + 0.005 * (v5) + 0.15 * v9 + (v11 / 100) + 0.15 * v29+0.01*v15_2) * (1 + v17 / 100)*(1+Number(v15_1))+(res0 * (Number(v23)+0.002+0.001*v6+0.0003*v19) ) * (1+Number(v18_2) +0.01 * v26 + 0.01 * v24 + 0.01 * v27 + 0.01 * v7 + 0.005 * v6 + (v12 / 100) + 0.15 * v29+0.01*v15_2) * (1 + v17 / 100)*(1+Number(v15_1)))*0.85* (1 + 0.01 * v25 + 0.01 * (v8)) * (1 + 0.05 * v15) * (1 + (v17 / 100) )*(1+ 0.01 * (1*v21+1*v21_2));
 
     var res14; //파볼트 상승 환산
-    res14 = (((1 * v22 + 0.5 * v1 + 0.4 * v2 + v14 * (1 + 0.2 * v16) * 0.4 * (v13 / 100) + 2.5 * (v3+1) + 5 * 5) * 6.5 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * v7 + 0.005 * v5 + 0.15 * v9 + (v11 / 100) + 0.15 * v29)) + ((1 * v23 + 0.6 * v1 + 0.44 * v2 + v14 * (1 + 0.2 * v16) * 0.44 * (v13 / 100) + 2.5 * v4 + (7 + 0.75 * v19)) *  (1+0.28 + 0.01 * v26 + 0.01 * v24 + 0.01 * v27 + 0.01 * v7 + 0.005 * v6 + (v12 / 100) + 0.15 * v29))) *0.85* (1 + 0.01 * v25 + 0.01 * v8) * (1 + 0.05 * v15) * (1 + (v17 / 100) )*(1+ 0.01 * (1*v21+1*v21_2));
+    res14 =((res0 * (Number(v22)+0.002+0.001*(v3+1)) ) * v18 * (1 + 0.01 * v26 + 0.01 * v24 + 0.01 * v28 + 0.01 * (v7) + 0.005 * v5+ 0.15 * v9 + (v11 / 100) + 0.15 * v29+0.01*v15_2) * (1 + v17 / 100)*(1+Number(v15_1))+(res0 * (Number(v23)+0.002+0.001*v6+0.0003*v19) ) * (1+Number(v18_2) +0.01 * v26 + 0.01 * v24 + 0.01 * v27 + 0.01 * v7 + 0.005 * v6 + (v12 / 100) + 0.15 * v29+0.01*v15_2) * (1 + v17 / 100)*(1+Number(v15_1)))*0.85* (1 + 0.01 * v25 + 0.01 * (v8)) * (1 + 0.05 * v15) * (1 + (v17 / 100) )*(1+ 0.01 * (1*v21+1*v21_2));
     document.getElementById("res14").value = Math.floor(res14);
 
     var res15_0; //볼조 비율환산
@@ -182,7 +210,7 @@ function cal() {
 
 function reset() {
     document.getElementById("v1").value = "";
-    document.getElementById("v2").value = "";
+    // document.getElementById("v2").value = "";
     document.getElementById("v3").value = "";
     document.getElementById("v4").value = "";
     document.getElementById("v5").value = "";
@@ -195,9 +223,13 @@ function reset() {
     document.getElementById("v13").value = "";
     document.getElementById("v14").value = "";
     document.getElementById("v17").value = "";
+    document.getElementById("res0").value = "";
     document.getElementById("res1").value = "";
+    document.getElementById("res1_1").value = "";
+    document.getElementById("res2").value = "";
+    document.getElementById("res2_1").value = "";
     document.getElementById("res4").value = "";
-    document.getElementById("res5").value = "";
+    // document.getElementById("res5").value = "";
     document.getElementById("res7").value = "";
     document.getElementById("res8").value = "";
     document.getElementById("res9").value = "";
