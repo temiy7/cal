@@ -67,14 +67,18 @@
         <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
             마법공격력:
             <input type="text" id="v1" size="5" placeholder="0"><br>
-            마법적용 물공:
+            <!-- 마법적용 물공:
             <input type="text" id="v2" size="5" placeholder="0"><br>
             <details>
                 <summary>마법 적용 물공 종류</summary>
                 <p>인챈트,낭만농장,타이틀,인형가방,무리아스성수,페스티벌푸드</p>
-            </details>
+            </details> -->
             다크메이지 링크효과:
-            <input type="checkbox" name="v34" value=1>
+               <select name="v34" id="v34" style="background:#D9E5FF">
+                <option value="0.15"  selected>9이상</option>
+                <option value="0.1" >4이상</option>
+                <option value="0" >3이하</option>
+            </select><br>
         </div>
         <br>
 
@@ -96,7 +100,7 @@
 
         세공<br>
         <span style="font-size:5px; color: red;">*마기그래프는 세공과 합연산이므로 더해서 사용하시면 됩니다.</span><br>
-        <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
+        <div style="height: auto; width:  300px; border: 1px solid; padding:10px">
             라이트닝마스터리 세공LV:
             <input type="text" id="v6" size="3" placeholder="0"><br>
 
@@ -109,8 +113,6 @@
             라이트닝 로드 풀차지 대미지 비율%:
             <input type="text" id="v20" size="3" placeholder="0">
         </div>
-        <br>
-
         <div style="height: auto; width:  300px; border: 1px solid; padding:10px">
             파이어마스터리 세공LV:
             <input type="text" id="v7" size="3" placeholder="0"><br>
@@ -119,8 +121,6 @@
             메테오 세공LV:
             <input type="text" id="v22" size="3" placeholder="0">
         </div>
-        <br>
-
         <div style="height: auto; width:  300px; border: 1px solid; padding:10px">
             아이스마스터리 세공LV:
             <input type="text" id="v8" size="3" placeholder="0"><br>
@@ -129,8 +129,6 @@
             헤일스톰 최댐 세공LV:
             <input type="text" id="v18" size="3" placeholder="0"><br>
         </div>
-        <br>
-
         <div style="height: auto; width:  300px; border: 1px solid; padding:10px">
             블레이즈 폭발 대미지 세공LV:
             <input type="text" id="v29" size="3" placeholder="0"><br>
@@ -157,8 +155,8 @@
             무기강화효과:
             <select name="v25" id="v25" style="background:#FFd8d8">
                 <option value="0" value1="0"  selected>미적용</option>
-                <option value="35" value1="35">인퀴지터</option>
-                <option value="20" value1="20">패러</option>
+                <option value="15" value1="35">인퀴지터</option>
+                <option value="0" value1="20">패러</option>
                 <option value="0" value1="0.8">심볼1</option>
                 <option value="0" value1="1.6">심볼2</option>
                 <option value="0" value1="2.4">심볼3</option>
@@ -177,22 +175,50 @@
      
             </select>
         </div>
-        <br><br>
+        <br>
 
 
         도핑<br>
         <div style="height: auto; width: 300px; border: 1px solid; padding:10px">
-            전장비율%:
+            비바체%:
             <input type="text" id="v13" size="5" placeholder="0"><br>
-            최대공격력:
-            <input type="text" id="v14" size="5" placeholder="0"><br>
-            물리공격력 증가포션:
+
+            마법공격력 증가포션:
             <input type="radio" name="v23" id="v23" value="1" checked>미적용
             <input type="radio" name="v23" id="v23_1" value="0">적용
             <br>
             다운게이지:
             <input type="radio" name="v32" id="v32" value="1" checked>미적용
-            <input type="radio" name="v32" id="v32_1" value="0">적용
+            <input type="radio" name="v32" id="v32_1" value="0">적용<br><br>
+
+            마공포 미적용: <output id="v14" onchange="cal(v14)"></output><br>
+                아르카나 링크(마공 보너스):
+                <select name="v14_0" id="v14_0" style="background:#D9E5FF" onchange="cal(v14_0)">
+                    <option value="250" selected>5이상</option>
+                    <option value="110" >4</option>
+                    <option value="75" >3</option>
+                    <option value="40" >2</option>
+                    <option value="20" >1</option>
+                    <option value="0" >0</option>
+                </select><br>
+                정령 육성레벨:
+                <select name="v14_1" id="v14_1" style="background:#D9E5FF" onchange="cal(v14_1)">
+                    <option value="20" selected>5</option>
+                    <option value="16" >4</option>
+                    <option value="12" >3</option>
+                    <option value="8" >2</option>
+                    <option value="4" >1</option>
+                    <option value="0" >0</option>
+                </select><br>
+                정령제어레벨:
+                <select name="v14_2" id="v14_2" style="background:#D9E5FF" onchange="cal(v14_2)">
+                    <option value="30" selected>5</option>
+                    <option value="24" >4</option>
+                    <option value="18" >3</option>
+                    <option value="12" >2</option>
+                    <option value="6" >1</option>
+                    <option value="0" >0</option>
+                </select>
         </div>
 
         <br><br>
@@ -233,12 +259,15 @@
 
 
     <div id="result">
+        <input type="hidden" id="v24">
+        <input type="hidden" id="v10">
+        <input type="hidden" id="v14">
         결과
         <br>
+        총 마법공격력:  <output id="res0" onchange="cal(res0)"></output><br>
+        <input type="hidden" id="res0">
         <div style="height: auto; width:  350px; border: 1px solid; padding:10px">
 
-            <input type="hidden" id="v24">
-            <input type="hidden" id="v10">
 
             썬더 3차지<br> 대미지:
             <input type="text" id="res1" size="10">

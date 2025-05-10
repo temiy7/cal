@@ -1,6 +1,6 @@
 function cal() {
     var v1 = Number(document.getElementById("v1").value); // 마법공격력
-    var v2 = Number(document.getElementById("v2").value); // 최댐인챈트
+    // var v2 = Number(document.getElementById("v2").value); // 최댐인챈트
     var v3 = Number(document.getElementById("v3").value); // 썬더최댐
     var v4 = Number(document.getElementById("v4").value); // 파이어볼최댐
     var v5 = Number(document.getElementById("v5").value); // 아습최댐
@@ -29,7 +29,9 @@ function cal() {
     var v16 = Number(document.getElementById("v16").value); //헤일콤카
     var v17 = Number(document.getElementById("v17").value); //라로콤카
     var v13 = Number(document.getElementById("v13").value); // 전장비율
-    var v14 = Number(document.getElementById("v14").value); //맥뎀
+    var v14_0 =  $("#v14_0 option:selected").attr('value'); //링크보너스
+    var v14_1 =  $("#v14_1 option:selected").attr('value'); //정령육성 레벨
+    var v14_2 =  $("#v14_2 option:selected").attr('value'); //정령제어 레벨
 
     var vv2 = document.getElementsByName("v21"); //바다의 지배자
     var v21 = document.getElementById("v21")
@@ -117,7 +119,7 @@ function cal() {
         break;
     }
 
-    var v34 = $('input[name="v34"]').is(':checked') ? parseFloat($('input[name="v34"]').val()) : 0; //다크메이지 링크효과
+    var v34 = $("#v34 option:selected").attr('value'); //다크메이지 링크효과
 
     var v35 = $("#v35 option:selected").attr('value'); //에르그
 
@@ -132,17 +134,25 @@ function cal() {
     v10 = v10_0 + v10_1 + v10_2;
     document.getElementById("v10").value = v10;
 
+    var v14; //마공포 미적용합
+    v14 = Number(v14_0)+Number(v14_1)+Number(v14_2);
+    document.getElementById("v14").value = v14;
+
+    var res0; //계산마공
+    res0 = ((v1-v14)*(1+0.2*v23)+v14)*(1+(v13/100)*(1+0.2*v23));
+    document.getElementById("res0").value = Math.floor(res0);
+
 
     var res1; // 썬더 대미지 3차지
 
-    res1 = (481 + 3.5 * v1 + 0.5 * v2 + 0.5 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 5 * v3) * 3.5 * (1 + 0.15 + 0.005 * v6 + (v11 / 100) + 0.1 * v27 + 0.15 * v33) * (1 + (v24/100))* ( 1 + 0.01 *  (1*v25_1+1*v35))
+    res1 = (res0*(2+0.005* v3)) * 3.5 * (1 + 0.15 + 0.005 * v6 + (v11 / 100) + 0.1 * v27 + 0.15 * v33) * (1 + (v24/100))* ( 1 + 0.01 *  (1*v25_1+1*v35))* (1 + Number(v34))
 
     document.getElementById("res1").value = Math.floor(res1);
 
 
     var res3; //썬더 대미지 5차지
 
-    res3 = (481 + 3.5 * v1 + 0.5 * v2 + 0.5 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 5 * v3) * 6 * (1 + 0.15 + 0.005 * v6 + (v11 / 100) + 0.1 * v27 + 0.15 * v33) *(1 + (v24/100))* ( 1 + 0.01 *  (1*v25_1+1*v35))
+    res3 = (res0*(2+0.005* v3)) * 6 * (1 + 0.15 + 0.005 * v6 + (v11 / 100) + 0.1 * v27 + 0.15 * v33) *(1 + (v24/100))* ( 1 + 0.01 *  (1*v25_1+1*v35))*(1 +  Number(v34))
 
 
     document.getElementById("res3").value = Math.floor(res3);
@@ -150,14 +160,14 @@ function cal() {
 
     var res4; //파이어볼 5차지대미지
 
-    res4 = (2760 + 17.85 * v1 + 0.5 * v2 + 0.5 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 15 * v4) * (1 + 0.15 + 0.005 * v7 + (v15 / 100) + 0.1 * v26 + 0.15 * v33) *(1 + (v24/100))* ( 1 + 0.01 *  (1*v25_1+1*v35))
+    res4 =(res0*(10.1+0.03* v4)) * (1 + 0.15 + 0.005 * v7 + (v15 / 100) + 0.1 * v26 + 0.15 * v33) *(1 + (v24/100))* ( 1 + 0.01 *  (1*v25_1+1*v35))*(1 +  Number(v34))
 
 
     document.getElementById("res4").value = Math.floor(res4);
 
     var res5; //아이스 스피어 3차지 대미지
 
-    res5 = (336 + 2.3 * v1 + 0.1 * v2 + 0.1 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 5 * v5) * 3 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v12 / 100) + 0.1 * v28 + 0.15 * v33) * (1 + (v24/100))* ( 1 + 0.01 *  (1*v25_1+1*v35))
+    res5 = (res0*(1.3+0.03* v5)) * 3 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v12 / 100) + 0.1 * v28 + 0.15 * v33) * (1 + (v24/100))* ( 1 + 0.01 *  (1*v25_1+1*v35))*(1 + Number(v34))
 
 
     document.getElementById("res5").value = Math.floor(res5);
@@ -165,31 +175,31 @@ function cal() {
 
     var res6; //아이스스피어 5차지 대미지
 
-    res6 = (336 + 2.3 * v1 + 0.1 * v2 + 0.1 * v14 * (1 + 0.2 * v23) * (v13 / 100) + 5 * v5) * 6.5 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v12 / 100) + 0.1 * v28 + 0.15 * v33) * (1 + (v24/100))* ( 1 + 0.01 *  (1*v25_1+1*v35))
+    res6 =  (res0*(1.3+0.03* v5))* 6.5 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v12 / 100) + 0.1 * v28 + 0.15 * v33) * (1 + (v24/100))* ( 1 + 0.01 *  (1*v25_1+1*v35))*(1 + Number(v34))
 
 
     document.getElementById("res6").value = Math.floor(res6);
 
 
-    var res7_h; //헤일스톰 대미지위한 v25 수정값
-    if (v25 == 15) {
-        res7_h = 2 * v25
-    } else {
-        res7_h = 1 * v25
-    }
-    document.getElementById("res7_h").value = res7_h;
+    // var res7_h; //헤일스톰 대미지위한 v25 수정값
+    // if (v25 == 15) {
+    //     res7_h = 2 * v25
+    // } else {
+    //     res7_h = 1 * v25
+    // }
+    // document.getElementById("res7_h").value = res7_h;
 
 
     var res7; //헤일스톰 대미지
 
-    res7 = (300 + 3.2 * v1 + 10 * v18) * 6.25 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v16 / 100) + 0.1 * v28 + 0.15 * v33) * (1 + v24 / 100) * (1 + 0.01 * res7_h) * (1 + 0.1 * v34)
+    res7 = (res0*(1.6+0.06* v18)) * 6.25 * (1 + 0.15 + 0.005 * v8 + 0.15 * v9 + (v16 / 100) + 0.1 * v28 + 0.15 * v33) * (1 + v24 / 100) * (1 + 0.02 * v25) * (1 +  Number(v34))
 
 
     document.getElementById("res7").value = Math.floor(res7);
 
     var res8; //라이트닝 로드 대미지
 
-    res8 = (500 + 12 * v1 + 20 * v19) * (3.3 + (v20 / 100)) * (1 + 0.15 + 0.005 * v6 + (v17 / 100) + 0.1 * v27 + 0.15 * v33) * (1 + 0.1 * v21) * (1 + v24 / 100) * (1 + 0.1 * v34) * (1 + 0.01 * v25)
+    res8 = (res0*(6.5+0.02* v19))* (3.3 + (v20 / 100)) * (1 + 0.15 + 0.005 * v6 + (v17 / 100) + 0.1 * v27 + 0.15 * v33) * (1 + 0.1 * v21) * (1 + v24 / 100) * (1 +  Number(v34)) * (1 + 0.01 * v25)
 
     document.getElementById("res8").value = Math.floor(res8);
 
@@ -237,7 +247,7 @@ function cal() {
 
     var res16; //파볼 3차지
 
-    res16 = (425 + 2.75 * v1 + 0.077 * v2 + 0.077 * v14 * (v13 / 100) + 2.3 * v4) * 3 * (1 + 0.15 + 0.005 * v7 + (v15 / 100) + 0.1 * v26 + 0.15 * v33) * (1 + (v24/100))* ( 1 + 0.01 *  (1*v25+1*v35))
+    res16 = (res0*(10.1+0.03* v4)) * (3/6.5) * (1 + 0.15 + 0.005 * v7 + (v15 / 100) + 0.1 * v26 + 0.15 * v33) * (1 + (v24/100))* ( 1 + 0.01 *  (1*v25_1+1*v35))*(1 + Number(v34))
 
     document.getElementById("res16").value = Math.floor(res16);
 
@@ -249,7 +259,7 @@ function cal() {
 
     var res18; //메테오
 
-    res18 = (7517 + (8400 + 160 * v1 + 150 * v22) * (1 + 0.15 + 0.005 * v7 + 0.1 * v26 + 0.15 * v33)) * (1 + v24 / 100) * (1 + 0.1 * v34) * (1 + 0.01 * v25)
+    res18 = (7800 + (res0*(85+0.1* v22))) * (1 + 0.15 + 0.005 * v7 + 0.1 * v26 + 0.15 * v33) * (1 + v24 / 100) * (1 +  Number(v34)) * (1 + 0.01 * v25)
 
     document.getElementById("res18").value = Math.floor(res18);
 
@@ -261,7 +271,7 @@ function cal() {
 
     var res20; //블레이즈
 
-    res20 = v1 * 1.875 * 0.3525 * (14 + 0.1 * v29) * (2.4 + 0.05 * v30) * v32 * (1 + v31 / 100) * (1 + (v24/100))* ( 1 + 0.01 *  (1*v25_1+1*v35))
+    res20 = v1 * 1.875 * 0.3525 * (14 + 0.1 * v29) * (2.4 + 0.05 * v30) * v32 * (1 + v31 / 100) * (1 + (v24/100))* ( 1 + 0.01 *  (1*v25_1+1*v35))*(1 +  Number(v34))
 
     document.getElementById("res20").value = Math.floor(res20);
 

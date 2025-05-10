@@ -78,12 +78,9 @@ function cal() {
     v10 = v10_0 + v10_1 + v10_2 + 7*v30_1;
     document.getElementById("v10").value = v10;
 
-
     var v14; //마공포 미적용합
     v14 = Number(v14_0)+Number(v14_1)+Number(v14_2)
     document.getElementById("v14").value = v14;
-
-
 
     
     var res0; //계산마공
