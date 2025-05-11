@@ -1,6 +1,8 @@
 function cal() {
     // 기본 스텟
     var v1 = Number(document.getElementById("v1").value); // 마법공격력
+    var v1_2 = Number(document.getElementById("v1_2").value); // 비바비
+    var v1_3 = $('input[name="v1_3"]').is(':checked') ? parseFloat($('input[name="v1_3"]').val()) : 0; //마공포
     var v2 = $("#v2 option:selected").attr('value'); // 공격카드수
     var v2_1 = $("#v2_1 option:selected").attr('value'); // 공격카드 종류
 
@@ -42,6 +44,13 @@ function cal() {
     var v26 = Number(document.getElementById("v26").value); 
     v26 = v26*0.12; // 스핀스퍼트대미지
 
+    var v35_0 =  $("#v35_0 option:selected").attr('value'); //링크보너스
+    var v35_1 =  $("#v35_1 option:selected").attr('value'); //정령육성 레벨
+    var v35_2 =  $("#v35_2 option:selected").attr('value'); //정령제어 레벨
+    var v35; //마공포 미적용합
+    v35 = Number(v35_0)+Number(v35_1)+Number(v35_2)
+    document.getElementById("v35").value = v35;
+
 
 
     // 보너스 대미지 총합
@@ -53,9 +62,13 @@ function cal() {
     var weaponErg = (Number(v3) + Number(v4))*100
     document.getElementById("weaponErg").value = weaponErg.toFixed(2);
 
+    var res0; //계산마공
+    res0 = ((v1-v35)*(1+0.2*v1_3)+v35)*(1+(v1_2/100)*(1+0.2*v1_3));
+    document.getElementById("res0").value = Math.floor(res0);
+
     // 계산식
     function calculateDamage(skillPercent,sg) {
-        return v1 * (skillPercent+sg) * (1+weaponErg/100) * (1+bonusDamage/100);
+        return res0 * (skillPercent+sg) * (1+weaponErg/100) * (1+bonusDamage/100);
     }
 
     var res1 = calculateDamage(v13,v21); // 사이드 슬래시
@@ -73,7 +86,7 @@ function cal() {
     var res5 = calculateDamage(v17,v24); // 리볼브 쇼크
     document.getElementById("res5").value = Math.floor(res5);
 
-    var res7 =v1*(v19+v25)*(1+weaponErg/100)*(1+bonusDamage/100+0.05*Number(v2_1))*Number(v2) // 페이탈 크러시
+    var res7 =res0*(v19+v25)*(1+weaponErg/100)*(1+bonusDamage/100+0.05*Number(v2_1))*Number(v2) // 페이탈 크러시
     document.getElementById("res7").value = Math.floor(res7);
 
     // 크리티컬 대미지 계산
