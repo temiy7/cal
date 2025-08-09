@@ -38,34 +38,7 @@ function cal() {
             v11 = 1;
         break;
     }
-
-    var v12v = document.getElementsByName("v12"); // 라이트닝 인잭션
-    var v12 = document.getElementById("v12")
-    for (var i = 0; i < v12v.length; i++) {
-        if (v12v[i].checked)
-            v12 = 0
-        else
-            v12 = 1;
-        break;
-    }
-    var v13v = document.getElementsByName("v13"); // 아이스 인잭션
-    var v13 = document.getElementById("v13")
-    for (var i = 0; i < v13v.length; i++) {
-        if (v13v[i].checked)
-            v13 = 0
-        else
-            v13 = 1;
-        break;
-    }
-    var v14v = document.getElementsByName("v14"); // 파이어 인잭션
-    var v14 = document.getElementById("v14")
-    for (var i = 0; i < v14v.length; i++) {
-        if (v14v[i].checked)
-            v14 = 0
-        else
-            v14 = 1;
-        break;
-    }
+    var v12  = $('input[name="v12"]').is(':checked') ? parseFloat($('input[name="v12"]').val()) : 0; // 인잭션
 
 
     var v15v = document.getElementsByName("v15"); // 스매시강화 세트
@@ -130,7 +103,7 @@ function cal() {
     //계산식
 
     var res0; // 맥뎀
-    res0 = v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11))*(1+0.05*v12+0.03*v13+0.02*v14)
+    res0 = v4*(1+0.2*v11)*(1+(v5/100)*(1+0.2*v11))*(1+0.1*v12)
     document.getElementById("res0").value = Math.floor(res0);
 
     var res1; //스매시 대미지 인간-엘프
@@ -176,7 +149,7 @@ function cal() {
 
 
     var res4; //라스매 엘-인
-    res4 = res0*(((1*v1)+0.1*v18)*(1+0.15*v15)*(1+0.2*v17)*(1+1*v22)*(1+1*v25)*(1+1*v27)+((1*v1_0+6*v14+12*v24)))*(1+v7/100)
+    res4 = res0*(((1*v1)+0.1*v18)*(1+0.15*v15)*(1+0.2*v17)*(1+1*v22)*(1+1*v25)*(1+1*v27)+((1*v1_0+6*v12+12*v24)))*(1+v7/100)
     document.getElementById("res4").value = Math.floor(res4);
 
     var res4c; //라스매 엘-인 크리
@@ -184,7 +157,7 @@ function cal() {
     document.getElementById("res4c").value = Math.floor(res4c);
 
     var res4_1; //라스매 자이언트
-    res4_1 = res0*(((1*v1_1)+0.1*v18)*(1+0.15*v15)*(1+0.2*v17)*(1+1*v22)*(1+1*v25)*(1+1*v26)+((1*v1_0+6*v14+12*v24)))*(1+v7/100)
+    res4_1 = res0*(((1*v1_1)+0.1*v18)*(1+0.15*v15)*(1+0.2*v17)*(1+1*v22)*(1+1*v25)*(1+1*v26)+((1*v1_0+6*v12+12*v24)))*(1+v7/100)
     document.getElementById("res4_1").value = Math.floor(res4_1);
 
     var res4_1c; //라스매 엘-인
@@ -193,7 +166,7 @@ function cal() {
 
 
     var res5; //아윈밀 인-자
-    res5 =res0*((1*v2+0.03*v19+0.3*v16)*(1+1*v22_1)+((1*v2_0+1*v14*v2_02)))*(1+v7/100)*(1+1*v25)*(1+1*v26)
+    res5 =res0*((1*v2+0.03*v19+0.3*v16)*(1+1*v22_1)+((1*v2_0+1*v12*v2_02)))*(1+v7/100)*(1+1*v25)*(1+1*v26)
     document.getElementById("res5").value = Math.floor(res5);
 
     var res5c; //크리
@@ -209,7 +182,7 @@ function cal() {
     // document.getElementById("res5_0c").value = Math.floor(res5_0c);
 
     var res5_1; //아윈밀 엘프
-    res5_1 =res0*((1*v2_1+0.03*v19+0.3*v16)*(1+0.15*v22_1)+((1*v2_0+4.5*v14)))*(1+v7/100)*(1+1*v25)
+    res5_1 =res0*((1*v2_1+0.03*v19+0.3*v16)*(1+0.15*v22_1)+((1*v2_0+4.5*v12)))*(1+v7/100)*(1+1*v25)
     document.getElementById("res5_1").value = Math.floor(res5_1);
 
     var res5_1c; //크리
@@ -225,7 +198,7 @@ function cal() {
     // document.getElementById("res5_10c").value = Math.floor(res5_10c);
 
     var res6; //파이어리프어택
-    res6 =res0*(((1*v3)+0.04*v20)*(1+0.15*v21)*(1+1*v25)*(1+1*v26)+((1*v3_0+4*v14)+1*v14*v3_01))*(1+v7/100)
+    res6 =res0*(((1*v3)+0.04*v20)*(1+0.15*v21)*(1+1*v25)*(1+1*v26)+((1*v3_0+4*v12)+1*v12*v3_01))*(1+v7/100)
     document.getElementById("res6").value = Math.floor(res6);
 
     var res6c; //크리
