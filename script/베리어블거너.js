@@ -47,7 +47,7 @@ function cal() {
 
     var v34 = $("#v34 option:selected").attr('value'); //에르그
 
-    var v35_0 =  $("#v35_0 option:selected").attr('value'); //링크보너스
+    // var v35_0 =  $("#v35_0 option:selected").attr('value'); //링크보너스
     var v35_1 =  $("#v35_1 option:selected").attr('value'); //정령육성 레벨
     var v35_2 =  $("#v35_2 option:selected").attr('value'); //정령제어 레벨
     
@@ -61,7 +61,7 @@ function cal() {
     document.getElementById("v32").value = Math.floor(v32);
 
     var v35; //마공포 미적용합
-    v35 = Number(v35_0)+Number(v35_1)+Number(v35_2)
+    v35 =Number(v35_1)+Number(v35_2)
     document.getElementById("v35").value = v35;
 
     
@@ -98,12 +98,12 @@ function cal() {
     document.getElementById("res3_1").value = Math.floor(res3_1);
 
     var res4; //페이탈 스코프
-    res3 = (res0*14* (1 + (v29_0+v29_3 )/ 100))+(res0*(12+0.01*v9+0.15*v15)* (1 + (v29_0+v29_3 )/ 100));
-    document.getElementById("res3").value = Math.floor(res4);
+    res4 = (res0*14* (1 + (v29_0+v29_3 )/ 100))+(res0*(12+0.01*v9+0.15*v15)* (1 + (v29_0+v29_3 )/ 100));
+    document.getElementById("res4").value = Math.floor(res4);
 
     var res4_1//페이탈 스코프 크리
-    res4_1 = res3 * (2.5 +   v32/ 100)
-    document.getElementById("res3_1").value = Math.floor(res4_1);
+    res4_1 = res4 * (2.5 +   v32/ 100)
+    document.getElementById("res4_1").value = Math.floor(res4_1);
 
 
    
