@@ -3,56 +3,47 @@
 
 <head>
     <meta charset="UTF-8">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2146389185002422"
-     crossorigin="anonymous"></script>
-    <title>마비노기 대미지 계산기</title>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RRZF9GD2Z"></script>
-    <script type="text/javascript" src="jq.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="naver-site-verification" content="f3ba84aa5ae74d0b160c34a2a9e99839bfc3a39f"/>
+    <title>마비노기 대미지 계산기</title>
 
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2146389185002422" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RRZF9GD2Z"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-7RRZF9GD2Z');
     </script>
 
-    <script type="text/javascript">
+    <script defer src="jq.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="//wcs.naver.net/wcslog.js" onload="if(!wcs_add)wcs_add={};wcs_add['wa']='16bb61aebd2bc20';if(window.wcs)wcs_do();"></script>
+
+    <script>
+        const getCommand = () => location.hash.slice(1);
+
         async function loadViewport(command) {
-            if (!command)
-                return;
-
-            const url = `${command}.html`;
-            const r = await (await fetch(url)).text();
-
-            $('#viewport').html(r);
+            if (!command) return;
+            try {
+                const r = await fetch(`${command}.html`);
+                if (!r.ok) throw new Error(r.status);
+                $('#viewport').html(await r.text());
+            } catch {
+                $('#viewport').html('<p>페이지를 불러올 수 없습니다.</p>');
+            }
         }
 
         function init() {
-            const command = getCommand();
-            loadViewport(command);
-        }
-
-        /** @type {function(): string} */
-        function getCommand() {
-            return window.location.hash.charAt(0) == '#' ?
-                window.location.hash.slice(1) : window.location.hash;
+            loadViewport(getCommand());
         }
 
         $(document).ready(init);
+        window.addEventListener('hashchange', () => loadViewport(getCommand()));
     </script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--외부 스타일 적용-->
     <link rel="stylesheet" href="css/main.css">
 </head>
-
 
 <body>
 <div id="wrapper">
@@ -64,95 +55,74 @@
         <header>
             <nav id="manu">
                 <ul>
-                    <li><a href="#볼조 대미지 계산기v4" onclick="loadViewport('볼조 대미지 계산기v4')">볼트조합 계산기</a></li>
-                    <li><a href="#중마대미지계산기" onclick="loadViewport('중마대미지계산기')">중상급마법 계산기</a></li>
-                    <li><a href="#스텟 효율 계산기" onclick="loadViewport('스텟 효율 계산기')">스탯효율 계산기</a></li>
-                    <li><a href="#캐속계산기" onclick="loadViewport('캐속계산기')">캐속 계산기</a></li>
-                    <li><a href="#볼조장비" onclick="loadViewport('볼조장비')">볼조 대미지 비교</a></li>
-                    <li><a href="#스태프장비" onclick="loadViewport('스태프장비')">중상마 대미지 비교</a></li>
-                    <li><a href="#알반계산기" onclick="loadViewport('알반계산기')">알반훈련석 계산기</a></li>
-                    <li><a href="#플레이머대미지" onclick="loadViewport('플레이머대미지')">플레이머 계산기</a></li>
-                    <li><a href="#엘나 대미지" onclick="loadViewport('엘나 대미지')">엘레멘탈나이트 계산기</a></li>
-                    <li><a href="#방어 보호 계산기" onclick="loadViewport('방어 보호 계산기')">방어 보호 계산기</a></li>
-                    <li><a href="#랜차계산기" onclick="loadViewport('랜차계산기')">랜스차지 계산기</a></li>
-                    <li><a href="#너클대미지" onclick="loadViewport('너클대미지')">너클대미지 계산기</a></li>
-                    <li><a href="#활대미지" onclick="loadViewport('활대미지')">활대미지 계산기</a></li>
-                    <li><a href="#평균 대미지" onclick="loadViewport('평균 대미지')">평균 대미지 계산기</a></li>
-                    <li><a href="#저지계산기" onclick="loadViewport('저지계산기')">저지먼트 계산기</a></li>
-                    <li><a href="#강화석계산기" onclick="loadViewport('강화석계산기')">특별개조 계산기</a></li>
-                    <li><a href="#다크메이지" onclick="loadViewport('다크메이지')">다크메이지 계산기</a></li>
-                    <li><a href="#알케믹스팅어" onclick="loadViewport('알케믹스팅어')">알케믹스팅어 계산기</a></li>
-                    <li><a href="#점성술1" onclick="loadViewport('점성술1')">전투점성술 계산기</a></li>
-                    <li><a href="#도르카계산기" onclick="loadViewport('도르카계산기')">도르카 계산기</a></li>
-                    <li><a href="#변신시간" onclick="loadViewport('변신시간')">변신 시간 계산기</a></li>
-                    <li><a href="#블래스트랜서" onclick="loadViewport('블래스트랜서')">블래스트랜서 계산기</a></li>
-                    <li><a href="contactus.html"
-                           onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">문의하기</a>
-                    </li>
+                    <li><a href="#볼조 대미지 계산기v4">볼트조합 계산기</a></li>
+                    <li><a href="#중마대미지계산기">중상급마법 계산기</a></li>
+                    <li><a href="#스텟 효율 계산기">스탯효율 계산기</a></li>
+                    <li><a href="#캐속계산기">캐속 계산기</a></li>
+                    <li><a href="#볼조장비">볼조 대미지 비교</a></li>
+                    <li><a href="#스태프장비">중상마 대미지 비교</a></li>
+                    <li><a href="#알반계산기">알반훈련석 계산기</a></li>
+                    <li><a href="#플레이머대미지">플레이머 계산기</a></li>
+                    <li><a href="#엘나 대미지">엘레멘탈나이트 계산기</a></li>
+                    <li><a href="#방어 보호 계산기">방어 보호 계산기</a></li>
+                    <li><a href="#랜차계산기">랜스차지 계산기</a></li>
+                    <li><a href="#너클대미지">너클대미지 계산기</a></li>
+                    <li><a href="#활대미지">활대미지 계산기</a></li>
+                    <li><a href="#평균 대미지">평균 대미지 계산기</a></li>
+                    <li><a href="#저지계산기">저지먼트 계산기</a></li>
+                    <li><a href="#강화석계산기">특별개조 계산기</a></li>
+                    <li><a href="#다크메이지">다크메이지 계산기</a></li>
+                    <li><a href="#알케믹스팅어">알케믹스팅어 계산기</a></li>
+                    <li><a href="#점성술1">전투점성술 계산기</a></li>
+                    <li><a href="#도르카계산기">도르카 계산기</a></li>
+                    <li><a href="#변신시간">변신 시간 계산기</a></li>
+                    <li><a href="#블래스트랜서">블래스트랜서 계산기</a></li>
+                    <li><a href="contactus.html" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">문의하기</a></li>
                 </ul>
             </nav>
 
+            <script>
+                document.querySelector('#manu').addEventListener('click', (e) => {
+                    const a = e.target.closest('a[href^="#"]');
+                    if (a) loadViewport(a.getAttribute('href').slice(1));
+                });
+            </script>
         </header>
         <section>
             <div class="frame1" id="viewport">
                 <br><br>
-                
                 마비노기의 여러가지 값을 계산하는 계산기 입니다.<br>
                 계산기에 사용된 계산식은 공식적으로 공개된 값이 아니므로 실제 값과 차이가 발생할 수 있습니다<br>
                 하시딤 처럼 명확한 타겟이 있는 경우가 아니면 모든 계산기는 방보가 0인 몹에 대한 결과값입니다.<br>
                 피어싱이나 다른 몬스터 방어보호 감소 디버프 효과를 증댐형식으로 반영하는데 매우 제한적이므로<br>
                 계산기가 그 부분에 도움이 될 수 없을 수 있습니다. 참고해 주시면 감사하겠습니다.<br>
                 혹시 실제 값과 현저하게 차이가 나는 부분이 있다면 문의하기를 통해 알려주시면 수정하도록 하겠습니다.<br>
-                <a href="https://github.com/temiy7/cal/blob/main/%ED%8C%A8%EC%B9%98%EB%82%B4%EC%97%AD " target="_blank">패치내역</a>
+                <a href="https://github.com/temiy7/cal/blob/main/%ED%8C%A8%EC%B9%98%EB%82%B4%EC%97%AD" target="_blank">패치내역</a>
                 <br><br><br>
 
                 본 계산기는 2025년 3월 14일자로 업데이트가 중단되었습니다. <br>
                 (간헐적으로 패치를 하고는 있습니다.)<br>
                 이후 패치에 대한 대응이 잘 되지 않는다는 사실을 인지하시고 <br>
                 사용하시기 바랍니다. 감사합니다. 즐거웠어요. <br>
-                github 에 공개된 소스코드는 자유롭게 사용하셔도 됩니다. 
+                github 에 공개된 소스코드는 자유롭게 사용하셔도 됩니다.
                 <br>
                 <br>마지막 업데이트 일자 2025년 9월 17일<br>
                     특개 계산기 아르카나레벨 350까지 적용<br>
                     볼트조합 대미지 패치내역 반영<br>
                     중급마법 대미지 패치내역 반영<br>
-                    현재 약 2%정도의 오차가 발생하는것 확인  <br>
+                    현재 약 2%정도의 오차가 발생하는것 확인<br>
                     다크메이지 대미지 패치내역 반영<br>
                     점성술 대미지 패치내역 반영<br>
                     엘레멘탈나이트, 알케믹스팅어 대미지 변경내용(5.6, 5.13패치) 반영<br>
-
-
-                    
-
-
-
-
-                
-
-                <br>    
-            
-
-
+                <br>
             </div>
 
             <article></article>
         </section>
         <aside></aside>
-
         <footer></footer>
-
     </div>
 </div>
-
-<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script type="text/javascript">
-    if (!wcs_add) var wcs_add = {};
-    wcs_add["wa"] = "16bb61aebd2bc20";
-    if (window.wcs) {
-        wcs_do();
-    }
-</script>
 
 </body>
 

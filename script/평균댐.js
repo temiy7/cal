@@ -67,11 +67,8 @@ const customFillPlugin = {
 
 const customGradientPlugin = {
     id: 'customGradient',
-    beforeUpdate(chart, args, options) {
-        const dataset = chart.data.datasets[0];
-        if (!chart.originalBorderColor) {
-            chart.originalBorderColor = [...dataset.borderColor];
-        }
+    beforeUpdate(chart) {
+        chart.originalBorderColor = [...chart.data.datasets[0].borderColor];
     },
     beforeDatasetsDraw(chart, args, options) {
         const ctx = chart.ctx;
@@ -87,8 +84,8 @@ const customGradientPlugin = {
             gradient.addColorStop(1, originalBorderColor[i + 1]);
 
             ctx.save();
-            ctx.strokeStyle
-            ctx.lineWidth = dataset.borderWidth;
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 2;
             ctx.beginPath();
             ctx.moveTo(model1.x, model1.y);
             ctx.lineTo(model2.x, model2.y);
@@ -96,18 +93,13 @@ const customGradientPlugin = {
             ctx.restore();
         }
     },
-    afterDatasetsDraw(chart) {
-        // 기본 데이터셋의 선을 지워서 겹치지 않게 함
-        chart.getDatasetMeta(0).controller.draw();
-    }
 };
 
 const config = {
     type: 'line',
     data: createGaussianData(
         Number(value1Input.value) + Number(valanceInput.value) * ((Number(value2Input.value) - Number(value1Input.value)) / 100),
-        variance = (28.9 * ((Number(value2Input.value) - Number(value1Input.value)) / 100)) ^ 2,
-        Number(valanceInput.value),
+        (28.9 * ((Number(value2Input.value) - Number(value1Input.value)) / 100)) ** 2,
         Number(value1Input.value),
         Number(value2Input.value)
     ),
@@ -122,6 +114,9 @@ const config = {
                 title: {
                     display: true,
                     text: '대미지'
+                },
+                ticks: {
+                    callback: value => Number(value).toFixed(2)
                 }
             },
 
@@ -130,6 +125,9 @@ const config = {
                 title: {
                     display: true,
                     text: '확률'
+                },
+                ticks: {
+                    callback: value => Number(value).toFixed(2)
                 }
             }
         }
@@ -153,13 +151,10 @@ const numericalIntegration = (func, start, end, numSteps) => {
 };
 
 const expectedDamageSpan = document.getElementById('expectedDamage');
-const gaussianChart = new Chart(ctx, config);
 const probLowerSpan = document.getElementById('probLower');
 const probBetweenSpan = document.getElementById('probBetween');
 const probUpperSpan = document.getElementById('probUpper');
-probLowerSpan.innerText = (probLower * 100).toFixed(2) + '%';
-probBetweenSpan.innerText = (probBetween * 100).toFixed(2) + '%';
-probUpperSpan.innerText = (probUpper * 100).toFixed(2) + '%';
+const gaussianChart = new Chart(ctx, config);
 
 const expectedValueBetween = (func, lowerBound, upperBound, numSteps) => {
     const stepSize = (upperBound - lowerBound) / numSteps;
@@ -205,3 +200,4 @@ const updateChart = () => {
 
 
 updateButton.addEventListener('click', updateChart);
+updateChart();
