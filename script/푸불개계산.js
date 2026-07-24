@@ -15,7 +15,7 @@ function cal() {
     var v2_2 = $('input[name="v2_2"]').is(':checked') ? parseFloat($('input[name="v2_2"]').val()) : 0; //정령
     var v2_3 = Number(document.getElementById("v2_3").value); // 아르카나
     // var v2_4 = Number(document.getElementById("v2_4").value); // 크리확률
-    var v2; // 크리확률
+    var v2; // 크리  확률
     v2 = 30 + v2_1 + v2_2 + v2_3;
     document.getElementById("v2").value = parseFloat(v2).toFixed(2);
 
