@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>마비노기 볼트조합 계산기</title>
+    <script type="text/javascript" src="jq.js"></script>
+    <link rel="stylesheet" href="css/cont.css">
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-7RRZF9GD2Z');
+    </script>
+
+    <style>
+        .button {
+            font-family: 'Mabinogi';
+            width: 100px;
+            background-color: #00004a;
+            border: none;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            display: inline-block;
+            font-size: 15px;
+            margin: 4px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .panel {
+            height: auto;
+            width: 350px;
+            border: 1px solid;
+            padding: 10px;
+        }
+
+        .panel-narrow {
+            height: auto;
+            width: 300px;
+            border: 1px solid;
+            padding: 10px;
+        }
+
+        .panel-result {
+            font-weight: bold;
+            height: auto;
+            width: 350px;
+            border: 1px solid;
+            padding: 10px;
+        }
+
+        #result {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            max-height: 95vh;
+            overflow-y: auto;
+            background: white;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        #status {
+            margin-right: 420px;
+        }
+
+        @media (max-width: 800px) {
+            #result {
+                position: static;
+                margin-top: 20px;
+                border: 1px solid #ccc;
+                max-height: none;
+            }
+            #status { margin-right: 0; }
+        }
+
+        select { background: #D9E5FF; }
+    </style>
+
+    <script type="text/javascript" src="script/볼트조합계산_v2.js"></script>
+</head>
+
+<body>
+<div id="wrapper">
+    <h2>마비노기 볼트조합 대미지 계산기</h2>
+    <div id="status1">
+        DPS 계산에서 볼트조합의 발사 딜레이는 0.08초를 기준으로 하고, 차지간에 있을 수있는 딜레이는 무시합니다.<br>
+        DPS 계산에서 1~3차지까지는 한 번 시전, 4~5차지는 두 번 시전으로 계산됩니다.<br>
+        한 번에 5차지를 선택하시면 4~5차지도 한 번 시전으로 계산합니다.<br>
+        캐스팅속도 총합은 계산기에 있는 캐속계산기의 원드 캐스팅 속도증가% 값입니다.<br>
+        유효세공 레벨 비교(5차지기준)은 볼트조합세공의 증가율을 기준으로 같은 량이 증가하려면 어느정도 세공레벨이 필요한지를 보여줍니다.<br>
+    </div>
+    <br><br>
+
+    <div id="status">
+        스텟<br>
+        <div class="panel-narrow">
+            마법공격력:
+            <input type="text" id="magicAtk" size="5" placeholder="0"><br>
+            볼트차지
+            <select name="charge" id="charge">
+                <option value="1"   value1="0"    value2="1">1차지</option>
+                <option value="2"   value1="0"    value2="2">2차지</option>
+                <option value="3"   value1="0"    value2="3">3차지</option>
+                <option value="4"   value1="0"    value2="4">4차지</option>
+                <option value="6.7" value1="0.28" value2="5" selected>5차지</option>
+            </select>
+            한 번에 5차지<input type="checkbox" name="singleFiveCharge" value="1" checked>
+        </div>
+        <br>
+
+        스킬랭크<br>
+        <div class="panel">
+            파이어볼트:
+            <select name="fireBoltRank" id="fireBoltRank">
+                <option value="0.155">연습</option>
+                <option value="0.163">F</option>
+                <option value="0.171">E</option>
+                <option value="0.179">D</option>
+                <option value="0.187">C</option>
+                <option value="0.195">B</option>
+                <option value="0.203">A</option>
+                <option value="0.211">9</option>
+                <option value="0.219">8</option>
+                <option value="0.227">7</option>
+                <option value="0.235">6</option>
+                <option value="0.243">5</option>
+                <option value="0.251">4</option>
+                <option value="0.259">3</option>
+                <option value="0.267">2</option>
+                <option value="0.275">1</option>
+                <option value="0.283">1단</option>
+                <option value="0.291">2단</option>
+                <option value="0.3" selected>3단</option>
+            </select><br>
+
+            라이트닝볼트:
+            <select name="lightBoltRank" id="lightBoltRank">
+                <option value="0.21">연습</option>
+                <option value="0.22">F</option>
+                <option value="0.23">E</option>
+                <option value="0.24">D</option>
+                <option value="0.25">C</option>
+                <option value="0.26">B</option>
+                <option value="0.27">A</option>
+                <option value="0.28">9</option>
+                <option value="0.29">8</option>
+                <option value="0.30">7</option>
+                <option value="0.31">6</option>
+                <option value="0.32">5</option>
+                <option value="0.33">4</option>
+                <option value="0.345">3</option>
+                <option value="0.355">2</option>
+                <option value="0.37">1</option>
+                <option value="0.38">1단</option>
+                <option value="0.39">2단</option>
+                <option value="0.4" selected>3단</option>
+            </select><br>
+
+            볼트조합 마스터리:
+            <select name="boltComboMastRank" id="boltComboMastRank">
+                <option value="0">연습</option>
+                <option value="2">F</option>
+                <option value="4">E</option>
+                <option value="6">D</option>
+                <option value="8">C</option>
+                <option value="10">B</option>
+                <option value="12">A</option>
+                <option value="14">9</option>
+                <option value="16">8</option>
+                <option value="18">7</option>
+                <option value="20">6</option>
+                <option value="22">5</option>
+                <option value="24">4</option>
+                <option value="26">3</option>
+                <option value="28">2</option>
+                <option value="30" selected>1</option>
+            </select><br>
+
+            볼트 마스터리:
+            <select name="boltMastRank" id="boltMastRank">
+                <option value="0">연습</option>
+                <option value="1">F</option>
+                <option value="2">E</option>
+                <option value="3">D</option>
+                <option value="4">C</option>
+                <option value="5">B</option>
+                <option value="6">A</option>
+                <option value="7">9</option>
+                <option value="8">8</option>
+                <option value="9">7</option>
+                <option value="10">6</option>
+                <option value="11">5</option>
+                <option value="12">4</option>
+                <option value="13">3</option>
+                <option value="14">2</option>
+                <option value="15" selected>1</option>
+            </select><br>
+
+            매직 웨폰 마스터리:
+            <select name="magicWepMastRank" id="magicWepMastRank">
+                <option value="5">연습</option>
+                <option value="10">F</option>
+                <option value="20">E</option>
+                <option value="30">D</option>
+                <option value="40">C</option>
+                <option value="50">B</option>
+                <option value="60">A</option>
+                <option value="70">9</option>
+                <option value="80">8</option>
+                <option value="90">7</option>
+                <option value="100">6</option>
+                <option value="110">5</option>
+                <option value="120">4</option>
+                <option value="130">3</option>
+                <option value="140">2</option>
+                <option value="150" selected>1</option>
+            </select><br>
+
+            라이트닝 마스터리:
+            <select name="lightMastRank" id="lightMastRank">
+                <option value="0">연습</option>
+                <option value="1">F</option>
+                <option value="2">E</option>
+                <option value="3">D</option>
+                <option value="4">C</option>
+                <option value="5">B</option>
+                <option value="6">A</option>
+                <option value="7">9</option>
+                <option value="8">8</option>
+                <option value="9">7</option>
+                <option value="10">6</option>
+                <option value="11">5</option>
+                <option value="12">4</option>
+                <option value="13">3</option>
+                <option value="14">2</option>
+                <option value="15" selected>1</option>
+            </select><br>
+
+            파이어 마스터리:
+            <select name="fireMastRank" id="fireMastRank">
+                <option value="0">연습</option>
+                <option value="1">F</option>
+                <option value="2">E</option>
+                <option value="3">D</option>
+                <option value="4">C</option>
+                <option value="5">B</option>
+                <option value="6">A</option>
+                <option value="7">9</option>
+                <option value="8">8</option>
+                <option value="9">7</option>
+                <option value="10">6</option>
+                <option value="11">5</option>
+                <option value="12">4</option>
+                <option value="13">3</option>
+                <option value="14">2</option>
+                <option value="15" selected>1</option>
+            </select><br>
+        </div>
+
+        <br>
+        세공<br>
+        <span style="font-size:10px; color:red;">*마기그래프는 세공과 합연산이므로 더해서 사용하시면 됩니다.</span><br>
+        <div class="panel">
+            파이어볼트최댐 세공LV:
+            <input type="text" id="fireMaxEnchLv" size="5" placeholder="0"><br>
+            라이트닝볼트최댐 세공LV:
+            <input type="text" id="lightMaxEnchLv" size="5" placeholder="0"><br>
+            파이어마스터리 세공LV:
+            <input type="text" id="fireMastEnchLv" size="5" placeholder="0"><br>
+            라이트닝마스터리 세공LV:
+            <input type="text" id="lightMastEnchLv" size="5" placeholder="0"><br>
+            볼트마스터리 세공LV:
+            <input type="text" id="boltMastEnchLv" size="5" placeholder="0"><br>
+            볼트조합마스터리 세공LV:
+            <input type="text" id="boltComboEnchLv" size="5" placeholder="0"><br>
+            라이트닝볼트 원드영향력 세공LV:
+            <input type="text" id="lightWandInflLv" size="5" placeholder="0"><br><br>
+            헤보나 세트:
+            <input type="checkbox" name="hebona" value="1"><br>
+            블리안 세트:
+            <input type="checkbox" name="blian" value="1"><br>
+            크리티컬 세트효과
+            <input type="checkbox" name="critSetEffect" value="7">
+
+            <br><br>
+            무기강화 효과:<br>
+            무기:
+            <select name="weapon" id="weapon">
+                <option value="0"   value1="0" value2="0" value3="0">미적용</option>
+                <option value="35"  value1="6" value2="0" value3="12">소울</option>
+                <option value="35"  value1="4" value2="0" value3="9" selected>엘리멘토</option>
+                <option value="20"  value1="2" value2="0" value3="6">패러</option>
+                <option value="0.8" value1="2" value2="0" value3="3">심볼1</option>
+                <option value="1.6" value1="2" value2="0" value3="3">심볼2</option>
+                <option value="2.4" value1="2" value2="0" value3="3">심볼3</option>
+                <option value="3.2" value1="2" value2="0" value3="3">심볼4</option>
+                <option value="4.0" value1="2" value2="0" value3="3">심볼5</option>
+                <option value="4.8" value1="2" value2="0" value3="3">심볼6</option>
+                <option value="5.6" value1="2" value2="0" value3="3">심볼7</option>
+                <option value="6.4" value1="2" value2="0" value3="3">심볼8</option>
+                <option value="7.2" value1="2" value2="0" value3="3">심볼9</option>
+                <option value="8"   value1="2" value2="0" value3="3">심볼10</option>
+            </select><br>
+            에르그:
+            <select name="erg" id="erg">
+                <option value="0">미적용</option>
+                <option value="10" selected>S50</option>
+            </select><br>
+            무기등급
+            <select name="weaponGrade" id="weaponGrade">
+                <option value="4" selected>마스터</option>
+                <option value="3">에픽</option>
+                <option value="2">레어</option>
+                <option value="1">엘리트</option>
+                <option value="0">일반</option>
+            </select><br>
+        </div>
+
+        <br>
+        강화 스팩:<br>
+        <div class="panel">
+            볼트조합 마스터 타이틀:
+            <input type="checkbox" name="boltComboTitle" value="1"><br>
+            볼트 대미지 증가 타이틀:
+            <select name="secondTitle" id="secondTitle" onchange="cal()">
+                <option value="5">아르(5%)</option>
+                <option value="3">케흘렌(3%)</option>
+                <option value="2">서큐(2%)</option>
+                <option value="1">스청(1%)</option>
+                <option value="0" selected>없음</option>
+            </select><br><br>
+
+            아르카나 무기 보너스대미지:<span id="arkanaWeaponTotalDisplay"></span>%<br>
+            아르카나 링크 레벨
+            <select name="arkanaWeaponLv" id="arkanaWeaponLv">
+                <option value="10" selected>9이상</option>
+                <option value="5">4이상</option>
+                <option value="0">3이하</option>
+            </select><br>
+            어둠의 에르그증가율(%):
+            <input type="text" id="darkErgPct" size="5" placeholder="0">
+
+            <br><br>
+            추가크리 대미지 <span id="extraCritPctDisplay"></span>%<br>
+            붉개,토템,낭농등의 합:
+            <input type="text" id="extraCritRaw" size="5" placeholder="0"><br>
+            정령연마:<input type="checkbox" name="spiritCrit" value="15">,
+            이보나평판:<input type="checkbox" name="ivona" value="10"><br><br>
+
+            추가 대미지 <span id="additionalDmgPctDisplay"></span>%<br>
+            추가 무기대미지 <span id="weaponGradeBonusPctDisplay"></span>%<br>
+            푸개,인형,토템,낭농등의 합:
+            <input type="text" id="additionalDmgRaw" size="5" placeholder="0"><br>
+            약점분석<input type="checkbox" name="weakPointDmg" value="10">,
+            광폭화<input type="checkbox" name="berserkerDmg" value="10">,
+            배틀맴버쉽:<input type="checkbox" name="battleMembership" value="1"><br>
+        </div>
+        <br>
+
+        도핑<br>
+        <div class="panel">
+            비바체%:
+            <input type="text" id="bibacePct" size="5" placeholder="0"><br>
+            마법공격력 증가포션:
+            <input type="checkbox" name="magicAtkPotion" value="1">
+        </div>
+        <br>
+
+        마공포 미적용 마공: <span id="noPotionMagicAtkDisplay"></span><br>
+        <div class="panel">
+            아르카나 링크(마공 보너스):
+            <select name="arkanaLinkMagicAtk" id="arkanaLinkMagicAtk" onchange="cal()">
+                <option value="250" selected>5이상</option>
+                <option value="110">4</option>
+                <option value="75">3</option>
+                <option value="40">2</option>
+                <option value="20">1</option>
+                <option value="0">0</option>
+            </select><br>
+            정령 육성레벨:
+            <select name="spiritGrowth" id="spiritGrowth" onchange="cal()">
+                <option value="20" selected>5</option>
+                <option value="16">4</option>
+                <option value="12">3</option>
+                <option value="8">2</option>
+                <option value="4">1</option>
+                <option value="0">0</option>
+            </select><br>
+            정령제어레벨:
+            <select name="spiritControl" id="spiritControl" onchange="cal()">
+                <option value="30" selected>5</option>
+                <option value="24">4</option>
+                <option value="18">3</option>
+                <option value="12">2</option>
+                <option value="6">1</option>
+                <option value="0">0</option>
+            </select>
+        </div>
+        <br>
+
+        콤보카드%(라파라파 일경우 동시입력)<br>
+        <div class="panel">
+            파볼트콤보카드%:
+            <input type="text" id="fireComboCardPct" size="5" placeholder="0"><br>
+            라볼트콤보카드%:
+            <input type="text" id="lightComboCardPct" size="5" placeholder="0">
+        </div>
+        <br>
+
+        캐스팅속도총합%:
+        <input type="text" id="castSpeedPct" size="5" placeholder="0">
+
+    </div>
+
+    <div id="result">
+        <strong>결과</strong><br>
+        총 마법공격력: <span id="effectiveMagicAtkDisplay"></span><br>
+        <div class="panel-result">
+            파이어볼트<br>
+            대미지: <input type="text" id="fireBoltDmg" size="7">
+            크리: <input type="text" id="fireBoltCritDmg" size="7"><br>
+            라이트닝볼트<br>
+            대미지: <input type="text" id="lightBoltDmg" size="7">
+            크리: <input type="text" id="lightBoltCritDmg" size="7"><br><br>
+
+            라파볼트<br>
+            대미지: <input type="text" id="boltComboDmg" size="7">
+            크리: <input type="text" id="boltComboCritDmg" size="7"><br>
+            DPS(노크리기준): <input type="text" id="dps" size="7"><br>
+            20초간 발사횟수(싱펀타수) <input type="text" id="shotsIn20" size="7"><br><br>
+
+            유효세공 레벨 비교(5차지기준)<br>
+            볼조마1 = 볼트마 <span id="boltMastRatio"></span>
+            = 파마 <span id="fireMastRatio"></span>
+            = 마공 <span id="magicAtkRatio"></span>
+            = 파볼트 <span id="fireMaxRatio"></span>
+        </div>
+        <br><br>
+        <input type="button" value="계산하기" class="button" onclick="cal()">
+        <input type="button" value="초기화"   class="button" onclick="reset()">
+    </div>
+</div>
+
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+    if (!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "16bb61aebd2bc20";
+    if (window.wcs) wcs_do();
+</script>
+</body>
+</html>
