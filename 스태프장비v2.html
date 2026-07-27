@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>마비노기 중,고급마법 대미지 비교</title>
+    <link rel="stylesheet" href="css/cont.css">
+    <style>
+        .button {
+            font-family: 'Mabinogi';
+            width: 100px;
+            background-color: #00004a;
+            border: none;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            margin: 4px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+    </style>
+    <script defer src="script/스태프장비계산.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <h2>마비노기 중상급마법 대미지 비교.</h2>
+    <div id="status1">
+        해당 계산기에 적용되는 모든 마법 및 패시브의 랭크는 최고랭크 기준입니다.<br>
+        앞쪽(빨강)과 뒷쪽(파랑)의 수치를 입력하고 계산하기를 누르면 대미지 차이를 비교합니다.
+    </div>
+    <br><br>
+    <div id="status">
+        스텟<br>
+        <div style="height: auto; width:350px; border: 1px solid; padding:10px">
+            마법공격력:
+            <input type="text" id="magicAtk_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="magicAtk_b" size="5" placeholder="0" style="background-color:#D9E5FF;">
+        </div>
+        <br>
+        타이틀<br>
+        <div style="height: auto; width:350px; border: 1px solid; padding:10px">
+            파이어마스터:
+            <select id="fireMastTitle_a" style="background:#FFd8d8">
+                <option value="0">해제</option>
+                <option value="1">적용</option>
+            </select>
+            <select id="fireMastTitle_b" style="background:#D9E5FF">
+                <option value="0">해제</option>
+                <option value="1">적용</option>
+            </select><br>
+            라이트닝마스터:
+            <select id="lightMastTitle_a" style="background:#FFd8d8">
+                <option value="0">해제</option>
+                <option value="1">적용</option>
+            </select>
+            <select id="lightMastTitle_b" style="background:#D9E5FF">
+                <option value="0">해제</option>
+                <option value="1">적용</option>
+            </select><br>
+            아이스마스터:
+            <select id="iceMastTitle_a" style="background:#FFd8d8">
+                <option value="0">해제</option>
+                <option value="1">적용</option>
+            </select>
+            <select id="iceMastTitle_b" style="background:#D9E5FF">
+                <option value="0">해제</option>
+                <option value="1">적용</option>
+            </select>
+        </div>
+        <br>
+        세공<br>
+        <span style="font-size:11px; color: red;">*마기그래프는 세공과 합연산이므로 더해서 사용하시면 됩니다.</span><br>
+        <div style="height: auto; width:370px; border: 1px solid; padding:5px">
+            라이트닝마스터리 세공LV:
+            <input type="text" id="lightMastEnch_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="lightMastEnch_b" size="5" placeholder="0" style="background-color:#D9E5FF;"><br>
+            썬더 최댐 세공LV:
+            <input type="text" id="thunderMaxEnch_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="thunderMaxEnch_b" size="5" placeholder="0" style="background-color:#D9E5FF;"><br>
+            라이트닝 로드 최댐 에코LV:
+            <input type="text" id="lightRodEcho_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="lightRodEcho_b" size="5" placeholder="0" style="background-color:#D9E5FF;"><br>
+            라이트닝 로드 풀차지 대미지 비율%:<br>
+            <input type="text" id="lightRodFullCharge_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="lightRodFullCharge_b" size="5" placeholder="0" style="background-color:#D9E5FF;">
+        </div>
+        <br>
+        <div style="height: auto; width:350px; border: 1px solid; padding:10px">
+            파이어마스터리 세공LV:
+            <input type="text" id="fireMastEnch_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="fireMastEnch_b" size="5" placeholder="0" style="background-color:#D9E5FF;"><br>
+            파이어볼 최댐 세공LV:
+            <input type="text" id="fireBallMaxEnch_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="fireBallMaxEnch_b" size="5" placeholder="0" style="background-color:#D9E5FF;"><br>
+            메테오 세공LV:
+            <input type="text" id="meteorEnch_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="meteorEnch_b" size="5" placeholder="0" style="background-color:#D9E5FF;">
+        </div>
+        <br>
+        <div style="height: auto; width:350px; border: 1px solid; padding:10px">
+            아이스마스터리 세공LV:
+            <input type="text" id="iceMastEnch_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="iceMastEnch_b" size="5" placeholder="0" style="background-color:#D9E5FF;"><br>
+            아이스스피어 최댐 세공LV:
+            <input type="text" id="iceMaxEnch_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="iceMaxEnch_b" size="5" placeholder="0" style="background-color:#D9E5FF;"><br>
+            헤일스톰 최댐 세공LV:
+            <input type="text" id="hailMaxEnch_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="hailMaxEnch_b" size="5" placeholder="0" style="background-color:#D9E5FF;">
+        </div>
+        <br><br>
+        아이템<br>
+        <div style="height: auto; width:350px; border: 1px solid; padding:10px">
+            로즈마리:
+            <select id="rosemary_a" style="background:#FFd8d8">
+                <option value="0">벗음</option>
+                <option value="1">입음</option>
+            </select>
+            <select id="rosemary_b" style="background:#D9E5FF">
+                <option value="0">벗음</option>
+                <option value="1">입음</option>
+            </select><br>
+            바다의 지배자:
+            <select id="seaDominator_a" style="background:#FFd8d8">
+                <option value="0">벗음</option>
+                <option value="1">입음</option>
+            </select>
+            <select id="seaDominator_b" style="background:#D9E5FF">
+                <option value="0">벗음</option>
+                <option value="1">입음</option>
+            </select><br>
+            블리안 엔더스:
+            <select id="blian_a" style="background:#FFd8d8">
+                <option value="0">벗음</option>
+                <option value="1">입음</option>
+            </select>
+            <select id="blian_b" style="background:#D9E5FF">
+                <option value="0">벗음</option>
+                <option value="1">입음</option>
+            </select><br>
+            무기강화효과:
+            <select id="weaponEffect_a" style="background:#FFd8d8">
+                <option value="0">미적용</option>
+                <option value="35">인퀴지터</option>
+                <option value="20">패러</option>
+                <option value="0.8">심볼1</option>
+                <option value="1.6">심볼2</option>
+                <option value="2.4">심볼3</option>
+                <option value="3.2">심볼4</option>
+                <option value="4.0">심볼5</option>
+                <option value="4.8">심볼6</option>
+                <option value="5.6">심볼7</option>
+                <option value="6.4">심볼8</option>
+                <option value="7.2">심볼9</option>
+                <option value="8">심볼10</option>
+            </select>
+            <select id="weaponEffect_b" style="background:#D9E5FF">
+                <option value="0">미적용</option>
+                <option value="35">인퀴지터</option>
+                <option value="20">패러</option>
+                <option value="0.8">심볼1</option>
+                <option value="1.6">심볼2</option>
+                <option value="2.4">심볼3</option>
+                <option value="3.2">심볼4</option>
+                <option value="4.0">심볼5</option>
+                <option value="4.8">심볼6</option>
+                <option value="5.6">심볼7</option>
+                <option value="6.4">심볼8</option>
+                <option value="7.2">심볼9</option>
+                <option value="8">심볼10</option>
+            </select><br>
+            에르그:
+            <select id="erg_a" style="background:#FFd8d8">
+                <option value="0">미적용</option>
+                <option value="10">S50</option>
+            </select>
+            <select id="erg_b" style="background:#D9E5FF">
+                <option value="0">미적용</option>
+                <option value="10">S50</option>
+            </select>
+        </div>
+        <br><br>
+        도핑<br>
+        <div style="height: auto; width:350px; border: 1px solid; padding:10px">
+            전장비율%:
+            <input type="text" id="battleBuff_a" size="2" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="battleBuff_b" size="2" placeholder="0" style="background-color:#D9E5FF;"><br>
+            물리공격력 증가포션:
+            <select id="physAtkPotion_a" style="background:#FFd8d8">
+                <option value="0">미적용</option>
+                <option value="1">적용</option>
+            </select>
+            <select id="physAtkPotion_b" style="background:#D9E5FF">
+                <option value="0">미적용</option>
+                <option value="1">적용</option>
+            </select>
+        </div>
+        <br><br>
+        콤보카드%<br>
+        <div style="height: auto; width:350px; border: 1px solid; padding:10px">
+            썬더 콤보카드%:
+            <input type="text" id="thunderComboCard_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="thunderComboCard_b" size="5" placeholder="0" style="background-color:#D9E5FF;"><br>
+            아이스스피어 콤보카드%:
+            <input type="text" id="iceComboCard_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="iceComboCard_b" size="5" placeholder="0" style="background-color:#D9E5FF;"><br>
+            파이어볼 콤보카드%:
+            <input type="text" id="fireBallComboCard_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="fireBallComboCard_b" size="5" placeholder="0" style="background-color:#D9E5FF;"><br>
+            헤일스톰 콤보카드%:
+            <input type="text" id="hailComboCard_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="hailComboCard_b" size="5" placeholder="0" style="background-color:#D9E5FF;"><br>
+            라이트닝 로드 콤보카드%:
+            <input type="text" id="lightRodComboCard_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+            <input type="text" id="lightRodComboCard_b" size="5" placeholder="0" style="background-color:#D9E5FF;">
+        </div>
+        <br><br>
+        추가 대미지%(낭농인형,토템등)
+        <input type="text" id="additionalDmg_a" size="5" placeholder="0" style="background-color:#FFd8d8;">&nbsp;
+        <input type="text" id="additionalDmg_b" size="5" placeholder="0" style="background-color:#D9E5FF;">
+        <br><br><br>
+    </div>
+
+    <div id="result">
+        <strong>결과</strong>
+        <br><br>
+        썬더
+        <div style="height: auto; width:300px; border: 1px solid; padding:10px">
+            3차지 대미지 증감: <input type="text" id="thunder3Diff" size="5"><br>
+            5차지 대미지 증감: <input type="text" id="thunder5Diff" size="5"><br>
+            비율 증감(%): <input type="text" id="thunderRatio" size="5">
+        </div>
+        <br>
+        파이어볼
+        <div style="height: auto; width:300px; border: 1px solid; padding:10px">
+            3차지 대미지 증감: <input type="text" id="fireBall3Diff" size="5"><br>
+            5차지 대미지 증감: <input type="text" id="fireBall5Diff" size="5"><br>
+            비율 증감(%): <input type="text" id="fireBallRatio" size="5">
+        </div>
+        <br>
+        아이스스피어
+        <div style="height: auto; width:300px; border: 1px solid; padding:10px">
+            3차지 대미지 증감: <input type="text" id="ice3Diff" size="5"><br>
+            5차지 대미지 증감: <input type="text" id="ice5Diff" size="5"><br>
+            비율 증감(%): <input type="text" id="iceRatio" size="5">
+        </div>
+        헤일스톰 5차지
+        <div style="height: auto; width:300px; border: 1px solid; padding:10px">
+            대미지 증감: <input type="text" id="hailDiff" size="5"><br>
+            비율 증감(%): <input type="text" id="hailRatio" size="5">
+        </div>
+        라이트닝 로드(풀차지)
+        <div style="height: auto; width:300px; border: 1px solid; padding:10px">
+            대미지 증감: <input type="text" id="lrodDiff" size="5"><br>
+            비율 증감(%): <input type="text" id="lrodRatio" size="5">
+        </div>
+        메테오 스트라이크
+        <div style="height: auto; width:300px; border: 1px solid; padding:10px">
+            대미지 증감: <input type="text" id="meteorDiff" size="5"><br>
+            비율 증감(%): <input type="text" id="meteorRatio" size="5">
+        </div>
+        <br><br><br>
+        <input type="button" value="계산하기" class="button" onclick="cal()">
+        <input type="button" value="초기화" class="button" onclick="reset()">
+    </div>
+</div>
+
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+    if (!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "16bb61aebd2bc20";
+    if (window.wcs) { wcs_do(); }
+</script>
+</body>
+</html>
